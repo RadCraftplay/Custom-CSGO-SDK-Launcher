@@ -30,6 +30,10 @@ namespace Custom_SDK_Launcher
 
             //Serialize stream
             s.Serialize(w, Profiles);
+
+            //Clean memory and close stream
+            w.Close();
+            w.Dispose();
         }
 
         /// <summary>
@@ -55,7 +59,7 @@ namespace Custom_SDK_Launcher
             //Get data
             returnvalue = (Profile[])s.Deserialize(r);
 
-            //Clean memory
+            //Clean memory and close stream
             r.Close();
             r.Dispose();
 
