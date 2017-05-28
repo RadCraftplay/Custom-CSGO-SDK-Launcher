@@ -41,10 +41,13 @@ namespace Custom_SDK_Launcher
         /// </summary>
         public static void LoadProfiles()
         {
-            //Clear list of profiles
-            Profiles.Clear();
-            //Load profile list to memory
-            Profiles = GetProfiles().ToList();
+            if (File.Exists(ProfileListFilename))
+            {
+                //Clear list of profiles
+                Profiles.Clear();
+                //Load profile list to memory
+                Profiles = GetProfiles().ToList();
+            }
         }
 
         static Profile[] GetProfiles()

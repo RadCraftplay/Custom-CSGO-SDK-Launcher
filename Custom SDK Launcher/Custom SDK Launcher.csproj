@@ -49,6 +49,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="Dialogs\EditItemDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\EditItemDialog.Designer.cs">
+      <DependentUpon>EditItemDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProfileListEditDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ProfileListEditDialog.Designer.cs">
+      <DependentUpon>ProfileListEditDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +79,12 @@
     </Compile>
     <Compile Include="Template.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="Dialogs\EditItemDialog.resx">
+      <DependentUpon>EditItemDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ProfileListEditDialog.resx">
+      <DependentUpon>ProfileListEditDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
