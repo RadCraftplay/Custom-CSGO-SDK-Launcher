@@ -55,6 +55,12 @@
     <Compile Include="Dialogs\EditItemDialog.Designer.cs">
       <DependentUpon>EditItemDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\FirstLaunchDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\FirstLaunchDialog.Designer.cs">
+      <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ProfileListEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Dialogs\EditItemDialog.resx">
       <DependentUpon>EditItemDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\FirstLaunchDialog.resx">
+      <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProfileListEditDialog.resx">
       <DependentUpon>ProfileListEditDialog.cs</DependentUpon>

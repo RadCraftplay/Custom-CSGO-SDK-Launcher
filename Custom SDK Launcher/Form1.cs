@@ -27,11 +27,38 @@ namespace Custom_SDK_Launcher
             //Check if it's first launch
             if (Config.TryReadInt("FirstLaunch") == 1)
             {
-                MessageBox.Show(string.Format("Click on {0}Settings{0} button, and select your {0}Counter-Strike: Global Offensive{0} directory", '"'), "Custom SDK launcher");
+                //Create dialog
+                var v = new Dialogs.FirstLaunchDialog();
+
+                //Show dialog
+                if (!(v.ShowDialog() == DialogResult.OK))
+                {
+                    //Inform user that he needs to select his csgo directory
+                    MessageBox.Show("Can not continue. You need to select your csgo directory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //Close application
+                    Environment.Exit(0);
+                }
             }
 
             //Set gamedir
-            Utils.UpdateGamedirs((string)Config.TryReadString("CSGO_DIR"));
+            if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
+            {
+                //Create profile
+                Profile p = new Profile();
+                p.ProfileName = "Counter-Strike: Global Offensive";
+                p.GameDir = Config.TryReadString("CSGO_DIR");
+                p.GameinfoDirName = "csgo";
+
+                //Add profile to list
+                ProfileManager.Profiles.Add(p);
+
+                //Select profile
+                Config.AddVariable("SelectedProfileId", 0);
+
+                //Remove variable
+                Config.RemoveVariable("CSGO_DIR");
+            }
+
             //This is not first launch anymore
             Config.AddVariable("FirstLaunch", 0);
 

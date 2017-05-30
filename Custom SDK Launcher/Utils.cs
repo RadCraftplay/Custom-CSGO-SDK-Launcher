@@ -25,6 +25,7 @@ namespace Custom_SDK_Launcher
                 Directory.CreateDirectory(ConfigDir);
         }
 
+        [Obsolete]
         public static void UpdateGamedirs(string directory)
         {
             cs_gamedir = Path.Combine(directory, "csgo");
@@ -35,6 +36,7 @@ namespace Custom_SDK_Launcher
         /// Launches application located in csgo's bin directory
         /// </summary>
         /// <param name="filename">Name of file to launch</param>
+        [Obsolete]
         public static void Launch(string filename)
         {
             try
@@ -65,6 +67,7 @@ namespace Custom_SDK_Launcher
         /// </summary>
         /// <param name="filename">Name of file to launch</param>
         /// <param name="args">Arguments</param>
+        [Obsolete]
         public static void Launch(string filename, string args)
         {
             try

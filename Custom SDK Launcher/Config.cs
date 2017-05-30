@@ -94,6 +94,22 @@ namespace Distroir.Configuration
         }
 
         /// <summary>
+        /// Removes object from config
+        /// </summary>
+        /// <param name="name">Name of varriable to remove</param>
+        public static void RemoveVariable(string name)
+        {
+            foreach (Key key in settings)
+            {
+                if (key.name == name)
+                {
+                    settings.Remove(key);
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
         /// Tries to get value of varrible from the config
         /// </summary>
         /// <param name="name">Name of the varriable</param>
@@ -124,7 +140,7 @@ namespace Distroir.Configuration
         /// </summary>
         /// <param name="name">Name of the varriable</param>
         /// <returns>Value of specified varrialbe (as string)</returns>
-        public static object TryReadString(string name)
+        public static string TryReadString(string name)
         {
             return (string)TryReadVariable(name);
         }
@@ -206,9 +222,9 @@ namespace Distroir.Configuration
             }
             catch
             {
-                AddVariable("CSGO_DIR", @"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
+                //AddVariable("CSGO_DIR", @"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
                 AddVariable("FirstLaunch", 1);
-                Utils.UpdateGamedirs(@"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
+                //Utils.UpdateGamedirs(@"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
             }
         }
 
