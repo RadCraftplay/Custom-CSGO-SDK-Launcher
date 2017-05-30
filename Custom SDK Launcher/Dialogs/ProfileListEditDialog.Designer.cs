@@ -30,9 +30,9 @@
         {
             this.profileListView = new System.Windows.Forms.ListView();
             this.okButton = new System.Windows.Forms.Button();
-            this.addButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // profileListView
@@ -54,35 +54,35 @@
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // addButton
-            // 
-            this.addButton.Location = new System.Drawing.Point(247, 12);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(25, 25);
-            this.addButton.TabIndex = 2;
-            this.addButton.Text = "+";
-            this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
-            // 
             // removeButton
             // 
+            this.removeButton.Image = global::Custom_SDK_Launcher.Properties.Resources.minus;
             this.removeButton.Location = new System.Drawing.Point(247, 43);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(25, 25);
             this.removeButton.TabIndex = 3;
-            this.removeButton.Text = "-";
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // editButton
             // 
+            this.editButton.Image = global::Custom_SDK_Launcher.Properties.Resources.pencil;
             this.editButton.Location = new System.Drawing.Point(247, 74);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(25, 25);
             this.editButton.TabIndex = 4;
-            this.editButton.Text = "E";
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
+            // 
+            // addButton
+            // 
+            this.addButton.Image = global::Custom_SDK_Launcher.Properties.Resources.plus;
+            this.addButton.Location = new System.Drawing.Point(247, 12);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(25, 25);
+            this.addButton.TabIndex = 2;
+            this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // ProfileListEditDialog
             // 
