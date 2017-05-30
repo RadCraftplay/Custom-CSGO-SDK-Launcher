@@ -9,7 +9,6 @@ using System.Windows.Forms;
 
 namespace Custom_SDK_Launcher.Dialogs
 {
-    //TODO: Add comments
     public partial class ProfileListEditDialog : Form
     {
         /// <summary>
@@ -50,7 +49,7 @@ namespace Custom_SDK_Launcher.Dialogs
             profileListView.Items.Add(i);
         }
 
-        private void addButton_Click(object sender, EventArgs e) //TODO: Add button action
+        private void addButton_Click(object sender, EventArgs e)
         {
             //Show EditItemDialog
             var v = new EditItemDialog();
@@ -79,19 +78,22 @@ namespace Custom_SDK_Launcher.Dialogs
             }
         }
 
-        private void editButton_Click(object sender, EventArgs e) //TODO: Edit button action
+        private void editButton_Click(object sender, EventArgs e)
         {
-            //Create instance of selected item
-            var i = profileListView.SelectedItems[0];
-            //Show EditItemDialog
-            var v = new EditItemDialog((Profile)i.Tag);
-
-            if (v.ShowDialog() == DialogResult.OK)
+            if (profileListView.SelectedItems.Count > 0)
             {
-                //Set values
-                i.Name = v.Profile.ProfileName;
-                i.Text = v.Profile.ProfileName;
-                i.Tag = v.Profile;
+                //Create instance of selected item
+                var i = profileListView.SelectedItems[0];
+                //Show EditItemDialog
+                var v = new EditItemDialog((Profile)i.Tag);
+
+                if (v.ShowDialog() == DialogResult.OK)
+                {
+                    //Set values
+                    i.Name = v.Profile.ProfileName;
+                    i.Text = v.Profile.ProfileName;
+                    i.Tag = v.Profile;
+                }
             }
         }
 
@@ -99,6 +101,8 @@ namespace Custom_SDK_Launcher.Dialogs
         {
             //Update profile list
             ProfileManager.Profiles = Profiles;
+            //Set dialog result
+            DialogResult = DialogResult.OK;
             //Close dialog
             Close();
         }

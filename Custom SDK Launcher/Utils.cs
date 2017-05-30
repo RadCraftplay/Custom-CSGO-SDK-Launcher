@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Distroir.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -77,6 +78,37 @@ namespace Custom_SDK_Launcher
             catch (Exception ex)
             {
                 MessageBox.Show("Couldn't launch application. Check your settings first", "Error: " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Tries to launch specified tool
+        /// </summary>
+        /// <param name="app">Application to launch</param>
+        public static void TryLaunchTool(SDKApplication app)
+        {
+            try
+            {
+                //Get selected profile id
+                int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
+
+                if (SelectedProfileId < 0)
+                {
+                    //Tell user what went wrong
+                    MessageBox.Show("You need to select profile in settings and/or create new one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Cancel execution of an application
+                    return;
+                }
+
+                //Get selected profile
+                Profile SelectedProfile = ProfileManager.Profiles[SelectedProfileId];
+                //Launch application
+                Launcher.Launch(SelectedProfile, app);
+            }
+            catch (Exception ex)
+            {
+                //Inform user that something unexpected happened
+                MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

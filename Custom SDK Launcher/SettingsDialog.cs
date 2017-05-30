@@ -13,7 +13,7 @@ namespace Custom_SDK_Launcher
 {
     public partial class SettingsDialog : Form
     {
-        public SettingsDialog() //TODO: Add profile selection
+        public SettingsDialog()
         {
             InitializeComponent();
             textBox1.Text = (string)Config.TryReadString("CSGO_DIR");

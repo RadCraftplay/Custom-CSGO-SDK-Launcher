@@ -31,5 +31,10 @@ namespace Custom_SDK_Launcher
         {
             return Path.Combine(GameDir, GameinfoDirName);
         }
+
+        public override string ToString()
+        {
+            return ProfileName;
+        }
     }
 }

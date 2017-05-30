@@ -12,7 +12,7 @@ namespace Custom_SDK_Launcher
         /// <summary>
         /// Full path to file containing list of profiles
         /// </summary>
-        public static string ProfileListFilename;
+        public static string ProfileListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "profiles.xml");
 
         /// <summary>
         /// List of profiles
@@ -24,16 +24,23 @@ namespace Custom_SDK_Launcher
         /// </summary>
         public static void SaveProfiles()
         {
-            //Create serializer and writer
-            TextWriter w = new StreamWriter(ProfileListFilename);
-            XmlSerializer s = new XmlSerializer(typeof(Profile[]));
+            try
+            {
+                //Create serializer and writer
+                TextWriter w = new StreamWriter(ProfileListFilename);
+                XmlSerializer s = new XmlSerializer(typeof(Profile[]));
 
-            //Serialize stream
-            s.Serialize(w, Profiles);
+                //Serialize stream
+                s.Serialize(w, Profiles.ToArray());
 
-            //Clean memory and close stream
-            w.Close();
-            w.Dispose();
+                //Clean memory and close stream
+                w.Close();
+                w.Dispose();
+            }
+            catch
+            {
+                //Do nothing
+            }
         }
 
         /// <summary>
@@ -55,16 +62,23 @@ namespace Custom_SDK_Launcher
             //Create returnvalue
             Profile[] returnvalue = new Profile[0];
 
-            //Create serializer and stream
-            TextReader r = new StreamReader(ProfileListFilename);
-            XmlSerializer s = new XmlSerializer(typeof(Profile[]));
+            try
+            {
+                //Create serializer and stream
+                TextReader r = new StreamReader(ProfileListFilename);
+                XmlSerializer s = new XmlSerializer(typeof(Profile[]));
 
-            //Get data
-            returnvalue = (Profile[])s.Deserialize(r);
+                //Get data
+                returnvalue = (Profile[])s.Deserialize(r);
 
-            //Clean memory and close stream
-            r.Close();
-            r.Dispose();
+                //Clean memory and close stream
+                r.Close();
+                r.Dispose();
+            }
+            catch
+            {
+                //Do nothing
+            }
 
             //Return data
             return returnvalue;
