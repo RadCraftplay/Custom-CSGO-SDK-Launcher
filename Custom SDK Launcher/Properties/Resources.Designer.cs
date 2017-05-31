@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Custom_SDK_Launcher.Properties
-{
-
-
+namespace Custom_SDK_Launcher.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   Klasa zasobu wymagająca zdefiniowania typu do wyszukiwania zlokalizowanych ciągów itd.
     /// </summary>

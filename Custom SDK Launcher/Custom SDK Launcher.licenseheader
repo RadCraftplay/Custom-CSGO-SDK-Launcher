@@ -1,4 +1,6 @@
-﻿/*
+﻿extensions: designer.cs generated.cs
+extensions: .cs .cpp .h
+/*
 Custom SDK Launcher
 Copyright (C) 2017 Distroir
 
@@ -15,22 +17,13 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.Windows.Forms;
-
-namespace Custom_SDK_Launcher
-{
-    static class Program
-    {
-        /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-        }
-    }
-}
+extensions: .aspx .ascx
+<%-- 
+Copyright (c) 2011 rubicon IT GmbH
+--%>
+extensions: .vb
+'Sample license text.
+extensions:  .xml .config .xsd
+<!--
+Sample license text.
+-->
