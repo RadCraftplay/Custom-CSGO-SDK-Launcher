@@ -33,6 +33,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Release\Custom SDK Launcher.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\GPL 3.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\FUGUE-README.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

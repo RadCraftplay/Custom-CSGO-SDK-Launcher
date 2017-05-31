@@ -15,6 +15,7 @@ namespace Custom_SDK_Launcher
 {
     public partial class Form1 : Form
     {
+        //TODO: Improve tutorials
         public Form1()
         {
             //Load configuration

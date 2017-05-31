@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Custom_SDK_Launcher.Dialogs
 {
+    //TODO: Add skins
+    //TODO: Add language selection
     public partial class SettingsDialog : Form
     {
         public SettingsDialog()
         {
+            //Create controls
             InitializeComponent();
+            //Refresh list of profiles
             RefreshList();
         }
 

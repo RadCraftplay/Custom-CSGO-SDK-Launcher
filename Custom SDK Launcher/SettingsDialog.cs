@@ -11,7 +11,7 @@ using Distroir.Configuration;
 
 namespace Custom_SDK_Launcher
 {
-    [Obsolete("Use Dialogs.SettingsDialog")]
+    [Obsolete("Use Dialogs.SettingsDialog instead")]
     public partial class SettingsDialog : Form
     {
         public SettingsDialog()
