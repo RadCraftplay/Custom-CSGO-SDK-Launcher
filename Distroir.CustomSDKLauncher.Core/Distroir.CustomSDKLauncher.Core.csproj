@@ -48,5 +48,10 @@
     <Compile Include="Template.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Distroir.CustomSDKLauncher\Distroir.Custom SDK Launcher.licenseheader">
+      <Link>Distroir.Custom SDK Launcher.licenseheader</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -106,6 +106,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Distroir.CustomSDKLauncher\Distroir.Custom SDK Launcher.licenseheader">
+      <Link>Distroir.Custom SDK Launcher.licenseheader</Link>
+    </None>
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
