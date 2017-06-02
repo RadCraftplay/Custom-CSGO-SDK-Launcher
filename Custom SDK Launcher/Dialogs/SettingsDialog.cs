@@ -23,6 +23,7 @@ namespace Custom_SDK_Launcher.Dialogs
 {
     //TODO: Add skins
     //TODO: Add language selection
+    //TODO: Add templates (profiles)
     public partial class SettingsDialog : Form
     {
         public SettingsDialog()
