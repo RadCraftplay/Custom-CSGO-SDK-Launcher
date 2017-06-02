@@ -21,7 +21,6 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher
 {
-    //
     static class Program
     {
         /// <summary>
