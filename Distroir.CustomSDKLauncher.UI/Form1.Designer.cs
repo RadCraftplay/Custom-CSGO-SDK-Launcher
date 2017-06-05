@@ -34,7 +34,7 @@
             this.launchFacePoserButton = new System.Windows.Forms.Button();
             this.launchModelViewerButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.kliksButton = new System.Windows.Forms.Button();
+            this.moreTutorialsLabel = new System.Windows.Forms.LinkLabel();
             this.csgoSdkButton = new System.Windows.Forms.Button();
             this.topHattWaffleButton = new System.Windows.Forms.Button();
             this.fmponeButton = new System.Windows.Forms.Button();
@@ -110,31 +110,28 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.kliksButton);
+            this.groupBox2.Controls.Add(this.moreTutorialsLabel);
             this.groupBox2.Controls.Add(this.csgoSdkButton);
             this.groupBox2.Controls.Add(this.topHattWaffleButton);
             this.groupBox2.Controls.Add(this.fmponeButton);
             this.groupBox2.Location = new System.Drawing.Point(13, 125);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(215, 133);
+            this.groupBox2.Size = new System.Drawing.Size(215, 124);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tutorials";
             // 
-            // kliksButton
+            // moreTutorialsLabel
             // 
-            this.kliksButton.Image = ((System.Drawing.Image)(resources.GetObject("kliksButton.Image")));
-            this.kliksButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kliksButton.Location = new System.Drawing.Point(6, 106);
-            this.kliksButton.Name = "kliksButton";
-            this.kliksButton.Size = new System.Drawing.Size(203, 23);
-            this.kliksButton.TabIndex = 9;
-            this.kliksButton.Text = "Kliksphilip\'s tutorials";
-            this.kliksButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kliksButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.kliksButton.UseVisualStyleBackColor = true;
-            this.kliksButton.Visible = false;
-            this.kliksButton.Click += new System.EventHandler(this.kliksButton_Click);
+            this.moreTutorialsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.moreTutorialsLabel.AutoSize = true;
+            this.moreTutorialsLabel.Location = new System.Drawing.Point(130, 103);
+            this.moreTutorialsLabel.Name = "moreTutorialsLabel";
+            this.moreTutorialsLabel.Size = new System.Drawing.Size(79, 13);
+            this.moreTutorialsLabel.TabIndex = 9;
+            this.moreTutorialsLabel.TabStop = true;
+            this.moreTutorialsLabel.Text = "More tutorials...";
+            this.moreTutorialsLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.moreTutorialsLabel_LinkClicked);
             // 
             // csgoSdkButton
             // 
@@ -210,6 +207,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -225,7 +223,7 @@
         private System.Windows.Forms.Button fmponeButton;
         private System.Windows.Forms.Button settingsButton;
         private System.Windows.Forms.Button csgoSdkButton;
-        private System.Windows.Forms.Button kliksButton;
+        private System.Windows.Forms.LinkLabel moreTutorialsLabel;
     }
 }
 

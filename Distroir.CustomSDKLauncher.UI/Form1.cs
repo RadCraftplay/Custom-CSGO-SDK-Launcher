@@ -31,8 +31,9 @@ namespace Distroir.CustomSDKLauncher.UI
             Utils.CheckDirs();
             Config.Load();
 
-            //Load profiles
+            //Load profiles and tutorials
             ProfileManager.LoadProfiles();
+            TutorialManager.LoadTutorials();
 
             //Check if it's first launch
             if (Config.TryReadInt("FirstLaunch") == 1)
@@ -122,6 +123,13 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             var d = new Dialogs.SettingsDialog();
             d.ShowDialog();
+        }
+
+        private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //TODO: Show tutorialsDialog
+            var v = new Dialogs.TutorialsDialog();
+            v.ShowDialog();
         }
 
         #endregion
