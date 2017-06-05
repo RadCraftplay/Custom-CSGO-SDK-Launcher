@@ -24,7 +24,6 @@ namespace Distroir.CustomSDKLauncher.UI
 {
     public partial class Form1 : Form
     {
-        //TODO: Improve tutorials
         public Form1()
         {
             //Load configuration
@@ -127,7 +126,6 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //TODO: Show tutorialsDialog
             var v = new Dialogs.TutorialsDialog();
             v.ShowDialog();
         }

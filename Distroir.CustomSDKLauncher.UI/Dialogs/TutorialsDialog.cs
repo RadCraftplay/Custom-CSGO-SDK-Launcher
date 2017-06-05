@@ -22,7 +22,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void LoadTutorials()
         {
-            //TODO: Load tutorials
             foreach (Tutorial t in TutorialManager.Tutorials)
             {
                 //Create listviewitem
