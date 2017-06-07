@@ -22,6 +22,7 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
+    //TODO: Add toolTipText to controls
     public partial class ProfileListEditDialog : Form
     {
         /// <summary>
