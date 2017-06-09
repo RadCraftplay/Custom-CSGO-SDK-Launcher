@@ -39,6 +39,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.templateListView.Location = new System.Drawing.Point(13, 29);
+            this.templateListView.MultiSelect = false;
             this.templateListView.Name = "templateListView";
             this.templateListView.Size = new System.Drawing.Size(259, 192);
             this.templateListView.TabIndex = 0;

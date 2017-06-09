@@ -41,6 +41,7 @@
             // profileListView
             // 
             this.profileListView.Location = new System.Drawing.Point(13, 13);
+            this.profileListView.MultiSelect = false;
             this.profileListView.Name = "profileListView";
             this.profileListView.Size = new System.Drawing.Size(228, 312);
             this.profileListView.TabIndex = 0;

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
+            this.tutorialNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tutorialGamecolumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tutorialNameLabel = new System.Windows.Forms.Label();
             this.gameLabel = new System.Windows.Forms.Label();
             this.tutorialLinkLabel = new System.Windows.Forms.LinkLabel();
             this.okButton = new System.Windows.Forms.Button();
-            this.tutorialNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tutorialGamecolumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView1
@@ -46,12 +46,23 @@
             this.tutorialNameColumnHeader,
             this.tutorialGamecolumnHeader});
             this.listView1.Location = new System.Drawing.Point(13, 13);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(427, 140);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
+            // 
+            // tutorialNameColumnHeader
+            // 
+            this.tutorialNameColumnHeader.Text = "Tutorial name";
+            this.tutorialNameColumnHeader.Width = 240;
+            // 
+            // tutorialGamecolumnHeader
+            // 
+            this.tutorialGamecolumnHeader.Text = "Game";
+            this.tutorialGamecolumnHeader.Width = 180;
             // 
             // tutorialNameLabel
             // 
@@ -92,16 +103,6 @@
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
-            // 
-            // tutorialNameColumnHeader
-            // 
-            this.tutorialNameColumnHeader.Text = "Tutorial name";
-            this.tutorialNameColumnHeader.Width = 240;
-            // 
-            // tutorialGamecolumnHeader
-            // 
-            this.tutorialGamecolumnHeader.Text = "Game";
-            this.tutorialGamecolumnHeader.Width = 180;
             // 
             // TutorialsDialog
             // 
