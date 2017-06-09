@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\ChooseTemplateDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ChooseTemplateDialog.Designer.cs">
+      <DependentUpon>ChooseTemplateDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\EditItemDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dialogs\ChooseTemplateDialog.resx">
+      <DependentUpon>ChooseTemplateDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\EditItemDialog.resx">
       <DependentUpon>EditItemDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\thw.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook--plus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

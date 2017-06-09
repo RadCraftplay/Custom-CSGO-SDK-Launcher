@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Template>
+    <Name>Counter-Strike: Global Offensive</Name>
+    <GameinfoDirName>csgo</GameinfoDirName>
+  </Template>
+  <Template>
+    <Name>Team Fortress 2</Name>
+    <GameinfoDirName>tf2</GameinfoDirName>
+  </Template>
+  <Template>
+    <Name>Garry's mod</Name>
+    <GameinfoDirName>garrysmod</GameinfoDirName>
+  </Template>
+</ArrayOfTemplate>

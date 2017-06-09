@@ -22,13 +22,12 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    //TODO: Add toolTipText to controls
     public partial class ProfileListEditDialog : Form
     {
         /// <summary>
         /// Local copy of ProfileManager.Profiles
         /// </summary>
-        List<Profile> Profiles;
+        public List<Profile> Profiles;
 
         public ProfileListEditDialog()
         {
@@ -49,7 +48,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
         }
 
-        void AddIem(Profile p)
+        public void AddIem(Profile p)
         {
             //Create new ListViewItem
             ListViewItem i = new ListViewItem()
@@ -119,6 +118,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             DialogResult = DialogResult.OK;
             //Close dialog
             Close();
+        }
+
+        private void createFromTemplateButton_Click(object sender, EventArgs e)
+        {
+            //Show ChooseTemplateDialog
+            var c = new ChooseTemplateDialog();
+            c.Tag = this;
+            c.ShowDialog();
         }
     }
 }

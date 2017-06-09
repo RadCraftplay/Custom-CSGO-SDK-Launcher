@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 namespace Distroir.CustomSDKLauncher.Core
 {
-    class Template
+    public class Template
     {
         /// <summary>
         /// Name of template. For example "Counter-Strike: Global Offensive"

@@ -62,11 +62,41 @@ namespace Distroir.CustomSDKLauncher.Core {
         
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;ArrayOfTutorial xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        ///  &lt;Tutorial&gt;
-        ///    &lt;Name&gt;Fmpone&apos;s tutorials&lt;/Name&gt;
-        ///    &lt;Url&gt;https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos&lt;/Url&gt;
-        ///    &lt;LargeIcon&gt;Qk02AwAAAAAAADYAAAAoAAAAEAAAABAAAAABABgAAAAAAAAAAAATCwAAEwsAAAAAAAAAAAAA0nQysW8/sUoTnjAOkTgkkTcZaxwHdSYLnVwlyoMzu2koeRgEcAgDYwUAPQoOCQMWwGEvs3dBrUgonC8ZizESkicMix8OixUEdBIKghYLlT0YrEwoehwXTwcNQQMDEwADtlEas3tA [obcięto pozostałą część ciągu]&quot;;.
+        ///&lt;ArrayOfTemplate xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+        ///  &lt;Template&gt;
+        ///    &lt;Name&gt;Counter-Strike: Global Offensive&lt;/Name&gt;
+        ///    &lt;GameinfoDirName&gt;csgo&lt;/GameinfoDirName&gt;
+        ///  &lt;/Template&gt;
+        ///  &lt;Template&gt;
+        ///    &lt;Name&gt;Team Fortress 2&lt;/Name&gt;
+        ///    &lt;GameinfoDirName&gt;tf2&lt;/GameinfoDirName&gt;
+        ///  &lt;/Template&gt;
+        ///  &lt;Template&gt;
+        ///    &lt;Name&gt;Garry&apos;s mod&lt;/Name&gt;
+        ///    &lt;GameinfoDirName&gt;garrysmod&lt;/GameinfoDirName&gt;
+        ///  &lt;/Template&gt;
+        ///&lt;/ArrayOfTemp [obcięto pozostałą część ciągu]&quot;;.
+        /// </summary>
+        internal static string Templates {
+            get {
+                return ResourceManager.GetString("Templates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;!--
+        ///Custom SDK Launcher
+        ///Copyright (C) 2017 Distroir
+        ///
+        ///This program is free software: you can redistribute it and/or modify
+        ///it under the terms of the GNU General Public License as published by
+        ///the Free Software Foundation, either version 3 of the License, or
+        ///(at your option) any later version.
+        ///
+        ///This program is distributed in the hope that it will be useful,
+        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
+        ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
         internal static string Tutorials {
             get {

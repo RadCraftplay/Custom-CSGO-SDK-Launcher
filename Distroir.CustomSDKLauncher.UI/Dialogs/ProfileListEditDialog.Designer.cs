@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.profileListView = new System.Windows.Forms.ListView();
             this.okButton = new System.Windows.Forms.Button();
+            this.buttonsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.createFromTemplateButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.removeButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.buttonsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // profileListView
@@ -55,6 +56,17 @@
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // createFromTemplateButton
+            // 
+            this.createFromTemplateButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__plus;
+            this.createFromTemplateButton.Location = new System.Drawing.Point(247, 300);
+            this.createFromTemplateButton.Name = "createFromTemplateButton";
+            this.createFromTemplateButton.Size = new System.Drawing.Size(25, 25);
+            this.createFromTemplateButton.TabIndex = 5;
+            this.buttonsToolTip.SetToolTip(this.createFromTemplateButton, "Add profile");
+            this.createFromTemplateButton.UseVisualStyleBackColor = true;
+            this.createFromTemplateButton.Click += new System.EventHandler(this.createFromTemplateButton_Click);
             // 
             // editButton
             // 
@@ -94,6 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 366);
+            this.Controls.Add(this.createFromTemplateButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
@@ -116,5 +129,6 @@
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.ToolTip buttonsToolTip;
+        private System.Windows.Forms.Button createFromTemplateButton;
     }
 }

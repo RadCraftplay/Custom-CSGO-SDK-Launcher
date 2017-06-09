@@ -33,6 +33,23 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
         }
 
+        public EditItemDialog(Template t)
+        {
+            //Create profile
+            Profile = new Profile()
+            {
+                ProfileName = t.Name,
+                GameinfoDirName = t.GameinfoDirName
+            };
+
+            //Create controls
+            InitializeComponent();
+
+            //Set values
+            nameTextBox.Text = Profile.ProfileName;
+            gameInfoTextBox.Text = Profile.GameinfoDirName;
+        }
+
         public EditItemDialog(Profile p)
         {
             //Set profile

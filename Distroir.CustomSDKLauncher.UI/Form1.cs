@@ -30,9 +30,10 @@ namespace Distroir.CustomSDKLauncher.UI
             Utils.CheckDirs();
             Config.Load();
 
-            //Load profiles and tutorials
+            //Load profiles, tutorials and templates
             ProfileManager.LoadProfiles();
             TutorialManager.LoadTutorials();
+            TemplateManager.LoadTemplates();
 
             //Check if it's first launch
             if (Config.TryReadInt("FirstLaunch") == 1)
