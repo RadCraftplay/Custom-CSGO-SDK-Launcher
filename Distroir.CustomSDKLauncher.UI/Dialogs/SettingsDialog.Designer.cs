@@ -30,7 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.profilesTabPage = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -52,7 +52,7 @@
             // 
             // profilesTabPage
             // 
-            this.profilesTabPage.Controls.Add(this.linkLabel1);
+            this.profilesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
             this.profilesTabPage.Controls.Add(this.profileLabel);
             this.profilesTabPage.Controls.Add(this.profileListComboBox);
             this.profilesTabPage.Location = new System.Drawing.Point(4, 22);
@@ -63,17 +63,17 @@
             this.profilesTabPage.Text = "Profiles";
             this.profilesTabPage.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // editListOfProfilesLinkLabel
             // 
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(236, 30);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(88, 13);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Edit list of profiles";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.editListOfProfilesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editListOfProfilesLinkLabel.AutoSize = true;
+            this.editListOfProfilesLinkLabel.Location = new System.Drawing.Point(236, 30);
+            this.editListOfProfilesLinkLabel.Name = "editListOfProfilesLinkLabel";
+            this.editListOfProfilesLinkLabel.Size = new System.Drawing.Size(88, 13);
+            this.editListOfProfilesLinkLabel.TabIndex = 3;
+            this.editListOfProfilesLinkLabel.TabStop = true;
+            this.editListOfProfilesLinkLabel.Text = "Edit list of profiles";
+            this.editListOfProfilesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // profileLabel
             // 
@@ -131,7 +131,7 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage profilesTabPage;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel editListOfProfilesLinkLabel;
         private System.Windows.Forms.Label profileLabel;
         private System.Windows.Forms.ComboBox profileListComboBox;
         private System.Windows.Forms.Button saveButton;
