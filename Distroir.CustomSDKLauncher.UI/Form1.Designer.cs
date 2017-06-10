@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.toolsGroupBox = new System.Windows.Forms.GroupBox();
             this.launchHammerButton = new System.Windows.Forms.Button();
             this.launchFacePoserButton = new System.Windows.Forms.Button();
             this.launchModelViewerButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tutorialsGroupBox = new System.Windows.Forms.GroupBox();
             this.moreTutorialsLabel = new System.Windows.Forms.LinkLabel();
             this.csgoSdkButton = new System.Windows.Forms.Button();
             this.topHattWaffleButton = new System.Windows.Forms.Button();
             this.fmponeButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.toolsGroupBox.SuspendLayout();
+            this.tutorialsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // toolsGroupBox
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.toolsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.launchHammerButton);
-            this.groupBox1.Controls.Add(this.launchFacePoserButton);
-            this.groupBox1.Controls.Add(this.launchModelViewerButton);
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(215, 106);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tools";
+            this.toolsGroupBox.Controls.Add(this.launchHammerButton);
+            this.toolsGroupBox.Controls.Add(this.launchFacePoserButton);
+            this.toolsGroupBox.Controls.Add(this.launchModelViewerButton);
+            this.toolsGroupBox.Location = new System.Drawing.Point(13, 13);
+            this.toolsGroupBox.Name = "toolsGroupBox";
+            this.toolsGroupBox.Size = new System.Drawing.Size(215, 106);
+            this.toolsGroupBox.TabIndex = 3;
+            this.toolsGroupBox.TabStop = false;
+            this.toolsGroupBox.Text = "Tools";
             // 
             // launchHammerButton
             // 
@@ -105,21 +105,21 @@
             this.launchModelViewerButton.UseVisualStyleBackColor = true;
             this.launchModelViewerButton.Click += new System.EventHandler(this.launchModelViewerButton_Click);
             // 
-            // groupBox2
+            // tutorialsGroupBox
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tutorialsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.moreTutorialsLabel);
-            this.groupBox2.Controls.Add(this.csgoSdkButton);
-            this.groupBox2.Controls.Add(this.topHattWaffleButton);
-            this.groupBox2.Controls.Add(this.fmponeButton);
-            this.groupBox2.Location = new System.Drawing.Point(13, 125);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(215, 124);
-            this.groupBox2.TabIndex = 4;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tutorials";
+            this.tutorialsGroupBox.Controls.Add(this.moreTutorialsLabel);
+            this.tutorialsGroupBox.Controls.Add(this.csgoSdkButton);
+            this.tutorialsGroupBox.Controls.Add(this.topHattWaffleButton);
+            this.tutorialsGroupBox.Controls.Add(this.fmponeButton);
+            this.tutorialsGroupBox.Location = new System.Drawing.Point(13, 125);
+            this.tutorialsGroupBox.Name = "tutorialsGroupBox";
+            this.tutorialsGroupBox.Size = new System.Drawing.Size(215, 124);
+            this.tutorialsGroupBox.TabIndex = 4;
+            this.tutorialsGroupBox.TabStop = false;
+            this.tutorialsGroupBox.Text = "Tutorials";
             // 
             // moreTutorialsLabel
             // 
@@ -195,8 +195,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(240, 299);
             this.Controls.Add(this.settingsButton);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tutorialsGroupBox);
+            this.Controls.Add(this.toolsGroupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(256, 337);
@@ -205,9 +205,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Custom SDK launcher";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.toolsGroupBox.ResumeLayout(false);
+            this.tutorialsGroupBox.ResumeLayout(false);
+            this.tutorialsGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -217,8 +217,8 @@
         private System.Windows.Forms.Button launchHammerButton;
         private System.Windows.Forms.Button launchModelViewerButton;
         private System.Windows.Forms.Button launchFacePoserButton;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox toolsGroupBox;
+        private System.Windows.Forms.GroupBox tutorialsGroupBox;
         private System.Windows.Forms.Button topHattWaffleButton;
         private System.Windows.Forms.Button fmponeButton;
         private System.Windows.Forms.Button settingsButton;

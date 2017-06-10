@@ -97,7 +97,7 @@ namespace Distroir.Configuration
         /// </summary>
         /// <param name="name">Name of the varriable</param>
         /// <returns>Value of specified varrialbe</returns>
-        public static object ReadVariable(string name)
+        public static string ReadVariable(string name)
         {
             foreach (Key k in settings)
                 if (k.name == name)
@@ -145,7 +145,7 @@ namespace Distroir.Configuration
         /// <returns>Value of specified varrialbe (as string)</returns>
         public static object ReadString(string name)
         {
-            return (string)ReadVariable(name);
+            return ReadVariable(name);
         }
 
         /// <summary>

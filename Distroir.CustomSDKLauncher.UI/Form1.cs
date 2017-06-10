@@ -18,6 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using System;
+using System.Drawing;
+using System.Globalization;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI
@@ -29,6 +32,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //Load configuration
             Utils.CheckDirs();
             Config.Load();
+            LanguageManager.LoadLanguageInfo();
 
             //Load profiles, tutorials and templates
             ProfileManager.LoadProfiles();
@@ -75,6 +79,25 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Create controls
             InitializeComponent();
+
+            //Set language
+            ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
+
+            toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            tutorialsGroupBox.Text = rm.GetString("tutorialsGroupBox_text", LanguageManager.Culture);
+
+            moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
+            moreTutorialsLabel.Location = new Point(Convert.ToInt32(rm.GetString("moreTutorialsLabel_X", LanguageManager.Culture)), moreTutorialsLabel.Location.Y);
+
+            settingsButton.Text = rm.GetString("settingsButton_text", LanguageManager.Culture);
+
+            launchHammerButton.Text = rm.GetString("launchHammerButton_text", LanguageManager.Culture);
+            launchModelViewerButton.Text = rm.GetString("launchModelViewerButton_text", LanguageManager.Culture);
+            launchFacePoserButton.Text = rm.GetString("launchFacePoserButton_text", LanguageManager.Culture);
+
+            fmponeButton.Text = rm.GetString("fmponeButton_text", LanguageManager.Culture);
+            topHattWaffleButton.Text = rm.GetString("topHattWaffleButton_text", LanguageManager.Culture);
+            csgoSdkButton.Text = rm.GetString("csgoSdkButton_text", LanguageManager.Culture);
         }
 
         #region Form events
