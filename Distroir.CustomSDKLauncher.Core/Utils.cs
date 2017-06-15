@@ -75,5 +75,20 @@ namespace Distroir.CustomSDKLauncher.Core
                 MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static void TryGetSelectedProfile(out Profile p)
+        {
+            try
+            {
+                //Get selected profile id
+                int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
+                //Get selected profile
+                p = ProfileManager.Profiles[SelectedProfileId];
+            }
+            catch
+            {
+                p = new Profile();
+            }
+        }
     }
 }

@@ -82,7 +82,9 @@ namespace Distroir.CustomSDKLauncher.UI
             //Set language
             ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
 
-            toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            //Set toolsGroupBoxText
+            UpdateToolsGroupBoxText(rm);
+
             tutorialsGroupBox.Text = rm.GetString("tutorialsGroupBox_text", LanguageManager.Culture);
 
             moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
@@ -145,6 +147,9 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             var d = new Dialogs.SettingsDialog();
             d.ShowDialog();
+
+            //Update toolsGroupBoxText
+            UpdateToolsGroupBoxText();
         }
 
         private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -161,6 +166,40 @@ namespace Distroir.CustomSDKLauncher.UI
             Config.Save();
             //Save list of profiles
             ProfileManager.SaveProfiles();
+        }
+
+        #endregion
+
+        #region Methods
+
+        string GetCurrentProfileName()
+        {
+            //Get selected profile
+            Profile p;
+            Utils.TryGetSelectedProfile(out p);
+
+            //Get and return profile name
+            return p.ProfileName;
+        }
+
+        void UpdateToolsGroupBoxText()
+        {
+            //Set text
+            ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
+
+            if (string.IsNullOrEmpty(GetCurrentProfileName()))
+                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            else
+                toolsGroupBox.Text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+        }
+
+        void UpdateToolsGroupBoxText(ResourceManager rm)
+        {
+            //Set text
+            if (string.IsNullOrEmpty(GetCurrentProfileName()))
+                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            else
+                toolsGroupBox.Text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
         }
 
         #endregion
