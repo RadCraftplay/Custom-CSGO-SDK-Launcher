@@ -176,9 +176,6 @@
     <None Include="Resources\FUGUE-README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GPL 3.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\License %28Only custom sdk launcher%29.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
