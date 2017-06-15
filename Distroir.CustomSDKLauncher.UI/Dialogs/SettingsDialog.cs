@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using System;
+using System.Resources;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
@@ -32,6 +33,38 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
             //Apply settings to controls
             UpdateControls();
+            //Apply translations
+            ApplyTranslations();
+        }
+
+        void ApplyTranslations()
+        {
+            ResourceManager rm = new ResourceManager(LanguageResourcesList.SettingsDialogRes, typeof(Form1).Assembly);
+
+            //SettingsDialog
+            Text = rm.GetString("settingsDialog_text", LanguageManager.Culture);
+
+            //Tab pages
+            profilesTabPage.Text = rm.GetString("profilesTabPage_text", LanguageManager.Culture);
+            aboutTabPage.Text = rm.GetString("aboutTabPage_text", LanguageManager.Culture);
+
+            //ProfilesTabPage
+            profileLabel.Text = rm.GetString("profileLabel_text", LanguageManager.Culture);
+
+            profileListComboBox.Location = new System.Drawing.Point(
+                Convert.ToInt32(rm.GetString("profileListComboBox_X", LanguageManager.Culture)),
+                profileListComboBox.Location.Y);
+            profileListComboBox.Size = new System.Drawing.Size(
+                Convert.ToInt32(rm.GetString("profileListComboBox_length", LanguageManager.Culture)),
+                profileListComboBox.Size.Height);
+
+            editListOfProfilesLinkLabel.Text = rm.GetString("editListOfProfilesLinkLabel_text", LanguageManager.Culture);
+            editListOfProfilesLinkLabel.Location = new System.Drawing.Point(
+                Convert.ToInt32(rm.GetString("editListOfProfilesLinkLabel_X", LanguageManager.Culture)),
+                editListOfProfilesLinkLabel.Location.Y);
+
+            displayCurrentlySelectedProfileCheckBox.Text = rm.GetString("displayCurrentlySelectedProfileCheckBox_text", LanguageManager.Culture);
+            saveButton.Text = rm.GetString("saveButton_text", LanguageManager.Culture);
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

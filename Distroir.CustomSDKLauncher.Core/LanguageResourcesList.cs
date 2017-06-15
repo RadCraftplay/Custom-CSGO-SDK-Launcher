@@ -29,5 +29,6 @@ namespace Distroir.CustomSDKLauncher.Core
     public class LanguageResourcesList
     {
         public static string Form1Res = "Distroir.CustomSDKLauncher.UI.Resources.Form1";
+        public static string SettingsDialogRes = "Distroir.CustomSDKLauncher.UI.Resources.SettingsDialog";
     }
 }

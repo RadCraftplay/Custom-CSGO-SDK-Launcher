@@ -65,7 +65,7 @@
             this.createFromTemplateButton.Name = "createFromTemplateButton";
             this.createFromTemplateButton.Size = new System.Drawing.Size(25, 25);
             this.createFromTemplateButton.TabIndex = 5;
-            this.buttonsToolTip.SetToolTip(this.createFromTemplateButton, "Add profile");
+            this.buttonsToolTip.SetToolTip(this.createFromTemplateButton, "Add using template");
             this.createFromTemplateButton.UseVisualStyleBackColor = true;
             this.createFromTemplateButton.Click += new System.EventHandler(this.createFromTemplateButton_Click);
             // 

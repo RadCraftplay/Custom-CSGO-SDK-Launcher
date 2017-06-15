@@ -144,6 +144,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Licenses.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SettingsDialog.en.resx" />
+    <EmbeddedResource Include="Resources\SettingsDialog.pl.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core\Distroir.CustomSDKLauncher.Core.csproj">
