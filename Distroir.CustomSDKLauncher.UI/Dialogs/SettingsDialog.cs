@@ -24,7 +24,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     //TODO: Add skins
     //TODO: Add language selection
-    //TODO: Add about tab
     public partial class SettingsDialog : Form
     {
         public SettingsDialog()
@@ -52,8 +51,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Refresh list of profiles
             RefreshList();
-
+            //Update displayCurrentlySelectedProfileCheckBox
             displayCurrentlySelectedProfileCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
+            //Update version info
+            versionLabel.Text = string.Format("Version: {0}", ProductVersion);
         }
 
         void RefreshList()
@@ -90,6 +91,23 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             //Close dialog
             Close();
+        }
+
+        private void ViewLicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var l = new LicenseDialog(Resources.Licenses.License__Only_custom_sdk_launcher_);
+            l.ShowDialog();
+        }
+
+        private void gpl3LicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utils.ShellLaunch("https://www.gnu.org/licenses/gpl-3.0.en.html");
+        }
+
+        private void fugueIconsSetLicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var l = new LicenseDialog(Resources.Licenses.FUGUE_README);
+            l.ShowDialog();
         }
     }
 }

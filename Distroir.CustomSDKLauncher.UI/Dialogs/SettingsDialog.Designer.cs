@@ -36,8 +36,17 @@
             this.aboutTabPage = new System.Windows.Forms.TabPage();
             this.saveButton = new System.Windows.Forms.Button();
             this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
+            this.appnameLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.copyrightLabel = new System.Windows.Forms.Label();
+            this.versionLabel = new System.Windows.Forms.Label();
+            this.gpl3LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.ViewLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
+            this.aboutTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -101,6 +110,13 @@
             // 
             // aboutTabPage
             // 
+            this.aboutTabPage.Controls.Add(this.ViewLicenseLinkLabel);
+            this.aboutTabPage.Controls.Add(this.fugueIconsSetLicenseLinkLabel);
+            this.aboutTabPage.Controls.Add(this.gpl3LicenseLinkLabel);
+            this.aboutTabPage.Controls.Add(this.versionLabel);
+            this.aboutTabPage.Controls.Add(this.copyrightLabel);
+            this.aboutTabPage.Controls.Add(this.pictureBox1);
+            this.aboutTabPage.Controls.Add(this.appnameLabel);
             this.aboutTabPage.Location = new System.Drawing.Point(4, 22);
             this.aboutTabPage.Name = "aboutTabPage";
             this.aboutTabPage.Size = new System.Drawing.Size(330, 157);
@@ -129,6 +145,77 @@
             this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected profile name";
             this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
             // 
+            // appnameLabel
+            // 
+            this.appnameLabel.AutoSize = true;
+            this.appnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.appnameLabel.Location = new System.Drawing.Point(58, 4);
+            this.appnameLabel.Name = "appnameLabel";
+            this.appnameLabel.Size = new System.Drawing.Size(134, 13);
+            this.appnameLabel.TabIndex = 0;
+            this.appnameLabel.Text = "Custom SDK Launcher";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.appicon;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // copyrightLabel
+            // 
+            this.copyrightLabel.AutoSize = true;
+            this.copyrightLabel.Location = new System.Drawing.Point(58, 20);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(125, 13);
+            this.copyrightLabel.TabIndex = 2;
+            this.copyrightLabel.Text = "Copyright © Distroir 2017";
+            // 
+            // versionLabel
+            // 
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Location = new System.Drawing.Point(58, 36);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(42, 13);
+            this.versionLabel.TabIndex = 3;
+            this.versionLabel.Text = "Version";
+            // 
+            // gpl3LicenseLinkLabel
+            // 
+            this.gpl3LicenseLinkLabel.AutoSize = true;
+            this.gpl3LicenseLinkLabel.Location = new System.Drawing.Point(3, 86);
+            this.gpl3LicenseLinkLabel.Name = "gpl3LicenseLinkLabel";
+            this.gpl3LicenseLinkLabel.Size = new System.Drawing.Size(73, 13);
+            this.gpl3LicenseLinkLabel.TabIndex = 4;
+            this.gpl3LicenseLinkLabel.TabStop = true;
+            this.gpl3LicenseLinkLabel.Text = "GPL 3 license";
+            this.gpl3LicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gpl3LicenseLinkLabel_LinkClicked);
+            // 
+            // fugueIconsSetLicenseLinkLabel
+            // 
+            this.fugueIconsSetLicenseLinkLabel.AutoSize = true;
+            this.fugueIconsSetLicenseLinkLabel.Location = new System.Drawing.Point(3, 102);
+            this.fugueIconsSetLicenseLinkLabel.Name = "fugueIconsSetLicenseLinkLabel";
+            this.fugueIconsSetLicenseLinkLabel.Size = new System.Drawing.Size(118, 13);
+            this.fugueIconsSetLicenseLinkLabel.TabIndex = 5;
+            this.fugueIconsSetLicenseLinkLabel.TabStop = true;
+            this.fugueIconsSetLicenseLinkLabel.Text = "Fugue icons set license";
+            this.fugueIconsSetLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fugueIconsSetLicenseLinkLabel_LinkClicked);
+            // 
+            // ViewLicenseLinkLabel
+            // 
+            this.ViewLicenseLinkLabel.AutoSize = true;
+            this.ViewLicenseLinkLabel.Location = new System.Drawing.Point(3, 70);
+            this.ViewLicenseLinkLabel.Name = "ViewLicenseLinkLabel";
+            this.ViewLicenseLinkLabel.Size = new System.Drawing.Size(44, 13);
+            this.ViewLicenseLinkLabel.TabIndex = 6;
+            this.ViewLicenseLinkLabel.TabStop = true;
+            this.ViewLicenseLinkLabel.Text = "License";
+            this.ViewLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ViewLicenseLinkLabel_LinkClicked);
+            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +233,9 @@
             this.tabControl.ResumeLayout(false);
             this.profilesTabPage.ResumeLayout(false);
             this.profilesTabPage.PerformLayout();
+            this.aboutTabPage.ResumeLayout(false);
+            this.aboutTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -160,5 +250,12 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TabPage aboutTabPage;
         private System.Windows.Forms.CheckBox displayCurrentlySelectedProfileCheckBox;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label appnameLabel;
+        private System.Windows.Forms.Label copyrightLabel;
+        private System.Windows.Forms.Label versionLabel;
+        private System.Windows.Forms.LinkLabel fugueIconsSetLicenseLinkLabel;
+        private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
+        private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
     }
 }

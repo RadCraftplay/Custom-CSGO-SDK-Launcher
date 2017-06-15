@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Distroir.CustomSDKLauncher.UI.Properties {
+namespace Distroir.CustomSDKLauncher.UI.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Distroir.CustomSDKLauncher.UI.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    internal class Licenses {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources() {
+        internal Licenses() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Distroir.CustomSDKLauncher.UI.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Distroir.CustomSDKLauncher.UI.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Distroir.CustomSDKLauncher.UI.Resources.Licenses", typeof(Licenses).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,62 +61,49 @@ namespace Distroir.CustomSDKLauncher.UI.Properties {
         }
         
         /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Fugue Icons
+        ///
+        ///(C) 2013 Yusuke Kamiyamane. All rights reserved.
+        ///
+        ///These icons are licensed under a Creative Commons
+        ///Attribution 3.0 License.
+        ///&lt;http://creativecommons.org/licenses/by/3.0/&gt;
+        ///
+        ///If you can&apos;t or don&apos;t want to provide attribution, please
+        ///purchase a royalty-free license.
+        ///&lt;http://p.yusukekamiyamane.com/&gt;
+        ///
+        ///I&apos;m unavailable for custom icon design work. But your
+        ///suggestions are always welcome!
+        ///&lt;mailto:p@yusukekamiyamane.com&gt;
+        ///
+        ///------------------------------------------------------------
+        ///
+        ///All [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
-        internal static System.Drawing.Bitmap appicon {
+        internal static string FUGUE_README {
             get {
-                object obj = ResourceManager.GetObject("appicon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("FUGUE_README", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu Custom SDK Launcher
+        ///Copyright (C) 2017 Distroir
+        ///
+        ///This program is free software: you can redistribute it and/or modify
+        ///it under the terms of the GNU General Public License as published by
+        ///the Free Software Foundation, either version 3 of the License, or
+        ///(at your option) any later version.
+        ///
+        ///This program is distributed in the hope that it will be useful,
+        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
+        ///MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+        ///GNU General Public Lic [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
-        internal static System.Drawing.Bitmap minus {
+        internal static string License__Only_custom_sdk_launcher_ {
             get {
-                object obj = ResourceManager.GetObject("minus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap notebook__plus {
-            get {
-                object obj = ResourceManager.GetObject("notebook--plus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap pencil {
-            get {
-                object obj = ResourceManager.GetObject("pencil", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap plus {
-            get {
-                object obj = ResourceManager.GetObject("plus", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap thw {
-            get {
-                object obj = ResourceManager.GetObject("thw", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("License__Only_custom_sdk_launcher_", resourceCulture);
             }
         }
     }
