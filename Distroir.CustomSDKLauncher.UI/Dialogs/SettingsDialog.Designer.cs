@@ -33,8 +33,9 @@
             this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
-            this.saveButton = new System.Windows.Forms.Button();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             // profilesTabPage
             // 
+            this.profilesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
             this.profilesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
             this.profilesTabPage.Controls.Add(this.profileLabel);
             this.profilesTabPage.Controls.Add(this.profileListComboBox);
@@ -97,6 +99,15 @@
             this.profileListComboBox.Size = new System.Drawing.Size(272, 21);
             this.profileListComboBox.TabIndex = 1;
             // 
+            // aboutTabPage
+            // 
+            this.aboutTabPage.Location = new System.Drawing.Point(4, 22);
+            this.aboutTabPage.Name = "aboutTabPage";
+            this.aboutTabPage.Size = new System.Drawing.Size(330, 157);
+            this.aboutTabPage.TabIndex = 1;
+            this.aboutTabPage.Text = "About";
+            this.aboutTabPage.UseVisualStyleBackColor = true;
+            // 
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -108,14 +119,15 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // aboutTabPage
+            // displayCurrentlySelectedProfileCheckBox
             // 
-            this.aboutTabPage.Location = new System.Drawing.Point(4, 22);
-            this.aboutTabPage.Name = "aboutTabPage";
-            this.aboutTabPage.Size = new System.Drawing.Size(330, 157);
-            this.aboutTabPage.TabIndex = 1;
-            this.aboutTabPage.Text = "About";
-            this.aboutTabPage.UseVisualStyleBackColor = true;
+            this.displayCurrentlySelectedProfileCheckBox.AutoSize = true;
+            this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(10, 46);
+            this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
+            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(206, 17);
+            this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
+            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected profile name";
+            this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsDialog
             // 
@@ -147,5 +159,6 @@
         private System.Windows.Forms.ComboBox profileListComboBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TabPage aboutTabPage;
+        private System.Windows.Forms.CheckBox displayCurrentlySelectedProfileCheckBox;
     }
 }

@@ -184,22 +184,32 @@ namespace Distroir.CustomSDKLauncher.UI
 
         void UpdateToolsGroupBoxText()
         {
-            //Set text
             ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
 
-            if (string.IsNullOrEmpty(GetCurrentProfileName()))
-                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
-            else
+            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            {
+                //Set text
                 toolsGroupBox.Text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+            }
+            else
+            {
+                //Set text
+                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            }
         }
 
         void UpdateToolsGroupBoxText(ResourceManager rm)
         {
-            //Set text
-            if (string.IsNullOrEmpty(GetCurrentProfileName()))
-                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
-            else
+            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            {
+                //Set text
                 toolsGroupBox.Text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+            }
+            else
+            {
+                //Set text
+                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            }
         }
 
         #endregion

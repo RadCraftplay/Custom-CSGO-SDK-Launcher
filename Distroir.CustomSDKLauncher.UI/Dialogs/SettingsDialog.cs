@@ -31,8 +31,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Create controls
             InitializeComponent();
-            //Refresh list of profiles
-            RefreshList();
+            //Apply settings to controls
+            UpdateControls();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -46,6 +46,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 //Refresh profile list
                 RefreshList();
             }
+        }
+
+        void UpdateControls()
+        {
+            //Refresh list of profiles
+            RefreshList();
+
+            displayCurrentlySelectedProfileCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
         }
 
         void RefreshList()
@@ -70,8 +78,16 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //Save selected profile ID
+            //Save settings
+            //Save current profile ID
             Config.AddVariable("SelectedProfileId", profileListComboBox.SelectedIndex);
+
+            //Save orther settings
+            if (displayCurrentlySelectedProfileCheckBox.Checked)
+                Config.AddVariable("DisplayCurrentProfileName", 1);
+            else
+                Config.AddVariable("DisplayCurrentProfileName", 0);
+
             //Close dialog
             Close();
         }

@@ -237,6 +237,7 @@ namespace Distroir.Configuration
             {
                 //AddVariable("CSGO_DIR", @"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
                 AddVariable("FirstLaunch", 1);
+                AddVariable("DisplayCurrentProfileName", 1);
                 //Utils.UpdateGamedirs(@"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
             }
         }
