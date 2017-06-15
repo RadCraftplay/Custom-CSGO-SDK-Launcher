@@ -34,6 +34,7 @@
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
             this.saveButton = new System.Windows.Forms.Button();
+            this.aboutTabPage = new System.Windows.Forms.TabPage();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -44,6 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.profilesTabPage);
+            this.tabControl.Controls.Add(this.aboutTabPage);
             this.tabControl.Location = new System.Drawing.Point(13, 13);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -106,6 +108,15 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // aboutTabPage
+            // 
+            this.aboutTabPage.Location = new System.Drawing.Point(4, 22);
+            this.aboutTabPage.Name = "aboutTabPage";
+            this.aboutTabPage.Size = new System.Drawing.Size(330, 157);
+            this.aboutTabPage.TabIndex = 1;
+            this.aboutTabPage.Text = "About";
+            this.aboutTabPage.UseVisualStyleBackColor = true;
+            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,5 +146,6 @@
         private System.Windows.Forms.Label profileLabel;
         private System.Windows.Forms.ComboBox profileListComboBox;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.TabPage aboutTabPage;
     }
 }

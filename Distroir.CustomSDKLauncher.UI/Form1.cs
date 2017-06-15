@@ -19,7 +19,6 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using System;
 using System.Drawing;
-using System.Globalization;
 using System.Resources;
 using System.Windows.Forms;
 

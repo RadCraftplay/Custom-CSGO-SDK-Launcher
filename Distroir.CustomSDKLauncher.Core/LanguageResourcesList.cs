@@ -24,10 +24,10 @@ using System.Text;
 namespace Distroir.CustomSDKLauncher.Core
 {
     /// <summary>
-    /// Contains names of resourceManagers for dialogs and forms
+    /// Contains names of resources containing translations for dialogs and forms
     /// </summary>
     public class LanguageResourcesList
     {
-        public static string Form1Res = "Distroir.CustomSDKLauncher.UI.Resources.Res";
+        public static string Form1Res = "Distroir.CustomSDKLauncher.UI.Resources.Form1";
     }
 }

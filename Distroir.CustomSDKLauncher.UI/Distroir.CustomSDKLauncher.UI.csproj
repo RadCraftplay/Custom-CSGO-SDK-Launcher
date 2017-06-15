@@ -89,8 +89,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Resources\Res.pl.Designer.cs">
-      <DependentUpon>Res.pl.resx</DependentUpon>
+    <Compile Include="Resources\Form1.pl.Designer.cs">
+      <DependentUpon>Form1.pl.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -121,10 +121,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Res.en.resx" />
-    <EmbeddedResource Include="Resources\Res.pl.resx">
+    <EmbeddedResource Include="Resources\Form1.en.resx" />
+    <EmbeddedResource Include="Resources\Form1.pl.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Res.pl.Designer.cs</LastGenOutput>
+      <LastGenOutput>Form1.pl.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

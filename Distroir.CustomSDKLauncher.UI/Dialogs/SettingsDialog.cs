@@ -24,7 +24,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     //TODO: Add skins
     //TODO: Add language selection
-    //TODO: Add templates (profiles)
     //TODO: Add about tab
     public partial class SettingsDialog : Form
     {
