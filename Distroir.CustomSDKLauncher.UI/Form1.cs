@@ -172,6 +172,10 @@ namespace Distroir.CustomSDKLauncher.UI
 
         #region Methods
 
+        /// <summary>
+        /// Gets current profile name
+        /// </summary>
+        /// <returns>Current profile name</returns>
         string GetCurrentProfileName()
         {
             //Get selected profile
@@ -182,14 +186,27 @@ namespace Distroir.CustomSDKLauncher.UI
             return p.ProfileName;
         }
 
+        /// <summary>
+        /// Changes text inside toolsGroupBox control
+        /// </summary>
         void UpdateToolsGroupBoxText()
         {
             ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
+            UpdateToolsGroupBoxText(rm);
+        }
 
+        /// <summary>
+        /// Changes text inside toolsGroupBox control
+        /// </summary>
+        /// <param name="rm">Resource manager</param>
+        void UpdateToolsGroupBoxText(ResourceManager rm)
+        {
             if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
             {
                 //Set text
-                toolsGroupBox.Text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+                string text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+                text = CutStringIfTooBig(text, 39);
+                toolsGroupBox.Text = text;
             }
             else
             {
@@ -198,18 +215,41 @@ namespace Distroir.CustomSDKLauncher.UI
             }
         }
 
-        void UpdateToolsGroupBoxText(ResourceManager rm)
+        /// <summary>
+        /// Cuts string if it's too big
+        /// </summary>
+        /// <param name="s">Input string</param>
+        /// <param name="length">Maximal length of string</param>
+        /// <returns></returns>
+        string CutStringIfTooBig(string s, int length)
         {
-            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            if (s.Length > length)
             {
-                //Set text
-                toolsGroupBox.Text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+                //Shorten string
+                char[] buffer = new char[length];
+                s.CopyTo(0, buffer, 0, length);
+                //Get string from buffer
+                s = charArrayToString(buffer) + "...";
+                return s;
             }
-            else
-            {
-                //Set text
-                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
-            }
+
+            //String is the same, return it
+            return s;
+        }
+
+        /// <summary>
+        /// Converts char array to string
+        /// </summary>
+        /// <param name="array">Char array</param>
+        /// <returns></returns>
+        string charArrayToString(char[] array)
+        {
+            string returnvalue = string.Empty;
+
+            foreach (char c in array)
+                returnvalue += c;
+
+            return returnvalue;
         }
 
         #endregion
