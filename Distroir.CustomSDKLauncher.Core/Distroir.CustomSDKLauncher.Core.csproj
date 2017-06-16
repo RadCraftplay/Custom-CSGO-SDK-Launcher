@@ -57,6 +57,8 @@
     <Compile Include="TemplateManager.cs" />
     <Compile Include="Tutorial.cs" />
     <Compile Include="TutorialManager.cs" />
+    <Compile Include="UITheme.cs" />
+    <Compile Include="UIThemeManager.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +69,7 @@
   <ItemGroup>
     <None Include="Resources\Tutorials.xml" />
     <None Include="Resources\Templates.xml" />
+    <None Include="Resources\UIThemes.xml" />
     <Content Include="Tutorials.xml" />
   </ItemGroup>
   <ItemGroup>

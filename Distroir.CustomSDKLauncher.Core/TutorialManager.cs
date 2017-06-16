@@ -47,6 +47,7 @@ namespace Distroir.CustomSDKLauncher.Core
             }
         }
 
+        //TODO: Add "Man vs. Engine" tutorial
         /// <summary>
         /// This is method exists only because of developing purposes
         /// </summary>

@@ -62,20 +62,18 @@ namespace Distroir.CustomSDKLauncher.Core {
         
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;ArrayOfTemplate xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        ///  &lt;Template&gt;
-        ///    &lt;Name&gt;Counter-Strike: Global Offensive&lt;/Name&gt;
-        ///    &lt;GameinfoDirName&gt;csgo&lt;/GameinfoDirName&gt;
-        ///  &lt;/Template&gt;
-        ///  &lt;Template&gt;
-        ///    &lt;Name&gt;Team Fortress 2&lt;/Name&gt;
-        ///    &lt;GameinfoDirName&gt;tf2&lt;/GameinfoDirName&gt;
-        ///  &lt;/Template&gt;
-        ///  &lt;Template&gt;
-        ///    &lt;Name&gt;Garry&apos;s mod&lt;/Name&gt;
-        ///    &lt;GameinfoDirName&gt;garrysmod&lt;/GameinfoDirName&gt;
-        ///  &lt;/Template&gt;
-        ///&lt;/ArrayOfTemp [obcięto pozostałą część ciągu]&quot;;.
+        ///&lt;!--
+        ///Custom SDK Launcher
+        ///Copyright (C) 2017 Distroir
+        ///
+        ///This program is free software: you can redistribute it and/or modify
+        ///it under the terms of the GNU General Public License as published by
+        ///the Free Software Foundation, either version 3 of the License, or
+        ///(at your option) any later version.
+        ///
+        ///This program is distributed in the hope that it will be useful,
+        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
+        ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
         internal static string Templates {
             get {
@@ -101,6 +99,28 @@ namespace Distroir.CustomSDKLauncher.Core {
         internal static string Tutorials {
             get {
                 return ResourceManager.GetString("Tutorials", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;ArrayOfUITheme xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+        ///  &lt;UITheme&gt;
+        ///    &lt;Name&gt;Light&lt;/Name&gt;
+        ///    &lt;BackgroundColor&gt;-986896&lt;/BackgroundColor&gt;
+        ///    &lt;TextColor&gt;-16777216&lt;/TextColor&gt;
+        ///    &lt;ButtonColor&gt;-986896&lt;/ButtonColor&gt;
+        ///    &lt;ButtonTextColor&gt;-16777216&lt;/ButtonTextColor&gt;
+        ///    &lt;LinkColor&gt;-16776961&lt;/LinkColor&gt;
+        ///    &lt;LinkClickedColor&gt;-7722014&lt;/LinkClickedColor&gt;
+        ///  &lt;/UITheme&gt;
+        ///  &lt;UITheme&gt;
+        ///    &lt;Name&gt;Dark&lt;/Name&gt;
+        ///    [obcięto pozostałą część ciągu]&quot;;.
+        /// </summary>
+        internal static string UIThemes {
+            get {
+                return ResourceManager.GetString("UIThemes", resourceCulture);
             }
         }
     }
