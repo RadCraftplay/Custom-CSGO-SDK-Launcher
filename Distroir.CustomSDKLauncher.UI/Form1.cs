@@ -44,39 +44,12 @@ namespace Distroir.CustomSDKLauncher.UI
             //UIThemeManager.LoadCurrentTheme();
 
             //Check if it's first launch
-            if (Config.TryReadInt("FirstLaunch") == 1)
-            {
-                //Create dialog
-                var v = new Dialogs.FirstLaunchDialog();
+            CheckIfItsFirstLaunch();
 
-                //Show dialog
-                if (!(v.ShowDialog() == DialogResult.OK))
-                {
-                    //Inform user that he needs to select his csgo directory
-                    MessageBox.Show("Can not continue. You need to select your csgo directory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Close application
-                    Environment.Exit(0);
-                }
-            }
-
-            //Set gamedir
-            if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
-            {
-                //Create profile
-                Profile p = new Profile();
-                p.ProfileName = "Counter-Strike: Global Offensive";
-                p.GameDir = Config.TryReadString("CSGO_DIR");
-                p.GameinfoDirName = "csgo";
-
-                //Add profile to list
-                ProfileManager.Profiles.Add(p);
-
-                //Select profile
-                Config.AddVariable("SelectedProfileId", 0);
-
-                //Remove variable
-                Config.RemoveVariable("CSGO_DIR");
-            }
+            //Migrate csgo directory from first version of Custom SDK Launcher
+            //It happens only, when you are launching newer version for the first time
+            //And you had przeviously used version 1
+            SetCsgoDirectoryFromConfig();
 
             //This is not first launch anymore
             Config.AddVariable("FirstLaunch", 0);
@@ -161,6 +134,48 @@ namespace Distroir.CustomSDKLauncher.UI
         #endregion
 
         #region Methods
+
+        void CheckIfItsFirstLaunch()
+        {
+            if (Config.TryReadInt("FirstLaunch") == 1)
+            {
+                //Create dialog
+                var v = new Dialogs.FirstLaunchDialog();
+
+                //Show dialog
+                if (!(v.ShowDialog() == DialogResult.OK))
+                {
+                    //If user closes dialog without selecting csgo directory
+                    //Inform user that he needs to select his csgo directory
+                    MessageBox.Show("Can not continue. You need to select your csgo directory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //Cannot continue
+                    //Close application
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        void SetCsgoDirectoryFromConfig()
+        {
+            //Set gamedir
+            if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
+            {
+                //Create profile
+                Profile p = new Profile();
+                p.ProfileName = "Counter-Strike: Global Offensive";
+                p.GameDir = Config.TryReadString("CSGO_DIR");
+                p.GameinfoDirName = "csgo";
+
+                //Add profile to list
+                ProfileManager.Profiles.Add(p);
+
+                //Select profile
+                Config.AddVariable("SelectedProfileId", 0);
+
+                //Remove variable
+                Config.RemoveVariable("CSGO_DIR");
+            }
+        }
 
         /// <summary>
         /// Applies translations to 
