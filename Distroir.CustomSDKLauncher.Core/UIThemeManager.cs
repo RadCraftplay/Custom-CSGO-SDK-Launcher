@@ -26,7 +26,6 @@ using Distroir.Configuration;
 
 namespace Distroir.CustomSDKLauncher.Core
 {
-    //TODO: Add method LoadCurrentTheme
     public class UIThemeManager
     {
         /// <summary>
