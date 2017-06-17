@@ -37,9 +37,11 @@ namespace Distroir.CustomSDKLauncher.UI
             ProfileManager.LoadProfiles();
             TutorialManager.LoadTutorials();
             TemplateManager.LoadTemplates();
-            //Load theme
-            UIThemeManager.LoadThemes();
-            UIThemeManager.LoadCurrentTheme();
+
+            //Unused: Load theme
+            //Reason: Themes on winforms does not look good
+            //UIThemeManager.LoadThemes();
+            //UIThemeManager.LoadCurrentTheme();
 
             //Check if it's first launch
             if (Config.TryReadInt("FirstLaunch") == 1)
@@ -82,79 +84,11 @@ namespace Distroir.CustomSDKLauncher.UI
             //Create controls
             InitializeComponent();
 
-            //Set language
-            ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
+            //Apply translations to controls
+            ApplyTranslations();
 
-            //Set toolsGroupBoxText
-            UpdateToolsGroupBoxText(rm);
-
-            tutorialsGroupBox.Text = rm.GetString("tutorialsGroupBox_text", LanguageManager.Culture);
-
-            moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
-            moreTutorialsLabel.Location = new Point(Convert.ToInt32(rm.GetString("moreTutorialsLabel_X", LanguageManager.Culture)), moreTutorialsLabel.Location.Y);
-
-            settingsButton.Text = rm.GetString("settingsButton_text", LanguageManager.Culture);
-
-            launchHammerButton.Text = rm.GetString("launchHammerButton_text", LanguageManager.Culture);
-            launchModelViewerButton.Text = rm.GetString("launchModelViewerButton_text", LanguageManager.Culture);
-            launchFacePoserButton.Text = rm.GetString("launchFacePoserButton_text", LanguageManager.Culture);
-
-            fmponeButton.Text = rm.GetString("fmponeButton_text", LanguageManager.Culture);
-            topHattWaffleButton.Text = rm.GetString("topHattWaffleButton_text", LanguageManager.Culture);
-            csgoSdkButton.Text = rm.GetString("csgoSdkButton_text", LanguageManager.Culture);
-
-            //Apply theme to UI
-            ApplyTheme();
-        }
-
-        /// <summary>
-        /// Applies current theme to control
-        /// </summary>
-        void ApplyTheme()
-        {
-            //Get theme
-            UITheme t = UIThemeManager.CurrentTheme;
-
-            //Set colors
-            BackColor = t.BackgroundColor;
-            ForeColor = t.TextColor;
-
-            toolsGroupBox.ForeColor = t.TextColor;
-            tutorialsGroupBox.ForeColor = t.TextColor;
-
-            foreach (Control c in Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            foreach (Control c in toolsGroupBox.Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            foreach (Control c in tutorialsGroupBox.Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            moreTutorialsLabel.ForeColor = t.LinkColor;
-            moreTutorialsLabel.LinkColor = t.LinkColor;
-            moreTutorialsLabel.VisitedLinkColor = t.LinkClickedColor;
+            //Unused: Apply theme to UI
+            //ApplyTheme();
         }
 
         #region Form events
@@ -227,6 +161,33 @@ namespace Distroir.CustomSDKLauncher.UI
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Applies translations to 
+        /// </summary>
+        void ApplyTranslations()
+        {
+            //Set language
+            ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
+            
+            //GroupBoxes
+            UpdateToolsGroupBoxText(rm);
+            tutorialsGroupBox.Text = rm.GetString("tutorialsGroupBox_text", LanguageManager.Culture);
+            //Form1 controls
+            settingsButton.Text = rm.GetString("settingsButton_text", LanguageManager.Culture);
+            //toolsGroupBox controls
+            launchHammerButton.Text = rm.GetString("launchHammerButton_text", LanguageManager.Culture);
+            launchModelViewerButton.Text = rm.GetString("launchModelViewerButton_text", LanguageManager.Culture);
+            launchFacePoserButton.Text = rm.GetString("launchFacePoserButton_text", LanguageManager.Culture);
+            //tutorialsGroupBox controls
+            fmponeButton.Text = rm.GetString("fmponeButton_text", LanguageManager.Culture);
+            topHattWaffleButton.Text = rm.GetString("topHattWaffleButton_text", LanguageManager.Culture);
+            csgoSdkButton.Text = rm.GetString("csgoSdkButton_text", LanguageManager.Culture);
+            moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
+            moreTutorialsLabel.Location = new Point(Convert.ToInt32(rm.GetString("moreTutorialsLabel_X", LanguageManager.Culture)), moreTutorialsLabel.Location.Y);
+        }
+
+        #region Utilies
 
         /// <summary>
         /// Gets current profile name
@@ -306,6 +267,62 @@ namespace Distroir.CustomSDKLauncher.UI
                 returnvalue += c;
 
             return returnvalue;
+        }
+
+        #endregion
+
+        #endregion
+
+        #region Unused
+
+        /// <summary>
+        /// Applies current theme to control
+        /// </summary>
+        void ApplyTheme()
+        {
+            //Get theme
+            UITheme t = UIThemeManager.CurrentTheme;
+
+            //Set colors
+            BackColor = t.BackgroundColor;
+            ForeColor = t.TextColor;
+
+            toolsGroupBox.ForeColor = t.TextColor;
+            tutorialsGroupBox.ForeColor = t.TextColor;
+
+            foreach (Control c in Controls)
+            {
+                try
+                {
+                    Button b = (Button)c;
+                    b.BackColor = t.ButtonColor;
+                }
+                catch { }
+            }
+
+            foreach (Control c in toolsGroupBox.Controls)
+            {
+                try
+                {
+                    Button b = (Button)c;
+                    b.BackColor = t.ButtonColor;
+                }
+                catch { }
+            }
+
+            foreach (Control c in tutorialsGroupBox.Controls)
+            {
+                try
+                {
+                    Button b = (Button)c;
+                    b.BackColor = t.ButtonColor;
+                }
+                catch { }
+            }
+
+            moreTutorialsLabel.ForeColor = t.LinkColor;
+            moreTutorialsLabel.LinkColor = t.LinkColor;
+            moreTutorialsLabel.VisitedLinkColor = t.LinkClickedColor;
         }
 
         #endregion
