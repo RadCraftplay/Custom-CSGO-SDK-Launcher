@@ -15,22 +15,17 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.Windows.Forms;
-
 namespace Custom_SDK_Launcher
 {
-    static class Program
+    class Template
     {
         /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
+        /// Name of template. For example "Counter-Strike: Global Offensive"
         /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
-        }
+        public string Name;
+        /// <summary>
+        /// Name of directory containing "gameinfo.txt" file. For example "csgo"
+        /// </summary>
+        public string GameinfoDirName;
     }
 }

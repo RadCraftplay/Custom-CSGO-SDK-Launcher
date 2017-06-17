@@ -1,11 +1,24 @@
-﻿using Custom_SDK_Launcher;
+﻿/*
+Custom SDK Launcher
+Copyright (C) 2017 Distroir
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace Distroir.Configuration
@@ -94,6 +107,22 @@ namespace Distroir.Configuration
         }
 
         /// <summary>
+        /// Removes object from config
+        /// </summary>
+        /// <param name="name">Name of varriable to remove</param>
+        public static void RemoveVariable(string name)
+        {
+            foreach (Key key in settings)
+            {
+                if (key.name == name)
+                {
+                    settings.Remove(key);
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
         /// Tries to get value of varrible from the config
         /// </summary>
         /// <param name="name">Name of the varriable</param>
@@ -124,7 +153,7 @@ namespace Distroir.Configuration
         /// </summary>
         /// <param name="name">Name of the varriable</param>
         /// <returns>Value of specified varrialbe (as string)</returns>
-        public static object TryReadString(string name)
+        public static string TryReadString(string name)
         {
             return (string)TryReadVariable(name);
         }
@@ -206,9 +235,9 @@ namespace Distroir.Configuration
             }
             catch
             {
-                AddVariable("CSGO_DIR", @"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
+                //AddVariable("CSGO_DIR", @"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
                 AddVariable("FirstLaunch", 1);
-                Utils.UpdateGamedirs(@"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
+                //Utils.UpdateGamedirs(@"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
             }
         }
 

@@ -34,11 +34,11 @@
             this.launchFacePoserButton = new System.Windows.Forms.Button();
             this.launchModelViewerButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.kliksButton = new System.Windows.Forms.Button();
             this.csgoSdkButton = new System.Windows.Forms.Button();
             this.topHattWaffleButton = new System.Windows.Forms.Button();
             this.fmponeButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
-            this.kliksButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +121,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tutorials";
             // 
+            // kliksButton
+            // 
+            this.kliksButton.Image = ((System.Drawing.Image)(resources.GetObject("kliksButton.Image")));
+            this.kliksButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kliksButton.Location = new System.Drawing.Point(6, 106);
+            this.kliksButton.Name = "kliksButton";
+            this.kliksButton.Size = new System.Drawing.Size(203, 23);
+            this.kliksButton.TabIndex = 9;
+            this.kliksButton.Text = "Kliksphilip\'s tutorials";
+            this.kliksButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kliksButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.kliksButton.UseVisualStyleBackColor = true;
+            this.kliksButton.Visible = false;
+            this.kliksButton.Click += new System.EventHandler(this.kliksButton_Click);
+            // 
             // csgoSdkButton
             // 
             this.csgoSdkButton.Image = ((System.Drawing.Image)(resources.GetObject("csgoSdkButton.Image")));
@@ -176,21 +191,6 @@
             this.settingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.settingsButton.UseVisualStyleBackColor = true;
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
-            // 
-            // kliksButton
-            // 
-            this.kliksButton.Image = ((System.Drawing.Image)(resources.GetObject("kliksButton.Image")));
-            this.kliksButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kliksButton.Location = new System.Drawing.Point(6, 106);
-            this.kliksButton.Name = "kliksButton";
-            this.kliksButton.Size = new System.Drawing.Size(203, 23);
-            this.kliksButton.TabIndex = 9;
-            this.kliksButton.Text = "Kliksphilip\'s tutorials";
-            this.kliksButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kliksButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.kliksButton.UseVisualStyleBackColor = true;
-            this.kliksButton.Visible = false;
-            this.kliksButton.Click += new System.EventHandler(this.kliksButton_Click);
             // 
             // Form1
             // 
