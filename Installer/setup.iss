@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Custom CSGO SDK Launcher"
-#define MyAppVersion "2.0"
+#define MyAppVersion "3.0"
 #define MyAppPublisher "Distroir"
 #define MyAppExeName "Custom SDK Launcher.exe"
 
@@ -30,7 +30,11 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Release\Custom SDK Launcher.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\Custom SDK Launcher.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\Distroir.CustomSDKLauncher.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\Distroir.CustomSDKLauncher.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\en\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\en"; Flags: ignoreversion
+Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\pl\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\pl"; Flags: ignoreversion
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\GPL 3.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\FUGUE-README.txt"; DestDir: "{app}"; Flags: ignoreversion
