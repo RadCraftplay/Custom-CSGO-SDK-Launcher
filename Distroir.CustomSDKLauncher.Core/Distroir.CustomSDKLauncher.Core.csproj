@@ -67,9 +67,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Tutorials.xml" />
     <None Include="Resources\Templates.xml" />
     <None Include="Resources\UIThemes.xml" />
+    <None Include="Resources\Tutorials.xml" />
     <Content Include="Tutorials.xml" />
   </ItemGroup>
   <ItemGroup>
