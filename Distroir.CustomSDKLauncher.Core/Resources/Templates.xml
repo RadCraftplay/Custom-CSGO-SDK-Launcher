@@ -29,4 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <Name>Garry's mod</Name>
     <GameinfoDirName>garrysmod</GameinfoDirName>
   </Template>
+  <Template>
+    <Name>Counter-Strike: Source</Name>
+    <GameinfoDirName>cstrike</GameinfoDirName>
+  </Template>
 </ArrayOfTemplate>
