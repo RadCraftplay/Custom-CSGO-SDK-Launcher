@@ -30,23 +30,29 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.profilesTabPage = new System.Windows.Forms.TabPage();
+            this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
             this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
-            this.appnameLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.copyrightLabel = new System.Windows.Forms.Label();
-            this.versionLabel = new System.Windows.Forms.Label();
-            this.gpl3LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ViewLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.gpl3LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.versionLabel = new System.Windows.Forms.Label();
+            this.copyrightLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.appnameLabel = new System.Windows.Forms.Label();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.backupTabPage = new System.Windows.Forms.TabPage();
+            this.createBackupButton = new System.Windows.Forms.Button();
+            this.restoreBackupButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.backupTabPage.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -55,6 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.profilesTabPage);
+            this.tabControl.Controls.Add(this.backupTabPage);
             this.tabControl.Controls.Add(this.aboutTabPage);
             this.tabControl.Location = new System.Drawing.Point(13, 13);
             this.tabControl.Name = "tabControl";
@@ -75,6 +82,16 @@
             this.profilesTabPage.TabIndex = 0;
             this.profilesTabPage.Text = "Profiles";
             this.profilesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // displayCurrentlySelectedProfileCheckBox
+            // 
+            this.displayCurrentlySelectedProfileCheckBox.AutoSize = true;
+            this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(10, 46);
+            this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
+            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(206, 17);
+            this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
+            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected profile name";
+            this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
             // 
             // editListOfProfilesLinkLabel
             // 
@@ -124,75 +141,16 @@
             this.aboutTabPage.Text = "About";
             this.aboutTabPage.UseVisualStyleBackColor = true;
             // 
-            // saveButton
+            // ViewLicenseLinkLabel
             // 
-            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Location = new System.Drawing.Point(276, 202);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(75, 23);
-            this.saveButton.TabIndex = 1;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // displayCurrentlySelectedProfileCheckBox
-            // 
-            this.displayCurrentlySelectedProfileCheckBox.AutoSize = true;
-            this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(10, 46);
-            this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
-            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(206, 17);
-            this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
-            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected profile name";
-            this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // appnameLabel
-            // 
-            this.appnameLabel.AutoSize = true;
-            this.appnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.appnameLabel.Location = new System.Drawing.Point(58, 4);
-            this.appnameLabel.Name = "appnameLabel";
-            this.appnameLabel.Size = new System.Drawing.Size(134, 13);
-            this.appnameLabel.TabIndex = 0;
-            this.appnameLabel.Text = "Custom SDK Launcher";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.appicon;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // copyrightLabel
-            // 
-            this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Location = new System.Drawing.Point(58, 20);
-            this.copyrightLabel.Name = "copyrightLabel";
-            this.copyrightLabel.Size = new System.Drawing.Size(125, 13);
-            this.copyrightLabel.TabIndex = 2;
-            this.copyrightLabel.Text = "Copyright © Distroir 2017";
-            // 
-            // versionLabel
-            // 
-            this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(58, 36);
-            this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(42, 13);
-            this.versionLabel.TabIndex = 3;
-            this.versionLabel.Text = "Version";
-            // 
-            // gpl3LicenseLinkLabel
-            // 
-            this.gpl3LicenseLinkLabel.AutoSize = true;
-            this.gpl3LicenseLinkLabel.Location = new System.Drawing.Point(3, 86);
-            this.gpl3LicenseLinkLabel.Name = "gpl3LicenseLinkLabel";
-            this.gpl3LicenseLinkLabel.Size = new System.Drawing.Size(73, 13);
-            this.gpl3LicenseLinkLabel.TabIndex = 4;
-            this.gpl3LicenseLinkLabel.TabStop = true;
-            this.gpl3LicenseLinkLabel.Text = "GPL 3 license";
-            this.gpl3LicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gpl3LicenseLinkLabel_LinkClicked);
+            this.ViewLicenseLinkLabel.AutoSize = true;
+            this.ViewLicenseLinkLabel.Location = new System.Drawing.Point(3, 70);
+            this.ViewLicenseLinkLabel.Name = "ViewLicenseLinkLabel";
+            this.ViewLicenseLinkLabel.Size = new System.Drawing.Size(44, 13);
+            this.ViewLicenseLinkLabel.TabIndex = 6;
+            this.ViewLicenseLinkLabel.TabStop = true;
+            this.ViewLicenseLinkLabel.Text = "License";
+            this.ViewLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ViewLicenseLinkLabel_LinkClicked);
             // 
             // fugueIconsSetLicenseLinkLabel
             // 
@@ -205,16 +163,113 @@
             this.fugueIconsSetLicenseLinkLabel.Text = "Fugue icons set license";
             this.fugueIconsSetLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fugueIconsSetLicenseLinkLabel_LinkClicked);
             // 
-            // ViewLicenseLinkLabel
+            // gpl3LicenseLinkLabel
             // 
-            this.ViewLicenseLinkLabel.AutoSize = true;
-            this.ViewLicenseLinkLabel.Location = new System.Drawing.Point(3, 70);
-            this.ViewLicenseLinkLabel.Name = "ViewLicenseLinkLabel";
-            this.ViewLicenseLinkLabel.Size = new System.Drawing.Size(44, 13);
-            this.ViewLicenseLinkLabel.TabIndex = 6;
-            this.ViewLicenseLinkLabel.TabStop = true;
-            this.ViewLicenseLinkLabel.Text = "License";
-            this.ViewLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ViewLicenseLinkLabel_LinkClicked);
+            this.gpl3LicenseLinkLabel.AutoSize = true;
+            this.gpl3LicenseLinkLabel.Location = new System.Drawing.Point(3, 86);
+            this.gpl3LicenseLinkLabel.Name = "gpl3LicenseLinkLabel";
+            this.gpl3LicenseLinkLabel.Size = new System.Drawing.Size(73, 13);
+            this.gpl3LicenseLinkLabel.TabIndex = 4;
+            this.gpl3LicenseLinkLabel.TabStop = true;
+            this.gpl3LicenseLinkLabel.Text = "GPL 3 license";
+            this.gpl3LicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gpl3LicenseLinkLabel_LinkClicked);
+            // 
+            // versionLabel
+            // 
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Location = new System.Drawing.Point(58, 36);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(42, 13);
+            this.versionLabel.TabIndex = 3;
+            this.versionLabel.Text = "Version";
+            // 
+            // copyrightLabel
+            // 
+            this.copyrightLabel.AutoSize = true;
+            this.copyrightLabel.Location = new System.Drawing.Point(58, 20);
+            this.copyrightLabel.Name = "copyrightLabel";
+            this.copyrightLabel.Size = new System.Drawing.Size(125, 13);
+            this.copyrightLabel.TabIndex = 2;
+            this.copyrightLabel.Text = "Copyright © Distroir 2017";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.appicon;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(4, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(48, 48);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // appnameLabel
+            // 
+            this.appnameLabel.AutoSize = true;
+            this.appnameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.appnameLabel.Location = new System.Drawing.Point(58, 4);
+            this.appnameLabel.Name = "appnameLabel";
+            this.appnameLabel.Size = new System.Drawing.Size(134, 13);
+            this.appnameLabel.TabIndex = 0;
+            this.appnameLabel.Text = "Custom SDK Launcher";
+            // 
+            // saveButton
+            // 
+            this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveButton.Location = new System.Drawing.Point(276, 202);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 1;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // backupTabPage
+            // 
+            this.backupTabPage.Controls.Add(this.groupBox1);
+            this.backupTabPage.Location = new System.Drawing.Point(4, 22);
+            this.backupTabPage.Name = "backupTabPage";
+            this.backupTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.backupTabPage.Size = new System.Drawing.Size(330, 157);
+            this.backupTabPage.TabIndex = 2;
+            this.backupTabPage.Text = "Backups";
+            this.backupTabPage.UseVisualStyleBackColor = true;
+            // 
+            // createBackupButton
+            // 
+            this.createBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.createBackupButton.Location = new System.Drawing.Point(6, 25);
+            this.createBackupButton.Name = "createBackupButton";
+            this.createBackupButton.Size = new System.Drawing.Size(306, 23);
+            this.createBackupButton.TabIndex = 0;
+            this.createBackupButton.Text = "Create backup";
+            this.createBackupButton.UseVisualStyleBackColor = true;
+            this.createBackupButton.Click += new System.EventHandler(this.createBackupButton_Click);
+            // 
+            // restoreBackupButton
+            // 
+            this.restoreBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.restoreBackupButton.Location = new System.Drawing.Point(6, 60);
+            this.restoreBackupButton.Name = "restoreBackupButton";
+            this.restoreBackupButton.Size = new System.Drawing.Size(306, 23);
+            this.restoreBackupButton.TabIndex = 0;
+            this.restoreBackupButton.Text = "Restore backup";
+            this.restoreBackupButton.UseVisualStyleBackColor = true;
+            this.restoreBackupButton.Click += new System.EventHandler(this.restoreBackupButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.createBackupButton);
+            this.groupBox1.Controls.Add(this.restoreBackupButton);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(318, 100);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Settings and profiles";
             // 
             // SettingsDialog
             // 
@@ -236,6 +291,8 @@
             this.aboutTabPage.ResumeLayout(false);
             this.aboutTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.backupTabPage.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -257,5 +314,9 @@
         private System.Windows.Forms.LinkLabel fugueIconsSetLicenseLinkLabel;
         private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
+        private System.Windows.Forms.TabPage backupTabPage;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button createBackupButton;
+        private System.Windows.Forms.Button restoreBackupButton;
     }
 }

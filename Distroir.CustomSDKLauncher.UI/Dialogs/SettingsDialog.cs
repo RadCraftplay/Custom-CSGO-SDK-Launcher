@@ -67,19 +67,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             saveButton.Text = rm.GetString("saveButton_text", LanguageManager.Culture);
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //Create dialog
-            var v = new ProfileListEditDialog();
-
-            //Show dialog
-            if (v.ShowDialog() == DialogResult.OK)
-            {
-                //Refresh profile list
-                RefreshList();
-            }
-        }
-
         void UpdateControls()
         {
             //Refresh list of profiles
@@ -110,9 +97,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
         }
 
-        private void saveButton_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Saves settings
+        /// </summary>
+        void SaveSettings()
         {
-            //Save settings
             //Save current profile ID
             Config.AddVariable("SelectedProfileId", profileListComboBox.SelectedIndex);
 
@@ -121,6 +110,27 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 Config.AddVariable("DisplayCurrentProfileName", 1);
             else
                 Config.AddVariable("DisplayCurrentProfileName", 0);
+        }
+
+        #region Events
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            //Create dialog
+            var v = new ProfileListEditDialog();
+
+            //Show dialog
+            if (v.ShowDialog() == DialogResult.OK)
+            {
+                //Refresh profile list
+                RefreshList();
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            //Save settings
+            SaveSettings();
 
             //Close dialog
             Close();
@@ -142,5 +152,51 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             var l = new LicenseDialog(Resources.Licenses.FUGUE_README);
             l.ShowDialog();
         }
+
+        private void createBackupButton_Click(object sender, EventArgs e)
+        {
+            //Create dialog
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                //Set filter
+                sfd.Filter = "Backup files|*.dbak";
+
+                //If User pressed ok
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    //Save settings
+                    Config.Save();
+                    ProfileManager.SaveProfiles();
+
+                    //Do backup
+                    BackupManager m = new BackupManager(sfd.FileName, BackupMode.Backup);
+                    m.Backup();
+                }
+            }
+        }
+
+        private void restoreBackupButton_Click(object sender, EventArgs e)
+        {
+            //Create dialog
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                //Set filter
+                ofd.Filter = "Backup files|*.dbak";
+
+                //If User pressed ok
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    //Restore backup
+                    BackupManager m = new BackupManager(ofd.FileName, BackupMode.Restore);
+                    m.Restore();
+
+                    //Restore settings
+                    Config.Load();
+                    UpdateControls();
+                }
+            }
+        }
+
+        #endregion
     }
 }

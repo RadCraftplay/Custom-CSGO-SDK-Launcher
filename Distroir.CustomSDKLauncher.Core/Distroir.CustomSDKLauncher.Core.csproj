@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackupEntry.cs" />
+    <Compile Include="BackupManager.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Data.Designer.cs">
       <AutoGen>True</AutoGen>
