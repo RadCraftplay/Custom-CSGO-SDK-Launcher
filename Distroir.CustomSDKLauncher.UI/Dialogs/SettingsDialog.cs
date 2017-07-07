@@ -169,7 +169,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     ProfileManager.SaveProfiles();
 
                     //Do backup
-                    BackupManager m = new BackupManager(sfd.FileName, BackupMode.Backup);
+                    BackupManager m = new BackupManager(sfd.FileName);
                     m.Backup();
                 }
             }
@@ -187,7 +187,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     //Restore backup
-                    BackupManager m = new BackupManager(ofd.FileName, BackupMode.Restore);
+                    BackupManager m = new BackupManager(ofd.FileName);
                     m.Restore();
 
                     //Restore settings

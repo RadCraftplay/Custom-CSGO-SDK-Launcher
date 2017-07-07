@@ -30,19 +30,12 @@ namespace Distroir.CustomSDKLauncher.Core
         /// </summary>
         FileStream Stream;
         /// <summary>
-        /// Mode (Backup/restore)
-        /// </summary>
-        BackupMode Mode;
-        /// <summary>
         /// Directory where backup will be restored to
         /// </summary>
         string Destination = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher");
 
-        public BackupManager(string filename, BackupMode mode)
+        public BackupManager(string filename)
         {
-            //Set mode
-            Mode = mode;
-
             //Create stream
             Stream = new FileStream(filename, FileMode.OpenOrCreate);
         }
@@ -50,50 +43,30 @@ namespace Distroir.CustomSDKLauncher.Core
         /// <summary>
         /// Creates backup
         /// </summary>
-        /// <exception cref="InvalidModeException"></exception>
         public void Backup()
         {
-            //Check if mode is valid
-            if (Mode == BackupMode.Backup)
-            {
-                //List of files, that will be backed up
-                List<string> FileNames = new List<string>()
+            //List of files, that will be backed up
+            List<string> FileNames = new List<string>()
                 {
                     Configuration.Config.destination,
                     ProfileManager.ProfileListFilename
                 };
 
-                //Create entries
-                List<BackupEntry> entries = CreateEntries(FileNames);
-                //Calculate offsets of files
-                CalculateOffsets(entries);
-                //Write backup
-                WriteBackup(entries);
-            }
-            else
-            {
-                //Throw exception
-                throw new InvalidModeException();
-            }
+            //Create entries
+            List<BackupEntry> entries = CreateEntries(FileNames);
+            //Calculate offsets of files
+            CalculateOffsets(entries);
+            //Write backup
+            WriteBackup(entries);
         }
 
         /// <summary>
         /// Restores backup from file
         /// </summary>
-        /// <exception cref="InvalidModeException"></exception>
         public void Restore()
         {
-            //Check if mode is valid
-            if (Mode == BackupMode.Restore)
-            {
-                //Restore all files
-                RestoreBackup();
-            }
-            else
-            {
-                //Throw exception
-                throw new InvalidModeException();
-            }
+            //Restore all files
+            RestoreBackup();
         }
 
         #region Backing up
@@ -304,20 +277,5 @@ namespace Distroir.CustomSDKLauncher.Core
                 }
             }
         }
-    }
-
-    //If backup mode is wrong, this exception will be thrown
-    public class InvalidModeException : Exception
-    {
-        public override string Message => "Invalid mode of backup";
-    }
-
-    /// <summary>
-    /// Mode of backup
-    /// </summary>
-    public enum BackupMode
-    {
-        Backup,
-        Restore
     }
 }
