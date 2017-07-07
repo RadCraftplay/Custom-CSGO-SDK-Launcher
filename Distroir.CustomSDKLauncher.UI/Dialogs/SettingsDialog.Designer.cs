@@ -34,6 +34,10 @@
             this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
+            this.backupTabPage = new System.Windows.Forms.TabPage();
+            this.settingsAndProfilesGroupBox = new System.Windows.Forms.GroupBox();
+            this.createBackupButton = new System.Windows.Forms.Button();
+            this.restoreBackupButton = new System.Windows.Forms.Button();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
             this.ViewLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -43,16 +47,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.backupTabPage = new System.Windows.Forms.TabPage();
-            this.createBackupButton = new System.Windows.Forms.Button();
-            this.restoreBackupButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
+            this.backupTabPage.SuspendLayout();
+            this.settingsAndProfilesGroupBox.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.backupTabPage.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -124,6 +124,54 @@
             this.profileListComboBox.Name = "profileListComboBox";
             this.profileListComboBox.Size = new System.Drawing.Size(272, 21);
             this.profileListComboBox.TabIndex = 1;
+            // 
+            // backupTabPage
+            // 
+            this.backupTabPage.Controls.Add(this.settingsAndProfilesGroupBox);
+            this.backupTabPage.Location = new System.Drawing.Point(4, 22);
+            this.backupTabPage.Name = "backupTabPage";
+            this.backupTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.backupTabPage.Size = new System.Drawing.Size(330, 157);
+            this.backupTabPage.TabIndex = 2;
+            this.backupTabPage.Text = "Backups";
+            this.backupTabPage.UseVisualStyleBackColor = true;
+            // 
+            // settingsAndProfilesGroupBox
+            // 
+            this.settingsAndProfilesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsAndProfilesGroupBox.Controls.Add(this.createBackupButton);
+            this.settingsAndProfilesGroupBox.Controls.Add(this.restoreBackupButton);
+            this.settingsAndProfilesGroupBox.Location = new System.Drawing.Point(6, 6);
+            this.settingsAndProfilesGroupBox.Name = "settingsAndProfilesGroupBox";
+            this.settingsAndProfilesGroupBox.Size = new System.Drawing.Size(318, 100);
+            this.settingsAndProfilesGroupBox.TabIndex = 2;
+            this.settingsAndProfilesGroupBox.TabStop = false;
+            this.settingsAndProfilesGroupBox.Text = "Settings and profiles";
+            // 
+            // createBackupButton
+            // 
+            this.createBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.createBackupButton.Location = new System.Drawing.Point(6, 25);
+            this.createBackupButton.Name = "createBackupButton";
+            this.createBackupButton.Size = new System.Drawing.Size(306, 23);
+            this.createBackupButton.TabIndex = 0;
+            this.createBackupButton.Text = "Create backup";
+            this.createBackupButton.UseVisualStyleBackColor = true;
+            this.createBackupButton.Click += new System.EventHandler(this.createBackupButton_Click);
+            // 
+            // restoreBackupButton
+            // 
+            this.restoreBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.restoreBackupButton.Location = new System.Drawing.Point(6, 60);
+            this.restoreBackupButton.Name = "restoreBackupButton";
+            this.restoreBackupButton.Size = new System.Drawing.Size(306, 23);
+            this.restoreBackupButton.TabIndex = 0;
+            this.restoreBackupButton.Text = "Restore backup";
+            this.restoreBackupButton.UseVisualStyleBackColor = true;
+            this.restoreBackupButton.Click += new System.EventHandler(this.restoreBackupButton_Click);
             // 
             // aboutTabPage
             // 
@@ -223,54 +271,6 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // backupTabPage
-            // 
-            this.backupTabPage.Controls.Add(this.groupBox1);
-            this.backupTabPage.Location = new System.Drawing.Point(4, 22);
-            this.backupTabPage.Name = "backupTabPage";
-            this.backupTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.backupTabPage.Size = new System.Drawing.Size(330, 157);
-            this.backupTabPage.TabIndex = 2;
-            this.backupTabPage.Text = "Backups";
-            this.backupTabPage.UseVisualStyleBackColor = true;
-            // 
-            // createBackupButton
-            // 
-            this.createBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.createBackupButton.Location = new System.Drawing.Point(6, 25);
-            this.createBackupButton.Name = "createBackupButton";
-            this.createBackupButton.Size = new System.Drawing.Size(306, 23);
-            this.createBackupButton.TabIndex = 0;
-            this.createBackupButton.Text = "Create backup";
-            this.createBackupButton.UseVisualStyleBackColor = true;
-            this.createBackupButton.Click += new System.EventHandler(this.createBackupButton_Click);
-            // 
-            // restoreBackupButton
-            // 
-            this.restoreBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.restoreBackupButton.Location = new System.Drawing.Point(6, 60);
-            this.restoreBackupButton.Name = "restoreBackupButton";
-            this.restoreBackupButton.Size = new System.Drawing.Size(306, 23);
-            this.restoreBackupButton.TabIndex = 0;
-            this.restoreBackupButton.Text = "Restore backup";
-            this.restoreBackupButton.UseVisualStyleBackColor = true;
-            this.restoreBackupButton.Click += new System.EventHandler(this.restoreBackupButton_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.createBackupButton);
-            this.groupBox1.Controls.Add(this.restoreBackupButton);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 100);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Settings and profiles";
-            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,11 +288,11 @@
             this.tabControl.ResumeLayout(false);
             this.profilesTabPage.ResumeLayout(false);
             this.profilesTabPage.PerformLayout();
+            this.backupTabPage.ResumeLayout(false);
+            this.settingsAndProfilesGroupBox.ResumeLayout(false);
             this.aboutTabPage.ResumeLayout(false);
             this.aboutTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.backupTabPage.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -315,7 +315,7 @@
         private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
         private System.Windows.Forms.TabPage backupTabPage;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox settingsAndProfilesGroupBox;
         private System.Windows.Forms.Button createBackupButton;
         private System.Windows.Forms.Button restoreBackupButton;
     }

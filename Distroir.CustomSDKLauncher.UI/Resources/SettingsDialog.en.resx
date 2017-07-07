@@ -147,4 +147,16 @@
   <data name="settingsDialog_text" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="backupTabPage_text" xml:space="preserve">
+    <value>Backups</value>
+  </data>
+  <data name="createBackupButton_text" xml:space="preserve">
+    <value>Create backup</value>
+  </data>
+  <data name="restoreBackupButton_text" xml:space="preserve">
+    <value>Restore backup</value>
+  </data>
+  <data name="settingsAndProfilesGroupBox_text" xml:space="preserve">
+    <value>Settings and profiles</value>
+  </data>
 </root>

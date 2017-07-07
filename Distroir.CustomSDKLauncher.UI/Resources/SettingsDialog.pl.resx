@@ -147,4 +147,16 @@
   <data name="settingsDialog_text" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
+  <data name="backupTabPage_text" xml:space="preserve">
+    <value>Kopie zapasowe</value>
+  </data>
+  <data name="createBackupButton_text" xml:space="preserve">
+    <value>Stwórz kopię zapasową</value>
+  </data>
+  <data name="restoreBackupButton_text" xml:space="preserve">
+    <value>Przywróć kopię zapasową</value>
+  </data>
+  <data name="settingsAndProfilesGroupBox_text" xml:space="preserve">
+    <value>Ustawienia i profile</value>
+  </data>
 </root>

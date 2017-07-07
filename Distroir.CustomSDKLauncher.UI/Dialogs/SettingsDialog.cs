@@ -34,7 +34,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Apply settings to controls
             UpdateControls();
             //Apply translations
-            ApplyTranslations();
+            //TODO: Remove comment
+            //ApplyTranslations();
         }
 
         void ApplyTranslations()
@@ -47,6 +48,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Tab pages
             profilesTabPage.Text = rm.GetString("profilesTabPage_text", LanguageManager.Culture);
             aboutTabPage.Text = rm.GetString("aboutTabPage_text", LanguageManager.Culture);
+            backupTabPage.Text = rm.GetString("backupTabPage_text", LanguageManager.Culture);
 
             //ProfilesTabPage
             profileLabel.Text = rm.GetString("profileLabel_text", LanguageManager.Culture);
@@ -65,6 +67,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             displayCurrentlySelectedProfileCheckBox.Text = rm.GetString("displayCurrentlySelectedProfileCheckBox_text", LanguageManager.Culture);
             saveButton.Text = rm.GetString("saveButton_text", LanguageManager.Culture);
+
+            //backupTabPage
+            settingsAndProfilesGroupBox.Text = rm.GetString("settingsAndProfilesGroupBox_text", LanguageManager.Culture);
+            createBackupButton.Text = rm.GetString("createBackupButton_text", LanguageManager.Culture);
+            restoreBackupButton.Text = rm.GetString("restoreBackupButton_text", LanguageManager.Culture);
         }
 
         void UpdateControls()
