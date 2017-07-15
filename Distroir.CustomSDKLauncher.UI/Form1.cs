@@ -58,7 +58,7 @@ namespace Distroir.CustomSDKLauncher.UI
             InitializeComponent();
 
             //Apply translations to controls
-            ApplyTranslations();
+            UpdateToolsGroupBoxText();
 
             //Unused: Apply theme to UI
             //ApplyTheme();
@@ -186,7 +186,7 @@ namespace Distroir.CustomSDKLauncher.UI
             ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
             
             //GroupBoxes
-            UpdateToolsGroupBoxText(rm);
+            UpdateToolsGroupBoxText();
             tutorialsGroupBox.Text = rm.GetString("tutorialsGroupBox_text", LanguageManager.Culture);
             //Form1 controls
             settingsButton.Text = rm.GetString("settingsButton_text", LanguageManager.Culture);
@@ -218,19 +218,20 @@ namespace Distroir.CustomSDKLauncher.UI
             return p.ProfileName;
         }
 
-        /// <summary>
-        /// Changes text inside toolsGroupBox control
-        /// </summary>
-        void UpdateToolsGroupBoxText()
-        {
-            ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
-            UpdateToolsGroupBoxText(rm);
-        }
+        ///// <summary>
+        ///// Changes text inside toolsGroupBox control
+        ///// </summary>
+        //void UpdateToolsGroupBoxText()
+        //{
+        //    ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
+        //    UpdateToolsGroupBoxText(rm);
+        //}
 
         /// <summary>
         /// Changes text inside toolsGroupBox control
         /// </summary>
         /// <param name="rm">Resource manager</param>
+        [Obsolete]
         void UpdateToolsGroupBoxText(ResourceManager rm)
         {
             if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
@@ -244,6 +245,26 @@ namespace Distroir.CustomSDKLauncher.UI
             {
                 //Set text
                 toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+            }
+        }
+
+        /// <summary>
+        /// Changes text inside toolsGroupBox control
+        /// </summary>
+        /// <param name="rm">Resource manager</param>
+        void UpdateToolsGroupBoxText()
+        {
+            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            {
+                //Set text
+                string text = string.Format("Tools - {0}", GetCurrentProfileName());
+                text = CutStringIfTooBig(text, 40);
+                toolsGroupBox.Text = text;
+            }
+            else
+            {
+                //Set text
+                toolsGroupBox.Text = "Tools";
             }
         }
 

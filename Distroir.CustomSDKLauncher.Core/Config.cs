@@ -244,6 +244,7 @@ namespace Distroir.Configuration
 
         #endregion
 
+        [Serializable]
         public class KeyNotFoundException : Exception
         {
             public override string Message => "Key with matching name not found";
