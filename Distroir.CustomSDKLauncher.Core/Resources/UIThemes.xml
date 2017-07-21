@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Custom SDK Launcher
+Copyright (C) 2017 Distroir
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<ArrayOfUITheme xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <UITheme>
+    <Name>Light</Name>
+    <BackgroundColor>-986896</BackgroundColor>
+    <TextColor>-16777216</TextColor>
+    <ButtonColor>-986896</ButtonColor>
+    <ButtonTextColor>-16777216</ButtonTextColor>
+    <LinkColor>-16776961</LinkColor>
+    <LinkClickedColor>-7722014</LinkClickedColor>
+  </UITheme>
+  <UITheme>
+    <Name>Dark</Name>
+    <BackgroundColor>-9868951</BackgroundColor>
+    <TextColor>-1</TextColor>
+    <ButtonColor>-9868951</ButtonColor>
+    <ButtonTextColor>-1</ButtonTextColor>
+    <LinkColor>-12004916</LinkColor>
+    <LinkClickedColor>-8689426</LinkClickedColor>
+  </UITheme>
+</ArrayOfUITheme>
