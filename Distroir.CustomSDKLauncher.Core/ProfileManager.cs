@@ -26,7 +26,7 @@ namespace Distroir.CustomSDKLauncher.Core
     public class ProfileManager
     {
         /// <summary>
-        /// Full path to file containing list of profiles
+        /// Full path of file containing list of profiles
         /// </summary>
         public static string ProfileListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "profiles.xml");
 
