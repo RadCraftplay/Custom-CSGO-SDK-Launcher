@@ -68,7 +68,7 @@ namespace Distroir.CustomSDKLauncher.Core
             {
                 //Clear list of profiles
                 Profiles.Clear();
-                //Load profile list to memory
+                //Load list of profiles to memory
                 Profiles = GetProfiles().ToList();
             }
         }
