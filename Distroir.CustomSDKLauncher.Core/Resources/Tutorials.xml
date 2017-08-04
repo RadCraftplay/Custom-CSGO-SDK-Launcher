@@ -40,7 +40,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <Tutorial>
     <Name>"Man vs. Engine" by will2k</Name>
     <Url>http://gamebanana.com/tuts/11178</Url>
-    <Game>Counter-Strike: Global Offensive</Game>
+    <Game>Source Engine</Game>
+  </Tutorial>
+  <Tutorial>
+    <Name>"Optimization Testing in Source Engine" by will2k</Name>
+    <Url>http://gamebanana.com/tuts/11586</Url>
+    <Game>Source Engine</Game>
   </Tutorial>
   <Tutorial>
     <Name>TF2 Mapping Tutorials by UEAKCrash</Name>
