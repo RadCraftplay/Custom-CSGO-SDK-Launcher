@@ -64,9 +64,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             {
                 //Bug: Fix dialog closing when child dialog is being closed without adding profile
 
-                //Close dialog
-                Close();
-
                 //Create dialog
                 var v = new EditItemDialog((Template)templateListView.SelectedItems[0].Tag);
                 //Get parent control
@@ -78,6 +75,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     //Add ListViewItem
                     f.Profiles.Add(v.Profile);
                     f.AddIem(v.Profile);
+
+                    //Close dialog
+                    Close();
                 }
             }
         }
