@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Distroir.CustomSDKLauncher.UI.Properties {
-    using System;
-    
-    
+namespace Distroir.CustomSDKLauncher.UI.Properties
+{
+
+
     /// <summary>
     ///   Klasa zasobu wymagająca zdefiniowania typu do wyszukiwania zlokalizowanych ciągów itd.
     /// </summary>
