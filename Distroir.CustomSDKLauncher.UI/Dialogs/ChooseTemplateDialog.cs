@@ -62,8 +62,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             if (templateListView.SelectedItems.Count > 0)
             {
-                //Bug: Fix dialog closing when child dialog is being closed without adding profile
-
                 //Create dialog
                 var v = new EditItemDialog((Template)templateListView.SelectedItems[0].Tag);
                 //Get parent control
