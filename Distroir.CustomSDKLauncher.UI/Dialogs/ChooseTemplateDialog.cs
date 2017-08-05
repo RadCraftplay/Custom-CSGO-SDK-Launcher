@@ -62,6 +62,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             if (templateListView.SelectedItems.Count > 0)
             {
+                //Bug: Fix dialog closing when child dialog is being closed without adding profile
+
                 //Close dialog
                 Close();
 

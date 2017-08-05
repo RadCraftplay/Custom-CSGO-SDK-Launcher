@@ -24,6 +24,7 @@ using System.Xml.Serialization;
 
 namespace Distroir.CustomSDKLauncher.Core
 {
+    //Bug: Fix tf2 template: Replace gamedir tf2 with tf
     public class TemplateManager
     {
         public static List<Template> Templates = new List<Template>();

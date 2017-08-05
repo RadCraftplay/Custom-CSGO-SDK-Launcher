@@ -23,7 +23,6 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    //TODO: Add skins
     //TODO: Add language selection
     public partial class SettingsDialog : Form
     {

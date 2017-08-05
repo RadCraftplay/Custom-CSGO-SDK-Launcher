@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BackupEntry.cs" />
     <Compile Include="BackupManager.cs" />
+    <Compile Include="Compressor.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Data.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -72,7 +73,6 @@
     <None Include="Resources\Templates.xml" />
     <None Include="Resources\UIThemes.xml" />
     <None Include="Resources\Tutorials.xml" />
-    <Content Include="Tutorials.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Data.resx">
