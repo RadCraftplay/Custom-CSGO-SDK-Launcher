@@ -55,7 +55,7 @@ namespace Distroir.CustomSDKLauncher.Core
             Template tf2 = new Template()
             {
                 Name = "Team Fortress 2",
-                GameinfoDirName = "tf2"
+                GameinfoDirName = "tf"
             };
             Template gmod = new Template()
             {
