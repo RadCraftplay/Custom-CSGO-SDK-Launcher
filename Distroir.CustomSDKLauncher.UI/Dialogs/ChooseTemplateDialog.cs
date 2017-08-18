@@ -15,15 +15,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core;
+using System;
+using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
@@ -62,9 +56,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             if (templateListView.SelectedItems.Count > 0)
             {
-                //Close dialog
-                Close();
-
                 //Create dialog
                 var v = new EditItemDialog((Template)templateListView.SelectedItems[0].Tag);
                 //Get parent control
@@ -76,6 +67,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     //Add ListViewItem
                     f.Profiles.Add(v.Profile);
                     f.AddIem(v.Profile);
+
+                    //Close dialog
+                    Close();
                 }
             }
         }

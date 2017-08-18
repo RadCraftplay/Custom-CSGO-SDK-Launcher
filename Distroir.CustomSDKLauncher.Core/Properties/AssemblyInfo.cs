@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // Ogólne informacje o zestawie są kontrolowane poprzez następujący 
@@ -49,5 +48,5 @@ using System.Runtime.InteropServices;
 // Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("3.0.0.0")]
-[assembly: AssemblyFileVersion("3.0.0.0")]
+[assembly: AssemblyVersion("3.1.0.0")]
+[assembly: AssemblyFileVersion("3.1.0.0")]

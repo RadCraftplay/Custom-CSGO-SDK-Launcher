@@ -15,14 +15,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
+using Distroir.Configuration;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
-using System.Drawing;
-using Distroir.Configuration;
 
 namespace Distroir.CustomSDKLauncher.Core
 {

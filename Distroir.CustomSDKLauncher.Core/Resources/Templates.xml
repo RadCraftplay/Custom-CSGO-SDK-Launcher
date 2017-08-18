@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   </Template>
   <Template>
     <Name>Team Fortress 2</Name>
-    <GameinfoDirName>tf2</GameinfoDirName>
+    <GameinfoDirName>tf</GameinfoDirName>
   </Template>
   <Template>
     <Name>Garry's mod</Name>

@@ -15,12 +15,9 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace Distroir.CustomSDKLauncher.Core
@@ -56,27 +53,22 @@ namespace Distroir.CustomSDKLauncher.Core
             Tutorial t1 = new Tutorial(
                 "Fmpone's tutorials",
                 "https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos",
-                Image.FromFile(@"C:\Users\x\Desktop\Projects\icons\Custom CSGO SDK Launcher\tutorials\fmpone.jpg"),
                 "Counter-Strike: Global Offensive");
             Tutorial t2 = new Tutorial(
                 "TopHATTwaffle's tutorials",
                 "https://www.youtube.com/playlist?list=PL-454Fe3dQH0WCzAsmydsr24NFaFrNC_h",
-                Image.FromFile(@"C:\Users\x\Desktop\Projects\icons\Custom CSGO SDK Launcher\tutorials\thw.jpg"),
                 "Counter-Strike: Global Offensive");
             Tutorial t3 = new Tutorial(
                 "Valve tutorials",
                 "https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Level_Creation",
-                Image.FromFile(@"C:\Users\x\Desktop\Projects\icons\Custom CSGO SDK Launcher\tutorials\volvo.png"),
                 "Counter-Strike: Global Offensive");
             Tutorial t4 = new Tutorial(
                 "Kliksphilip's tutorials",
                 "https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3",
-                Image.FromFile(@"C:\Users\x\Desktop\Projects\icons\Custom CSGO SDK Launcher\tutorials\kliks.png"),
                 "Counter-Strike: Global Offensive");
             Tutorial t5 = new Tutorial(
                 string.Format("{0}Man vs. Engine{0} by will2k", '"'),
                 "http://gamebanana.com/tuts/11178",
-                Image.FromFile(@"C:\Users\x\Desktop\Projects\icons\Custom CSGO SDK Launcher\tutorials\will2k.jpg"),
                 "Counter-Strike: Global Offensive");
 
             //Add tutorials

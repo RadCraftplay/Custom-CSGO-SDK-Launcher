@@ -17,12 +17,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace Distroir.CustomSDKLauncher.Core
 {
+    //TODO: Version 2 of backups: Compress entries
     public class BackupManager
     {
         /// <summary>
@@ -181,6 +180,7 @@ namespace Distroir.CustomSDKLauncher.Core
         void WriteFile(BackupEntry e, BinaryWriter w)
         {
             FileStream s = new FileStream(e.FullName, FileMode.Open);
+
             byte[] File = new byte[s.Length];
 
             //Get file content
@@ -210,6 +210,8 @@ namespace Distroir.CustomSDKLauncher.Core
 
         #endregion
 
+        #region Restoring
+
         void RestoreBackup()
         {
             BinaryReader r = new BinaryReader(Stream);
@@ -230,9 +232,19 @@ namespace Distroir.CustomSDKLauncher.Core
             }
 
             //Read files
-            foreach (BackupEntry e in entries)
+            if (version == 0)
             {
-                RestoreFile(r, e, Destination);
+                foreach (BackupEntry e in entries)
+                {
+                    RestoreFile(r, e, Destination);
+                }
+            }
+            if (version == 1)
+            {
+                foreach (BackupEntry e in entries)
+                {
+                    RestoreFileVersion1(r, e, Destination);
+                }
             }
         }
 
@@ -277,5 +289,49 @@ namespace Distroir.CustomSDKLauncher.Core
                 }
             }
         }
+
+        /// <summary>
+        /// Restores file from backup
+        /// </summary>
+        /// <param name="r">BinaryReader of backup file</param>
+        /// <param name="e">BackupEntry used to get informations about file</param>
+        /// <param name="directory">Destination directory of file</param>
+        private void RestoreFileVersion1(BinaryReader r, BackupEntry e, string directory)
+        {
+            string filename = Path.Combine(directory, e.FileName);
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                using (BinaryWriter w = new BinaryWriter(ms))
+                {
+                    //Set offset [Skipped]
+                    //Reason: Unnecessary
+                    //r.BaseStream.Position = e.Offset;
+
+                    //Read bytes
+                    byte[] data = r.ReadBytes(e.Length);
+
+                    //Write data
+                    foreach (byte b in data)
+                    {
+                        w.Write(b);
+                    }
+                }
+
+                using (FileStream fs = new FileStream(filename, FileMode.Create))
+                {
+                    //Decompress stream and write file content
+                    Compressor.GZipDecompress(ms, fs);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Compression utilies
+
+
+
+        #endregion
     }
 }
