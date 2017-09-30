@@ -33,4 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <Name>Counter-Strike: Source</Name>
     <GameinfoDirName>cstrike</GameinfoDirName>
   </Template>
+  <Template>
+    <Name>Insurgency</Name>
+    <GameinfoDirName>insurgency</GameinfoDirName>
+  </Template>
 </ArrayOfTemplate>
