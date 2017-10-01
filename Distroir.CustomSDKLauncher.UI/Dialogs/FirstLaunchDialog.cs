@@ -86,7 +86,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 {
                     //Inform user that directory does not exist
                     MessageBox.Show("Directory does not exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Re-enable textBox
+                    //Re-enable control
                     Enabled = true;
                     //Skip rest of the method
                     return;
@@ -104,9 +104,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     gameDirectoryTextBox.Text.Length == 0 ||
                     gameinfoDirectoryTextBox.Text.Length == 0)
                 {
-                    //Inform user that directory does not exist
+                    //Inform user that he need to fill all fields
                     MessageBox.Show("You need to fill all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Re-enable textBox
+                    //Re-enable control
                     Enabled = true;
                     //Skip rest of the method
                     return;
