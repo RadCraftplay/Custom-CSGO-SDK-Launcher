@@ -168,7 +168,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Create FolderBrowserDialog
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             //Set path
-            fbd.SelectedPath = directoryTextBox.Text;
+            fbd.SelectedPath = gameDirectoryTextBox.Text;
 
             //Show dialog
             if (fbd.ShowDialog() == DialogResult.OK)
