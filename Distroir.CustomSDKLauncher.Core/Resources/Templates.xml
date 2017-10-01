@@ -20,21 +20,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <Template>
     <Name>Counter-Strike: Global Offensive</Name>
     <GameinfoDirName>csgo</GameinfoDirName>
+    <GameDirName>Counter-Strike Global Offensive</GameDirName>
   </Template>
   <Template>
     <Name>Team Fortress 2</Name>
     <GameinfoDirName>tf</GameinfoDirName>
+    <GameDirName>Team Fortress 2</GameDirName>
   </Template>
   <Template>
     <Name>Garry's mod</Name>
     <GameinfoDirName>garrysmod</GameinfoDirName>
+    <GameDirName>GarrysMod</GameDirName>
   </Template>
   <Template>
     <Name>Counter-Strike: Source</Name>
     <GameinfoDirName>cstrike</GameinfoDirName>
+    <GameDirName>Counter-Strike Source</GameDirName>
   </Template>
   <Template>
     <Name>Insurgency</Name>
     <GameinfoDirName>insurgency</GameinfoDirName>
+    <GameDirName>insurgency2</GameDirName>
   </Template>
 </ArrayOfTemplate>

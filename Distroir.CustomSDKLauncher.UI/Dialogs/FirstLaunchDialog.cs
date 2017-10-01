@@ -28,6 +28,33 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         public FirstLaunchDialog()
         {
             InitializeComponent();
+
+            //Load templates
+            TemplateManager.LoadTemplates();
+
+            //Reload list
+            ReloadList();
+
+            //Change game directory
+            directoryTextBox.Text = Utils.CombineDefaultGameDirName(TemplateManager.Templates[0].GameDirName);
+        }
+
+        /// <summary>
+        /// Reloads list of templates inside combo box
+        /// </summary>
+        void ReloadList()
+        {
+            //Clear list of items
+            gameComboBox.Items.Clear();
+
+            //Add templates
+            foreach (Template t in TemplateManager.Templates)
+            {
+                gameComboBox.Items.Add(t);
+            }
+
+            //Select first item
+            gameComboBox.SelectedIndex = 0;
         }
 
         private void selectDirectoryButton_Click(object sender, EventArgs e)
@@ -47,34 +74,44 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            //Prevent user form changing text stored inside textBox
-            directoryTextBox.Enabled = false;
+            //Prevent user from editing data
+            Enabled = false;
 
-            //Check if directory exists
-            if (!Directory.Exists(directoryTextBox.Text))
+            //Simple mode
+            if (simpleRadioButton.Checked)
             {
-                //Inform user that directory does not exist
-                MessageBox.Show("Directory does not exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //Re-enable textBox
-                directoryTextBox.Enabled = true;
-                //Skip rest of the method
-                return;
+
+                //Check if directory exists
+                if (!Directory.Exists(directoryTextBox.Text))
+                {
+                    //Inform user that directory does not exist
+                    MessageBox.Show("Directory does not exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //Re-enable textBox
+                    Enabled = true;
+                    //Skip rest of the method
+                    return;
+                }
+
+                //Create profile
+                Profile p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(gameDirectoryTextBox.Text);
+
+                //Add profile to list
+                ProfileManager.Profiles.Add(p);
             }
+            else //Advanced mode
+            {
+                //Create profile
+                Profile p = new Profile();
+                p.ProfileName = profileNameTextBox.Text;
+                p.GameDir = gameDirectoryTextBox.Text;
+                p.GameinfoDirName = gameinfoDirectoryTextBox.Text;
 
-            //Create profile
-            Profile p = new Profile();
-            p.ProfileName = "Counter-Strike: Global Offensive";
-            p.GameDir = directoryTextBox.Text;
-            p.GameinfoDirName = "csgo";
-
-            //Add profile to list
-            ProfileManager.Profiles.Add(p);
+                //Add profile to list
+                ProfileManager.Profiles.Add(p);
+            }
 
             //Select profile
             Config.AddVariable("SelectedProfileId", 0);
-
-            //Re-enable textBox
-            directoryTextBox.Enabled = true;
 
             //Set dialog result
             DialogResult = DialogResult.OK;
@@ -90,6 +127,55 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 okButton.Enabled = false;
             else
                 okButton.Enabled = true;
+        }
+
+        private void radioButton_Checked(object sender, EventArgs e)
+        {
+            toggleControls((RadioButton)sender == simpleRadioButton);
+        }
+
+        /// <summary>
+        /// Toggles Control.Enabled flag
+        /// </summary>
+        /// <param name="simple">User checked simple configuration radio button</param>
+        void toggleControls(bool simple)
+        {
+            //Simple configuration controls
+            simpleLabel1.Enabled = simple;
+            simpleLabel2.Enabled = simple;
+            gameComboBox.Enabled = simple;
+            directoryTextBox.Enabled = simple;
+            selectDirectoryButton.Enabled = simple;
+
+            //Advanced configuration controls
+            advancedLabel1.Enabled = !simple;
+            advancedLabel2.Enabled = !simple;
+            advancedLabel3.Enabled = !simple;
+            profileNameTextBox.Enabled = !simple;
+            gameDirectoryTextBox.Enabled = !simple;
+            selectDirectoryAdvancedButton.Enabled = !simple;
+            gameinfoDirectoryTextBox.Enabled = !simple;
+        }
+
+        private void gameComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Change game directory
+            directoryTextBox.Text = Utils.CombineDefaultGameDirName(TemplateManager.Templates[gameComboBox.SelectedIndex].GameDirName);
+        }
+
+        private void selectDirectoryAdvancedButton_Click(object sender, EventArgs e)
+        {
+            //Create FolderBrowserDialog
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            //Set path
+            fbd.SelectedPath = directoryTextBox.Text;
+
+            //Show dialog
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                //Set text inside textBox
+                gameDirectoryTextBox.Text = fbd.SelectedPath;
+            }
         }
     }
 }

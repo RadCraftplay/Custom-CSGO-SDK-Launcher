@@ -27,5 +27,31 @@ namespace Distroir.CustomSDKLauncher.Core
         /// Name of directory containing "gameinfo.txt" file. For example "csgo"
         /// </summary>
         public string GameinfoDirName;
+        /// <summary>
+        /// Name of directory containing game files. Used only during first launch
+        /// </summary>
+        public string GameDirName;
+
+
+        //Overrides ToString method and returns name of profile
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        //Creates profile based on template
+        public Profile ToProfile(string gameDir)
+        {
+            //Create profile
+            Profile p = new Profile()
+            {
+                ProfileName = Name,
+                GameinfoDirName = GameinfoDirName,
+                GameDir = gameDir
+            };
+
+            //Return profile
+            return p;
+        }
     }
 }

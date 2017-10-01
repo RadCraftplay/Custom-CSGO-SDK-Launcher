@@ -90,5 +90,23 @@ namespace Distroir.CustomSDKLauncher.Core
                 p = new Profile();
             }
         }
+
+        /// <summary>
+        /// Creates default path of game
+        /// </summary>
+        /// <param name="gameDir"></param>
+        /// <returns></returns>
+        public static string CombineDefaultGameDirName(string gameDir)
+        {
+            //Get program files directory
+            string programfilesDir = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
+
+            //If 64 bit operating system, use x86 directory
+            if (PlatformChecker.is64BitOperatingSystem)
+                programfilesDir = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
+
+            //Return game directory
+            return $"{programfilesDir}\\Steam\\steamapps\\common\\{gameDir}";
+        }
     }
 }

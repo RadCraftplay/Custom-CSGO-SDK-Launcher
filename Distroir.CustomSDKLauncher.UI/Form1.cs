@@ -147,7 +147,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 {
                     //If user closes dialog without selecting csgo directory
                     //Inform user that he needs to select his csgo directory
-                    MessageBox.Show("Can not continue. You need to select your csgo directory", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Can not continue. You need to create your first profile", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //Cannot continue
                     //Close application
                     Environment.Exit(0);
