@@ -100,6 +100,18 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
             else //Advanced mode
             {
+                if (profileNameTextBox.Text.Length == 0 ||
+                    gameDirectoryTextBox.Text.Length == 0 ||
+                    gameinfoDirectoryTextBox.Text.Length == 0)
+                {
+                    //Inform user that directory does not exist
+                    MessageBox.Show("You need to fill all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //Re-enable textBox
+                    Enabled = true;
+                    //Skip rest of the method
+                    return;
+                }
+
                 //Create profile
                 Profile p = new Profile();
                 p.ProfileName = profileNameTextBox.Text;
