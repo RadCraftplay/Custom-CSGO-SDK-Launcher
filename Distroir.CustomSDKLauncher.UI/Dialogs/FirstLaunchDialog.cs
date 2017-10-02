@@ -93,7 +93,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 }
 
                 //Create profile
-                Profile p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(gameDirectoryTextBox.Text);
+                Profile p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(directoryTextBox.Text);
 
                 //Add profile to list
                 ProfileManager.Profiles.Add(p);
