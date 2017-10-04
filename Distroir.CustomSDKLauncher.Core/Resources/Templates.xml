@@ -48,6 +48,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>insurgency2</GameDirName>
   </Template>
   <Template>
+    <Name>Left 4 Dead</Name>
+    <GameinfoDirName>left4dead</GameinfoDirName>
+    <GameDirName>Left 4 Dead</GameDirName>
+  </Template>
+  <Template>
     <Name>Team Fortress 2</Name>
     <GameinfoDirName>tf</GameinfoDirName>
     <GameDirName>Team Fortress 2</GameDirName>
