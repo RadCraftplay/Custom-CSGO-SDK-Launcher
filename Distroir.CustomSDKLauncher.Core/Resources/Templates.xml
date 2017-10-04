@@ -63,6 +63,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>Portal</GameDirName>
   </Template>
   <Template>
+    <Name>Portal 2</Name>
+    <GameinfoDirName>portal2</GameinfoDirName>
+    <GameDirName>Portal 2</GameDirName>
+  </Template>
+  <Template>
     <Name>Team Fortress 2</Name>
     <GameinfoDirName>tf</GameinfoDirName>
     <GameDirName>Team Fortress 2</GameDirName>
