@@ -58,6 +58,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>Left 4 Dead 2</GameDirName>
   </Template>
   <Template>
+    <Name>Portal</Name>
+    <GameinfoDirName>portal</GameinfoDirName>
+    <GameDirName>Portal</GameDirName>
+  </Template>
+  <Template>
     <Name>Team Fortress 2</Name>
     <GameinfoDirName>tf</GameinfoDirName>
     <GameDirName>Team Fortress 2</GameDirName>
