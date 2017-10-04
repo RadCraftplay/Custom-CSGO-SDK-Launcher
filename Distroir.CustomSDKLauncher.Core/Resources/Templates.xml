@@ -53,6 +53,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>Left 4 Dead</GameDirName>
   </Template>
   <Template>
+    <Name>Left 4 Dead 2</Name>
+    <GameinfoDirName>left4dead2</GameinfoDirName>
+    <GameDirName>Left 4 Dead 2</GameDirName>
+  </Template>
+  <Template>
     <Name>Team Fortress 2</Name>
     <GameinfoDirName>tf</GameinfoDirName>
     <GameDirName>Team Fortress 2</GameDirName>
