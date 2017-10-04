@@ -38,6 +38,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>GarrysMod</GameDirName>
   </Template>
   <Template>
+    <Name>Half-Life 2: Deathmatch</Name>
+    <GameinfoDirName>hl2mp</GameinfoDirName>
+    <GameDirName>Half-Life 2 Deathmatch</GameDirName>
+  </Template>
+  <Template>
     <Name>Insurgency</Name>
     <GameinfoDirName>insurgency</GameinfoDirName>
     <GameDirName>insurgency2</GameDirName>
