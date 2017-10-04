@@ -23,9 +23,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>Counter-Strike Global Offensive</GameDirName>
   </Template>
   <Template>
-    <Name>Team Fortress 2</Name>
-    <GameinfoDirName>tf</GameinfoDirName>
-    <GameDirName>Team Fortress 2</GameDirName>
+    <Name>Counter-Strike: Source</Name>
+    <GameinfoDirName>cstrike</GameinfoDirName>
+    <GameDirName>Counter-Strike Source</GameDirName>
+  </Template>
+  <Template>
+    <Name>Day of Defeat: Source</Name>
+    <GameinfoDirName>dod</GameinfoDirName>
+    <GameDirName>Day of Defeat Source</GameDirName>
   </Template>
   <Template>
     <Name>Garry's mod</Name>
@@ -33,13 +38,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>GarrysMod</GameDirName>
   </Template>
   <Template>
-    <Name>Counter-Strike: Source</Name>
-    <GameinfoDirName>cstrike</GameinfoDirName>
-    <GameDirName>Counter-Strike Source</GameDirName>
-  </Template>
-  <Template>
     <Name>Insurgency</Name>
     <GameinfoDirName>insurgency</GameinfoDirName>
     <GameDirName>insurgency2</GameDirName>
+  </Template>
+  <Template>
+    <Name>Team Fortress 2</Name>
+    <GameinfoDirName>tf</GameinfoDirName>
+    <GameDirName>Team Fortress 2</GameDirName>
   </Template>
 </ArrayOfTemplate>
