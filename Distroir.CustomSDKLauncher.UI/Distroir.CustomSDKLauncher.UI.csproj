@@ -174,5 +174,8 @@
   <ItemGroup>
     <None Include="Resources\License %28Only custom sdk launcher%29.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notebook--minus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

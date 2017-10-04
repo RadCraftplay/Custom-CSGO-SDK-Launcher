@@ -40,19 +40,21 @@
             // 
             // profileListView
             // 
-            this.profileListView.Location = new System.Drawing.Point(13, 13);
+            this.profileListView.Location = new System.Drawing.Point(17, 16);
+            this.profileListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.profileListView.MultiSelect = false;
             this.profileListView.Name = "profileListView";
-            this.profileListView.Size = new System.Drawing.Size(228, 312);
+            this.profileListView.Size = new System.Drawing.Size(303, 383);
             this.profileListView.TabIndex = 0;
             this.profileListView.UseCompatibleStateImageBehavior = false;
             this.profileListView.View = System.Windows.Forms.View.List;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(197, 331);
+            this.okButton.Location = new System.Drawing.Point(263, 407);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 23);
+            this.okButton.Size = new System.Drawing.Size(100, 28);
             this.okButton.TabIndex = 1;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // createFromTemplateButton
             // 
             this.createFromTemplateButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__plus;
-            this.createFromTemplateButton.Location = new System.Drawing.Point(247, 300);
+            this.createFromTemplateButton.Location = new System.Drawing.Point(329, 14);
+            this.createFromTemplateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createFromTemplateButton.Name = "createFromTemplateButton";
-            this.createFromTemplateButton.Size = new System.Drawing.Size(25, 25);
+            this.createFromTemplateButton.Size = new System.Drawing.Size(33, 31);
             this.createFromTemplateButton.TabIndex = 5;
             this.buttonsToolTip.SetToolTip(this.createFromTemplateButton, "Add using template");
             this.createFromTemplateButton.UseVisualStyleBackColor = true;
@@ -72,9 +75,10 @@
             // editButton
             // 
             this.editButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.pencil;
-            this.editButton.Location = new System.Drawing.Point(247, 74);
+            this.editButton.Location = new System.Drawing.Point(329, 91);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(25, 25);
+            this.editButton.Size = new System.Drawing.Size(33, 31);
             this.editButton.TabIndex = 4;
             this.buttonsToolTip.SetToolTip(this.editButton, "Edit profile");
             this.editButton.UseVisualStyleBackColor = true;
@@ -82,10 +86,11 @@
             // 
             // removeButton
             // 
-            this.removeButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.minus;
-            this.removeButton.Location = new System.Drawing.Point(247, 43);
+            this.removeButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__minus;
+            this.removeButton.Location = new System.Drawing.Point(329, 53);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(25, 25);
+            this.removeButton.Size = new System.Drawing.Size(33, 31);
             this.removeButton.TabIndex = 3;
             this.buttonsToolTip.SetToolTip(this.removeButton, "Remove profile");
             this.removeButton.UseVisualStyleBackColor = true;
@@ -94,9 +99,10 @@
             // addButton
             // 
             this.addButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.plus;
-            this.addButton.Location = new System.Drawing.Point(247, 12);
+            this.addButton.Location = new System.Drawing.Point(329, 368);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(25, 25);
+            this.addButton.Size = new System.Drawing.Size(33, 31);
             this.addButton.TabIndex = 2;
             this.buttonsToolTip.SetToolTip(this.addButton, "Add profile");
             this.addButton.UseVisualStyleBackColor = true;
@@ -104,9 +110,9 @@
             // 
             // ProfileListEditDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 366);
+            this.ClientSize = new System.Drawing.Size(379, 450);
             this.Controls.Add(this.createFromTemplateButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.removeButton);
@@ -114,6 +120,7 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.profileListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProfileListEditDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
