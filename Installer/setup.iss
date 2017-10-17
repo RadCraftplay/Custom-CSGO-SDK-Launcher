@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Custom CSGO SDK Launcher"
-#define MyAppVersion "3.1"
+#define MyAppVersion "3.2"
 #define MyAppPublisher "Distroir"
 #define MyAppExeName "Custom SDK Launcher.exe"
 
@@ -48,3 +48,8 @@ Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
 
+[Code]
+function UninstallNeedRestart(): Boolean;
+begin
+  Result := true
+end;

@@ -20,17 +20,56 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   <Template>
     <Name>Counter-Strike: Global Offensive</Name>
     <GameinfoDirName>csgo</GameinfoDirName>
-  </Template>
-  <Template>
-    <Name>Team Fortress 2</Name>
-    <GameinfoDirName>tf</GameinfoDirName>
-  </Template>
-  <Template>
-    <Name>Garry's mod</Name>
-    <GameinfoDirName>garrysmod</GameinfoDirName>
+    <GameDirName>Counter-Strike Global Offensive</GameDirName>
   </Template>
   <Template>
     <Name>Counter-Strike: Source</Name>
     <GameinfoDirName>cstrike</GameinfoDirName>
+    <GameDirName>Counter-Strike Source</GameDirName>
+  </Template>
+  <Template>
+    <Name>Day of Defeat: Source</Name>
+    <GameinfoDirName>dod</GameinfoDirName>
+    <GameDirName>Day of Defeat Source</GameDirName>
+  </Template>
+  <Template>
+    <Name>Garry's mod</Name>
+    <GameinfoDirName>garrysmod</GameinfoDirName>
+    <GameDirName>GarrysMod</GameDirName>
+  </Template>
+  <Template>
+    <Name>Half-Life 2: Deathmatch</Name>
+    <GameinfoDirName>hl2mp</GameinfoDirName>
+    <GameDirName>Half-Life 2 Deathmatch</GameDirName>
+  </Template>
+  <Template>
+    <Name>Insurgency</Name>
+    <GameinfoDirName>insurgency</GameinfoDirName>
+    <GameDirName>insurgency2</GameDirName>
+  </Template>
+  <Template>
+    <Name>Left 4 Dead</Name>
+    <GameinfoDirName>left4dead</GameinfoDirName>
+    <GameDirName>Left 4 Dead</GameDirName>
+  </Template>
+  <Template>
+    <Name>Left 4 Dead 2</Name>
+    <GameinfoDirName>left4dead2</GameinfoDirName>
+    <GameDirName>Left 4 Dead 2</GameDirName>
+  </Template>
+  <Template>
+    <Name>Portal</Name>
+    <GameinfoDirName>portal</GameinfoDirName>
+    <GameDirName>Portal</GameDirName>
+  </Template>
+  <Template>
+    <Name>Portal 2</Name>
+    <GameinfoDirName>portal2</GameinfoDirName>
+    <GameDirName>Portal 2</GameDirName>
+  </Template>
+  <Template>
+    <Name>Team Fortress 2</Name>
+    <GameinfoDirName>tf</GameinfoDirName>
+    <GameDirName>Team Fortress 2</GameDirName>
   </Template>
 </ArrayOfTemplate>

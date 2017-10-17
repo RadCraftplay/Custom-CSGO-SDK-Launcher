@@ -48,6 +48,7 @@
     <Compile Include="LanguageManager.cs" />
     <Compile Include="LanguageResourcesList.cs" />
     <Compile Include="Launcher.cs" />
+    <Compile Include="PlatformChecker.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="ProfileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

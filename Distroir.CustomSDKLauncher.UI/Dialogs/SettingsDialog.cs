@@ -198,6 +198,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                     //Restore settings
                     Config.Load();
+                    ProfileManager.LoadProfiles();
                     UpdateControls();
                 }
             }
