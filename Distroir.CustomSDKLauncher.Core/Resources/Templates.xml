@@ -33,6 +33,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>Day of Defeat Source</GameDirName>
   </Template>
   <Template>
+    <Name>Day of Infamy</Name>
+    <GameinfoDirName>doi</GameinfoDirName>
+    <GameDirName>dayofinfamy</GameDirName>
+  </Template>
+  <Template>
     <Name>Garry's mod</Name>
     <GameinfoDirName>garrysmod</GameinfoDirName>
     <GameDirName>GarrysMod</GameDirName>
