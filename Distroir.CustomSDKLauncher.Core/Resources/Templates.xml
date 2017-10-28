@@ -18,6 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <ArrayOfTemplate xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Template>
+    <Name>Black Mesa</Name>
+    <GameinfoDirName>bms</GameinfoDirName>
+    <GameDirName>Black Mesa</GameDirName>
+  </Template>
+  <Template>
     <Name>Counter-Strike: Global Offensive</Name>
     <GameinfoDirName>csgo</GameinfoDirName>
     <GameDirName>Counter-Strike Global Offensive</GameDirName>

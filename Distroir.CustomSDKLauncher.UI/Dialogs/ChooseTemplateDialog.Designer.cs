@@ -39,10 +39,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.templateListView.Location = new System.Drawing.Point(17, 36);
-            this.templateListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.templateListView.Margin = new System.Windows.Forms.Padding(4);
             this.templateListView.MultiSelect = false;
             this.templateListView.Name = "templateListView";
-            this.templateListView.Size = new System.Drawing.Size(344, 235);
+            this.templateListView.Size = new System.Drawing.Size(344, 265);
             this.templateListView.TabIndex = 0;
             this.templateListView.UseCompatibleStateImageBehavior = false;
             this.templateListView.View = System.Windows.Forms.View.List;
@@ -50,8 +50,8 @@
             // useButton
             // 
             this.useButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.useButton.Location = new System.Drawing.Point(263, 279);
-            this.useButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.useButton.Location = new System.Drawing.Point(263, 309);
+            this.useButton.Margin = new System.Windows.Forms.Padding(4);
             this.useButton.Name = "useButton";
             this.useButton.Size = new System.Drawing.Size(100, 28);
             this.useButton.TabIndex = 1;
@@ -73,12 +73,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 322);
+            this.ClientSize = new System.Drawing.Size(379, 352);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.useButton);
             this.Controls.Add(this.templateListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChooseTemplateDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
