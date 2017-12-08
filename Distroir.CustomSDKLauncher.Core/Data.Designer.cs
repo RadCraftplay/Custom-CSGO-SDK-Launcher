@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Distroir.CustomSDKLauncher.Core
-{
-
-
+namespace Distroir.CustomSDKLauncher.Core {
+    using System;
+    
+    
     /// <summary>
     ///   Klasa zasobu wymagająca zdefiniowania typu do wyszukiwania zlokalizowanych ciągów itd.
     /// </summary>
@@ -19,7 +19,7 @@ namespace Distroir.CustomSDKLauncher.Core
     // przez narzędzie, takie jak ResGen lub Visual Studio.
     // Aby dodać lub usunąć członka, edytuj plik .ResX, a następnie ponownie uruchom ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Data {
@@ -47,7 +47,7 @@ namespace Distroir.CustomSDKLauncher.Core
         }
         
         /// <summary>
-        ///   Zastępuje właściwość CurrentUICulture bieżącego wątku dla wszystkich
+        ///   Przesłania właściwość CurrentUICulture bieżącego wątku dla wszystkich
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -57,6 +57,27 @@ namespace Distroir.CustomSDKLauncher.Core
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;ArrayOfContentGroup xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+        ///  &lt;ContentGroup&gt;
+        ///    &lt;Name&gt;Gamebanana&lt;/Name&gt;
+        ///    &lt;Contents&gt;
+        ///      &lt;ContentInfo&gt;
+        ///        &lt;Name&gt;Homepage&lt;/Name&gt;
+        ///        &lt;Author&gt;N/A&lt;/Author&gt;
+        ///        &lt;Description&gt;Gamebanana homepage&lt;/Description&gt;
+        ///        &lt;url&gt;https://gamebanana.com&lt;/url&gt;
+        ///        &lt;Game&gt;Unknown&lt;/Game&gt;
+        ///        &lt;Engine&gt;N/A&lt;/Engine&gt;
+        ///        &lt;Thumbnail&gt;Qk02/QIAAAAAADYAAAAoAAAAQAE [obcięto pozostałą część ciągu]&quot;;.
+        /// </summary>
+        internal static string ContentGroups {
+            get {
+                return ResourceManager.GetString("ContentGroups", resourceCulture);
             }
         }
         
@@ -83,12 +104,18 @@ namespace Distroir.CustomSDKLauncher.Core
         
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;ArrayOfTutorial xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        ///  &lt;Tutorial&gt;
-        ///    &lt;Name&gt;Fmpone&apos;s tutorials&lt;/Name&gt;
-        ///    &lt;Url&gt;https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos&lt;/Url&gt;
-        ///    &lt;Game&gt;Counter-Strike: Global Offensive&lt;/Game&gt;
-        ///    &lt;LargeIcon&gt;Qk02AwAAAAAAADYAAAAoAAAAEAAAABAAAAABABgAAAAAAAAAAAATCwAAEwsAAAAAAAAAAAAA0nQysW8/sUoTnjAOkTgkkTcZaxwHdSYLnVwlyoMzu2koeRgEcAgDYwUAPQoOCQMWwGEvs3dBrUgonC8ZizESk [obcięto pozostałą część ciągu]&quot;;.
+        ///&lt;!--
+        ///Custom SDK Launcher
+        ///Copyright (C) 2017 Distroir
+        ///
+        ///This program is free software: you can redistribute it and/or modify
+        ///it under the terms of the GNU General Public License as published by
+        ///the Free Software Foundation, either version 3 of the License, or
+        ///(at your option) any later version.
+        ///
+        ///This program is distributed in the hope that it will be useful,
+        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
+        ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
         internal static string Tutorials {
             get {
@@ -98,19 +125,18 @@ namespace Distroir.CustomSDKLauncher.Core
         
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;ArrayOfUITheme xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        ///  &lt;UITheme&gt;
-        ///    &lt;Name&gt;Light&lt;/Name&gt;
-        ///    &lt;BackgroundColor&gt;-986896&lt;/BackgroundColor&gt;
-        ///    &lt;TextColor&gt;-16777216&lt;/TextColor&gt;
-        ///    &lt;ButtonColor&gt;-986896&lt;/ButtonColor&gt;
-        ///    &lt;ButtonTextColor&gt;-16777216&lt;/ButtonTextColor&gt;
-        ///    &lt;LinkColor&gt;-16776961&lt;/LinkColor&gt;
-        ///    &lt;LinkClickedColor&gt;-7722014&lt;/LinkClickedColor&gt;
-        ///  &lt;/UITheme&gt;
-        ///  &lt;UITheme&gt;
-        ///    &lt;Name&gt;Dark&lt;/Name&gt;
-        ///    [obcięto pozostałą część ciągu]&quot;;.
+        ///&lt;!--
+        ///Custom SDK Launcher
+        ///Copyright (C) 2017 Distroir
+        ///
+        ///This program is free software: you can redistribute it and/or modify
+        ///it under the terms of the GNU General Public License as published by
+        ///the Free Software Foundation, either version 3 of the License, or
+        ///(at your option) any later version.
+        ///
+        ///This program is distributed in the hope that it will be useful,
+        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
+        ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
         internal static string UIThemes {
             get {
