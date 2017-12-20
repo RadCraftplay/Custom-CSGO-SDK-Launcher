@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-//#define TESTING
+#define TESTING
 
 using System;
 using System.Collections.Generic;
@@ -66,7 +66,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
             ContentGroup gb = new ContentGroup()
             {
                 Name = "Gamebanana",
-                Thumbnail = Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\gamebanana.tiff"),
+                //Thumbnail = Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\gamebanana.tiff"),
                 Contents = new ContentInfo[]
                 {
                     new ContentInfo()
@@ -74,14 +74,14 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                         Name = "Homepage",
                         Description = "Gamebanana homepage",
                         url = "https://gamebanana.com",
-                        Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Gamebanana\Homepage.bmp")
+                        //Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Gamebanana\Homepage.bmp")
                     },
                     new ContentInfo()
                     {
                         Name = "Prefabs",
                         Description = "Map objects",
                         url = "https://gamebanana.com/prefabs",
-                        Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Gamebanana\Prefabs.bmp")
+                        //Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Gamebanana\Prefabs.bmp")
                     }
                 }
             };
@@ -91,7 +91,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
             ContentGroup tut = new ContentGroup()
             {
                 Name = "Tutorials",
-                Thumbnail = Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\tutorials.tiff"),
+                //Thumbnail = Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\tutorials.tiff"),
                 Contents = new ContentInfo[]
                 {
                     new ContentInfo()
@@ -102,7 +102,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                         url = "https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos",
                         Game = "Counter-Strike: Global Offensive",
                         Engine = "Source Engine",
-                        Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\Fmpone.bmp")
+                        //Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\Fmpone.bmp")
                     },
                     new ContentInfo()
                     {
@@ -112,7 +112,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                         url = "https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos",
                         Game = "Counter-Strike: Global Offensive",
                         Engine = "Source Engine",
-                        Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\TopHATTwaffle.bmp")
+                        //Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\TopHATTwaffle.bmp")
                     },
                     new ContentInfo()
                     {
@@ -122,7 +122,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                         url = "https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Level_Creation",
                         Game = "Counter-Strike: Global Offensive",
                         Engine = "Source Engine",
-                        Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\Valve.bmp")
+                        //Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\Valve.bmp")
                     },
                     new ContentInfo()
                     {
@@ -131,7 +131,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                         Description = "In this tutorial Will is taking a look at ",
                         url = "http://gamebanana.com/tuts/11178",
                         Engine = "Source Engine",
-                        Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\Man vs engine.bmp")
+                        //Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\Tutorials\Man vs engine.bmp")
                     }
                 }
             };

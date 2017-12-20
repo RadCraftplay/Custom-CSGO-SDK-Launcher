@@ -73,7 +73,9 @@ namespace Distroir.CustomSDKLauncher.Core {
         ///        &lt;url&gt;https://gamebanana.com&lt;/url&gt;
         ///        &lt;Game&gt;Unknown&lt;/Game&gt;
         ///        &lt;Engine&gt;N/A&lt;/Engine&gt;
-        ///        &lt;Thumbnail&gt;Qk02/QIAAAAAADYAAAAoAAAAQAE [obcięto pozostałą część ciągu]&quot;;.
+        ///      &lt;/ContentInfo&gt;
+        ///      &lt;ContentInfo&gt;
+        ///    [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
         internal static string ContentGroups {
             get {

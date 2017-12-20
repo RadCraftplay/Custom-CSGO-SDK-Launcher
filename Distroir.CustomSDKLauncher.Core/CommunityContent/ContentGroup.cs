@@ -39,6 +39,10 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
         /// </summary>
         public ContentInfo[] Contents;
 
+
+
+        /*
+
         /// <summary>
         /// Group thumbnail
         /// </summary>
@@ -89,5 +93,6 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                 }
             }
         }
+    */
     }
 }

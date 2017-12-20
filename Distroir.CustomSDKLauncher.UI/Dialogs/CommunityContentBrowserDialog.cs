@@ -37,7 +37,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         /// <param name="g">Content group to add</param>
         void AddGroup(ContentGroup g)
         {
-            TreeNode n = AddItem(g.Name, g.Thumbnail);
+            TreeNode n = AddItem(g.Name);
             n.Expand();
 
             foreach (ContentInfo i in g.Contents)

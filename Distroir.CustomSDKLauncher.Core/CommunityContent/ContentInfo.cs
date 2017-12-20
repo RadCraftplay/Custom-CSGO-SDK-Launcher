@@ -56,6 +56,10 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
 
         public string Engine = "N/A";
 
+
+
+        /*
+
         /// <summary>
         /// Content thumbnail
         /// </summary>
@@ -90,5 +94,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                 }
             }
         }
+
+    */
     }
 }
