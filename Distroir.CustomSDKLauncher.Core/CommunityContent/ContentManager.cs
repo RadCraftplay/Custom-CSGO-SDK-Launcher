@@ -66,7 +66,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
             ContentGroup gb = new ContentGroup()
             {
                 Name = "Gamebanana",
-                Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\gamebanana.bmp"),
+                Thumbnail = Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\gamebanana.tiff"),
                 Contents = new ContentInfo[]
                 {
                     new ContentInfo()
@@ -91,7 +91,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
             ContentGroup tut = new ContentGroup()
             {
                 Name = "Tutorials",
-                Thumbnail = (Bitmap)Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\tutorials.bmp"),
+                Thumbnail = Image.FromFile(@"C:\Users\x\Desktop\xD\csdkl\tutorials.tiff"),
                 Contents = new ContentInfo[]
                 {
                     new ContentInfo()

@@ -43,7 +43,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
         /// Group thumbnail
         /// </summary>
         [XmlIgnore]
-        public Bitmap Thumbnail { get; set; }
+        public Image Thumbnail { get; set; }
 
         /// <summary>
         /// Group contents
@@ -74,7 +74,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                     return null;
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    Thumbnail.Save(ms, ImageFormat.Bmp);
+                    Thumbnail.Save(ms, ImageFormat.Tiff);
                     return ms.ToArray();
                 }
             }
@@ -85,7 +85,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
                 else
                 {
                     using (MemoryStream ms = new MemoryStream(value))
-                        Thumbnail = new Bitmap(ms);
+                        Thumbnail = Image.FromStream(ms);
                 }
             }
         }

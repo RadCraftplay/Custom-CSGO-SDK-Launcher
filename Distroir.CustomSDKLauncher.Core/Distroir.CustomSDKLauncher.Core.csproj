@@ -38,9 +38,11 @@
   <ItemGroup>
     <Compile Include="BackupEntry.cs" />
     <Compile Include="BackupManager.cs" />
+    <Compile Include="CommunityContent\ContentData.cs" />
     <Compile Include="CommunityContent\ContentGroup.cs" />
     <Compile Include="CommunityContent\ContentInfo.cs" />
     <Compile Include="CommunityContent\ContentManager.cs" />
+    <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Compressor.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Data.Designer.cs">
