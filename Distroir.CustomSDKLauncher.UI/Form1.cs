@@ -121,7 +121,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var v = new Dialogs.TutorialsDialog();
+            var v = new Dialogs.CommunityContentBrowserDialog();
             v.ShowDialog();
         }
 
