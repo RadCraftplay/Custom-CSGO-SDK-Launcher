@@ -49,11 +49,35 @@
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
+        <Name>Source SDK Tutorials</Name>
+        <Author>3kliksphilip</Author>
+        <Description>Videos on how to make maps for Source-based games like Half Life 2, Counter Strike Global Offensive, Team Fortress 2, Left 4 Dead and Portal.</Description>
+        <url>https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
         <Name>Man vs. Engine</Name>
         <Author>Will2k</Author>
         <Description>In this tutorial Will is taking a look at </Description>
         <url>http://gamebanana.com/tuts/11178</url>
         <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Optimization Testing in Source Engine</Name>
+        <Author>Will2k</Author>
+        <Description>Good tutorial on optimization in source engine</Description>
+        <url>http://gamebanana.com/tuts/11586</url>
+        <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>TF2 Mapping Tutorials</Name>
+        <Author>UEAKCrash</Author>
+        <Description>UEAKCrash made many good tf2 maps. You may know some of them. Glassworks, trainsawlaser, wubwubwub, stoneyridge, probed, and few more maps. You see? He is very good at what is he doing. Check out his tutorial series. You will learn most important topics of TF2 mapmaking</Description>
+        <url>https://www.youtube.com/playlist?list=PL2KT0JL74QfcI2FSN_MdQ7agYL4DmP7hZ</url>
+        <Game>Team Fortress 2</Game>
         <Engine>Source Engine</Engine>
       </ContentInfo>
     </Contents>

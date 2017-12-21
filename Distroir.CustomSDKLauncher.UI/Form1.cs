@@ -39,7 +39,8 @@ namespace Distroir.CustomSDKLauncher.UI
             TutorialManager.LoadTutorials();
             TemplateManager.LoadTemplates();
             ContentManager.LoadContentGroups();
-            new Dialogs.CommunityContentBrowserDialog().ShowDialog();
+            //Show CommunityContentBrowserDialog (TESTING)
+            //new Dialogs.CommunityContentBrowserDialog().ShowDialog();
 
             //Unused: Load theme
             //Reason: Themes on winforms do not look good
