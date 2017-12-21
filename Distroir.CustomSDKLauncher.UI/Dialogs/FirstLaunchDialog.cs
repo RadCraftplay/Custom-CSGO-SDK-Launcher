@@ -36,7 +36,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             ReloadList();
 
             //Change game directory
-            directoryTextBox.Text = Utils.CombineDefaultGameDirName(TemplateManager.Templates[0].GameDirName);
+            directoryTextBox.Text = Utils.CombineDefaultGameDirName(TemplateManager.Templates[1].GameDirName);
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
 
             //Select first item
-            gameComboBox.SelectedIndex = 0;
+            gameComboBox.SelectedIndex = 1;
         }
 
         private void selectDirectoryButton_Click(object sender, EventArgs e)
