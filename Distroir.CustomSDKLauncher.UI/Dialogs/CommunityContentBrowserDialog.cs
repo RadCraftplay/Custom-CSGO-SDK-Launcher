@@ -110,9 +110,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             TreeNode n = AddItem(name, tag);
 
+            /*
             groupImageList.Images.Add(thumbnail);
             n.ImageIndex = groupImageList.Images.Count - 1;
             n.SelectedImageIndex = n.ImageIndex;
+            */
 
             return n;
         }
@@ -127,7 +129,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             {
                 ContentInfo info = (ContentInfo)n.Tag;
                 name = info.Name;
-                text = $"{info.Author} | {info.Game}";
+                text = info.Game == "" ? $"{info.Author} | {info.Engine}" : $"{info.Author} | {info.Game}";
                 desc = info.Description;
             }
 
