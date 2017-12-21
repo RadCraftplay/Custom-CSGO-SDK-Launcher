@@ -16,7 +16,15 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         public CommunityContentBrowserDialog()
         {
             InitializeComponent();
+
+            LoadContent();
             BuildTree();
+        }
+
+        private void LoadContent()
+        {
+            if (ContentManager.ContentGroups == null)
+                ContentManager.LoadContentGroups();
         }
 
         void BuildTree()

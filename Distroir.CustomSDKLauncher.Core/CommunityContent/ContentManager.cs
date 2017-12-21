@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#define TESTING
+//#define TESTING
 
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
 {
     public class ContentManager
     {
-        public static List<ContentGroup> ContentGroups = new List<ContentGroup>();
+        public static List<ContentGroup> ContentGroups;
 
         /// <summary>
         /// Loads content groups
@@ -38,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
         public static void LoadContentGroups()
         {
             //Clear template list
-            ContentGroups.Clear();
+            ContentGroups = new List<ContentGroup>();
 
             //Create instance of XMLSerializer
             XmlSerializer s = new XmlSerializer(typeof(ContentGroup[]));

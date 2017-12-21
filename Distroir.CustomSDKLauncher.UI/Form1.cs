@@ -34,13 +34,8 @@ namespace Distroir.CustomSDKLauncher.UI
             Config.Load();
             LanguageManager.LoadLanguageInfo();
 
-            //Load profiles, tutorials and templates
+            //Load profiles
             ProfileManager.LoadProfiles();
-            TutorialManager.LoadTutorials();
-            TemplateManager.LoadTemplates();
-            ContentManager.LoadContentGroups();
-            //Show CommunityContentBrowserDialog (TESTING)
-            //new Dialogs.CommunityContentBrowserDialog().ShowDialog();
 
             //Unused: Load theme
             //Reason: Themes on winforms do not look good

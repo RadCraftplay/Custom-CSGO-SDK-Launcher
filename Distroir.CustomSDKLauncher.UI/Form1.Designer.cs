@@ -126,7 +126,7 @@
             this.tutorialsGroupBox.Size = new System.Drawing.Size(287, 153);
             this.tutorialsGroupBox.TabIndex = 4;
             this.tutorialsGroupBox.TabStop = false;
-            this.tutorialsGroupBox.Text = "Tutorials";
+            this.tutorialsGroupBox.Text = "Tutorials and more";
             // 
             // moreTutorialsLabel
             // 
