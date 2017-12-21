@@ -27,13 +27,16 @@ namespace Distroir.CustomSDKLauncher.Core
         /// <summary>
         /// List of tutorials
         /// </summary>
-        public static List<Tutorial> Tutorials = new List<Tutorial>();
+        public static List<Tutorial> Tutorials;
 
         /// <summary>
         /// Converts all data stroed in XML file to list of tutorials
         /// </summary>
         public static void LoadTutorials()
         {
+            //Initialize list of tutorials
+            Tutorials = new List<Tutorial>();
+
             //Create instance of XMLSerializer
             XmlSerializer s = new XmlSerializer(typeof(Tutorial[]));
 

@@ -15,14 +15,23 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-namespace Distroir.CustomSDKLauncher.Core
-{
-    public class BackupEntry
-    {
-        public string FullName;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-        public string FileName;
-        public int Offset;
-        public int Length;
+namespace Distroir.CustomSDKLauncher.Core.CommunityContent
+{
+    public class ContentData
+    {
+        /// <summary>
+        /// Content groups inside data
+        /// </summary>
+        public ContentGroup[] Groups;
+
+        /// <summary>
+        /// ImageData used in ImageLists
+        /// </summary>
+        public ImageData[] thumbnailData;
     }
 }

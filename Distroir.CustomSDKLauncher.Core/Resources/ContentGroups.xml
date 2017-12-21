@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Custom SDK Launcher
+Copyright (C) 2017 Distroir
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<ArrayOfContentGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ContentGroup>
+    <Name>Gamebanana</Name>
+    <Contents>
+      <ContentInfo>
+        <Name>Homepage</Name>
+        <Author>N/A</Author>
+        <Description>Gamebanana homepage</Description>
+        <url>https://gamebanana.com</url>
+        <Game>Unknown</Game>
+        <Engine>N/A</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Prefabs</Name>
+        <Author>N/A</Author>
+        <Description>Map objects</Description>
+        <url>https://gamebanana.com/prefabs</url>
+        <Game>Unknown</Game>
+        <Engine>N/A</Engine>
+      </ContentInfo>
+    </Contents>
+  </ContentGroup>
+  <ContentGroup>
+    <Name>Tutorials</Name>
+    <Contents>
+      <ContentInfo>
+        <Name>Fmpone's video tutorials</Name>
+        <Author>Fmpone</Author>
+        <Description>Fmpone is creator of de_cache</Description>
+        <url>https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Counter-Strike Global Offensive Level Design Boot Camp</Name>
+        <Author>TopHATTwaffle</Author>
+        <Description>Great tutorial series created by TopHATTwaffle - mapmaker with over 10 years of experience</Description>
+        <url>https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Counter-Strike: Global Offensive Level Creation (Wiki)</Name>
+        <Author>Valve</Author>
+        <Description>Wiki focused on Counter-Strike: Global Offensive level design using its authoring tools</Description>
+        <url>https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Level_Creation</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Source SDK Tutorials</Name>
+        <Author>3kliksphilip</Author>
+        <Description>Videos on how to make maps for Source-based games like Half Life 2, Counter Strike Global Offensive, Team Fortress 2, Left 4 Dead and Portal.</Description>
+        <url>https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Man vs. Engine</Name>
+        <Author>Will2k</Author>
+        <Description>In this tutorial Will is taking a look at </Description>
+        <url>http://gamebanana.com/tuts/11178</url>
+        <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Optimization Testing in Source Engine</Name>
+        <Author>Will2k</Author>
+        <Description>Good tutorial on optimization in source engine</Description>
+        <url>http://gamebanana.com/tuts/11586</url>
+        <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>TF2 Mapping Tutorials</Name>
+        <Author>UEAKCrash</Author>
+        <Description>UEAKCrash made many good tf2 maps. You may know some of them. Glassworks, trainsawlaser, wubwubwub, stoneyridge, probed, and few more maps. You see? He is very good at what is he doing. Check out his tutorial series. You will learn most important topics of TF2 mapmaking</Description>
+        <url>https://www.youtube.com/playlist?list=PL2KT0JL74QfcI2FSN_MdQ7agYL4DmP7hZ</url>
+        <Game>Team Fortress 2</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+    </Contents>
+  </ContentGroup>
+</ArrayOfContentGroup>

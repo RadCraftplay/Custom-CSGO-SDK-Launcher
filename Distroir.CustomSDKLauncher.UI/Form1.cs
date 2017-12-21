@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using System;
 using System.Drawing;
 using System.Resources;
@@ -33,13 +34,11 @@ namespace Distroir.CustomSDKLauncher.UI
             Config.Load();
             LanguageManager.LoadLanguageInfo();
 
-            //Load profiles, tutorials and templates
+            //Load profiles
             ProfileManager.LoadProfiles();
-            TutorialManager.LoadTutorials();
-            TemplateManager.LoadTemplates();
 
             //Unused: Load theme
-            //Reason: Themes on winforms does not look good
+            //Reason: Themes on winforms do not look good
             //UIThemeManager.LoadThemes();
             //UIThemeManager.LoadCurrentTheme();
 
@@ -117,7 +116,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var v = new Dialogs.TutorialsDialog();
+            var v = new Dialogs.CommunityContentBrowserDialog();
             v.ShowDialog();
         }
 

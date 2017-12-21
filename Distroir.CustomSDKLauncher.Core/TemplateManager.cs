@@ -24,10 +24,13 @@ namespace Distroir.CustomSDKLauncher.Core
 {
     public class TemplateManager
     {
-        public static List<Template> Templates = new List<Template>();
+        public static List<Template> Templates;
 
         public static void LoadTemplates()
         {
+            //Initialize list of templates
+            Templates = new List<Template>();
+
             //Clear template list
             Templates.Clear();
 
