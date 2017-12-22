@@ -36,6 +36,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Load profiles
             ProfileManager.LoadProfiles();
+            LoadData();
 
             //Unused: Load theme
             //Reason: Themes on winforms do not look good
@@ -61,6 +62,24 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Unused: Apply theme to UI
             //ApplyTheme();
+        }
+
+        private void LoadData()
+        {
+            int LoadAtStartup;
+
+            if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
+            {
+                LoadAtStartup = 0;
+                Config.AddVariable("LoadDataAtStartup", 0);
+            }
+
+            if (LoadAtStartup == 1)
+            {
+                TemplateManager.LoadTemplates();
+                TutorialManager.LoadTutorials();
+                ContentManager.LoadContentGroups();
+            }
         }
 
         #region Form events
