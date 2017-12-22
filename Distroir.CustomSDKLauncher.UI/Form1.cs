@@ -47,7 +47,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Migrate csgo directory from first version of Custom SDK Launcher
             //It happens only, when you are launching newer version for the first time
-            //And you had przeviously used version 1
+            //And you had previously used version 1
             SetCsgoDirectoryFromConfig();
 
             //This is not first launch anymore
