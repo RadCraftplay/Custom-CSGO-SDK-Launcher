@@ -62,20 +62,18 @@ namespace Distroir.CustomSDKLauncher.Core {
         
         /// <summary>
         /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;ArrayOfContentGroup xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
-        ///  &lt;ContentGroup&gt;
-        ///    &lt;Name&gt;Gamebanana&lt;/Name&gt;
-        ///    &lt;Contents&gt;
-        ///      &lt;ContentInfo&gt;
-        ///        &lt;Name&gt;Homepage&lt;/Name&gt;
-        ///        &lt;Author&gt;N/A&lt;/Author&gt;
-        ///        &lt;Description&gt;Gamebanana homepage&lt;/Description&gt;
-        ///        &lt;url&gt;https://gamebanana.com&lt;/url&gt;
-        ///        &lt;Game&gt;Unknown&lt;/Game&gt;
-        ///        &lt;Engine&gt;N/A&lt;/Engine&gt;
-        ///      &lt;/ContentInfo&gt;
-        ///      &lt;ContentInfo&gt;
-        ///    [obcięto pozostałą część ciągu]&quot;;.
+        ///&lt;!--
+        ///Custom SDK Launcher
+        ///Copyright (C) 2017 Distroir
+        ///
+        ///This program is free software: you can redistribute it and/or modify
+        ///it under the terms of the GNU General Public License as published by
+        ///the Free Software Foundation, either version 3 of the License, or
+        ///(at your option) any later version.
+        ///
+        ///This program is distributed in the hope that it will be useful,
+        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
+        ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
         internal static string ContentGroups {
             get {
@@ -122,27 +120,6 @@ namespace Distroir.CustomSDKLauncher.Core {
         internal static string Tutorials {
             get {
                 return ResourceManager.GetString("Tutorials", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        /// Wyszukuje zlokalizowany ciąg podobny do ciągu &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-        ///&lt;!--
-        ///Custom SDK Launcher
-        ///Copyright (C) 2017 Distroir
-        ///
-        ///This program is free software: you can redistribute it and/or modify
-        ///it under the terms of the GNU General Public License as published by
-        ///the Free Software Foundation, either version 3 of the License, or
-        ///(at your option) any later version.
-        ///
-        ///This program is distributed in the hope that it will be useful,
-        ///but WITHOUT ANY WARRANTY; without even the implied warranty of
-        ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
-        /// </summary>
-        internal static string UIThemes {
-            get {
-                return ResourceManager.GetString("UIThemes", resourceCulture);
             }
         }
     }

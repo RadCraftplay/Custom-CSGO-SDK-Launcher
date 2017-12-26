@@ -61,8 +61,6 @@
     <Compile Include="TemplateManager.cs" />
     <Compile Include="Tutorial.cs" />
     <Compile Include="TutorialManager.cs" />
-    <Compile Include="UITheme.cs" />
-    <Compile Include="UIThemeManager.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

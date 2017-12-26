@@ -326,59 +326,5 @@ namespace Distroir.CustomSDKLauncher.UI
         #endregion
 
         #endregion
-
-        #region Unused
-
-        /// <summary>
-        /// Applies current theme to control
-        /// </summary>
-        void ApplyTheme()
-        {
-            //Get theme
-            UITheme t = UIThemeManager.CurrentTheme;
-
-            //Set colors
-            BackColor = t.BackgroundColor;
-            ForeColor = t.TextColor;
-
-            toolsGroupBox.ForeColor = t.TextColor;
-            tutorialsGroupBox.ForeColor = t.TextColor;
-
-            foreach (Control c in Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            foreach (Control c in toolsGroupBox.Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            foreach (Control c in tutorialsGroupBox.Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            moreTutorialsLabel.ForeColor = t.LinkColor;
-            moreTutorialsLabel.LinkColor = t.LinkColor;
-            moreTutorialsLabel.VisitedLinkColor = t.LinkClickedColor;
-        }
-
-        #endregion
     }
 }
