@@ -36,6 +36,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Load profiles
             ProfileManager.LoadProfiles();
+            LoadData();
 
             //Unused: Load theme
             //Reason: Themes on winforms do not look good
@@ -47,7 +48,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Migrate csgo directory from first version of Custom SDK Launcher
             //It happens only, when you are launching newer version for the first time
-            //And you had przeviously used version 1
+            //And you had previously used version 1
             SetCsgoDirectoryFromConfig();
 
             //This is not first launch anymore
@@ -61,6 +62,24 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Unused: Apply theme to UI
             //ApplyTheme();
+        }
+
+        private void LoadData()
+        {
+            int LoadAtStartup;
+
+            if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
+            {
+                LoadAtStartup = 0;
+                Config.AddVariable("LoadDataAtStartup", 0);
+            }
+
+            if (LoadAtStartup == 1)
+            {
+                TemplateManager.LoadTemplates();
+                TutorialManager.LoadTutorials();
+                ContentManager.LoadContentGroups();
+            }
         }
 
         #region Form events
@@ -305,60 +324,6 @@ namespace Distroir.CustomSDKLauncher.UI
         }
 
         #endregion
-
-        #endregion
-
-        #region Unused
-
-        /// <summary>
-        /// Applies current theme to control
-        /// </summary>
-        void ApplyTheme()
-        {
-            //Get theme
-            UITheme t = UIThemeManager.CurrentTheme;
-
-            //Set colors
-            BackColor = t.BackgroundColor;
-            ForeColor = t.TextColor;
-
-            toolsGroupBox.ForeColor = t.TextColor;
-            tutorialsGroupBox.ForeColor = t.TextColor;
-
-            foreach (Control c in Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            foreach (Control c in toolsGroupBox.Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            foreach (Control c in tutorialsGroupBox.Controls)
-            {
-                try
-                {
-                    Button b = (Button)c;
-                    b.BackColor = t.ButtonColor;
-                }
-                catch { }
-            }
-
-            moreTutorialsLabel.ForeColor = t.LinkColor;
-            moreTutorialsLabel.LinkColor = t.LinkColor;
-            moreTutorialsLabel.VisitedLinkColor = t.LinkClickedColor;
-        }
 
         #endregion
     }

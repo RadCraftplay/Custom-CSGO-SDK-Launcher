@@ -28,7 +28,7 @@ namespace Distroir.Configuration
         #region Variables
 
         /// <summary>
-        /// Contains settings of the application
+        /// Contains settings of an application
         /// </summary>
         public static List<Key> settings = new List<Key>();
         /// <summary>
@@ -41,10 +41,10 @@ namespace Distroir.Configuration
         #region Config Variables
 
         /// <summary>
-        /// Add varriable to config
+        /// Add variable to config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <param name="value">Value of the varriable</param>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, string value)
         {
             Key k = new Key();
@@ -63,40 +63,40 @@ namespace Distroir.Configuration
         }
 
         /// <summary>
-        /// Add varriable to config
+        /// Add variable to config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <param name="value">Value of the varriable</param>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, object value)
         {
             AddVariable(name, value.ToString());
         }
 
         /// <summary>
-        /// Add varriable to config
+        /// Add variable to config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <param name="value">Value of the varriable</param>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, int value)
         {
             AddVariable(name, value.ToString());
         }
 
         /// <summary>
-        /// Add varriable to config
+        /// Add variable to config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <param name="value">Value of the varriable</param>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, float value)
         {
             AddVariable(name, value.ToString("R").Replace(',', '.'));
         }
 
         /// <summary>
-        /// Gets value of varrible from the config
+        /// Gets value of variable from the config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe</returns>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable</returns>
         public static string ReadVariable(string name)
         {
             foreach (Key k in settings)
@@ -109,7 +109,7 @@ namespace Distroir.Configuration
         /// <summary>
         /// Removes object from config
         /// </summary>
-        /// <param name="name">Name of varriable to remove</param>
+        /// <param name="name">Name of variable to remove</param>
         public static void RemoveVariable(string name)
         {
             foreach (Key key in settings)
@@ -123,10 +123,10 @@ namespace Distroir.Configuration
         }
 
         /// <summary>
-        /// Tries to get value of varrible from the config
+        /// Tries to get value of variable from the config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe</returns>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable</returns>
         public static object TryReadVariable(string name)
         {
             try
@@ -139,63 +139,143 @@ namespace Distroir.Configuration
         }
 
         /// <summary>
-        /// Gets value of varrible from the config
+        /// Tries to get value of variable from the config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe (as string)</returns>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified variable</returns>
+        public static bool TryReadVariable(string name, out object var)
+        {
+            try
+            {
+                var = ReadVariable(name);
+                return true;
+            }
+            catch
+            {
+                var = null;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable (as string)</returns>
         public static object ReadString(string name)
         {
             return ReadVariable(name);
         }
 
         /// <summary>
-        /// Tries to get value of varrible from the config
+        /// Tries to get value of variable from the config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe (as string)</returns>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable (as string)</returns>
         public static string TryReadString(string name)
         {
             return (string)TryReadVariable(name);
         }
 
         /// <summary>
-        /// Gets value of varrible from the config
+        /// Tries to get value of variable from the config
         /// </summary>
         /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe (as float)</returns>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified variable (as string)</returns>
+        public static bool TryReadString(string name, out string var)
+        {
+            try
+            {
+                var = (string)ReadVariable(name);
+                return true;
+            }
+            catch
+            {
+                var = null;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable (as float)</returns>
         public static float ReadFloat(string name)
         {
             return float.Parse((string)ReadVariable(name), CultureInfo.InvariantCulture.NumberFormat);
         }
 
         /// <summary>
-        /// Tries to get value of varrible from the config
+        /// Tries to get value of variable from the config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe (as float)</returns>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable (as float)</returns>
         public static float TryReadFloat(string name)
         {
             return float.Parse((string)TryReadVariable(name), CultureInfo.InvariantCulture.NumberFormat);
         }
 
         /// <summary>
-        /// Gets value of varrible from the config
+        /// Tries to get value of varrible from the config
         /// </summary>
         /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe</returns>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified varrialbe (as float)</returns>
+        public static bool TryReadFloat(string name, out float var)
+        {
+            try
+            {
+                var = float.Parse((string)ReadVariable(name), CultureInfo.InvariantCulture.NumberFormat);
+                return true;
+            }
+            catch
+            {
+                var = -1f;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable</returns>
         public static int ReadInt(string name)
         {
             return Convert.ToInt32((string)ReadVariable(name));
         }
 
         /// <summary>
-        /// Tries to get value of varrible from the config
+        /// Tries to get value of variable from the config
         /// </summary>
-        /// <param name="name">Name of the varriable</param>
-        /// <returns>Value of specified varrialbe (as int)</returns>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable (as int)</returns>
         public static int TryReadInt(string name)
         {
             return Convert.ToInt32((string)TryReadVariable(name));
+        }
+
+        /// <summary>
+        /// Tries to get value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified variable (as int)</returns>
+        public static bool TryReadInt(string name, out int var)
+        {
+            try
+            {
+                var = Convert.ToInt32((string)ReadVariable(name));
+                return true;
+            }
+            catch
+            {
+                var = -1;
+                return false;
+            }
         }
 
         #endregion
@@ -238,6 +318,7 @@ namespace Distroir.Configuration
                 //AddVariable("CSGO_DIR", @"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
                 AddVariable("FirstLaunch", 1);
                 AddVariable("DisplayCurrentProfileName", 1);
+                AddVariable("LoadDataAtStartup", 0);
                 //Utils.UpdateGamedirs(@"C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive");
             }
         }

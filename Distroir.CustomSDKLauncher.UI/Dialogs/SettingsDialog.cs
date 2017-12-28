@@ -77,8 +77,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Refresh list of profiles
             RefreshList();
-            //Update displayCurrentlySelectedProfileCheckBox
+            //Update controls
             displayCurrentlySelectedProfileCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
+            preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             //Update version info
             versionLabel.Text = string.Format("Version: {0}", ProductVersion);
         }
@@ -112,10 +113,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("SelectedProfileId", profileListComboBox.SelectedIndex);
 
             //Save orther settings
-            if (displayCurrentlySelectedProfileCheckBox.Checked)
-                Config.AddVariable("DisplayCurrentProfileName", 1);
-            else
-                Config.AddVariable("DisplayCurrentProfileName", 0);
+            Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedProfileCheckBox.Checked));
+            Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
+        }
+
+        int BoolToInt(bool val)
+        {
+            return val ? 1 : 0;
         }
 
         #region Events
