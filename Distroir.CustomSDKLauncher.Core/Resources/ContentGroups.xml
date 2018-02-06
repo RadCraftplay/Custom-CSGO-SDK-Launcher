@@ -84,7 +84,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Optimization Testing in Source Engine</Name>
         <Author>Will2k</Author>
-        <Description>Good tutorial on optimization in source engine</Description>
+        <Description>Every part of your map needs testing and proper quality control. Since optimization is really important eleent of your map you have to make sure that you are keeping frame rate as high as possible. "Optimization Testing in Source Engine" by Will2k thoroughly describes this topic</Description>
         <url>http://gamebanana.com/tuts/11586</url>
         <Game></Game>
         <Engine>Source Engine</Engine>
