@@ -76,7 +76,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Man vs. Engine</Name>
         <Author>Will2k</Author>
-        <Description>Optimization is one of most important elements of your map. Players won't tolerate low fps on your map! Will2k is passionated about optimization. His career revolved arround it. "Man vs. Engine" will definetly help you out with this hard topic</Description>
+        <Description>Optimization is one of most important elements of your map. Players won't tolerate low fps! Will2k is passionated about optimization. His career revolved arround it. "Man vs. Engine" will definetly help you out with this hard topic</Description>
         <url>http://gamebanana.com/tuts/11178</url>
         <Game></Game>
         <Engine>Source Engine</Engine>
@@ -84,7 +84,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Optimization Testing in Source Engine</Name>
         <Author>Will2k</Author>
-        <Description>Every part of your map needs testing and proper quality control. Since optimization is really important eleent of your map you have to make sure that you are keeping frame rate as high as possible. "Optimization Testing in Source Engine" by Will2k thoroughly describes this topic</Description>
+        <Description>Every part of your map needs testing and proper quality control. Since optimization is really important element of your map you have to make sure that you are keeping frame rate as high as possible. "Optimization Testing in Source Engine" by Will2k thoroughly describes this topic</Description>
         <url>http://gamebanana.com/tuts/11586</url>
         <Game></Game>
         <Engine>Source Engine</Engine>
