@@ -82,6 +82,7 @@
             this.goButton.TabIndex = 3;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Visible = false;
             this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
             // descriptionTextBox

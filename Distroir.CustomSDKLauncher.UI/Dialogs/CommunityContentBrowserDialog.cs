@@ -158,6 +158,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 desc = info.Description;
             }
 
+            goButton.Visible = n.Tag != null;
+
             contentNameLabel.Text = name;
             contentAuthorLabel.Text = text;
             descriptionTextBox.Text = desc;
