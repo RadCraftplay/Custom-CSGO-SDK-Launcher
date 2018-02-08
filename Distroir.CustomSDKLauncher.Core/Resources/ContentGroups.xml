@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Fmpone's video tutorials</Name>
         <Author>Fmpone</Author>
-        <Description>Fmpone is creator of de_cache and four other maps included in Valve's CS:GO. His tutorials are basically re-streams from Twitch. Shawn answers to questions of his viewers and shows few really important mapping tips</Description>
+        <Description>Fmpone is creator of de_cache and four other maps included in Valve's CS:GO. His tutorials are recordings of a Twitch broadcasts. Shawn answers questions of his viewers, shows how to start using hammer, best way to do brushwork and how to pick colors and theme for your map. His videos contain really important tips not included in any other tutorial</Description>
         <url>https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos</url>
         <Game>Counter-Strike: Global Offensive</Game>
         <Engine>Source Engine</Engine>
