@@ -18,12 +18,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <ArrayOfContentGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ContentGroup>
-    <Name>Gamebanana</Name>
+    <Name>GameBanana</Name>
     <Contents>
       <ContentInfo>
         <Name>Homepage</Name>
         <Author>N/A</Author>
-        <Description>Gamebanana homepage</Description>
+        <Description>GameBanana is an active community of PC gamers who love to discuss, download, and share user-created game content. Site exists since 2001 and is developed to this day</Description>
         <url>https://gamebanana.com</url>
         <Game>Unknown</Game>
         <Engine>N/A</Engine>
@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Prefabs</Name>
         <Author>N/A</Author>
-        <Description>Map objects</Description>
+        <Description>Separately saved objects, usually consisting of multiple parts - brushes, props, or entity elements that can be used repeatedly in your maps</Description>
         <url>https://gamebanana.com/prefabs</url>
         <Game>Unknown</Game>
         <Engine>N/A</Engine>
@@ -44,7 +44,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Fmpone's video tutorials</Name>
         <Author>Fmpone</Author>
-        <Description>Fmpone is creator of de_cache</Description>
+        <Description>Fmpone is creator of de_cache and four other maps included in Valve's CS:GO. His tutorials are recordings of a Twitch broadcasts. Shawn answers questions of his viewers, shows how to start using hammer, best way to do brushwork and how to pick colors and theme for your map. His videos contain really important tips not included in any other tutorial</Description>
         <url>https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos</url>
         <Game>Counter-Strike: Global Offensive</Game>
         <Engine>Source Engine</Engine>
@@ -52,7 +52,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Counter-Strike Global Offensive Level Design Boot Camp</Name>
         <Author>TopHATTwaffle</Author>
-        <Description>Great tutorial series created by TopHATTwaffle - mapmaker with over 10 years of experience</Description>
+        <Description>"Go from zero to level design hero as fast as possible". "Counter-Strike Global Offensive Level Design Boot Camp" is an complex and easy to understand video tutorial series presenting how to start mapmaking in CS:GO</Description>
         <url>https://www.youtube.com/channel/UCrVkmwv-AHBAo-92OeSh9YQ/videos</url>
         <Game>Counter-Strike: Global Offensive</Game>
         <Engine>Source Engine</Engine>
@@ -68,7 +68,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Source SDK Tutorials</Name>
         <Author>3kliksphilip</Author>
-        <Description>Videos on how to make maps for Source-based games like Half Life 2, Counter Strike Global Offensive, Team Fortress 2, Left 4 Dead and Portal.</Description>
+        <Description>Videos on how to make maps for Source-based games like Half Life 2, Counter Strike Global Offensive, Team Fortress 2, Left 4 Dead and Portal</Description>
         <url>https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3</url>
         <Game>Counter-Strike: Global Offensive</Game>
         <Engine>Source Engine</Engine>
@@ -76,7 +76,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Man vs. Engine</Name>
         <Author>Will2k</Author>
-        <Description>In this tutorial Will is taking a look at </Description>
+        <Description>Optimization is one of most important elements of your map. Players won't tolerate low fps! Will2k is passionated about optimization. His career revolved arround it. "Man vs. Engine" will definetly help you out with this hard topic</Description>
         <url>http://gamebanana.com/tuts/11178</url>
         <Game></Game>
         <Engine>Source Engine</Engine>
@@ -84,7 +84,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>Optimization Testing in Source Engine</Name>
         <Author>Will2k</Author>
-        <Description>Good tutorial on optimization in source engine</Description>
+        <Description>Every part of your map needs testing and proper quality control. Since optimization is really important element of your map you have to make sure that you are keeping frame rate as high as possible. "Optimization Testing in Source Engine" by Will2k thoroughly describes this topic</Description>
         <url>http://gamebanana.com/tuts/11586</url>
         <Game></Game>
         <Engine>Source Engine</Engine>
