@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using System;
+using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -81,7 +82,23 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             displayCurrentlySelectedProfileCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             //Update version info
+            copyrightLabel.Text = GetCopyright();
             versionLabel.Text = string.Format("Version: {0}", ProductVersion);
+        }
+
+        private string GetCopyright()
+        {
+            Assembly asm = Assembly.GetExecutingAssembly();
+            object[] obj = asm.GetCustomAttributes(false);
+            foreach (object o in obj)
+            {
+                if (o.GetType() == typeof(AssemblyCopyrightAttribute))
+                {
+                    AssemblyCopyrightAttribute aca = (AssemblyCopyrightAttribute)o;
+                    return aca.Copyright;
+                }
+            }
+            return string.Empty;
         }
 
         void RefreshList()
