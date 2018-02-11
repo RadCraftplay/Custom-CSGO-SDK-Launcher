@@ -17,7 +17,7 @@ AppVersion={#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile=C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\License.txt
+LicenseFile=License.txt
 OutputDir=C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Installer
 OutputBaseFilename=Custom SDK Launcher Setup
 Compression=lzma2
@@ -35,9 +35,9 @@ Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Di
 Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\Distroir.CustomSDKLauncher.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\en\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\en"; Flags: ignoreversion
 ;Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\pl\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\pl"; Flags: ignoreversion
-Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\GPL 3.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\License.txt"; DestDir: "{app}"; Flags: ignoreversion
-Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Custom SDK Launcher\bin\Debug\FUGUE-README.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "gpl3.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "License.txt"; DestDir: "{app}"; Flags: ignoreversion
+Source: "FUGUE-README.txt"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
