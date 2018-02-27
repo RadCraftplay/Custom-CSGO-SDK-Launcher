@@ -1,6 +1,6 @@
 $msbuild = Join-Path (Get-ItemProperty Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\VisualStudio\SxS\VS7 -Name "15.0")."15.0" "\MSBuild\15.0\Bin\MSBuild.exe"
 
-echo $msbuild
+#echo 'Msbuild path: ' $msbuild
 
 if (Test-Path './Out') {
     Remove-Item -Recurse './Out'
