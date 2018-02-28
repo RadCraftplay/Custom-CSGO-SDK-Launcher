@@ -32,7 +32,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //Load configuration
             Utils.CheckDirs();
             Config.Load();
-            LanguageManager.LoadLanguageInfo();
+            //LanguageManager.LoadLanguageInfo();
 
             //Load profiles
             ProfileManager.LoadProfiles();
