@@ -1,0 +1,143 @@
+﻿/*
+Custom SDK Launcher
+Copyright (C) 2017 Distroir
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Serialization;
+using System.IO;
+using System.ComponentModel;
+using System.Diagnostics;
+
+namespace Distroir.CustomSDKLauncher.Core.AppLauncher
+{
+    public class AppInfo : IDisposable
+    {
+        /// <summary>
+        /// Path to an executable file
+        /// </summary>
+        public string Path;
+
+        public bool UseCustomWorkingDirectory;
+        public string CustomWorkingDirectory;
+
+        public bool UseCustomArguments;
+        public string Arguments;
+
+        public string DisplayText;
+
+        [XmlElement("Icon")]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public byte[] ImageSerialized;
+
+        [XmlIgnore]
+        public Image Icon
+        {
+            get
+            {
+                if (ImageSerialized == null)
+                    return null;
+                
+                using (MemoryStream ms = new MemoryStream(ImageSerialized))
+                    return Image.FromStream(ms);
+            }
+            set
+            {
+                if (value == null)
+                {
+                    ImageSerialized = null;
+                    return;
+                }
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    value.Save(ms, value.RawFormat);
+                    ImageSerialized = ms.ToArray();
+                }
+            }
+        }
+
+        [XmlIgnore]
+        public string PathFormatted
+        {
+            get
+            {
+                if (Path == null)
+                    return null;
+
+                return PathFormatter.Format(Path);
+            }
+        }
+
+        [XmlIgnore]
+        public string CustomWorkingDirectoryFormatted
+        {
+            get
+            {
+                if (CustomWorkingDirectory == null)
+                    return null;
+
+                return PathFormatter.Format(CustomWorkingDirectory);
+            }
+        }
+
+        [XmlIgnore]
+        public string ArgumentsFormatted
+        {
+            get
+            {
+                if (Arguments == null)
+                    return null;
+
+                return PathFormatter.Format(Arguments);
+            }
+        }
+
+        public AppInfo()
+        {
+            UseCustomWorkingDirectory = false;
+            UseCustomArguments = false;
+        }
+
+        public void Launch()
+        {
+            Process p = new Process();
+
+            p.StartInfo.FileName = PathFormatted;
+
+            if (UseCustomArguments)
+                p.StartInfo.Arguments = ArgumentsFormatted;
+
+            if (UseCustomWorkingDirectory)
+                p.StartInfo.WorkingDirectory = CustomWorkingDirectoryFormatted;
+
+            p.Start();
+        }
+
+        public void Dispose()
+        {
+            Path = null;
+            CustomWorkingDirectory = null;
+            Arguments = null;
+            DisplayText = null;
+            Icon = null;
+        }
+    }
+}

@@ -44,7 +44,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
             XmlSerializer s = new XmlSerializer(typeof(ContentGroup[]));
 
             //Deserialize content groups from XML file
-            using (TextReader reader = new StringReader(Data.ContentGroups))
+            using (TextReader reader = new StringReader(Data.ContentGroupsXML))
             {
                 ContentGroups = ((ContentGroup[])s.Deserialize(reader)).ToList();
             }

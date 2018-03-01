@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using System;
 using System.Drawing;
@@ -35,7 +36,6 @@ namespace Distroir.CustomSDKLauncher.UI
             //LanguageManager.LoadLanguageInfo();
 
             //Load profiles
-            ProfileManager.LoadProfiles();
             LoadData();
 
             //Unused: Load theme
@@ -57,7 +57,13 @@ namespace Distroir.CustomSDKLauncher.UI
             //Create controls
             InitializeComponent();
 
-            //Apply translations to controls
+            //Update controls
+            AppManager.UpdateButtons(new Button[]
+                {
+                    launchHammerButton,
+                    launchModelViewerButton,
+                    launchFacePoserButton
+                });
             UpdateToolsGroupBoxText();
 
             //Unused: Apply theme to UI
@@ -68,12 +74,23 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             int LoadAtStartup;
 
+            //Game profiles
+            ProfileManager.LoadProfiles();
+            //Reloads list of variables used to format paths
+            Utils.TryReloadPathFormatterVars();
+            
+            //Load application list
+            if (!AppManager.TryLoadApplications())
+                AppManager.CreateApplications();
+
+            //Try to load data settings
             if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
             {
                 LoadAtStartup = 0;
                 Config.AddVariable("LoadDataAtStartup", 0);
             }
 
+            //Load less important data on startup
             if (LoadAtStartup == 1)
             {
                 TemplateManager.LoadTemplates();
@@ -85,6 +102,11 @@ namespace Distroir.CustomSDKLauncher.UI
         #region Form events
 
         #region Button click events
+
+        private void launchAppButton_Click(object sender, EventArgs e)
+        {
+            AppManager.LaunchApp((Button)sender);
+        }
 
         private void launchHammerButton_Click(object sender, EventArgs e)
         {

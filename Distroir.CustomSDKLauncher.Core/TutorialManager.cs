@@ -41,7 +41,7 @@ namespace Distroir.CustomSDKLauncher.Core
             XmlSerializer s = new XmlSerializer(typeof(Tutorial[]));
 
             //Read data
-            using (TextReader reader = new StringReader(Data.Tutorials))
+            using (TextReader reader = new StringReader(Data.TutorialsXML))
             {
                 Tutorials = ((Tutorial[])s.Deserialize(reader)).ToList();
             }

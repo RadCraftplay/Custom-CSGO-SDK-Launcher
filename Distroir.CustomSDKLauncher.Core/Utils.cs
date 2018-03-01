@@ -76,7 +76,7 @@ namespace Distroir.CustomSDKLauncher.Core
             }
         }
 
-        public static void TryGetSelectedProfile(out Profile p)
+        public static bool TryGetSelectedProfile(out Profile p)
         {
             try
             {
@@ -84,10 +84,13 @@ namespace Distroir.CustomSDKLauncher.Core
                 int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
                 //Get selected profile
                 p = ProfileManager.Profiles[SelectedProfileId];
+
+                return true;
             }
             catch
             {
                 p = new Profile();
+                return false;
             }
         }
 
@@ -107,6 +110,37 @@ namespace Distroir.CustomSDKLauncher.Core
 
             //Return game directory
             return $"{programfilesDir}\\Steam\\steamapps\\common\\{gameDir}";
+        }
+
+        /// <summary>
+        /// Reloads global variables used by Path Formatter
+        /// </summary>
+        /// <returns>True if operation succeed</returns>
+        public static bool TryReloadPathFormatterVars()
+        {
+            PathFormatter.Paths.Clear();
+
+            Profile p;
+
+            if (TryGetSelectedProfile(out p))
+            {
+                PathFormatter.Paths.Add(new System.Collections.Generic.KeyValuePair<string, string>(
+                    "GameDir",
+                    p.GameDir
+                    ));
+                PathFormatter.Paths.Add(new System.Collections.Generic.KeyValuePair<string, string>(
+                    "GameinfoDir",
+                    p.GameinfoDirName
+                    ));
+                PathFormatter.Paths.Add(new System.Collections.Generic.KeyValuePair<string, string>(
+                    "GameBinDir",
+                    Path.Combine(p.GameDir, "bin")
+                    ));
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

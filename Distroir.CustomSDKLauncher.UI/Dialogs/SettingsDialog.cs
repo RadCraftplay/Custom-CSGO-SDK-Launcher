@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using System;
 using System.Reflection;
 using System.Resources;
@@ -132,6 +133,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Save orther settings
             Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedProfileCheckBox.Checked));
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
+
+            //Reload Path Formatter and buttons
+            Utils.TryReloadPathFormatterVars();
         }
 
         int BoolToInt(bool val)
