@@ -124,18 +124,9 @@ namespace Distroir.CustomSDKLauncher.Core
 
             if (TryGetSelectedProfile(out p))
             {
-                PathFormatter.Paths.Add(new System.Collections.Generic.KeyValuePair<string, string>(
-                    "GameDir",
-                    p.GameDir
-                    ));
-                PathFormatter.Paths.Add(new System.Collections.Generic.KeyValuePair<string, string>(
-                    "GameinfoDir",
-                    p.GameinfoDirName
-                    ));
-                PathFormatter.Paths.Add(new System.Collections.Generic.KeyValuePair<string, string>(
-                    "GameBinDir",
-                    Path.Combine(p.GameDir, "bin")
-                    ));
+                PathFormatter.Paths.Add("GameDir", p.GameDir);
+                PathFormatter.Paths.Add("GameinfoDir", p.GameinfoDirName);
+                PathFormatter.Paths.Add("GameBinDir", Path.Combine(p.GameDir, "bin"));
 
                 return true;
             }

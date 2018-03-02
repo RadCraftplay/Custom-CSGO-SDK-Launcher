@@ -30,7 +30,8 @@ using System.Linq;
  */
 public class PathFormatter
 {
-    public static List<KeyValuePair<string, string>> Paths = new List<KeyValuePair<string, string>>();
+    //public static List<KeyValuePair<string, string>> Paths = new List<KeyValuePair<string, string>>();
+    public static Dictionary<string, string> Paths = new Dictionary<string, string>();
 
     public static void Format(ref string Source)
     {
@@ -39,8 +40,9 @@ public class PathFormatter
 
         foreach (SearchResult r in res)
         {
-            var sr = Paths.FirstOrDefault(x => x.Key == r.Result);
-            Replace(ref Source, r, sr.Value, Source.Length - Length);
+            string sr;
+            Paths.TryGetValue(r.Result, out sr);
+            Replace(ref Source, r, sr, Source.Length - Length);
         }
     }
 
