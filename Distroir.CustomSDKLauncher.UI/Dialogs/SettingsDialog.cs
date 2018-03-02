@@ -28,7 +28,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
     //TODO: Add language selection
     public partial class SettingsDialog : Form
     {
-        public SettingsDialog()
+        Form1 reference;
+
+        public SettingsDialog(Form1 f)
         {
             //Create controls
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Apply translations
             //TODO: Remove comment
             //ApplyTranslations();
+            reference = f;
         }
 
         void ApplyTranslations()
@@ -82,6 +85,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Update controls
             displayCurrentlySelectedProfileCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
+            useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
             //Update version info
             copyrightLabel.Text = GetCopyright();
             versionLabel.Text = string.Format("Version: {0}", ProductVersion);
@@ -133,9 +137,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Save orther settings
             Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedProfileCheckBox.Checked));
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
+            Config.AddVariable("UseNewLauncher", BoolToInt(useNewLauncherCheckBox.Checked));
 
             //Reload Path Formatter and buttons
             Utils.TryReloadPathFormatterVars();
+            reference.ApplyLauncherSettings(useNewLauncherCheckBox.Checked);
         }
 
         int BoolToInt(bool val)

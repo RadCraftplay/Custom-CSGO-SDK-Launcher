@@ -65,6 +65,7 @@ namespace Distroir.CustomSDKLauncher.UI
                     launchFacePoserButton
                 });
             UpdateToolsGroupBoxText();
+            ApplyLauncherSettings(Config.ReadInt("UseNewLauncher") == 1);
 
             //Unused: Apply theme to UI
             //ApplyTheme();
@@ -72,7 +73,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void LoadData()
         {
-            int LoadAtStartup;
+            int LoadAtStartup, useNewLauncher;
 
             //Game profiles
             ProfileManager.LoadProfiles();
@@ -96,6 +97,35 @@ namespace Distroir.CustomSDKLauncher.UI
                 TemplateManager.LoadTemplates();
                 TutorialManager.LoadTutorials();
                 ContentManager.LoadContentGroups();
+            }
+
+            if (!Config.TryReadInt("UseNewLauncher", out useNewLauncher))
+            {
+                useNewLauncher = 0;
+                Config.AddVariable("UseNewLauncher", 0);
+            }
+        }
+
+        public void ApplyLauncherSettings(bool useNewLauncher)
+        {
+            launchHammerButton.Click -= launchHammerButton_Click;
+            launchHammerButton.Click -= launchAppButton_Click;
+            launchModelViewerButton.Click -= launchModelViewerButton_Click;
+            launchModelViewerButton.Click -= launchAppButton_Click;
+            launchFacePoserButton.Click -= launchFacePoserButton_Click;
+            launchFacePoserButton.Click -= launchAppButton_Click;
+
+            if (useNewLauncher)
+            {
+                launchHammerButton.Click += launchAppButton_Click;
+                launchModelViewerButton.Click += launchAppButton_Click;
+                launchFacePoserButton.Click += launchAppButton_Click;
+            }
+            else
+            {
+                launchHammerButton.Click += launchHammerButton_Click;
+                launchModelViewerButton.Click += launchModelViewerButton_Click;
+                launchFacePoserButton.Click += launchFacePoserButton_Click;
             }
         }
 
@@ -148,7 +178,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var d = new Dialogs.SettingsDialog();
+            var d = new Dialogs.SettingsDialog(this);
             d.ShowDialog();
 
             //Update toolsGroupBoxText
