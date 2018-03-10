@@ -37,6 +37,7 @@
             // 
             this.appComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.appComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.appComboBox.FormattingEnabled = true;
             this.appComboBox.Items.AddRange(new object[] {
             "Hammer World Editor",
@@ -67,7 +68,7 @@
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // BasicAppConfiguration
+            // BasicAppConfigurationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -76,7 +77,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.appComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "BasicAppConfiguration";
+            this.Name = "BasicAppConfigurationDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuration:";
             this.ResumeLayout(false);
             this.PerformLayout();

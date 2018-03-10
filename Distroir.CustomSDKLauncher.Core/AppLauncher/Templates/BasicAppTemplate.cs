@@ -29,17 +29,32 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
 {
     public class BasicAppTemplate : AppTemplate
     {
-        SDKApplication application;
+        SDKApplication application = SDKApplication.None;
 
-        public override void Configure()
+        public BasicAppTemplate()
+        {
+            UpdateInfo();
+        }
+
+        public override bool Configure()
         {
             var dialog = new BasicAppConfigurationDialog(application);
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
-                return;
+                return false;
 
             application = dialog.SelectedApplication;
+            UpdateInfo();
 
-            Info = GetToolStartInfo(application);
+            return true;
+        }
+
+        void UpdateInfo()
+        {
+            Info = new AppInfo();
+
+            if (application != SDKApplication.None)
+                Info = GetToolStartInfo(application);
+
             Info.DisplayText = GetDisplayText();
             Info.Icon = GetIcon();
         }
@@ -129,6 +144,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
         /// <summary>
         /// Face poser
         /// </summary>
-        FacePoser
+        FacePoser,
+        None
     }
 }

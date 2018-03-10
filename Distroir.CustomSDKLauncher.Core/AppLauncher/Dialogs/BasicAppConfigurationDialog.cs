@@ -38,7 +38,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher
         public BasicAppConfigurationDialog(Core.AppLauncher.Templates.SDKApplication app)
         {
             InitializeComponent();
-            Init((int)app);
+            if (app != Core.AppLauncher.Templates.SDKApplication.None)
+                Init((int)app);
+            else
+                Init(0);
         }
 
         void Init(int selectedId)

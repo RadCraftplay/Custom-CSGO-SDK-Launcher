@@ -127,6 +127,13 @@ namespace Distroir.CustomSDKLauncher.UI
                 launchModelViewerButton.Click += launchModelViewerButton_Click;
                 launchFacePoserButton.Click += launchFacePoserButton_Click;
             }
+
+            AppManager.UpdateButtons(new Button[]
+                {
+                    launchHammerButton,
+                    launchModelViewerButton,
+                    launchFacePoserButton
+                });
         }
 
         #region Form events

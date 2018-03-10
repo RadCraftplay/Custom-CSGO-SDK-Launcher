@@ -28,7 +28,11 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
     public abstract class AppTemplate
     {
         public AppInfo Info;
+        public bool CanConfigure = true;  
 
-        public virtual void Configure() {}
+        public virtual bool Configure()
+        {
+            return false;
+        }
     }
 }

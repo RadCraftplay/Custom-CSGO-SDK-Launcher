@@ -37,6 +37,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\AppSelectorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AppSelectorDialog.Designer.cs">
+      <DependentUpon>AppSelectorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\ChooseTemplateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dialogs\AppSelectorDialog.resx">
+      <DependentUpon>AppSelectorDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ChooseTemplateDialog.resx">
       <DependentUpon>ChooseTemplateDialog.cs</DependentUpon>
     </EmbeddedResource>

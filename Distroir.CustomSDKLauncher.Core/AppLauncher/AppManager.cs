@@ -118,9 +118,26 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
             }
         }
 
+        public static void UpdateButtons(List<AppInfo> info, Button[] buttons)
+        {
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                UpdateButton(info, buttons[i], i);
+            }
+        }
+
         static void UpdateButton(Button b, int id)
         {
             AppInfo i = Applications[id];
+
+            b.Text = i.DisplayText;
+            b.Image = i.Icon;
+            b.Tag = i;
+        }
+
+        static void UpdateButton(List<AppInfo> info, Button b, int id)
+        {
+            AppInfo i = info[id];
 
             b.Text = i.DisplayText;
             b.Image = i.Icon;
