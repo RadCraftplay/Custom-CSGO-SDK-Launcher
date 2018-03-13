@@ -1,12 +1,11 @@
+// Credits: 
+// https://www.codeproject.com/Articles/2532/Obtaining-and-managing-file-and-folder-icons-using
 using System;
 using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Runtime.InteropServices;
-
-// Credits: 
-// https://www.codeproject.com/Articles/2532/Obtaining-and-managing-file-and-folder-icons-using
 namespace Etier.IconHelper
 {
 	/// <summary>
