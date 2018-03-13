@@ -257,11 +257,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             Button b = (Button)sender;
 
+            //Edit button AppInfo
             var d = new AppSelectorDialog();
             if (d.ShowDialog() == DialogResult.OK)
                 b.Tag = d.selectedAppInfo;
 
+            //Update application list
             UpdateAppList();
+            //Update button actions in main window
             UpdateButtons();
         }
 

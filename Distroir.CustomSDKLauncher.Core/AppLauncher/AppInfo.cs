@@ -40,14 +40,26 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
         public string CustomWorkingDirectory;
 
         public bool UseCustomArguments = false;
+        /// <summary>
+        /// Process arguments
+        /// </summary>
         public string Arguments;
 
+        /// <summary>
+        /// Text displayed on button
+        /// </summary>
         public string DisplayText;
 
+        /// <summary>
+        /// Image representation used for serialization
+        /// </summary>
         [XmlElement("Icon")]
         [EditorBrowsable(EditorBrowsableState.Never)]
         public byte[] ImageSerialized;
 
+        /// <summary>
+        /// Icon displayed on button
+        /// </summary>
         [XmlIgnore]
         public Image Icon
         {
@@ -75,6 +87,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
             }
         }
 
+        /// <summary>
+        /// Executable path formatted using Path Formatter
+        /// </summary>
         [XmlIgnore]
         public string PathFormatted
         {
@@ -87,6 +102,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
             }
         }
 
+        /// <summary>
+        /// Custom working directory formatted using Path Formatter
+        /// </summary>
         [XmlIgnore]
         public string CustomWorkingDirectoryFormatted
         {
@@ -99,6 +117,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
             }
         }
 
+        /// <summary>
+        /// Arguments formatted using Path Formatter
+        /// </summary>
         [XmlIgnore]
         public string ArgumentsFormatted
         {
@@ -117,6 +138,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
             UseCustomArguments = false;
         }
 
+        /// <summary>
+        /// Launches application
+        /// </summary>
         public void Launch()
         {
             Process p = new Process();
