@@ -25,6 +25,7 @@ using System.Xml.Serialization;
 using System.IO;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher
 {
@@ -35,10 +36,10 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
         /// </summary>
         public string Path;
 
-        public bool UseCustomWorkingDirectory;
+        public bool UseCustomWorkingDirectory = false;
         public string CustomWorkingDirectory;
 
-        public bool UseCustomArguments;
+        public bool UseCustomArguments = false;
         public string Arguments;
 
         public string DisplayText;
@@ -68,7 +69,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
 
                 using (MemoryStream ms = new MemoryStream())
                 {
-                    value.Save(ms, value.RawFormat);
+                    value.Save(ms, ImageFormat.Tiff);
                     ImageSerialized = ms.ToArray();
                 }
             }

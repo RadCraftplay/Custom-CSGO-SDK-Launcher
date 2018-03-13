@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -45,7 +46,14 @@
     <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.Designer.cs">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.Designer.cs">
+      <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppLauncher\Templates\BasicAppTemplate.cs" />
+    <Compile Include="AppLauncher\Templates\CustomAppTemplate.cs" />
     <Compile Include="BackupEntry.cs" />
     <Compile Include="BackupManager.cs" />
     <Compile Include="CommunityContent\ContentData.cs" />
@@ -72,6 +80,8 @@
     <Compile Include="TemplateManager.cs" />
     <Compile Include="Tutorial.cs" />
     <Compile Include="TutorialManager.cs" />
+    <Compile Include="Utilities\IconHelper.cs" />
+    <Compile Include="Utilities\MessageBoxes.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +97,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.resx">
+      <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Data.resx">
       <Generator>ResXFileCodeGenerator</Generator>

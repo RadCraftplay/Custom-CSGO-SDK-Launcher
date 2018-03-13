@@ -19,24 +19,20 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Diagnostics;
-using System.Xml.Serialization;
-using Distroir.CustomSDKLauncher.Core.AppLauncher.Templates;
+using System.Windows.Forms;
 
-namespace Distroir.CustomSDKLauncher.Core.AppLauncher
+namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
-    [XmlInclude(typeof(BasicAppTemplate))]
-    [XmlInclude(typeof(CustomAppTemplate))]
-    public abstract class AppTemplate
+    public class MessageBoxes
     {
-        public AppInfo Info;
-        public bool CanConfigure = true;  
-
-        public virtual bool Configure()
+        public static void Error(string Message)
         {
-            return false;
+            MessageBox.Show(Message, "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void Warning(string Message)
+        {
+            MessageBox.Show(Message, "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

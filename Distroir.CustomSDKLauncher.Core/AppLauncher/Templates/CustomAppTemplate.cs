@@ -15,27 +15,36 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Diagnostics;
-using System.Xml.Serialization;
-using Distroir.CustomSDKLauncher.Core.AppLauncher.Templates;
+using System.Windows.Forms;
 
-namespace Distroir.CustomSDKLauncher.Core.AppLauncher
+namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
 {
-    [XmlInclude(typeof(BasicAppTemplate))]
-    [XmlInclude(typeof(CustomAppTemplate))]
-    public abstract class AppTemplate
+    public class CustomAppTemplate : AppTemplate
     {
-        public AppInfo Info;
-        public bool CanConfigure = true;  
-
-        public virtual bool Configure()
+        public CustomAppTemplate()
         {
+            Info = new AppInfo();
+            Info.Icon = Data.DefaultIcon;
+            Info.DisplayText = "Custom application";
+        }
+
+        public override bool Configure()
+        {
+            var d = new CustomAppConfigurationDialog();
+            if (d.ShowDialog() == DialogResult.OK)
+            {
+                if (d.info != null)
+                {
+                    Info = d.info;
+                    return true;
+                }
+            }
+
             return false;
         }
     }
