@@ -61,6 +61,7 @@
             this.Controls.Add(this.selectButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AppSelectorDialog";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select app";
             this.ResumeLayout(false);

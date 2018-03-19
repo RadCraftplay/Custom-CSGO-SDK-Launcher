@@ -78,6 +78,7 @@
             this.Controls.Add(this.appComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "BasicAppConfigurationDialog";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuration:";
             this.ResumeLayout(false);

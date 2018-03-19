@@ -225,6 +225,7 @@
             this.Controls.Add(this.okButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CustomAppConfigurationDialog";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuration";
             ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
