@@ -107,6 +107,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 CheckFileExists = true
             })
             {
+                if (pathTextBox.Text != string.Empty)
+                    ofd.FileName = pathTextBox.Text;
+
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     pathTextBox.Text = ofd.FileName;
@@ -123,6 +126,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
         {
             using (var ofd = new FolderBrowserDialog())
             {
+                ofd.SelectedPath = customWorkingDirectoryTextBox.Text;
+
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     customWorkingDirectoryTextBox.Text = ofd.SelectedPath;
