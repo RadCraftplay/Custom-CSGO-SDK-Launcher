@@ -46,6 +46,24 @@ namespace Distroir.CustomSDKLauncher.Core
         }
 
         /// <summary>
+        /// Tries to execute shell command
+        /// </summary>
+        /// <param name="arg1">Command</param>
+        /// <returns></returns>
+        public static bool TryLaunch(string arg1)
+        {
+            try
+            {
+                Process.Start(arg1);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Tries to launch specified tool
         /// </summary>
         /// <param name="app">Application to launch</param>

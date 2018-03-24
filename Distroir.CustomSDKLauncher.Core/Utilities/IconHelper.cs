@@ -6,6 +6,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Runtime.InteropServices;
+
 namespace Etier.IconHelper
 {
 	/// <summary>
@@ -241,3 +242,27 @@ namespace Etier.IconHelper
 	}
 }
 
+namespace Distroir.CustomSDKLauncher.Core.Utilities
+{
+	using Etier.IconHelper;
+	public class IconHelper
+	{
+		public static bool TrySetDefaultIcon(string path, out Image img)
+        {
+            try
+            {
+                img = IconReader.GetFileIcon(
+                    path,
+                    IconReader.IconSize.Small,
+                    false).ToBitmap();
+
+                return true;
+            }
+            catch
+            {
+				img = Data.DefaultIcon;
+                return false;
+            }
+        }
+	}
+}

@@ -52,8 +52,15 @@
     <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.Designer.cs">
       <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.Designer.cs">
+      <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppLauncher\Templates\BasicAppTemplate.cs" />
     <Compile Include="AppLauncher\Templates\CustomAppTemplate.cs" />
+    <Compile Include="AppLauncher\Templates\JavaAppTemplate.cs" />
     <Compile Include="BackupEntry.cs" />
     <Compile Include="BackupManager.cs" />
     <Compile Include="CommunityContent\ContentData.cs" />
@@ -81,7 +88,9 @@
     <Compile Include="Tutorial.cs" />
     <Compile Include="TutorialManager.cs" />
     <Compile Include="Utilities\IconHelper.cs" />
+    <Compile Include="Utilities\JavaUtils.cs" />
     <Compile Include="Utilities\MessageBoxes.cs" />
+    <Compile Include="Utilities\RegistryUtils.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.resx">
       <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
+      <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Data.resx">
       <Generator>ResXFileCodeGenerator</Generator>
