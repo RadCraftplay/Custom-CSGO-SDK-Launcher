@@ -138,9 +138,12 @@ namespace Distroir.CustomSDKLauncher.UI
 
                 //TODO: Update icons
                 launchHammerButton.Text = "Hammer World Editor";
+                launchHammerButton.Image = Data.HammerIcon;
                 launchModelViewerButton.Text = "Model Viewer";
+                launchModelViewerButton.Image = Data.ModelViewerIcon;
                 launchFacePoserButton.Text = "Face Poser";
-                
+                launchFacePoserButton.Image = Data.FacePoserIcon;
+
             }
         }
 
