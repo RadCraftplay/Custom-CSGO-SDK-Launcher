@@ -162,6 +162,10 @@
     <EmbeddedResource Include="Resources\SettingsDialog.pl.resx" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj">
+      <Project>{7b1a697a-96c8-40d8-9ddf-058ed283236d}</Project>
+      <Name>Distroir.CustomSDKLauncher.Core.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core\Distroir.CustomSDKLauncher.Core.csproj">
       <Project>{abefcede-8964-427c-ac88-fe00daca6474}</Project>
       <Name>Distroir.CustomSDKLauncher.Core</Name>

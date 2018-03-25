@@ -70,11 +70,6 @@
     <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Compressor.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Data.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Data.resx</DependentUpon>
-    </Compile>
     <Compile Include="LanguageManager.cs" />
     <Compile Include="LanguageResourcesList.cs" />
     <Compile Include="Launcher.cs" />
@@ -99,11 +94,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Templates.xml" />
-    <None Include="Resources\UIThemes.xml" />
-    <None Include="Resources\Tutorials.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,19 +103,12 @@
     <EmbeddedResource Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
       <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Data.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ContentGroups.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Icons\App\DefaultIcon.png" />
-    <Content Include="Resources\Icons\App\SDK\FacePoserIcon.png" />
-    <Content Include="Resources\Icons\App\SDK\HammerIcon.png" />
-    <Content Include="Resources\Icons\App\SDK\ModelViewerIcon.png" />
+    <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj">
+      <Project>{7b1a697a-96c8-40d8-9ddf-058ed283236d}</Project>
+      <Name>Distroir.CustomSDKLauncher.Core.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
