@@ -65,7 +65,7 @@ namespace Distroir.CustomSDKLauncher.UI
                     launchFacePoserButton
                 });
             UpdateToolsGroupBoxText();
-            ApplyLauncherSettings(Config.ReadInt("UseNewLauncher") == 1);
+            ApplyLauncherSettings();
 
             //Unused: Apply theme to UI
             //ApplyTheme();
@@ -106,8 +106,10 @@ namespace Distroir.CustomSDKLauncher.UI
             }
         }
 
-        public void ApplyLauncherSettings(bool useNewLauncher)
+        public void ApplyLauncherSettings()
         {
+            bool useNewLauncher = Config.ReadInt("UseNewLauncher") == 1;
+
             launchHammerButton.Click -= launchHammerButton_Click;
             launchHammerButton.Click -= launchAppButton_Click;
             launchModelViewerButton.Click -= launchModelViewerButton_Click;
@@ -120,20 +122,26 @@ namespace Distroir.CustomSDKLauncher.UI
                 launchHammerButton.Click += launchAppButton_Click;
                 launchModelViewerButton.Click += launchAppButton_Click;
                 launchFacePoserButton.Click += launchAppButton_Click;
+
+                AppManager.UpdateButtons(new Button[]
+                {
+                    launchHammerButton,
+                    launchModelViewerButton,
+                    launchFacePoserButton
+                });
             }
             else
             {
                 launchHammerButton.Click += launchHammerButton_Click;
                 launchModelViewerButton.Click += launchModelViewerButton_Click;
                 launchFacePoserButton.Click += launchFacePoserButton_Click;
-            }
 
-            AppManager.UpdateButtons(new Button[]
-                {
-                    launchHammerButton,
-                    launchModelViewerButton,
-                    launchFacePoserButton
-                });
+                //TODO: Update icons
+                launchHammerButton.Text = "Hammer World Editor";
+                launchModelViewerButton.Text = "Model Viewer";
+                launchFacePoserButton.Text = "Face Poser";
+                
+            }
         }
 
         #region Form events
@@ -186,9 +194,9 @@ namespace Distroir.CustomSDKLauncher.UI
         private void settingsButton_Click(object sender, EventArgs e)
         {
             var d = new Dialogs.SettingsDialog(this);
-            d.ShowDialog();
+            d.ShowDialog();ApplyLauncherSettings();
 
-            //Update toolsGroupBoxText
+            //Update controls
             UpdateToolsGroupBoxText();
         }
 

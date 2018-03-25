@@ -154,7 +154,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
             AppManager.Applications = appListReference;
-            formReference.ApplyLauncherSettings(useNewLauncherCheckBox.Checked);
+            formReference.ApplyLauncherSettings();
 
             //Save app manager settings
             AppManager.SaveApplications();
