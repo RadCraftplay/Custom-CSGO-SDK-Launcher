@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017 Distroir
+Copyright (C) 2017-2018 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -41,7 +41,7 @@ namespace Distroir.CustomSDKLauncher.Core
             XmlSerializer s = new XmlSerializer(typeof(Tutorial[]));
 
             //Read data
-            using (TextReader reader = new StringReader(Data.Tutorials))
+            using (TextReader reader = new StringReader(Data.TutorialsXML))
             {
                 Tutorials = ((Tutorial[])s.Deserialize(reader)).ToList();
             }

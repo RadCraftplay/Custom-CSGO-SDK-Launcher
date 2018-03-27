@@ -17,12 +17,12 @@ namespace Distroir.CustomSDKLauncher.Core {
     /// </summary>
     // Ta klasa została automatycznie wygenerowana za pomocą klasy StronglyTypedResourceBuilder
     // przez narzędzie, takie jak ResGen lub Visual Studio.
-    // Aby dodać lub usunąć członka, edytuj plik .ResX, a następnie ponownie uruchom ResGen
+    // Aby dodać lub usunąć składową, edytuj plik ResX, a następnie ponownie uruchom narzędzie ResGen
     // z opcją /str lub ponownie utwórz projekt VS.
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Data {
+    public class Data {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Distroir.CustomSDKLauncher.Core {
         /// Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Distroir.CustomSDKLauncher.Core.Data", typeof(Data).Assembly);
@@ -51,7 +51,7 @@ namespace Distroir.CustomSDKLauncher.Core {
         ///   przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -75,9 +75,49 @@ namespace Distroir.CustomSDKLauncher.Core {
         ///but WITHOUT ANY WARRANTY; without even the implied warranty of
         ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
-        internal static string ContentGroups {
+        public static string ContentGroupsXML {
             get {
-                return ResourceManager.GetString("ContentGroups", resourceCulture);
+                return ResourceManager.GetString("ContentGroupsXML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap DefaultIcon {
+            get {
+                object obj = ResourceManager.GetObject("DefaultIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap FacePoserIcon {
+            get {
+                object obj = ResourceManager.GetObject("FacePoserIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap HammerIcon {
+            get {
+                object obj = ResourceManager.GetObject("HammerIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap ModelViewerIcon {
+            get {
+                object obj = ResourceManager.GetObject("ModelViewerIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -96,9 +136,9 @@ namespace Distroir.CustomSDKLauncher.Core {
         ///but WITHOUT ANY WARRANTY; without even the implied warranty of
         ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
-        internal static string Templates {
+        public static string TemplatesXML {
             get {
-                return ResourceManager.GetString("Templates", resourceCulture);
+                return ResourceManager.GetString("TemplatesXML", resourceCulture);
             }
         }
         
@@ -117,9 +157,9 @@ namespace Distroir.CustomSDKLauncher.Core {
         ///but WITHOUT ANY WARRANTY; without even the implied warranty of
         ///MERCHANTABILITY or FITNESS FOR A PARTIC [obcięto pozostałą część ciągu]&quot;;.
         /// </summary>
-        internal static string Tutorials {
+        public static string TutorialsXML {
             get {
-                return ResourceManager.GetString("Tutorials", resourceCulture);
+                return ResourceManager.GetString("TutorialsXML", resourceCulture);
             }
         }
     }

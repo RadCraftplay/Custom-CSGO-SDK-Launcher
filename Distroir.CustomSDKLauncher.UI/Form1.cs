@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017 Distroir
+Copyright (C) 2017-2018 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using System;
 using System.Drawing;
@@ -35,7 +36,6 @@ namespace Distroir.CustomSDKLauncher.UI
             //LanguageManager.LoadLanguageInfo();
 
             //Load profiles
-            ProfileManager.LoadProfiles();
             LoadData();
 
             //Unused: Load theme
@@ -57,8 +57,15 @@ namespace Distroir.CustomSDKLauncher.UI
             //Create controls
             InitializeComponent();
 
-            //Apply translations to controls
+            //Update controls
+            AppManager.UpdateButtons(new Button[]
+                {
+                    launchHammerButton,
+                    launchModelViewerButton,
+                    launchFacePoserButton
+                });
             UpdateToolsGroupBoxText();
+            ApplyLauncherSettings();
 
             //Unused: Apply theme to UI
             //ApplyTheme();
@@ -66,25 +73,88 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void LoadData()
         {
-            int LoadAtStartup;
+            int LoadAtStartup, useNewLauncher;
 
+            //Game profiles
+            ProfileManager.LoadProfiles();
+            //Reloads list of variables used to format paths
+            Utils.TryReloadPathFormatterVars();
+            
+            //Load application list
+            if (!AppManager.TryLoadApplications())
+                AppManager.CreateApplications();
+
+            //Try to load data settings
             if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
             {
                 LoadAtStartup = 0;
                 Config.AddVariable("LoadDataAtStartup", 0);
             }
 
+            //Load less important data on startup
             if (LoadAtStartup == 1)
             {
                 TemplateManager.LoadTemplates();
                 TutorialManager.LoadTutorials();
                 ContentManager.LoadContentGroups();
             }
+
+            if (!Config.TryReadInt("UseNewLauncher", out useNewLauncher))
+            {
+                useNewLauncher = 0;
+                Config.AddVariable("UseNewLauncher", 1);
+            }
+        }
+
+        public void ApplyLauncherSettings()
+        {
+            bool useNewLauncher = Config.ReadInt("UseNewLauncher") == 1;
+
+            launchHammerButton.Click -= launchHammerButton_Click;
+            launchHammerButton.Click -= launchAppButton_Click;
+            launchModelViewerButton.Click -= launchModelViewerButton_Click;
+            launchModelViewerButton.Click -= launchAppButton_Click;
+            launchFacePoserButton.Click -= launchFacePoserButton_Click;
+            launchFacePoserButton.Click -= launchAppButton_Click;
+
+            if (useNewLauncher)
+            {
+                launchHammerButton.Click += launchAppButton_Click;
+                launchModelViewerButton.Click += launchAppButton_Click;
+                launchFacePoserButton.Click += launchAppButton_Click;
+
+                AppManager.UpdateButtons(new Button[]
+                {
+                    launchHammerButton,
+                    launchModelViewerButton,
+                    launchFacePoserButton
+                });
+            }
+            else
+            {
+                launchHammerButton.Click += launchHammerButton_Click;
+                launchModelViewerButton.Click += launchModelViewerButton_Click;
+                launchFacePoserButton.Click += launchFacePoserButton_Click;
+
+                //TODO: Update icons
+                launchHammerButton.Text = "Hammer World Editor";
+                launchHammerButton.Image = Data.HammerIcon;
+                launchModelViewerButton.Text = "Model Viewer";
+                launchModelViewerButton.Image = Data.ModelViewerIcon;
+                launchFacePoserButton.Text = "Face Poser";
+                launchFacePoserButton.Image = Data.FacePoserIcon;
+
+            }
         }
 
         #region Form events
 
         #region Button click events
+
+        private void launchAppButton_Click(object sender, EventArgs e)
+        {
+            AppManager.LaunchApp((Button)sender);
+        }
 
         private void launchHammerButton_Click(object sender, EventArgs e)
         {
@@ -126,10 +196,10 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var d = new Dialogs.SettingsDialog();
-            d.ShowDialog();
+            var d = new Dialogs.SettingsDialog(this);
+            d.ShowDialog();ApplyLauncherSettings();
 
-            //Update toolsGroupBoxText
+            //Update controls
             UpdateToolsGroupBoxText();
         }
 

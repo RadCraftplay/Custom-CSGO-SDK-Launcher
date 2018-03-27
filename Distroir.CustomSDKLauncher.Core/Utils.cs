@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017 Distroir
+Copyright (C) 2017-2018 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -46,6 +46,24 @@ namespace Distroir.CustomSDKLauncher.Core
         }
 
         /// <summary>
+        /// Tries to execute shell command
+        /// </summary>
+        /// <param name="arg1">Command</param>
+        /// <returns></returns>
+        public static bool TryLaunch(string arg1)
+        {
+            try
+            {
+                Process.Start(arg1);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Tries to launch specified tool
         /// </summary>
         /// <param name="app">Application to launch</param>
@@ -76,7 +94,7 @@ namespace Distroir.CustomSDKLauncher.Core
             }
         }
 
-        public static void TryGetSelectedProfile(out Profile p)
+        public static bool TryGetSelectedProfile(out Profile p)
         {
             try
             {
@@ -84,10 +102,13 @@ namespace Distroir.CustomSDKLauncher.Core
                 int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
                 //Get selected profile
                 p = ProfileManager.Profiles[SelectedProfileId];
+
+                return true;
             }
             catch
             {
                 p = new Profile();
+                return false;
             }
         }
 
@@ -107,6 +128,28 @@ namespace Distroir.CustomSDKLauncher.Core
 
             //Return game directory
             return $"{programfilesDir}\\Steam\\steamapps\\common\\{gameDir}";
+        }
+
+        /// <summary>
+        /// Reloads global variables used by Path Formatter
+        /// </summary>
+        /// <returns>True if operation succeed</returns>
+        public static bool TryReloadPathFormatterVars()
+        {
+            PathFormatter.Paths.Clear();
+
+            Profile p;
+
+            if (TryGetSelectedProfile(out p))
+            {
+                PathFormatter.Paths.Add("GameDir", p.GameDir);
+                PathFormatter.Paths.Add("GameinfoDir", p.GameinfoDirName);
+                PathFormatter.Paths.Add("GameBinDir", Path.Combine(p.GameDir, "bin"));
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

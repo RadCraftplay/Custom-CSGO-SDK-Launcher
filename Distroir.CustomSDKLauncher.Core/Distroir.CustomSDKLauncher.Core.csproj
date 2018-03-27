@@ -31,11 +31,36 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppLauncher\AppInfo.cs" />
+    <Compile Include="AppLauncher\AppManager.cs" />
+    <Compile Include="AppLauncher\AppTemplate.cs" />
+    <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.Designer.cs">
+      <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.Designer.cs">
+      <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.Designer.cs">
+      <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppLauncher\Templates\BasicAppTemplate.cs" />
+    <Compile Include="AppLauncher\Templates\CustomAppTemplate.cs" />
+    <Compile Include="AppLauncher\Templates\JavaAppTemplate.cs" />
     <Compile Include="BackupEntry.cs" />
     <Compile Include="BackupManager.cs" />
     <Compile Include="CommunityContent\ContentData.cs" />
@@ -45,11 +70,6 @@
     <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Compressor.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Data.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Data.resx</DependentUpon>
-    </Compile>
     <Compile Include="LanguageManager.cs" />
     <Compile Include="LanguageResourcesList.cs" />
     <Compile Include="Launcher.cs" />
@@ -57,10 +77,15 @@
     <Compile Include="Profile.cs" />
     <Compile Include="ProfileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PathFormatter.cs" />
     <Compile Include="Template.cs" />
     <Compile Include="TemplateManager.cs" />
     <Compile Include="Tutorial.cs" />
     <Compile Include="TutorialManager.cs" />
+    <Compile Include="Utilities\IconHelper.cs" />
+    <Compile Include="Utilities\JavaUtils.cs" />
+    <Compile Include="Utilities\MessageBoxes.cs" />
+    <Compile Include="Utilities\RegistryUtils.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,18 +94,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Templates.xml" />
-    <None Include="Resources\UIThemes.xml" />
-    <None Include="Resources\Tutorials.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Data.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
+      <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.resx">
+      <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
+      <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ContentGroups.xml" />
+    <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj">
+      <Project>{7b1a697a-96c8-40d8-9ddf-058ed283236d}</Project>
+      <Name>Distroir.CustomSDKLauncher.Core.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

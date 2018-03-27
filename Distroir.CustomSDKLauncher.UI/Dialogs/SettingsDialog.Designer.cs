@@ -34,10 +34,18 @@
             this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
+            this.appLauncherTabPage = new System.Windows.Forms.TabPage();
+            this.launcherEditButton3 = new System.Windows.Forms.Button();
+            this.launcherEditButton2 = new System.Windows.Forms.Button();
+            this.launcherEditButton1 = new System.Windows.Forms.Button();
+            this.useNewLauncherCheckBox = new System.Windows.Forms.CheckBox();
             this.backupTabPage = new System.Windows.Forms.TabPage();
             this.settingsAndProfilesGroupBox = new System.Windows.Forms.GroupBox();
             this.createBackupButton = new System.Windows.Forms.Button();
             this.restoreBackupButton = new System.Windows.Forms.Button();
+            this.advancedTabPage = new System.Windows.Forms.TabPage();
+            this.preLoadDataCheckBox = new System.Windows.Forms.CheckBox();
+            this.advancedWarningLabel = new System.Windows.Forms.Label();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
             this.ViewLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -47,16 +55,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.advancedTabPage = new System.Windows.Forms.TabPage();
-            this.advancedWarningLabel = new System.Windows.Forms.Label();
-            this.preLoadDataCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
+            this.appLauncherTabPage.SuspendLayout();
             this.backupTabPage.SuspendLayout();
             this.settingsAndProfilesGroupBox.SuspendLayout();
+            this.advancedTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.advancedTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl
@@ -65,11 +71,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.profilesTabPage);
+            this.tabControl.Controls.Add(this.appLauncherTabPage);
             this.tabControl.Controls.Add(this.backupTabPage);
             this.tabControl.Controls.Add(this.advancedTabPage);
             this.tabControl.Controls.Add(this.aboutTabPage);
             this.tabControl.Location = new System.Drawing.Point(17, 16);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(451, 225);
@@ -82,9 +89,9 @@
             this.profilesTabPage.Controls.Add(this.profileLabel);
             this.profilesTabPage.Controls.Add(this.profileListComboBox);
             this.profilesTabPage.Location = new System.Drawing.Point(4, 25);
-            this.profilesTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profilesTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.profilesTabPage.Name = "profilesTabPage";
-            this.profilesTabPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profilesTabPage.Padding = new System.Windows.Forms.Padding(4);
             this.profilesTabPage.Size = new System.Drawing.Size(443, 196);
             this.profilesTabPage.TabIndex = 0;
             this.profilesTabPage.Text = "Profiles";
@@ -94,7 +101,7 @@
             // 
             this.displayCurrentlySelectedProfileCheckBox.AutoSize = true;
             this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(13, 57);
-            this.displayCurrentlySelectedProfileCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displayCurrentlySelectedProfileCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
             this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(274, 21);
             this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
@@ -131,18 +138,82 @@
             this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.profileListComboBox.FormattingEnabled = true;
             this.profileListComboBox.Location = new System.Drawing.Point(69, 7);
-            this.profileListComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profileListComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.profileListComboBox.Name = "profileListComboBox";
             this.profileListComboBox.Size = new System.Drawing.Size(361, 24);
             this.profileListComboBox.TabIndex = 1;
+            // 
+            // appLauncherTabPage
+            // 
+            this.appLauncherTabPage.Controls.Add(this.launcherEditButton3);
+            this.appLauncherTabPage.Controls.Add(this.launcherEditButton2);
+            this.appLauncherTabPage.Controls.Add(this.launcherEditButton1);
+            this.appLauncherTabPage.Controls.Add(this.useNewLauncherCheckBox);
+            this.appLauncherTabPage.Location = new System.Drawing.Point(4, 25);
+            this.appLauncherTabPage.Name = "appLauncherTabPage";
+            this.appLauncherTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.appLauncherTabPage.Size = new System.Drawing.Size(443, 196);
+            this.appLauncherTabPage.TabIndex = 4;
+            this.appLauncherTabPage.Text = "App launcher";
+            this.appLauncherTabPage.UseVisualStyleBackColor = true;
+            // 
+            // launcherEditButton3
+            // 
+            this.launcherEditButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launcherEditButton3.Location = new System.Drawing.Point(7, 102);
+            this.launcherEditButton3.Name = "launcherEditButton3";
+            this.launcherEditButton3.Size = new System.Drawing.Size(271, 28);
+            this.launcherEditButton3.TabIndex = 6;
+            this.launcherEditButton3.Text = "launcherEditButton3";
+            this.launcherEditButton3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launcherEditButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.launcherEditButton3.UseVisualStyleBackColor = true;
+            this.launcherEditButton3.Click += new System.EventHandler(this.launcherButtonEdit_Click);
+            // 
+            // launcherEditButton2
+            // 
+            this.launcherEditButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launcherEditButton2.Location = new System.Drawing.Point(7, 68);
+            this.launcherEditButton2.Name = "launcherEditButton2";
+            this.launcherEditButton2.Size = new System.Drawing.Size(271, 28);
+            this.launcherEditButton2.TabIndex = 5;
+            this.launcherEditButton2.Text = "launcherEditButton2";
+            this.launcherEditButton2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launcherEditButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.launcherEditButton2.UseVisualStyleBackColor = true;
+            this.launcherEditButton2.Click += new System.EventHandler(this.launcherButtonEdit_Click);
+            // 
+            // launcherEditButton1
+            // 
+            this.launcherEditButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launcherEditButton1.Location = new System.Drawing.Point(7, 34);
+            this.launcherEditButton1.Name = "launcherEditButton1";
+            this.launcherEditButton1.Size = new System.Drawing.Size(271, 28);
+            this.launcherEditButton1.TabIndex = 4;
+            this.launcherEditButton1.Text = "launcherEditButton1";
+            this.launcherEditButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.launcherEditButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.launcherEditButton1.UseVisualStyleBackColor = true;
+            this.launcherEditButton1.Click += new System.EventHandler(this.launcherButtonEdit_Click);
+            // 
+            // useNewLauncherCheckBox
+            // 
+            this.useNewLauncherCheckBox.AutoSize = true;
+            this.useNewLauncherCheckBox.Location = new System.Drawing.Point(6, 6);
+            this.useNewLauncherCheckBox.Name = "useNewLauncherCheckBox";
+            this.useNewLauncherCheckBox.Size = new System.Drawing.Size(143, 21);
+            this.useNewLauncherCheckBox.TabIndex = 3;
+            this.useNewLauncherCheckBox.Text = "Use new launcher";
+            this.useNewLauncherCheckBox.UseVisualStyleBackColor = true;
+            this.useNewLauncherCheckBox.CheckedChanged += new System.EventHandler(this.useNewLauncherCheckBox_CheckedChanged);
             // 
             // backupTabPage
             // 
             this.backupTabPage.Controls.Add(this.settingsAndProfilesGroupBox);
             this.backupTabPage.Location = new System.Drawing.Point(4, 25);
-            this.backupTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backupTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.backupTabPage.Name = "backupTabPage";
-            this.backupTabPage.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.backupTabPage.Padding = new System.Windows.Forms.Padding(4);
             this.backupTabPage.Size = new System.Drawing.Size(443, 196);
             this.backupTabPage.TabIndex = 2;
             this.backupTabPage.Text = "Backups";
@@ -155,9 +226,9 @@
             this.settingsAndProfilesGroupBox.Controls.Add(this.createBackupButton);
             this.settingsAndProfilesGroupBox.Controls.Add(this.restoreBackupButton);
             this.settingsAndProfilesGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.settingsAndProfilesGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.settingsAndProfilesGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.settingsAndProfilesGroupBox.Name = "settingsAndProfilesGroupBox";
-            this.settingsAndProfilesGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.settingsAndProfilesGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.settingsAndProfilesGroupBox.Size = new System.Drawing.Size(424, 123);
             this.settingsAndProfilesGroupBox.TabIndex = 2;
             this.settingsAndProfilesGroupBox.TabStop = false;
@@ -168,7 +239,7 @@
             this.createBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.createBackupButton.Location = new System.Drawing.Point(8, 31);
-            this.createBackupButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.createBackupButton.Margin = new System.Windows.Forms.Padding(4);
             this.createBackupButton.Name = "createBackupButton";
             this.createBackupButton.Size = new System.Drawing.Size(408, 28);
             this.createBackupButton.TabIndex = 0;
@@ -181,13 +252,44 @@
             this.restoreBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.restoreBackupButton.Location = new System.Drawing.Point(8, 74);
-            this.restoreBackupButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.restoreBackupButton.Margin = new System.Windows.Forms.Padding(4);
             this.restoreBackupButton.Name = "restoreBackupButton";
             this.restoreBackupButton.Size = new System.Drawing.Size(408, 28);
             this.restoreBackupButton.TabIndex = 0;
             this.restoreBackupButton.Text = "Restore backup";
             this.restoreBackupButton.UseVisualStyleBackColor = true;
             this.restoreBackupButton.Click += new System.EventHandler(this.restoreBackupButton_Click);
+            // 
+            // advancedTabPage
+            // 
+            this.advancedTabPage.Controls.Add(this.preLoadDataCheckBox);
+            this.advancedTabPage.Controls.Add(this.advancedWarningLabel);
+            this.advancedTabPage.Location = new System.Drawing.Point(4, 25);
+            this.advancedTabPage.Name = "advancedTabPage";
+            this.advancedTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.advancedTabPage.Size = new System.Drawing.Size(443, 196);
+            this.advancedTabPage.TabIndex = 3;
+            this.advancedTabPage.Text = "Advanced";
+            this.advancedTabPage.UseVisualStyleBackColor = true;
+            // 
+            // preLoadDataCheckBox
+            // 
+            this.preLoadDataCheckBox.AutoSize = true;
+            this.preLoadDataCheckBox.Location = new System.Drawing.Point(9, 44);
+            this.preLoadDataCheckBox.Name = "preLoadDataCheckBox";
+            this.preLoadDataCheckBox.Size = new System.Drawing.Size(184, 21);
+            this.preLoadDataCheckBox.TabIndex = 1;
+            this.preLoadDataCheckBox.Text = "Pre-load data on startup";
+            this.preLoadDataCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // advancedWarningLabel
+            // 
+            this.advancedWarningLabel.Location = new System.Drawing.Point(6, 3);
+            this.advancedWarningLabel.Name = "advancedWarningLabel";
+            this.advancedWarningLabel.Size = new System.Drawing.Size(431, 38);
+            this.advancedWarningLabel.TabIndex = 0;
+            this.advancedWarningLabel.Text = "Changing these options may cause many negative consequences regarding performance" +
+    ", and stability!";
             // 
             // aboutTabPage
             // 
@@ -199,7 +301,7 @@
             this.aboutTabPage.Controls.Add(this.pictureBox1);
             this.aboutTabPage.Controls.Add(this.appnameLabel);
             this.aboutTabPage.Location = new System.Drawing.Point(4, 25);
-            this.aboutTabPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.aboutTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.aboutTabPage.Name = "aboutTabPage";
             this.aboutTabPage.Size = new System.Drawing.Size(443, 196);
             this.aboutTabPage.TabIndex = 1;
@@ -267,7 +369,7 @@
             this.pictureBox1.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.appicon;
             this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(5, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(64, 59);
             this.pictureBox1.TabIndex = 1;
@@ -288,44 +390,13 @@
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.Location = new System.Drawing.Point(368, 249);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 28);
             this.saveButton.TabIndex = 1;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // advancedTabPage
-            // 
-            this.advancedTabPage.Controls.Add(this.preLoadDataCheckBox);
-            this.advancedTabPage.Controls.Add(this.advancedWarningLabel);
-            this.advancedTabPage.Location = new System.Drawing.Point(4, 25);
-            this.advancedTabPage.Name = "advancedTabPage";
-            this.advancedTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.advancedTabPage.Size = new System.Drawing.Size(443, 196);
-            this.advancedTabPage.TabIndex = 3;
-            this.advancedTabPage.Text = "Advanced";
-            this.advancedTabPage.UseVisualStyleBackColor = true;
-            // 
-            // advancedWarningLabel
-            // 
-            this.advancedWarningLabel.Location = new System.Drawing.Point(6, 3);
-            this.advancedWarningLabel.Name = "advancedWarningLabel";
-            this.advancedWarningLabel.Size = new System.Drawing.Size(431, 38);
-            this.advancedWarningLabel.TabIndex = 0;
-            this.advancedWarningLabel.Text = "Changing these options may cause many negative consequences regarding performance" +
-    ", and stability!";
-            // 
-            // preLoadDataCheckBox
-            // 
-            this.preLoadDataCheckBox.AutoSize = true;
-            this.preLoadDataCheckBox.Location = new System.Drawing.Point(9, 44);
-            this.preLoadDataCheckBox.Name = "preLoadDataCheckBox";
-            this.preLoadDataCheckBox.Size = new System.Drawing.Size(184, 21);
-            this.preLoadDataCheckBox.TabIndex = 1;
-            this.preLoadDataCheckBox.Text = "Pre-load data on startup";
-            this.preLoadDataCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsDialog
             // 
@@ -335,7 +406,7 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.tabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SettingsDialog";
@@ -345,13 +416,15 @@
             this.tabControl.ResumeLayout(false);
             this.profilesTabPage.ResumeLayout(false);
             this.profilesTabPage.PerformLayout();
+            this.appLauncherTabPage.ResumeLayout(false);
+            this.appLauncherTabPage.PerformLayout();
             this.backupTabPage.ResumeLayout(false);
             this.settingsAndProfilesGroupBox.ResumeLayout(false);
+            this.advancedTabPage.ResumeLayout(false);
+            this.advancedTabPage.PerformLayout();
             this.aboutTabPage.ResumeLayout(false);
             this.aboutTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.advancedTabPage.ResumeLayout(false);
-            this.advancedTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -380,5 +453,10 @@
         private System.Windows.Forms.TabPage advancedTabPage;
         private System.Windows.Forms.CheckBox preLoadDataCheckBox;
         private System.Windows.Forms.Label advancedWarningLabel;
+        private System.Windows.Forms.TabPage appLauncherTabPage;
+        private System.Windows.Forms.Button launcherEditButton1;
+        private System.Windows.Forms.CheckBox useNewLauncherCheckBox;
+        private System.Windows.Forms.Button launcherEditButton3;
+        private System.Windows.Forms.Button launcherEditButton2;
     }
 }

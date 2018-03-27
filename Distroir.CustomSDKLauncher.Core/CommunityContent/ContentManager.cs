@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017 Distroir
+Copyright (C) 2017-2018 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@ namespace Distroir.CustomSDKLauncher.Core.CommunityContent
             XmlSerializer s = new XmlSerializer(typeof(ContentGroup[]));
 
             //Deserialize content groups from XML file
-            using (TextReader reader = new StringReader(Data.ContentGroups))
+            using (TextReader reader = new StringReader(Data.ContentGroupsXML))
             {
                 ContentGroups = ((ContentGroup[])s.Deserialize(reader)).ToList();
             }
