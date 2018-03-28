@@ -277,6 +277,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             launcherEditButton3.Enabled = useNewLauncherCheckBox.Checked;
         }
 
+        private void sendFeedbackButton_Click(object sender, EventArgs e)
+        {
+            //Open survey URL in default browser 
+            Core.Feedback.FeedbackFetcher.SendFeedback();
+        }
+
         #endregion
 
         #region AppLauncher

@@ -12,7 +12,7 @@ namespace Distroir.CustomSDKLauncher.Core.Feedback
     {
         string FeedbackQuestion = "Would you like to answer few questions regarding Custom SDK Launcher?\nThis will take less than 5 minutes";
         string MessageTitle = "Feedback notification";
-        string SurveyURL = "https://docs.google.com/forms/d/e/1FAIpQLScanK0_P7bHWM9RGHPirBvnIQp_3PoCqXufOz_-umPcPDuYnQ/viewform?usp=sf_link";
+        static string SurveyURL = "https://docs.google.com/forms/d/e/1FAIpQLScanK0_P7bHWM9RGHPirBvnIQp_3PoCqXufOz_-umPcPDuYnQ/viewform?usp=sf_link";
         TimeSpan feedbackDelay = TimeSpan.FromDays(60);
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Distroir.CustomSDKLauncher.Core.Feedback
                 SendFeedback();
         }
 
-        void SendFeedback()
+        public static void SendFeedback()
         {
             Utils.ShellLaunch(SurveyURL);
         }
