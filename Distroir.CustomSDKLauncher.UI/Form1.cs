@@ -19,6 +19,7 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
+using Distroir.CustomSDKLauncher.Core.Feedback;
 using System;
 using System.Drawing;
 using System.Resources;
@@ -69,6 +70,10 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Unused: Apply theme to UI
             //ApplyTheme();
+
+            //Ask for feedback
+            FeedbackFetcher f = new FeedbackFetcher();
+            f.Activate();
         }
 
         private void LoadData()
