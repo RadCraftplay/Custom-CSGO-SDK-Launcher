@@ -54,7 +54,7 @@ namespace Distroir.CustomSDKLauncher.Core.Feedback
         /// <summary>
         /// Resets last fetch date to actual date on machine
         /// </summary>
-        void ResetDate()
+        public void ResetDate()
         {
             Config.AddVariable("LastFeedbackFetchDate", DateSerializer.SerializeDate(DateTime.Now));
         }

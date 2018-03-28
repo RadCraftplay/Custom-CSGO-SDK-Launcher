@@ -72,8 +72,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //ApplyTheme();
 
             //Ask for feedback
-            FeedbackFetcher f = new FeedbackFetcher();
-            f.Activate();
+            AskForFeedback();
         }
 
         private void LoadData()
@@ -293,6 +292,29 @@ namespace Distroir.CustomSDKLauncher.UI
             csgoSdkButton.Text = rm.GetString("csgoSdkButton_text", LanguageManager.Culture);
             moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
             moreTutorialsLabel.Location = new Point(Convert.ToInt32(rm.GetString("moreTutorialsLabel_X", LanguageManager.Culture)), moreTutorialsLabel.Location.Y);
+        }
+
+        /// <summary>
+        /// Asks for feedback
+        /// </summary>
+        void AskForFeedback()
+        {
+            bool disableFeedback = false;
+
+            //Set default value
+            if (!Config.TryReadBool("DisableFeedbackNotifications", out disableFeedback))
+            {
+                disableFeedback = false;
+                Config.AddVariable("DisableFeedbackNotifications", disableFeedback);
+                
+            }
+
+            //Ask for feedback
+            if (!disableFeedback)
+            {
+                FeedbackFetcher f = new FeedbackFetcher();
+                f.Activate();
+            }
         }
 
         #region Utilies

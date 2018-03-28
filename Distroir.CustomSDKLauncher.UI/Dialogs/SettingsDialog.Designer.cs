@@ -55,6 +55,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.disableFeedbackCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // profilesTabPage
             // 
+            this.profilesTabPage.Controls.Add(this.disableFeedbackCheckBox);
             this.profilesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
             this.profilesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
             this.profilesTabPage.Controls.Add(this.profileLabel);
@@ -398,6 +400,16 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // disableFeedbackCheckBox
+            // 
+            this.disableFeedbackCheckBox.AutoSize = true;
+            this.disableFeedbackCheckBox.Location = new System.Drawing.Point(13, 85);
+            this.disableFeedbackCheckBox.Name = "disableFeedbackCheckBox";
+            this.disableFeedbackCheckBox.Size = new System.Drawing.Size(218, 21);
+            this.disableFeedbackCheckBox.TabIndex = 5;
+            this.disableFeedbackCheckBox.Text = "Disable feedback notifications";
+            this.disableFeedbackCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -458,5 +470,6 @@
         private System.Windows.Forms.CheckBox useNewLauncherCheckBox;
         private System.Windows.Forms.Button launcherEditButton3;
         private System.Windows.Forms.Button launcherEditButton2;
+        private System.Windows.Forms.CheckBox disableFeedbackCheckBox;
     }
 }

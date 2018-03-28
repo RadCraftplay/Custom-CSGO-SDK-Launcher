@@ -304,6 +304,20 @@ namespace Distroir.Configuration
         /// <param name="name">Name of the variable</param>
         /// <param name="var">Out variable</param>
         /// <returns>Value of specified variable (as int)</returns>
+        public static bool TryReadBool(string name)
+        {
+            bool result = false;
+            TryReadBool(name, out result);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Tries to get value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified variable (as int)</returns>
         public static bool TryReadBool(string name, out bool var)
         {
             try
