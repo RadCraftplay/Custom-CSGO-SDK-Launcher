@@ -72,7 +72,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //ApplyTheme();
 
             //Ask for feedback
-            AskForFeedback();
+            System.Threading.Tasks.Task.Factory.StartNew(AskForFeedback);
         }
 
         private void LoadData()
