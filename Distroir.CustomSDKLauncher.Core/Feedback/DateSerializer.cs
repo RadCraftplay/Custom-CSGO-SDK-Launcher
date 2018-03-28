@@ -7,11 +7,18 @@ namespace Distroir.CustomSDKLauncher.Core.Feedback
 {
     public class DateSerializer
     {
+
+        /// <summary>
+        /// Serializes date to string
+        /// </summary>
         public static string SerializeDate(DateTime date)
         {
             return $"{date.Year}-{date.Month}-{date.Day}";
         }
 
+        /// <summary>
+        /// Deserializes date from string
+        /// </summary>
         public static DateTime DeserializeDate(string date)
         {
             string[] dataSplitted = date.Split('-');
