@@ -18,8 +18,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 
-namespace Distroir.CustomSDKLauncher.Core
+namespace Distroir.CustomSDKLauncher.Core.Backups
 {
     //TODO: Version 2 of backups: Compress entries
     public class BackupManager
