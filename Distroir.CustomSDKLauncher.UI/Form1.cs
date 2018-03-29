@@ -19,6 +19,7 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
+using Distroir.CustomSDKLauncher.Core.Feedback;
 using System;
 using System.Drawing;
 using System.Resources;
@@ -69,6 +70,9 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Unused: Apply theme to UI
             //ApplyTheme();
+
+            //Ask for feedback
+            System.Threading.Tasks.Task.Factory.StartNew(AskForFeedback);
         }
 
         private void LoadData()
@@ -288,6 +292,29 @@ namespace Distroir.CustomSDKLauncher.UI
             csgoSdkButton.Text = rm.GetString("csgoSdkButton_text", LanguageManager.Culture);
             moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
             moreTutorialsLabel.Location = new Point(Convert.ToInt32(rm.GetString("moreTutorialsLabel_X", LanguageManager.Culture)), moreTutorialsLabel.Location.Y);
+        }
+
+        /// <summary>
+        /// Asks for feedback
+        /// </summary>
+        void AskForFeedback()
+        {
+            bool disableFeedback = false;
+
+            //Set default value
+            if (!Config.TryReadBool("DisableFeedbackNotifications", out disableFeedback))
+            {
+                disableFeedback = false;
+                Config.AddVariable("DisableFeedbackNotifications", disableFeedback);
+                
+            }
+
+            //Ask for feedback
+            if (!disableFeedback)
+            {
+                FeedbackFetcher f = new FeedbackFetcher();
+                f.Activate();
+            }
         }
 
         #region Utilies

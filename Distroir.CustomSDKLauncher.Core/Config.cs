@@ -87,6 +87,16 @@ namespace Distroir.Configuration
         /// </summary>
         /// <param name="name">Name of the variable</param>
         /// <param name="value">Value of the variable</param>
+        public static void AddVariable(string name, bool value)
+        {
+            AddVariable(name, value ? 1 : 0);
+        }
+
+        /// <summary>
+        /// Add variable to config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, float value)
         {
             AddVariable(name, value.ToString("R").Replace(',', '.'));
@@ -274,6 +284,50 @@ namespace Distroir.Configuration
             catch
             {
                 var = -1;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Gets value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <returns>Value of specified variable</returns>
+        public static bool ReadBool(string name)
+        {
+            return ReadInt(name) == 1;
+        }
+
+        /// <summary>
+        /// Tries to get value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified variable (as int)</returns>
+        public static bool TryReadBool(string name)
+        {
+            bool result = false;
+            TryReadBool(name, out result);
+
+            return result;
+        }
+
+        /// <summary>
+        /// Tries to get value of variable from the config
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        /// <param name="var">Out variable</param>
+        /// <returns>Value of specified variable (as int)</returns>
+        public static bool TryReadBool(string name, out bool var)
+        {
+            try
+            {
+                var = ReadBool(name);
+                return true;
+            }
+            catch
+            {
+                var = false;
                 return false;
             }
         }

@@ -30,6 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.profilesTabPage = new System.Windows.Forms.TabPage();
+            this.disableFeedbackCheckBox = new System.Windows.Forms.CheckBox();
             this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
             this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
             this.profileLabel = new System.Windows.Forms.Label();
@@ -55,6 +56,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.sendFeedbackButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -84,6 +86,8 @@
             // 
             // profilesTabPage
             // 
+            this.profilesTabPage.Controls.Add(this.sendFeedbackButton);
+            this.profilesTabPage.Controls.Add(this.disableFeedbackCheckBox);
             this.profilesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
             this.profilesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
             this.profilesTabPage.Controls.Add(this.profileLabel);
@@ -96,6 +100,16 @@
             this.profilesTabPage.TabIndex = 0;
             this.profilesTabPage.Text = "Profiles";
             this.profilesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // disableFeedbackCheckBox
+            // 
+            this.disableFeedbackCheckBox.AutoSize = true;
+            this.disableFeedbackCheckBox.Location = new System.Drawing.Point(13, 85);
+            this.disableFeedbackCheckBox.Name = "disableFeedbackCheckBox";
+            this.disableFeedbackCheckBox.Size = new System.Drawing.Size(218, 21);
+            this.disableFeedbackCheckBox.TabIndex = 5;
+            this.disableFeedbackCheckBox.Text = "Disable feedback notifications";
+            this.disableFeedbackCheckBox.UseVisualStyleBackColor = true;
             // 
             // displayCurrentlySelectedProfileCheckBox
             // 
@@ -398,6 +412,18 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // sendFeedbackButton
+            // 
+            this.sendFeedbackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendFeedbackButton.Location = new System.Drawing.Point(318, 82);
+            this.sendFeedbackButton.Name = "sendFeedbackButton";
+            this.sendFeedbackButton.Size = new System.Drawing.Size(112, 25);
+            this.sendFeedbackButton.TabIndex = 7;
+            this.sendFeedbackButton.Text = "Send feedback";
+            this.sendFeedbackButton.UseVisualStyleBackColor = true;
+            this.sendFeedbackButton.Visible = false;
+            this.sendFeedbackButton.Click += new System.EventHandler(this.sendFeedbackButton_Click);
+            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -458,5 +484,7 @@
         private System.Windows.Forms.CheckBox useNewLauncherCheckBox;
         private System.Windows.Forms.Button launcherEditButton3;
         private System.Windows.Forms.Button launcherEditButton2;
+        private System.Windows.Forms.CheckBox disableFeedbackCheckBox;
+        private System.Windows.Forms.Button sendFeedbackButton;
     }
 }
