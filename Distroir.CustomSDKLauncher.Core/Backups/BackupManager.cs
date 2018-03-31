@@ -22,7 +22,6 @@ using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Backups
 {
-    //TODO: Version 2 of backups: Compress entries
     public class BackupManager
     {
         /// <summary>
@@ -240,13 +239,6 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
                     RestoreFile(r, e, Destination);
                 }
             }
-            if (version == 1)
-            {
-                foreach (BackupEntry e in entries)
-                {
-                    RestoreFileVersion1(r, e, Destination);
-                }
-            }
         }
 
         BackupEntry ReadEntry(BinaryReader r)
@@ -290,48 +282,6 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
                 }
             }
         }
-
-        /// <summary>
-        /// Restores file from backup
-        /// </summary>
-        /// <param name="r">BinaryReader of backup file</param>
-        /// <param name="e">BackupEntry used to get informations about file</param>
-        /// <param name="directory">Destination directory of file</param>
-        private void RestoreFileVersion1(BinaryReader r, BackupEntry e, string directory)
-        {
-            string filename = Path.Combine(directory, e.FileName);
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                using (BinaryWriter w = new BinaryWriter(ms))
-                {
-                    //Set offset [Skipped]
-                    //Reason: Unnecessary
-                    //r.BaseStream.Position = e.Offset;
-
-                    //Read bytes
-                    byte[] data = r.ReadBytes(e.Length);
-
-                    //Write data
-                    foreach (byte b in data)
-                    {
-                        w.Write(b);
-                    }
-                }
-
-                using (FileStream fs = new FileStream(filename, FileMode.Create))
-                {
-                    //Decompress stream and write file content
-                    Compressor.GZipDecompress(ms, fs);
-                }
-            }
-        }
-
-        #endregion
-
-        #region Compression utilies
-
-
 
         #endregion
     }

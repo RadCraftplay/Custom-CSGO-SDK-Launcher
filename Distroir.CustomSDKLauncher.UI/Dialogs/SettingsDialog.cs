@@ -46,42 +46,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         #region Controls
 
-        void ApplyTranslations()
-        {
-            ResourceManager rm = new ResourceManager(LanguageResourcesList.SettingsDialogRes, typeof(Form1).Assembly);
-
-            //SettingsDialog
-            Text = rm.GetString("settingsDialog_text", LanguageManager.Culture);
-
-            //Tab pages
-            profilesTabPage.Text = rm.GetString("profilesTabPage_text", LanguageManager.Culture);
-            aboutTabPage.Text = rm.GetString("aboutTabPage_text", LanguageManager.Culture);
-            backupTabPage.Text = rm.GetString("backupTabPage_text", LanguageManager.Culture);
-
-            //ProfilesTabPage
-            profileLabel.Text = rm.GetString("profileLabel_text", LanguageManager.Culture);
-
-            profileListComboBox.Location = new System.Drawing.Point(
-                Convert.ToInt32(rm.GetString("profileListComboBox_X", LanguageManager.Culture)),
-                profileListComboBox.Location.Y);
-            profileListComboBox.Size = new System.Drawing.Size(
-                Convert.ToInt32(rm.GetString("profileListComboBox_length", LanguageManager.Culture)),
-                profileListComboBox.Size.Height);
-
-            editListOfProfilesLinkLabel.Text = rm.GetString("editListOfProfilesLinkLabel_text", LanguageManager.Culture);
-            editListOfProfilesLinkLabel.Location = new System.Drawing.Point(
-                Convert.ToInt32(rm.GetString("editListOfProfilesLinkLabel_X", LanguageManager.Culture)),
-                editListOfProfilesLinkLabel.Location.Y);
-
-            displayCurrentlySelectedProfileCheckBox.Text = rm.GetString("displayCurrentlySelectedProfileCheckBox_text", LanguageManager.Culture);
-            saveButton.Text = rm.GetString("saveButton_text", LanguageManager.Culture);
-
-            //backupTabPage
-            settingsAndProfilesGroupBox.Text = rm.GetString("settingsAndProfilesGroupBox_text", LanguageManager.Culture);
-            createBackupButton.Text = rm.GetString("createBackupButton_text", LanguageManager.Culture);
-            restoreBackupButton.Text = rm.GetString("restoreBackupButton_text", LanguageManager.Culture);
-        }
-
         void UpdateControls()
         {
             //Refresh list of profiles

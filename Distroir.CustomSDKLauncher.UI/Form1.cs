@@ -270,31 +270,6 @@ namespace Distroir.CustomSDKLauncher.UI
         }
 
         /// <summary>
-        /// Applies translations to 
-        /// </summary>
-        void ApplyTranslations()
-        {
-            //Set language
-            ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
-            
-            //GroupBoxes
-            UpdateToolsGroupBoxText();
-            tutorialsGroupBox.Text = rm.GetString("tutorialsGroupBox_text", LanguageManager.Culture);
-            //Form1 controls
-            settingsButton.Text = rm.GetString("settingsButton_text", LanguageManager.Culture);
-            //toolsGroupBox controls
-            launchHammerButton.Text = rm.GetString("launchHammerButton_text", LanguageManager.Culture);
-            launchModelViewerButton.Text = rm.GetString("launchModelViewerButton_text", LanguageManager.Culture);
-            launchFacePoserButton.Text = rm.GetString("launchFacePoserButton_text", LanguageManager.Culture);
-            //tutorialsGroupBox controls
-            fmponeButton.Text = rm.GetString("fmponeButton_text", LanguageManager.Culture);
-            topHattWaffleButton.Text = rm.GetString("topHattWaffleButton_text", LanguageManager.Culture);
-            csgoSdkButton.Text = rm.GetString("csgoSdkButton_text", LanguageManager.Culture);
-            moreTutorialsLabel.Text = rm.GetString("moreTutorialsLabel_text", LanguageManager.Culture);
-            moreTutorialsLabel.Location = new Point(Convert.ToInt32(rm.GetString("moreTutorialsLabel_X", LanguageManager.Culture)), moreTutorialsLabel.Location.Y);
-        }
-
-        /// <summary>
         /// Asks for feedback
         /// </summary>
         void AskForFeedback()
@@ -352,14 +327,14 @@ namespace Distroir.CustomSDKLauncher.UI
             if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
             {
                 //Set text
-                string text = string.Format("{0} - {1}", rm.GetString("toolsGroupBox_text", LanguageManager.Culture), GetCurrentProfileName());
+                string text = string.Format("Tools - {0}", GetCurrentProfileName());
                 text = CutStringIfTooBig(text, 39);
                 toolsGroupBox.Text = text;
             }
             else
             {
                 //Set text
-                toolsGroupBox.Text = rm.GetString("toolsGroupBox_text", LanguageManager.Culture);
+                toolsGroupBox.Text = "Tools";
             }
         }
 

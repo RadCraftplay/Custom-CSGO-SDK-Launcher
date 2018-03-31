@@ -68,13 +68,10 @@
     <Compile Include="CommunityContent\ContentInfo.cs" />
     <Compile Include="CommunityContent\ContentManager.cs" />
     <Compile Include="CommunityContent\ImageData.cs" />
-    <Compile Include="Utilities\Compressor.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Feedback\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
     <Compile Include="Feedback\Scheduler.cs" />
-    <Compile Include="LanguageManager.cs" />
-    <Compile Include="LanguageResourcesList.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Utilities\PlatformChecker.cs" />
     <Compile Include="Profile.cs" />
