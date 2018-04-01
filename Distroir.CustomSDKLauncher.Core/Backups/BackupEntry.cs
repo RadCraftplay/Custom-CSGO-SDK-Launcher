@@ -15,14 +15,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-namespace Distroir.CustomSDKLauncher.Core
+namespace Distroir.CustomSDKLauncher.Core.Backups
 {
-    /// <summary>
-    /// Contains names of resources containing translations for dialogs and forms
-    /// </summary>
-    public class LanguageResourcesList
+    public class BackupEntry
     {
-        public static string Form1Res = "Distroir.CustomSDKLauncher.UI.Resources.Form1";
-        public static string SettingsDialogRes = "Distroir.CustomSDKLauncher.UI.Resources.SettingsDialog";
+        public string FullName;
+
+        public string FileName;
+        public int Offset;
+        public int Length;
     }
 }
