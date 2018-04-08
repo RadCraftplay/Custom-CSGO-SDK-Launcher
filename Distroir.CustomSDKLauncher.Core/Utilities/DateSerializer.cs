@@ -20,7 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Feedback
+namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class DateSerializer
     {
@@ -31,6 +31,14 @@ namespace Distroir.CustomSDKLauncher.Core.Feedback
         public static string SerializeDate(DateTime date)
         {
             return $"{date.Year}-{date.Month}-{date.Day}";
+        }
+
+        /// <summary>
+        /// Serializes date and time to string
+        /// </summary>
+        public static string SerializeDateAndTime(DateTime date)
+        {
+            return $"{date.Year}-{date.Month}-{date.Day}_{date.Hour}-{date.Minute}-{date.Second}";
         }
 
         /// <summary>

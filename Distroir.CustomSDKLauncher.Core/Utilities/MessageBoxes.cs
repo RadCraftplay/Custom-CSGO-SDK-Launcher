@@ -30,6 +30,13 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             MessageBox.Show(Message, "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public static void Error(string Message, Exception ex)
+        {
+            MessageBox.Show(Message + "\nMessage: " + ex.Message, "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //Log an exception
+            ExceptionLogger.Log(ex);
+        }
+
         public static void Warning(string Message)
         {
             MessageBox.Show(Message, "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Warning);

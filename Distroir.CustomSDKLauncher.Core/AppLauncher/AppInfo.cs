@@ -154,7 +154,14 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
             if (UseCustomWorkingDirectory)
                 p.StartInfo.WorkingDirectory = CustomWorkingDirectoryFormatted;
 
-            p.Start();
+            try
+            {
+                p.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBoxes.Error("Unable to launch an application!", ex);
+            }
         }
 
         public void Dispose()
