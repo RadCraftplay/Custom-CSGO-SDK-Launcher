@@ -30,6 +30,7 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.profilesTabPage = new System.Windows.Forms.TabPage();
+            this.sendFeedbackButton = new System.Windows.Forms.Button();
             this.disableFeedbackCheckBox = new System.Windows.Forms.CheckBox();
             this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
             this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -56,7 +57,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.sendFeedbackButton = new System.Windows.Forms.Button();
+            this.actionChangeLabel = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -100,6 +101,18 @@
             this.profilesTabPage.TabIndex = 0;
             this.profilesTabPage.Text = "Profiles";
             this.profilesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // sendFeedbackButton
+            // 
+            this.sendFeedbackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sendFeedbackButton.Location = new System.Drawing.Point(318, 82);
+            this.sendFeedbackButton.Name = "sendFeedbackButton";
+            this.sendFeedbackButton.Size = new System.Drawing.Size(112, 25);
+            this.sendFeedbackButton.TabIndex = 7;
+            this.sendFeedbackButton.Text = "Send feedback";
+            this.sendFeedbackButton.UseVisualStyleBackColor = true;
+            this.sendFeedbackButton.Visible = false;
+            this.sendFeedbackButton.Click += new System.EventHandler(this.sendFeedbackButton_Click);
             // 
             // disableFeedbackCheckBox
             // 
@@ -159,6 +172,7 @@
             // 
             // appLauncherTabPage
             // 
+            this.appLauncherTabPage.Controls.Add(this.actionChangeLabel);
             this.appLauncherTabPage.Controls.Add(this.launcherEditButton3);
             this.appLauncherTabPage.Controls.Add(this.launcherEditButton2);
             this.appLauncherTabPage.Controls.Add(this.launcherEditButton1);
@@ -412,17 +426,14 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // sendFeedbackButton
+            // actionChangeLabel
             // 
-            this.sendFeedbackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.sendFeedbackButton.Location = new System.Drawing.Point(318, 82);
-            this.sendFeedbackButton.Name = "sendFeedbackButton";
-            this.sendFeedbackButton.Size = new System.Drawing.Size(112, 25);
-            this.sendFeedbackButton.TabIndex = 7;
-            this.sendFeedbackButton.Text = "Send feedback";
-            this.sendFeedbackButton.UseVisualStyleBackColor = true;
-            this.sendFeedbackButton.Visible = false;
-            this.sendFeedbackButton.Click += new System.EventHandler(this.sendFeedbackButton_Click);
+            this.actionChangeLabel.Location = new System.Drawing.Point(6, 133);
+            this.actionChangeLabel.Name = "actionChangeLabel";
+            this.actionChangeLabel.Size = new System.Drawing.Size(272, 23);
+            this.actionChangeLabel.TabIndex = 7;
+            this.actionChangeLabel.Text = "Click on a button to change an action";
+            this.actionChangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SettingsDialog
             // 
@@ -486,5 +497,6 @@
         private System.Windows.Forms.Button launcherEditButton2;
         private System.Windows.Forms.CheckBox disableFeedbackCheckBox;
         private System.Windows.Forms.Button sendFeedbackButton;
+        private System.Windows.Forms.Label actionChangeLabel;
     }
 }

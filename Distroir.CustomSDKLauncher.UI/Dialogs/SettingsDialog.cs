@@ -59,6 +59,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton3.Enabled = useNewLauncherCheckBox.Checked;
+            actionChangeLabel.Visible = useNewLauncherCheckBox.Checked;
 
             //Update version info
             copyrightLabel.Text = GetCopyright();
@@ -240,6 +241,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton3.Enabled = useNewLauncherCheckBox.Checked;
+            actionChangeLabel.Visible = useNewLauncherCheckBox.Checked;
         }
 
         private void sendFeedbackButton_Click(object sender, EventArgs e)
