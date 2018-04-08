@@ -212,11 +212,15 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     //Restore backup
                     BackupManager m = new BackupManager(ofd.FileName);
                     m.Restore();
+                    m.Dispose();
 
                     //Restore settings
                     Config.Load();
                     ProfileManager.LoadProfiles();
+                    AppManager.LoadApplications();
+                    appListReference = AppManager.Applications;
                     UpdateControls();
+                    UpdateButtons();
                 }
             }
         }

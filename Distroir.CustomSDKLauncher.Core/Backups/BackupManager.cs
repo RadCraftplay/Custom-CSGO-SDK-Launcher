@@ -18,11 +18,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Backups
 {
-    public class BackupManager
+    public class BackupManager : IDisposable
     {
         /// <summary>
         /// Stream used to read/save stream
@@ -48,7 +49,8 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
             List<string> FileNames = new List<string>()
                 {
                     Configuration.Config.destination,
-                    ProfileManager.ProfileListFilename
+                    ProfileManager.ProfileListFilename,
+                    AppManager.AppListFilename
                 };
 
             //Create entries
@@ -284,5 +286,11 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
         }
 
         #endregion
+
+        public void Dispose()
+        {
+            Stream.Close();
+            Stream = null;
+        }
     }
 }

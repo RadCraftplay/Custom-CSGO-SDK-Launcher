@@ -29,7 +29,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
     public class AppManager
     {
         public static List<AppInfo> Applications;
-        static string AppListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "applications.xml");
+        public static string AppListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "applications.xml");
 
         public static void LoadApplications()
         {
