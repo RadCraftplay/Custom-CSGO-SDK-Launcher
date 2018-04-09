@@ -20,6 +20,7 @@ using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Drawing;
 using System.Resources;
@@ -80,7 +81,7 @@ namespace Distroir.CustomSDKLauncher.UI
             int LoadAtStartup, useNewLauncher;
 
             //Game profiles
-            ProfileManager.LoadProfiles();
+            Managers.ProfileManager.Load();
             //Reloads list of variables used to format paths
             Utils.TryReloadPathFormatterVars();
             
@@ -98,8 +99,8 @@ namespace Distroir.CustomSDKLauncher.UI
             //Load less important data on startup
             if (LoadAtStartup == 1)
             {
-                TemplateManager.LoadTemplates();
-                TutorialManager.LoadTutorials();
+                Managers.TemplateManager.Load();
+                Managers.TutorialManager.Load();
                 ContentManager.LoadContentGroups();
             }
 
@@ -220,7 +221,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //Save config
             Config.Save();
             //Save list of profiles
-            ProfileManager.SaveProfiles();
+            Managers.ProfileManager.Save();
         }
 
         #endregion
@@ -259,7 +260,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 p.GameinfoDirName = "csgo";
 
                 //Add profile to list
-                ProfileManager.Profiles.Add(p);
+                Managers.ProfileManager.Objects.Add(p);
 
                 //Select profile
                 Config.AddVariable("SelectedProfileId", 0);

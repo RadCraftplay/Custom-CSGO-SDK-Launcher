@@ -19,6 +19,7 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Backups;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -87,7 +88,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             profileListComboBox.Items.Clear();
 
             //Add profiles to ComboBox
-            foreach (Profile p in ProfileManager.Profiles)
+            foreach (Profile p in Managers.ProfileManager.Objects)
                 profileListComboBox.Items.Add(p);
 
             //Set profile
@@ -189,7 +190,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 {
                     //Save settings
                     Config.Save();
-                    ProfileManager.SaveProfiles();
+                    Managers.ProfileManager.Save();
 
                     //Do backup
                     BackupManager m = new BackupManager(sfd.FileName);
@@ -216,7 +217,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                     //Restore settings
                     Config.Load();
-                    ProfileManager.LoadProfiles();
+                    Managers.ProfileManager.Load();
                     AppManager.LoadApplications();
                     appListReference = AppManager.Applications;
                     UpdateControls();
