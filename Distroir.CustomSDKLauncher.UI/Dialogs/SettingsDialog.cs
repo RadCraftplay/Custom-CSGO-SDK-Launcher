@@ -20,6 +20,7 @@ using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Backups;
 using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -37,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Add references
             formReference = f;
-            appListReference = AppManager.Applications;
+            appListReference = Managers.AppManager.Objects;
             //Create controls
             InitializeComponent();
             //Apply settings to controls
@@ -122,11 +123,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
-            AppManager.Applications = appListReference;
+            Managers.AppManager.Objects = appListReference;
             formReference.ApplyLauncherSettings();
 
             //Save app manager settings
-            AppManager.SaveApplications();
+            Managers.AppManager.Save();
         }
 
         int BoolToInt(bool val)
@@ -218,8 +219,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     //Restore settings
                     Config.Load();
                     Managers.ProfileManager.Load();
-                    AppManager.LoadApplications();
-                    appListReference = AppManager.Applications;
+                    Managers.AppManager.Load();
+                    appListReference = Managers.AppManager.Objects;
                     UpdateControls();
                     UpdateButtons();
                 }
@@ -261,7 +262,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateButtons()
         {
-            AppManager.UpdateButtons(appListReference, new Button[]
+            AppUtils.UpdateButtons(appListReference, new Button[]
             {
                 launcherEditButton1,
                 launcherEditButton2,

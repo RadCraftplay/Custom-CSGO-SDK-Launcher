@@ -47,6 +47,22 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         }
 
         /// <summary>
+        /// Tries to load objects from file
+        /// </summary>
+        public bool TryLoad()
+        {
+            try
+            {
+                Load();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
         /// Saves objects to file
         /// </summary>
         public void Save()

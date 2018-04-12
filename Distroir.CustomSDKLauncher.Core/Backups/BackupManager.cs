@@ -50,7 +50,7 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
                 {
                     Configuration.Config.destination,
                     Managers.Managers.ProfileListFilename,
-                    AppManager.AppListFilename
+                    Managers.Managers.AppListFilename
                 };
 
             //Create entries

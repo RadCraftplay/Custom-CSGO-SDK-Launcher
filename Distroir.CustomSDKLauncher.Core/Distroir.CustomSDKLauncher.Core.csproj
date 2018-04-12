@@ -38,7 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppLauncher\AppInfo.cs" />
-    <Compile Include="AppLauncher\AppManager.cs" />
     <Compile Include="AppLauncher\AppTemplate.cs" />
     <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.cs">
       <SubType>Form</SubType>
@@ -74,6 +73,7 @@
     <Compile Include="Managers\Managers.cs" />
     <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />
     <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
+    <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
     <Compile Include="Feedback\Scheduler.cs" />

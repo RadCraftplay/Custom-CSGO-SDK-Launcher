@@ -21,6 +21,7 @@ using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
 using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Drawing;
 using System.Resources;
@@ -60,7 +61,7 @@ namespace Distroir.CustomSDKLauncher.UI
             InitializeComponent();
 
             //Update controls
-            AppManager.UpdateButtons(new Button[]
+            AppUtils.UpdateButtons(new Button[]
                 {
                     launchHammerButton,
                     launchModelViewerButton,
@@ -86,8 +87,8 @@ namespace Distroir.CustomSDKLauncher.UI
             Utils.TryReloadPathFormatterVars();
             
             //Load application list
-            if (!AppManager.TryLoadApplications())
-                AppManager.CreateApplications();
+            if (!Managers.AppManager.TryLoad())
+                AppUtils.CreateApplications();
 
             //Try to load data settings
             if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
@@ -128,7 +129,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 launchModelViewerButton.Click += launchAppButton_Click;
                 launchFacePoserButton.Click += launchAppButton_Click;
 
-                AppManager.UpdateButtons(new Button[]
+                AppUtils.UpdateButtons(new Button[]
                 {
                     launchHammerButton,
                     launchModelViewerButton,
@@ -158,7 +159,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void launchAppButton_Click(object sender, EventArgs e)
         {
-            AppManager.LaunchApp((Button)sender);
+            AppUtils.LaunchApp((Button)sender);
         }
 
         private void launchHammerButton_Click(object sender, EventArgs e)

@@ -52,18 +52,17 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// </summary>
         public static Manager<Tutorial> TutorialManager = new Manager<Tutorial>(new XmlStringSerializer<Tutorial>(Data.TutorialsXML));
 
+
+        /// <summary>
+        /// App serializer
+        /// </summary>
+        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
+
         /*
         /// <summary>
         /// Content serializer
         /// </summary>
         public static Manager<ContentGroup> ContentManager = new Manager<ContentGroup>(new XmlFileSerializer<ContentGroup>(@"C:\users\x\desktop\contents.xml"));
-        */
-
-        /*
-        /// <summary>
-        /// App serializer
-        /// </summary>
-        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
         */
     }
 }
