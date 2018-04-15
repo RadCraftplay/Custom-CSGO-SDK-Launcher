@@ -84,7 +84,7 @@ namespace Distroir.CustomSDKLauncher.Core
                 }
 
                 //Get selected profile
-                Profile SelectedProfile = Managers.Managers.ProfileManager.Objects[SelectedProfileId];
+                Profile SelectedProfile = Managers.DataManagers.ProfileManager.Objects[SelectedProfileId];
                 //Launch application
                 Launcher.Launch(SelectedProfile, app);
             }
@@ -102,7 +102,7 @@ namespace Distroir.CustomSDKLauncher.Core
                 //Get selected profile id
                 int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
                 //Get selected profile
-                p = Managers.Managers.ProfileManager.Objects[SelectedProfileId];
+                p = Managers.DataManagers.ProfileManager.Objects[SelectedProfileId];
 
                 return true;
             }

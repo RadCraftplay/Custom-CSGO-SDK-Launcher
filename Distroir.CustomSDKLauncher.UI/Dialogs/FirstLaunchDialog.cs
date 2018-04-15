@@ -31,13 +31,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
 
             //Load templates
-            Managers.TemplateManager.Load();
+            DataManagers.TemplateManager.Load();
 
             //Reload list
             ReloadList();
 
             //Change game directory
-            directoryTextBox.Text = Utils.CombineDefaultGameDirName(Managers.TemplateManager.Objects[1].GameDirName);
+            directoryTextBox.Text = Utils.CombineDefaultGameDirName(DataManagers.TemplateManager.Objects[1].GameDirName);
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             gameComboBox.Items.Clear();
 
             //Add templates
-            foreach (Template t in Managers.TemplateManager.Objects)
+            foreach (Template t in DataManagers.TemplateManager.Objects)
             {
                 gameComboBox.Items.Add(t);
             }
@@ -97,7 +97,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 Profile p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(directoryTextBox.Text);
 
                 //Add profile to list
-                Managers.ProfileManager.Objects.Add(p);
+                DataManagers.ProfileManager.Objects.Add(p);
             }
             else //Advanced mode
             {
@@ -120,7 +120,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 p.GameinfoDirName = gameinfoDirectoryTextBox.Text;
 
                 //Add profile to list
-                Managers.ProfileManager.Objects.Add(p);
+                DataManagers.ProfileManager.Objects.Add(p);
             }
 
             //Select profile
@@ -173,7 +173,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void gameComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Change game directory
-            directoryTextBox.Text = Utils.CombineDefaultGameDirName(Managers.TemplateManager.Objects[gameComboBox.SelectedIndex].GameDirName);
+            directoryTextBox.Text = Utils.CombineDefaultGameDirName(DataManagers.TemplateManager.Objects[gameComboBox.SelectedIndex].GameDirName);
         }
 
         private void selectDirectoryAdvancedButton_Click(object sender, EventArgs e)

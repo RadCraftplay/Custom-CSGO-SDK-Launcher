@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.AppLauncher.Templates;
 using System;
 using System.Collections.Generic;
@@ -48,8 +49,8 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             Applications.Add(facePoser);
 
             //Save apps
-            Managers.Managers.AppManager.Objects = Applications;
-            Managers.Managers.AppManager.Save();
+            DataManagers.AppManager.Objects = Applications;
+            DataManagers.AppManager.Save();
         }
 
         public static void UpdateButtons(Button[] buttons)
@@ -70,7 +71,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
         static void UpdateButton(Button b, int id)
         {
-            AppInfo i = Managers.Managers.AppManager.Objects[id];
+            AppInfo i = DataManagers.AppManager.Objects[id];
 
             b.Text = i.DisplayText;
             b.Image = i.Icon;

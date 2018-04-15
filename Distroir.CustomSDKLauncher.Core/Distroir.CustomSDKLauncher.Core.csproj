@@ -70,7 +70,7 @@
     <Compile Include="Config.cs" />
     <Compile Include="Managers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />
-    <Compile Include="Managers\Managers.cs" />
+    <Compile Include="Managers\DataManagers.cs" />
     <Compile Include="Managers\Serializers\BinaryFileSerializer.cs" />
     <Compile Include="Managers\Serializers\BinaryStringSerializer.cs" />
     <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />

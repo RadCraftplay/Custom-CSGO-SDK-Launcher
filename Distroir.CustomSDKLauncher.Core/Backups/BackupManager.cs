@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Backups
@@ -49,8 +50,8 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
             List<string> FileNames = new List<string>()
                 {
                     Configuration.Config.destination,
-                    Managers.Managers.ProfileListFilename,
-                    Managers.Managers.AppListFilename
+                    DataManagers.ProfileListFilename,
+                    DataManagers.AppListFilename
                 };
 
             //Create entries

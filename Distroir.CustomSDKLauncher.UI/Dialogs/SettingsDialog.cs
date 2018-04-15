@@ -38,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Add references
             formReference = f;
-            appListReference = Managers.AppManager.Objects;
+            appListReference = DataManagers.AppManager.Objects;
             //Create controls
             InitializeComponent();
             //Apply settings to controls
@@ -89,7 +89,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             profileListComboBox.Items.Clear();
 
             //Add profiles to ComboBox
-            foreach (Profile p in Managers.ProfileManager.Objects)
+            foreach (Profile p in DataManagers.ProfileManager.Objects)
                 profileListComboBox.Items.Add(p);
 
             //Set profile
@@ -123,11 +123,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
-            Managers.AppManager.Objects = appListReference;
+            DataManagers.AppManager.Objects = appListReference;
             formReference.ApplyLauncherSettings();
 
             //Save app manager settings
-            Managers.AppManager.Save();
+            DataManagers.AppManager.Save();
         }
 
         int BoolToInt(bool val)
@@ -191,7 +191,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 {
                     //Save settings
                     Config.Save();
-                    Managers.ProfileManager.Save();
+                    DataManagers.ProfileManager.Save();
 
                     //Do backup
                     BackupManager m = new BackupManager(sfd.FileName);
@@ -218,9 +218,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                     //Restore settings
                     Config.Load();
-                    Managers.ProfileManager.Load();
-                    Managers.AppManager.Load();
-                    appListReference = Managers.AppManager.Objects;
+                    DataManagers.ProfileManager.Load();
+                    DataManagers.AppManager.Load();
+                    appListReference = DataManagers.AppManager.Objects;
                     UpdateControls();
                     UpdateButtons();
                 }

@@ -26,7 +26,7 @@ using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
-    public class Managers
+    public class DataManagers
     {
         /// <summary>
         /// Full path of file containing list of profiles

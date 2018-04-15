@@ -35,10 +35,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void LoadTutorials()
         {
             //Load tutorials
-            if (Managers.TutorialManager.Objects == null)
-                Managers.TutorialManager.Load();
+            if (DataManagers.TutorialManager.Objects == null)
+                DataManagers.TutorialManager.Load();
 
-            foreach (Tutorial t in Managers.TutorialManager.Objects)
+            foreach (Tutorial t in DataManagers.TutorialManager.Objects)
             {
                 //Create listviewitem
                 ListViewItem i = new ListViewItem(t.Name);

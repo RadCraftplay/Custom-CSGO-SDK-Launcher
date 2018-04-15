@@ -39,14 +39,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void RefreshList()
         {
             //Load templates
-            if (Managers.TemplateManager.Objects == null)
-                Managers.TemplateManager.Load();
+            if (DataManagers.TemplateManager.Objects == null)
+                DataManagers.TemplateManager.Load();
 
             //Clear list
             templateListView.Items.Clear();
 
             //For every template
-            foreach (Template t in Managers.TemplateManager.Objects)
+            foreach (Template t in DataManagers.TemplateManager.Objects)
             {
                 //Create ListViewItem
                 ListViewItem i = new ListViewItem(t.Name);

@@ -35,7 +35,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
 
             //Create copy of profile list
-            Profiles = Managers.ProfileManager.Objects;
+            Profiles = DataManagers.ProfileManager.Objects;
             LoadList();
         }
 
@@ -114,7 +114,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void okButton_Click(object sender, EventArgs e)
         {
             //Update profile list
-            Managers.ProfileManager.Objects = Profiles;
+            DataManagers.ProfileManager.Objects = Profiles;
             //Set dialog result
             DialogResult = DialogResult.OK;
             //Close dialog
