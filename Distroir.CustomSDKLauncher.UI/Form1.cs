@@ -80,7 +80,11 @@ namespace Distroir.CustomSDKLauncher.UI
             int LoadAtStartup, useNewLauncher;
 
             //Game profiles
-            ProfileManager.LoadProfiles();
+            try
+            {
+                ProfileManager.LoadProfiles();
+            }
+            catch { /* Do nothing */ } 
             //Reloads list of variables used to format paths
             Utils.TryReloadPathFormatterVars();
             
