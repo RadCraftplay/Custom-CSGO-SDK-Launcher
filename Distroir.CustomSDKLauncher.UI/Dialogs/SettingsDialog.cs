@@ -19,6 +19,8 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Backups;
+using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -36,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Add references
             formReference = f;
-            appListReference = AppManager.Applications;
+            appListReference = DataManagers.AppManager.Objects;
             //Create controls
             InitializeComponent();
             //Apply settings to controls
@@ -87,7 +89,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             profileListComboBox.Items.Clear();
 
             //Add profiles to ComboBox
-            foreach (Profile p in ProfileManager.Profiles)
+            foreach (Profile p in DataManagers.ProfileManager.Objects)
                 profileListComboBox.Items.Add(p);
 
             //Set profile
@@ -121,11 +123,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
-            AppManager.Applications = appListReference;
+            DataManagers.AppManager.Objects = appListReference;
             formReference.ApplyLauncherSettings();
 
             //Save app manager settings
-            AppManager.SaveApplications();
+            DataManagers.AppManager.Save();
         }
 
         int BoolToInt(bool val)
@@ -189,7 +191,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 {
                     //Save settings
                     Config.Save();
-                    ProfileManager.SaveProfiles();
+                    DataManagers.ProfileManager.Save();
 
                     //Do backup
                     BackupManager m = new BackupManager(sfd.FileName);
@@ -216,9 +218,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                     //Restore settings
                     Config.Load();
-                    ProfileManager.LoadProfiles();
-                    AppManager.LoadApplications();
-                    appListReference = AppManager.Applications;
+                    DataManagers.ProfileManager.Load();
+                    DataManagers.AppManager.Load();
+                    appListReference = DataManagers.AppManager.Objects;
                     UpdateControls();
                     UpdateButtons();
                 }
@@ -260,7 +262,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateButtons()
         {
-            AppManager.UpdateButtons(appListReference, new Button[]
+            AppUtils.UpdateButtons(appListReference, new Button[]
             {
                 launcherEditButton1,
                 launcherEditButton2,

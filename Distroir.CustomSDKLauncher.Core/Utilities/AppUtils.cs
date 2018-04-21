@@ -15,99 +15,42 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+using Distroir.CustomSDKLauncher.Core.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.AppLauncher.Templates;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 
-namespace Distroir.CustomSDKLauncher.Core.AppLauncher
+namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
-    public class AppManager
+    public class AppUtils
     {
-        public static List<AppInfo> Applications;
-        public static string AppListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "applications.xml");
-
-        public static void LoadApplications()
-        {
-            //Initialize list of applications
-            Applications = new List<AppInfo>();
-
-            //Clear template list
-            Applications.Clear();
-
-            //Create instance of XMLSerializer
-            XmlSerializer s = new XmlSerializer(typeof(AppInfo[]));
-
-            //Read data
-            using (TextReader reader = new StreamReader(AppListFilename))
-            {
-                Applications = ((AppInfo[])s.Deserialize(reader)).ToList();
-            }
-        }
-
-        public static bool TryLoadApplications()
-        {
-            try
-            {
-                LoadApplications();
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         public static void CreateApplications()
         {
             //Create app list
             BasicAppTemplate t = new BasicAppTemplate();
 
-            t.GenerateDefaultConfig(Templates.SDKApplication.Hammer);
+            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.Hammer);
             AppInfo hammer = t.Info;
 
-            t.GenerateDefaultConfig(Templates.SDKApplication.HLMV);
+            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.HLMV);
             AppInfo hlmv = t.Info;
 
-            t.GenerateDefaultConfig(Templates.SDKApplication.FacePoser);
+            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.FacePoser);
             AppInfo facePoser = t.Info;
 
             //Add apps
-            Applications = new List<AppInfo>();
+            List<AppInfo> Applications = new List<AppInfo>();
             Applications.Add(hammer);
             Applications.Add(hlmv);
             Applications.Add(facePoser);
 
-            //Serialize templates
-            SaveApplications();
-        }
-
-        public static bool SaveApplications()
-        {
-            try
-            {
-                //Create serializer and writer
-                TextWriter w = new StreamWriter(AppListFilename);
-                XmlSerializer s = new XmlSerializer(typeof(AppInfo[]));
-
-                //Serialize stream
-                s.Serialize(w, Applications.ToArray());
-
-                //Clean memory and close stream
-                w.Close();
-                w.Dispose();
-
-                //There were no errors
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //Save apps
+            DataManagers.AppManager.Objects = Applications;
+            DataManagers.AppManager.Save();
         }
 
         public static void UpdateButtons(Button[] buttons)
@@ -128,7 +71,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
 
         static void UpdateButton(Button b, int id)
         {
-            AppInfo i = Applications[id];
+            AppInfo i = DataManagers.AppManager.Objects[id];
 
             b.Text = i.DisplayText;
             b.Image = i.Icon;

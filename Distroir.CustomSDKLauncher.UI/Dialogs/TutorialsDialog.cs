@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Distroir.CustomSDKLauncher.Core;
 using System;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Managers;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
@@ -34,10 +35,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void LoadTutorials()
         {
             //Load tutorials
-            if (TutorialManager.Tutorials == null)
-                TutorialManager.LoadTutorials();
+            if (DataManagers.TutorialManager.Objects == null)
+                DataManagers.TutorialManager.Load();
 
-            foreach (Tutorial t in TutorialManager.Tutorials)
+            foreach (Tutorial t in DataManagers.TutorialManager.Objects)
             {
                 //Create listviewitem
                 ListViewItem i = new ListViewItem(t.Name);

@@ -38,7 +38,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppLauncher\AppInfo.cs" />
-    <Compile Include="AppLauncher\AppManager.cs" />
     <Compile Include="AppLauncher\AppTemplate.cs" />
     <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.cs">
       <SubType>Form</SubType>
@@ -69,6 +68,14 @@
     <Compile Include="CommunityContent\ContentManager.cs" />
     <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Managers\ContentSerializer.cs" />
+    <Compile Include="Managers\Manager.cs" />
+    <Compile Include="Managers\DataManagers.cs" />
+    <Compile Include="Managers\Serializers\BinaryFileSerializer.cs" />
+    <Compile Include="Managers\Serializers\BinaryStringSerializer.cs" />
+    <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />
+    <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
+    <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
     <Compile Include="Feedback\Scheduler.cs" />
@@ -76,13 +83,10 @@
     <Compile Include="Utilities\ExceptionLogger.cs" />
     <Compile Include="Utilities\PlatformChecker.cs" />
     <Compile Include="Profile.cs" />
-    <Compile Include="ProfileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\PathFormatter.cs" />
     <Compile Include="Template.cs" />
-    <Compile Include="TemplateManager.cs" />
     <Compile Include="Tutorial.cs" />
-    <Compile Include="TutorialManager.cs" />
     <Compile Include="Utilities\IconHelper.cs" />
     <Compile Include="Utilities\JavaUtils.cs" />
     <Compile Include="Utilities\MessageBoxes.cs" />

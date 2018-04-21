@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -34,7 +35,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
 
             //Create copy of profile list
-            Profiles = ProfileManager.Profiles;
+            Profiles = DataManagers.ProfileManager.Objects;
             LoadList();
         }
 
@@ -113,7 +114,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void okButton_Click(object sender, EventArgs e)
         {
             //Update profile list
-            ProfileManager.Profiles = Profiles;
+            DataManagers.ProfileManager.Objects = Profiles;
             //Set dialog result
             DialogResult = DialogResult.OK;
             //Close dialog

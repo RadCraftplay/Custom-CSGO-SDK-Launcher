@@ -20,6 +20,8 @@ using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
+using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Drawing;
 using System.Resources;
@@ -59,7 +61,7 @@ namespace Distroir.CustomSDKLauncher.UI
             InitializeComponent();
 
             //Update controls
-            AppManager.UpdateButtons(new Button[]
+            AppUtils.UpdateButtons(new Button[]
                 {
                     launchHammerButton,
                     launchModelViewerButton,
@@ -80,13 +82,13 @@ namespace Distroir.CustomSDKLauncher.UI
             int LoadAtStartup, useNewLauncher;
 
             //Game profiles
-            ProfileManager.LoadProfiles();
+            DataManagers.ProfileManager.TryLoad();
             //Reloads list of variables used to format paths
             Utils.TryReloadPathFormatterVars();
             
             //Load application list
-            if (!AppManager.TryLoadApplications())
-                AppManager.CreateApplications();
+            if (!DataManagers.AppManager.TryLoad())
+                AppUtils.CreateApplications();
 
             //Try to load data settings
             if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
@@ -98,8 +100,8 @@ namespace Distroir.CustomSDKLauncher.UI
             //Load less important data on startup
             if (LoadAtStartup == 1)
             {
-                TemplateManager.LoadTemplates();
-                TutorialManager.LoadTutorials();
+                DataManagers.TemplateManager.Load();
+                DataManagers.TutorialManager.Load();
                 ContentManager.LoadContentGroups();
             }
 
@@ -127,7 +129,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 launchModelViewerButton.Click += launchAppButton_Click;
                 launchFacePoserButton.Click += launchAppButton_Click;
 
-                AppManager.UpdateButtons(new Button[]
+                AppUtils.UpdateButtons(new Button[]
                 {
                     launchHammerButton,
                     launchModelViewerButton,
@@ -157,7 +159,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void launchAppButton_Click(object sender, EventArgs e)
         {
-            AppManager.LaunchApp((Button)sender);
+            AppUtils.LaunchApp((Button)sender);
         }
 
         private void launchHammerButton_Click(object sender, EventArgs e)
@@ -220,7 +222,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //Save config
             Config.Save();
             //Save list of profiles
-            ProfileManager.SaveProfiles();
+            DataManagers.ProfileManager.Save();
         }
 
         #endregion
@@ -259,7 +261,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 p.GameinfoDirName = "csgo";
 
                 //Add profile to list
-                ProfileManager.Profiles.Add(p);
+                DataManagers.ProfileManager.Objects.Add(p);
 
                 //Select profile
                 Config.AddVariable("SelectedProfileId", 0);

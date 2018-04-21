@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Windows.Forms;
 
@@ -38,14 +39,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void RefreshList()
         {
             //Load templates
-            if (TemplateManager.Templates == null)
-                TemplateManager.LoadTemplates();
+            if (DataManagers.TemplateManager.Objects == null)
+                DataManagers.TemplateManager.Load();
 
             //Clear list
             templateListView.Items.Clear();
 
             //For every template
-            foreach (Template t in TemplateManager.Templates)
+            foreach (Template t in DataManagers.TemplateManager.Objects)
             {
                 //Create ListViewItem
                 ListViewItem i = new ListViewItem(t.Name);
