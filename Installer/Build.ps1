@@ -23,6 +23,10 @@ if (Test-Path '../Distroir.CustomSDKLauncher/bin/release/Distroir.CustomSDKLaunc
     Move-Item '../Distroir.CustomSDKLauncher/bin/release/Distroir.CustomSDKLauncher.exe' '../Distroir.CustomSDKLauncher/bin/release/Custom SDK Launcher.exe'
 }
 
+if (Test-Path '../Distroir.CustomSDKLauncher.Associator/bin/Release/Distroir.CustomSDKLauncher.Associator.exe') {
+    Move-Item '../Distroir.CustomSDKLauncher.Associator/bin/Release/Distroir.CustomSDKLauncher.Associator.exe' '../Distroir.CustomSDKLauncher/bin/release/Distroir.CustomSDKLauncher.Associator.exe'
+}
+
 (& 'robocopy.exe' '../Distroir.CustomSDKLauncher/bin/release/' 'Out' '/XF' '*.pdb' '*.xml' '*.vshost.*') | Add-Content $log
 
 echo 'Done!'

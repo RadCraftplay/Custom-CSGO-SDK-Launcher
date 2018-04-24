@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher.Core.Data", "Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj", "{7B1A697A-96C8-40D8-9DDF-058ED283236D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher.Associator", "Distroir.CustomSDKLauncher.Associator\Distroir.CustomSDKLauncher.Associator.csproj", "{0C6ACE88-B32E-4D31-B747-633F29D0A24E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{7B1A697A-96C8-40D8-9DDF-058ED283236D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1A697A-96C8-40D8-9DDF-058ED283236D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B1A697A-96C8-40D8-9DDF-058ED283236D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C6ACE88-B32E-4D31-B747-633F29D0A24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C6ACE88-B32E-4D31-B747-633F29D0A24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C6ACE88-B32E-4D31-B747-633F29D0A24E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C6ACE88-B32E-4D31-B747-633F29D0A24E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
