@@ -57,7 +57,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
         public static void RegisterProtocol()
         {
             MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to register protocol for launcher");
-            Process.Start(GetAssociatorPath(), "-r");
+            Process.Start(GetAssociatorPath(), "-r").WaitForExit();
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
         public static void UnregisterProtocol()
         {
             MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to unregister protocol");
-            Process.Start(GetAssociatorPath(), "-u");
+            Process.Start(GetAssociatorPath(), "-u").WaitForExit();
         }
     }
 }

@@ -55,7 +55,7 @@ namespace Distroir.CustomSDKLauncher.Associator
                     MessageBox.Show("Protocol successfully unregistered!", "Custom SDK Launcher Associator", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Unable to register or unregister protocol", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
