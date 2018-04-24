@@ -18,8 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
@@ -38,6 +41,32 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
                 reference = reference.OpenSubKey(subKeyName);
 
             return reference;
+        }
+
+        static string GetAssociatorPath()
+        {
+            FileInfo thisApp = new FileInfo(Application.ExecutablePath);
+            DirectoryInfo appDir = thisApp.Directory;
+
+            return Path.Combine(appDir.FullName, "Distroir.CustomSDKLauncher.Associator.exe");
+        }
+
+        /// <summary>
+        /// Registers sdklauncher protocol
+        /// </summary>
+        public static void RegisterProtocol()
+        {
+            MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to register protocol for launcher");
+            Process.Start(GetAssociatorPath(), "-r");
+        }
+
+        /// <summary>
+        /// Unregisters sdklauncher protocol
+        /// </summary>
+        public static void UnregisterProtocol()
+        {
+            MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to unregister protocol");
+            Process.Start(GetAssociatorPath(), "-u");
         }
     }
 }

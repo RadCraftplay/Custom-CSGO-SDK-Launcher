@@ -107,8 +107,14 @@ namespace Distroir.CustomSDKLauncher.UI
 
             if (!Config.TryReadInt("UseNewLauncher", out useNewLauncher))
             {
-                useNewLauncher = 0;
+                useNewLauncher = 1;
                 Config.AddVariable("UseNewLauncher", 1);
+            }
+
+            if (!Config.TryReadBool("RegisterProtocol"))
+            {
+                RegistryUtils.RegisterProtocol();
+                Config.AddVariable("RegisterProtocol", true);
             }
         }
 
