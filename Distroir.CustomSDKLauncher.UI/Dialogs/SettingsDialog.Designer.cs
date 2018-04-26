@@ -37,6 +37,7 @@
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
             this.appLauncherTabPage = new System.Windows.Forms.TabPage();
+            this.actionChangeLabel = new System.Windows.Forms.Label();
             this.launcherEditButton3 = new System.Windows.Forms.Button();
             this.launcherEditButton2 = new System.Windows.Forms.Button();
             this.launcherEditButton1 = new System.Windows.Forms.Button();
@@ -57,7 +58,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.actionChangeLabel = new System.Windows.Forms.Label();
+            this.registerProtocolCheckBox = new System.Windows.Forms.CheckBox();
+            this.forceRegisterProtocolLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.forceUnregisterProtocolLinkLabel = new System.Windows.Forms.LinkLabel();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -185,6 +188,15 @@
             this.appLauncherTabPage.Text = "App launcher";
             this.appLauncherTabPage.UseVisualStyleBackColor = true;
             // 
+            // actionChangeLabel
+            // 
+            this.actionChangeLabel.Location = new System.Drawing.Point(6, 133);
+            this.actionChangeLabel.Name = "actionChangeLabel";
+            this.actionChangeLabel.Size = new System.Drawing.Size(272, 23);
+            this.actionChangeLabel.TabIndex = 7;
+            this.actionChangeLabel.Text = "Click on a button to change an action";
+            this.actionChangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // launcherEditButton3
             // 
             this.launcherEditButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -290,6 +302,9 @@
             // 
             // advancedTabPage
             // 
+            this.advancedTabPage.Controls.Add(this.forceUnregisterProtocolLinkLabel);
+            this.advancedTabPage.Controls.Add(this.forceRegisterProtocolLinkLabel);
+            this.advancedTabPage.Controls.Add(this.registerProtocolCheckBox);
             this.advancedTabPage.Controls.Add(this.preLoadDataCheckBox);
             this.advancedTabPage.Controls.Add(this.advancedWarningLabel);
             this.advancedTabPage.Location = new System.Drawing.Point(4, 25);
@@ -426,14 +441,37 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // actionChangeLabel
+            // registerProtocolCheckBox
             // 
-            this.actionChangeLabel.Location = new System.Drawing.Point(6, 133);
-            this.actionChangeLabel.Name = "actionChangeLabel";
-            this.actionChangeLabel.Size = new System.Drawing.Size(272, 23);
-            this.actionChangeLabel.TabIndex = 7;
-            this.actionChangeLabel.Text = "Click on a button to change an action";
-            this.actionChangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.registerProtocolCheckBox.AutoSize = true;
+            this.registerProtocolCheckBox.Location = new System.Drawing.Point(9, 71);
+            this.registerProtocolCheckBox.Name = "registerProtocolCheckBox";
+            this.registerProtocolCheckBox.Size = new System.Drawing.Size(138, 21);
+            this.registerProtocolCheckBox.TabIndex = 2;
+            this.registerProtocolCheckBox.Text = "Register protocol";
+            this.registerProtocolCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // forceRegisterProtocolLinkLabel
+            // 
+            this.forceRegisterProtocolLinkLabel.AutoSize = true;
+            this.forceRegisterProtocolLinkLabel.Location = new System.Drawing.Point(30, 95);
+            this.forceRegisterProtocolLinkLabel.Name = "forceRegisterProtocolLinkLabel";
+            this.forceRegisterProtocolLinkLabel.Size = new System.Drawing.Size(151, 17);
+            this.forceRegisterProtocolLinkLabel.TabIndex = 3;
+            this.forceRegisterProtocolLinkLabel.TabStop = true;
+            this.forceRegisterProtocolLinkLabel.Text = "Force register protocol";
+            this.forceRegisterProtocolLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forceRegisterProtocolLinkLabel_LinkClicked);
+            // 
+            // forceUnregisterProtocolLinkLabel
+            // 
+            this.forceUnregisterProtocolLinkLabel.AutoSize = true;
+            this.forceUnregisterProtocolLinkLabel.Location = new System.Drawing.Point(30, 115);
+            this.forceUnregisterProtocolLinkLabel.Name = "forceUnregisterProtocolLinkLabel";
+            this.forceUnregisterProtocolLinkLabel.Size = new System.Drawing.Size(167, 17);
+            this.forceUnregisterProtocolLinkLabel.TabIndex = 4;
+            this.forceUnregisterProtocolLinkLabel.TabStop = true;
+            this.forceUnregisterProtocolLinkLabel.Text = "Force unregister protocol";
+            this.forceUnregisterProtocolLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.forceUnregisterProtocolLinkLabel_LinkClicked);
             // 
             // SettingsDialog
             // 
@@ -498,5 +536,8 @@
         private System.Windows.Forms.CheckBox disableFeedbackCheckBox;
         private System.Windows.Forms.Button sendFeedbackButton;
         private System.Windows.Forms.Label actionChangeLabel;
+        private System.Windows.Forms.CheckBox registerProtocolCheckBox;
+        private System.Windows.Forms.LinkLabel forceUnregisterProtocolLinkLabel;
+        private System.Windows.Forms.LinkLabel forceRegisterProtocolLinkLabel;
     }
 }

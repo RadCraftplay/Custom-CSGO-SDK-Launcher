@@ -56,17 +56,57 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
         /// </summary>
         public static void RegisterProtocol()
         {
-            MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to register protocol for launcher");
-            Process.Start(GetAssociatorPath(), "-r").WaitForExit();
+            RegisterProtocol(true);
+        }
+
+        /// <summary>
+        /// Registers sdklauncher protocol
+        /// </summary>
+        public static bool RegisterProtocol(bool showAlert)
+        {
+            if (showAlert)
+                MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to register protocol for launcher");
+
+            try
+            {
+                Process associator = Process.Start(GetAssociatorPath(), "-r");
+                associator.Start();
+                associator.WaitForExit();
+                return associator.ExitCode == 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Registers sdklauncher protocol
+        /// </summary>
+        public static void UnregisterProtocol()
+        {
+            UnregisterProtocol(true);
         }
 
         /// <summary>
         /// Unregisters sdklauncher protocol
         /// </summary>
-        public static void UnregisterProtocol()
+        public static bool UnregisterProtocol(bool showAlert)
         {
-            MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to unregister protocol");
-            Process.Start(GetAssociatorPath(), "-u").WaitForExit();
+            if (showAlert)
+                MessageBoxes.Info("UAC prompt will be displayed after you click ok.\nConfirmation is required to unregister protocol");
+
+            try
+            {
+                Process associator = Process.Start(GetAssociatorPath(), "-u");
+                associator.Start();
+                associator.WaitForExit();
+                return associator.ExitCode == 0;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

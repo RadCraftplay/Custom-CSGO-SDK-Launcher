@@ -111,6 +111,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 Config.AddVariable("UseNewLauncher", 1);
             }
 
+            //If protocol was never registered, register it
             if (!Config.TryReadBool("RegisterProtocol"))
             {
                 RegistryUtils.RegisterProtocol();

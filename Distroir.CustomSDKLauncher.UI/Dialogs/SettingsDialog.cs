@@ -57,6 +57,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
             disableFeedbackCheckBox.Checked = Config.TryReadBool("DisableFeedbackNotifications");
+            registerProtocolCheckBox.Checked = Config.TryReadBool("RegisterProtocol");
 
             launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
@@ -120,6 +121,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
             Config.AddVariable("UseNewLauncher", BoolToInt(useNewLauncherCheckBox.Checked));
             Config.AddVariable("DisableFeedbackNotifications", disableFeedbackCheckBox.Checked);
+            Config.AddVariable("RegisterProtocol", registerProtocolCheckBox.Checked);
 
             //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
@@ -279,5 +281,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         }
 
         #endregion
+
+        private void forceRegisterProtocolLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (RegistryUtils.RegisterProtocol(true))
+                MessageBoxes.Info("Done!");
+        }
+
+        private void forceUnregisterProtocolLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(RegistryUtils.UnregisterProtocol(true))
+                MessageBoxes.Info("Done!");
+        }
     }
 }
