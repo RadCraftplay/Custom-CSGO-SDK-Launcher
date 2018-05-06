@@ -68,6 +68,15 @@
     <Compile Include="CommunityContent\ContentManager.cs" />
     <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Gamebanana\ArgsParser.cs" />
+    <Compile Include="Gamebanana\Dialogs\ModDownloadDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gamebanana\Dialogs\ModDownloadDialog.Designer.cs">
+      <DependentUpon>ModDownloadDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gamebanana\ModInfo.cs" />
+    <Compile Include="Gamebanana\ModInstaller.cs" />
     <Compile Include="Managers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\DataManagers.cs" />
@@ -107,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
       <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gamebanana\Dialogs\ModDownloadDialog.resx">
+      <DependentUpon>ModDownloadDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
