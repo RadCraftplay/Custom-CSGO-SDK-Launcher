@@ -51,9 +51,9 @@
             this.toolsGroupBox.Controls.Add(this.launchFacePoserButton);
             this.toolsGroupBox.Controls.Add(this.launchModelViewerButton);
             this.toolsGroupBox.Location = new System.Drawing.Point(17, 16);
-            this.toolsGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toolsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.toolsGroupBox.Name = "toolsGroupBox";
-            this.toolsGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toolsGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.toolsGroupBox.Size = new System.Drawing.Size(287, 130);
             this.toolsGroupBox.TabIndex = 3;
             this.toolsGroupBox.TabStop = false;
@@ -66,7 +66,7 @@
             this.launchHammerButton.Image = ((System.Drawing.Image)(resources.GetObject("launchHammerButton.Image")));
             this.launchHammerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.launchHammerButton.Location = new System.Drawing.Point(8, 23);
-            this.launchHammerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.launchHammerButton.Margin = new System.Windows.Forms.Padding(4);
             this.launchHammerButton.Name = "launchHammerButton";
             this.launchHammerButton.Size = new System.Drawing.Size(271, 28);
             this.launchHammerButton.TabIndex = 0;
@@ -83,7 +83,7 @@
             this.launchFacePoserButton.Image = ((System.Drawing.Image)(resources.GetObject("launchFacePoserButton.Image")));
             this.launchFacePoserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.launchFacePoserButton.Location = new System.Drawing.Point(8, 95);
-            this.launchFacePoserButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.launchFacePoserButton.Margin = new System.Windows.Forms.Padding(4);
             this.launchFacePoserButton.Name = "launchFacePoserButton";
             this.launchFacePoserButton.Size = new System.Drawing.Size(271, 28);
             this.launchFacePoserButton.TabIndex = 2;
@@ -100,7 +100,7 @@
             this.launchModelViewerButton.Image = ((System.Drawing.Image)(resources.GetObject("launchModelViewerButton.Image")));
             this.launchModelViewerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.launchModelViewerButton.Location = new System.Drawing.Point(8, 59);
-            this.launchModelViewerButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.launchModelViewerButton.Margin = new System.Windows.Forms.Padding(4);
             this.launchModelViewerButton.Name = "launchModelViewerButton";
             this.launchModelViewerButton.Size = new System.Drawing.Size(271, 28);
             this.launchModelViewerButton.TabIndex = 1;
@@ -120,9 +120,9 @@
             this.tutorialsGroupBox.Controls.Add(this.topHattWaffleButton);
             this.tutorialsGroupBox.Controls.Add(this.fmponeButton);
             this.tutorialsGroupBox.Location = new System.Drawing.Point(17, 154);
-            this.tutorialsGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tutorialsGroupBox.Margin = new System.Windows.Forms.Padding(4);
             this.tutorialsGroupBox.Name = "tutorialsGroupBox";
-            this.tutorialsGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tutorialsGroupBox.Padding = new System.Windows.Forms.Padding(4);
             this.tutorialsGroupBox.Size = new System.Drawing.Size(287, 153);
             this.tutorialsGroupBox.TabIndex = 4;
             this.tutorialsGroupBox.TabStop = false;
@@ -143,10 +143,10 @@
             // 
             // csgoSdkButton
             // 
-            this.csgoSdkButton.Image = ((System.Drawing.Image)(resources.GetObject("csgoSdkButton.Image")));
+            this.csgoSdkButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.source;
             this.csgoSdkButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.csgoSdkButton.Location = new System.Drawing.Point(8, 95);
-            this.csgoSdkButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.csgoSdkButton.Margin = new System.Windows.Forms.Padding(4);
             this.csgoSdkButton.Name = "csgoSdkButton";
             this.csgoSdkButton.Size = new System.Drawing.Size(271, 28);
             this.csgoSdkButton.TabIndex = 8;
@@ -161,7 +161,7 @@
             this.topHattWaffleButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.thw;
             this.topHattWaffleButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.topHattWaffleButton.Location = new System.Drawing.Point(8, 59);
-            this.topHattWaffleButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.topHattWaffleButton.Margin = new System.Windows.Forms.Padding(4);
             this.topHattWaffleButton.Name = "topHattWaffleButton";
             this.topHattWaffleButton.Size = new System.Drawing.Size(271, 28);
             this.topHattWaffleButton.TabIndex = 7;
@@ -176,7 +176,7 @@
             this.fmponeButton.Image = ((System.Drawing.Image)(resources.GetObject("fmponeButton.Image")));
             this.fmponeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.fmponeButton.Location = new System.Drawing.Point(8, 23);
-            this.fmponeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fmponeButton.Margin = new System.Windows.Forms.Padding(4);
             this.fmponeButton.Name = "fmponeButton";
             this.fmponeButton.Size = new System.Drawing.Size(271, 28);
             this.fmponeButton.TabIndex = 6;
@@ -192,7 +192,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.settingsButton.Location = new System.Drawing.Point(16, 325);
-            this.settingsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.settingsButton.Margin = new System.Windows.Forms.Padding(4);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(288, 28);
             this.settingsButton.TabIndex = 5;
@@ -210,7 +210,7 @@
             this.Controls.Add(this.tutorialsGroupBox);
             this.Controls.Add(this.toolsGroupBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(335, 404);
             this.MinimumSize = new System.Drawing.Size(335, 404);
