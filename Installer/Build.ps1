@@ -2,11 +2,19 @@ $msbuild = Join-Path (Get-ItemProperty Registry::HKEY_LOCAL_MACHINE\SOFTWARE\WOW
 
 #echo 'Msbuild path: ' $msbuild
 
+echo 'Removing old files...'
+
 if (Test-Path './Out') {
     Remove-Item -Recurse './Out'
 }
 
-if (Test-Path 'Custom SDK Launcher Setup.exe') { Remove-Item 'Custom SDK Launcher Setup.exe'}
+if (Test-Path '../Distroir.CustomSDKLauncher/bin/Release') {
+    Remove-Item -Recurse '../Distroir.CustomSDKLauncher/bin/Release'
+}
+
+if (Test-Path 'Custom SDK Launcher Setup.exe') {
+    Remove-Item 'Custom SDK Launcher Setup.exe'
+}
 
 $log = './Build.log'
 (Set-Content $log '')
