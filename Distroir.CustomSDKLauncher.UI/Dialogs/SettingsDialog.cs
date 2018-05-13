@@ -121,7 +121,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
             Config.AddVariable("UseNewLauncher", BoolToInt(useNewLauncherCheckBox.Checked));
             Config.AddVariable("DisableFeedbackNotifications", disableFeedbackCheckBox.Checked);
-            Config.AddVariable("RegisterProtocol", registerProtocolCheckBox.Checked);
 
             //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
@@ -130,6 +129,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             //Save app manager settings
             DataManagers.AppManager.Save();
+
+            //Update protocol registration settings
+            if (registerProtocolCheckBox.Checked != RegistryUtils.IsProtocolRegistered())
+                ChangeRegstrationSettings();
+
+            Config.AddVariable("RegisterProtocol", RegistryUtils.IsProtocolRegistered());
         }
 
         int BoolToInt(bool val)
@@ -299,6 +304,18 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         }
 
         #endregion
+
+        bool ChangeRegstrationSettings()
+        {
+            if (registerProtocolCheckBox.Checked)
+            {
+                return RegistryUtils.RegisterProtocol();
+            }
+            else
+            {
+                return RegistryUtils.UnregisterProtocol();
+            }
+        }
 
         #endregion
     }

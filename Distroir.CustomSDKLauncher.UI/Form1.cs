@@ -80,6 +80,7 @@ namespace Distroir.CustomSDKLauncher.UI
         private void LoadData()
         {
             int LoadAtStartup, useNewLauncher;
+            bool isRegistered;
 
             //Game profiles
             DataManagers.ProfileManager.TryLoad();
@@ -112,10 +113,10 @@ namespace Distroir.CustomSDKLauncher.UI
             }
 
             //If protocol was never registered, register it
-            if (!Config.TryReadBool("RegisterProtocol"))
+            if (!Config.TryReadBool("RegisterProtocol", out isRegistered))
             {
                 RegistryUtils.RegisterProtocol();
-                Config.AddVariable("RegisterProtocol", true);
+                Config.AddVariable("RegisterProtocol", RegistryUtils.IsProtocolRegistered());
             }
         }
 

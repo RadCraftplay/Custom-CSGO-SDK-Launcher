@@ -54,9 +54,9 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
         /// <summary>
         /// Registers sdklauncher protocol
         /// </summary>
-        public static void RegisterProtocol()
+        public static bool RegisterProtocol()
         {
-            RegisterProtocol(true);
+            return RegisterProtocol(true);
         }
 
         /// <summary>
@@ -82,9 +82,9 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
         /// <summary>
         /// Registers sdklauncher protocol
         /// </summary>
-        public static void UnregisterProtocol()
+        public static bool UnregisterProtocol()
         {
-            UnregisterProtocol(true);
+            return UnregisterProtocol(true);
         }
 
         /// <summary>
