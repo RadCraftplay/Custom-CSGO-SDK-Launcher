@@ -70,7 +70,6 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             try
             {
                 Process associator = Process.Start(GetAssociatorPath(), "-r");
-                associator.Start();
                 associator.WaitForExit();
                 return associator.ExitCode == 0;
             }
@@ -99,7 +98,6 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             try
             {
                 Process associator = Process.Start(GetAssociatorPath(), "-u");
-                associator.Start();
                 associator.WaitForExit();
                 return associator.ExitCode == 0;
             }
@@ -107,6 +105,19 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             {
                 return false;
             }
+        }
+
+        /// <summary>
+        /// Checks if protocol is registered
+        /// </summary>
+        public static bool IsProtocolRegistered()
+        {
+            RegistryKey protocolKey = GetKeyFromPath(RegistryKey.OpenBaseKey(RegistryHive.ClassesRoot, RegistryView.Default), "sdklauncher");
+
+            if (protocolKey == null)
+                return false;
+            else
+                return true;
         }
     }
 }

@@ -25,7 +25,6 @@ using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Feedback
 {
-    //TODO: Shedue showing message
     public class FeedbackFetcher
     {
         string FeedbackQuestion = "Would you like to answer few questions regarding Custom SDK Launcher?\nThis will take less than 5 minutes";

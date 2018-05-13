@@ -210,7 +210,8 @@ namespace Distroir.CustomSDKLauncher.UI
         private void settingsButton_Click(object sender, EventArgs e)
         {
             var d = new Dialogs.SettingsDialog(this);
-            d.ShowDialog();ApplyLauncherSettings();
+            d.ShowDialog();
+            ApplyLauncherSettings();
 
             //Update controls
             UpdateToolsGroupBoxText();

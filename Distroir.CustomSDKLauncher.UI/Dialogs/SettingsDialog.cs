@@ -57,7 +57,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
             disableFeedbackCheckBox.Checked = Config.TryReadBool("DisableFeedbackNotifications");
-            registerProtocolCheckBox.Checked = Config.TryReadBool("RegisterProtocol");
+            registerProtocolCheckBox.Checked = RegistryUtils.IsProtocolRegistered();
 
             launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
@@ -282,16 +282,24 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         #endregion
 
+        #region Gamebanana integration
+
+        #region Events
+
         private void forceRegisterProtocolLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (RegistryUtils.RegisterProtocol(true))
-                MessageBoxes.Info("Done!");
+                registerProtocolCheckBox.Checked = RegistryUtils.IsProtocolRegistered();
         }
 
         private void forceUnregisterProtocolLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(RegistryUtils.UnregisterProtocol(true))
-                MessageBoxes.Info("Done!");
+            if (RegistryUtils.UnregisterProtocol(true))
+                registerProtocolCheckBox.Checked = RegistryUtils.IsProtocolRegistered();
         }
+
+        #endregion
+
+        #endregion
     }
 }
