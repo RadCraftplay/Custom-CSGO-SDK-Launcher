@@ -14,12 +14,12 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             AssociatedDirectoryNames = new string[]
             {
                 "materials"
-            },
+            }/*,
             AssociatedExtensions = new string[]
             {
                 "vmt",
                 "vtf"
-            }
+            }*/
         };
 
         public static ModType Models = new ModType()
@@ -28,15 +28,16 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             TypeId = "models",
             AssociatedDirectoryNames = new string[]
             {
-                "models"
-            },
+                "models",
+                "materials"
+            }/*,
             AssociatedExtensions = new string[]
             {
                 "mdl",
                 "phy",
                 "vvd",
                 "vtx"
-            }
+            }*/
         };
 
         public static ModType Prefabs = new ModType()
@@ -46,21 +47,21 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             AssociatedDirectoryNames = new string[]
             {
                 "prefabs"
-            },
+            }/*,
             AssociatedExtensions = new string[]
             {
                 "vmf"
-            }
+            }*/
         };
 
         public static ModType Maps = new ModType()
         {
             //TODO: Add id
-            TypeId = "castaways",
+            TypeId = "castaways"/*,
             AssociatedExtensions = new string[]
             {
                 "vmf"
-            }
+            }*/
         };
     }
 }

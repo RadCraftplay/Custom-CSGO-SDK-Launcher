@@ -15,11 +15,13 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Dialogs
     public partial class ModDownloadDialog : Form
     {
         WebClient c;
+        string fileName;
 
-        public ModDownloadDialog(string Url)
+        public ModDownloadDialog(string Url, string FileName)
         {
             InitializeComponent();
             FormClosing += ModDownloadDialog_FormClosing;
+            fileName = FileName;
 
             Download(Url);
         }
@@ -35,12 +37,13 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Dialogs
             c.DownloadProgressChanged += DownloadProgressChanged;
             c.DownloadFileCompleted += DownloadProgressCompleted;
 
-            c.DownloadFileAsync(new Uri(url), CombineFileName());
+            c.DownloadFileAsync(new Uri(url), fileName);
         }
 
         private void DownloadProgressCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            DialogResult = DialogResult.OK;
+            if (!e.Cancelled)
+                DialogResult = DialogResult.OK;
             Close();
         }
 
@@ -61,11 +64,6 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Dialogs
             }
             else
                 return Bytes + "b";
-        }
-
-        string CombineFileName()
-        {
-            return $"{Path.GetTempPath()}\\CSDKL_{DateSerializer.SerializeDateAndTime(DateTime.Now)}_mod.tmp";
         }
     }
 }

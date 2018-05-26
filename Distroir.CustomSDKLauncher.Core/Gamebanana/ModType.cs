@@ -9,7 +9,6 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
     public class ModType
     {
         public string TypeId;
-        public string[] AssociatedExtensions;
         public string[] AssociatedDirectoryNames;
 
         public static ModType FromId(string id)
@@ -28,6 +27,24 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             }
 
             return null;
+        }
+
+        public static ModType[] GetModTypes()
+        {
+            //Get static members of ModTypes class
+            FieldInfo[] fields = typeof(ModTypes).GetFields();
+
+            //Create ModTyoe array
+            ModType[] modtypes = new ModType[fields.Length];
+
+            //Get mod types from fields
+            for (int i = 0; i < modtypes.Length; i++)
+            {
+                modtypes[i] = (ModType)fields[i].GetValue(null);
+            }
+
+            //Return ModType array
+            return modtypes;
         }
     }
 }

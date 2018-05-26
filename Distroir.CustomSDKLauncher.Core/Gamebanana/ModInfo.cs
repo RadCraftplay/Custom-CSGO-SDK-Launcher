@@ -9,6 +9,6 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
     {
         public string Url;
         public int GameId;
-        public int CategoryId;
+        public string CategoryId;
     }
 }

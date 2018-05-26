@@ -20,6 +20,7 @@ using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
+using Distroir.CustomSDKLauncher.Core.Gamebanana;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
@@ -40,6 +41,20 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Load profiles
             LoadData();
+
+            //Parse arguments
+            if (args.Length > 0)
+            {
+                ModInstaller i = new ModInstaller(args);
+
+                //Install mod
+                if (i.ProcessMod())
+                {
+                    //If mod was successfully installed
+                    //Exit applcation
+                    Application.Exit();
+                }
+            }
 
             //Unused: Load theme
             //Reason: Themes on winforms do not look good
