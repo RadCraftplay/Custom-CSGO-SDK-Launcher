@@ -65,13 +65,10 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 
             foreach (ZipEntry e in f.Entries)
             {
-                if (e.IsDirectory)
+                foreach (string directory in modType.AssociatedDirectoryNames)
                 {
-                    foreach (string directory in modType.AssociatedDirectoryNames)
-                    {
-                        if (e.FileName.StartsWith(directory))
-                            e.Extract(current.GetGameinfoDirectory(), ExtractExistingFileAction.OverwriteSilently);
-                    }
+                    if (e.FileName.StartsWith(directory))
+                        e.Extract(current.GetGameinfoDirectory(), ExtractExistingFileAction.OverwriteSilently);
                 }
             }
 
