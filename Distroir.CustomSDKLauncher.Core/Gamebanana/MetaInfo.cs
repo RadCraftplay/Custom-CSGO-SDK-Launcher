@@ -20,12 +20,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+/* 
+ * Meta file:
+ *      First line: destination directory
+ *      Second line: mod directory to extract
+ *  
+ * Example meta file:
+ * 
+ * {GameDir}/{GameinfoDir}
+ * Test mod/materials
+ * 
+ */
+
 namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 {
-    public class ModInfo
+    public class MetaInfo
     {
-        public string Url;
-        public int GameId;
-        public string CategoryId;
+        public string Destination;
+        public string DirectoryInArchive;
     }
 }

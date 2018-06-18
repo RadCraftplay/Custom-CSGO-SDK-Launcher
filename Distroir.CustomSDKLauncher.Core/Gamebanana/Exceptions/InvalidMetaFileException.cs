@@ -20,12 +20,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Gamebanana
+namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Exceptions
 {
-    public class ModInfo
+
+    [Serializable]
+    public class InvalidMetaFileException : Exception
     {
-        public string Url;
-        public int GameId;
-        public string CategoryId;
+        public InvalidMetaFileException() { }
+        public InvalidMetaFileException(string message) : base(message) { }
+        public InvalidMetaFileException(string message, Exception inner) : base(message, inner) { }
+        protected InvalidMetaFileException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+
+        public override string Message => "Meta file is invalid or corrupted";
     }
 }

@@ -20,12 +20,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Gamebanana
+namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Exceptions
 {
-    public class ModInfo
+
+    [Serializable]
+    public class NoMetaFileException : Exception
     {
-        public string Url;
-        public int GameId;
-        public string CategoryId;
+        public NoMetaFileException() { }
+        public NoMetaFileException(string message) : base(message) { }
+        public NoMetaFileException(string message, Exception inner) : base(message, inner) { }
+        protected NoMetaFileException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+
+        public override string Message => "No meta file inside archive";
     }
 }

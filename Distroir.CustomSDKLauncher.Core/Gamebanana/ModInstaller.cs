@@ -1,11 +1,30 @@
-﻿using System;
+﻿/*
+Custom SDK Launcher
+Copyright (C) 2017-2018 Distroir
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Utilities;
+using Distroir.CustomSDKLauncher.Core.Gamebanana.Exceptions;
 using Ionic.Zip;
+using System.Xml.Serialization;
 
 namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 {
@@ -45,11 +64,17 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             if (DownloadMod())
             {
                 //Try to install mod
-                InstallMod();
-                return true;
+                return InstallMod();
             }
 
             return false;
+        }
+
+        bool DownloadMod()
+        {
+            var f = new Dialogs.ModDownloadDialog(info.Url, fileName);
+            f.ShowDialog();
+            return f.DialogResult == DialogResult.OK;
         }
 
         bool InstallMod()
@@ -67,23 +92,56 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                 return false;
 
             //Extract files
-            foreach (ZipEntry e in f.Entries)
+            return ExtractFiles(f, current);
+        }
+
+        bool ExtractFiles(ZipFile f, Profile p)
+        {
+            //Check if archive contains meta file
+            if (!f.ContainsEntry("meta/meta"))
             {
-                foreach (string directory in modType.AssociatedDirectoryNames)
+                //File does not exist, throw an exception
+                throw new NoMetaFileException();
+            }
+
+            //Get meta file inside archive
+            ZipEntry meta = f.Entries.FirstOrDefault(e => e.FileName == "meta/meta");
+
+            using (MemoryStream ms = new MemoryStream())
+            {
+                //Extract meta file to memory stream
+                meta.Extract(ms);
+                //Reset reader position to zero
+                ms.Seek(0, SeekOrigin.Begin);
+
+                using (TextReader r = new StreamReader(ms))
                 {
-                    if (e.FileName.StartsWith(directory))
-                        e.Extract(current.GetGameinfoDirectory(), ExtractExistingFileAction.OverwriteSilently);
+                    //Check if meta file was loaded correctly
+                    //if (!metaReader.TryLoad())
+                    //{
+                    //    //If there was an error
+                    //    //Throw an exception
+                    //    throw new InvalidMetaFileException();
+                    //}
+
+                    //Get meta file info
+                    MetaInfo mf = new MetaInfo();
+                    mf.Destination = r.ReadLine();
+                    mf.DirectoryInArchive = r.ReadLine();
+
+                    //Extract all files matching meta info
+                    foreach (ZipEntry entry in f.Entries)
+                    {
+                        if (entry.FileName.StartsWith(mf.DirectoryInArchive))
+                        {
+                            entry.Extract(PathFormatter.Format(mf.Destination), ExtractExistingFileAction.DoNotOverwrite);
+                        }  
+                    }
                 }
             }
 
             return true;
-        }
 
-        bool DownloadMod()
-        {
-            var f = new Dialogs.ModDownloadDialog(info.Url, fileName);
-            f.ShowDialog();
-            return f.DialogResult == DialogResult.OK;
         }
     }
 }

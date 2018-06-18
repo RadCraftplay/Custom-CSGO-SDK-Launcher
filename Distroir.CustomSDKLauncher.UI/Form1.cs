@@ -48,12 +48,22 @@ namespace Distroir.CustomSDKLauncher.UI
                 ModInstaller i = new ModInstaller(args);
 
                 //Install mod
-                if (i.ProcessMod())
+                try
                 {
-                    //If mod was successfully installed
-                    //Exit applcation
-                    Application.Exit();
+                    if (!i.ProcessMod())
+                    {
+                        //If mod was successfully installed
+                        MessageBoxes.Error("Unable to install mod");
+                    }
                 }
+                catch (Exception ex)
+                {
+                    //Show error message
+                    MessageBoxes.Error(ex.Message);
+                }
+
+                //Exit application
+                Application.Exit();
             }
 
             //Unused: Load theme
