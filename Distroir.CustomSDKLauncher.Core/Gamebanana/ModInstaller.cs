@@ -24,6 +24,8 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         public void Dispose()
         {
             args = null;
+            info = null;
+            fileName = null;
         }
 
         /// <summary>
@@ -60,9 +62,11 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             Profile current;
 
             //Get current profiles
+            //TODO: Automatically try to find game dir based on directory id
             if (!Utils.TryGetSelectedProfile(out current))
                 return false;
 
+            //Extract files
             foreach (ZipEntry e in f.Entries)
             {
                 foreach (string directory in modType.AssociatedDirectoryNames)
