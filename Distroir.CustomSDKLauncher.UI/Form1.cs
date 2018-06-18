@@ -55,6 +55,8 @@ namespace Distroir.CustomSDKLauncher.UI
                         //If mod was successfully installed
                         MessageBoxes.Error("Unable to install mod");
                     }
+
+                    MessageBoxes.Info("Mod has been successfully installed!");
                 }
                 catch (Exception ex)
                 {
@@ -63,7 +65,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 }
 
                 //Exit application
-                Application.Exit();
+                Environment.Exit(0);
             }
 
             //Unused: Load theme
