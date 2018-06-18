@@ -70,6 +70,9 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             return false;
         }
 
+        /// <summary>
+        /// Downloads mod
+        /// </summary>
         bool DownloadMod()
         {
             var f = new Dialogs.ModDownloadDialog(info.Url, fileName);
@@ -77,6 +80,9 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             return f.DialogResult == DialogResult.OK;
         }
 
+        /// <summary>
+        /// Installs mod
+        /// </summary>
         bool InstallMod()
         {
             //Check if archive is zip
@@ -95,6 +101,11 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             return ExtractFiles(f, current);
         }
 
+        /// <summary>
+        /// Extracts mod
+        /// </summary>
+        /// <param name="f">ZipFile to extract</param>
+        /// <param name="p">Current profile</param>
         bool ExtractFiles(ZipFile f, Profile p)
         {
             //Check if archive contains meta file
@@ -116,14 +127,6 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 
                 using (TextReader r = new StreamReader(ms))
                 {
-                    //Check if meta file was loaded correctly
-                    //if (!metaReader.TryLoad())
-                    //{
-                    //    //If there was an error
-                    //    //Throw an exception
-                    //    throw new InvalidMetaFileException();
-                    //}
-
                     //Get meta file info
                     MetaInfo mf = new MetaInfo();
                     mf.Destination = r.ReadLine();
@@ -134,7 +137,8 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                     {
                         if (entry.FileName.StartsWith(mf.DirectoryInArchive))
                         {
-                            entry.Extract(PathFormatter.Format(mf.Destination), ExtractExistingFileAction.DoNotOverwrite);
+                            string exd = PathFormatter.Format(mf.Destination);
+                            TryExtractEntry(exd, mf.DirectoryInArchive, entry);
                         }  
                     }
                 }
@@ -142,6 +146,54 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 
             return true;
 
+        }
+
+        /// <summary>
+        /// Tries to extract entry
+        /// </summary>
+        /// <param name="destinationDir">Destination extract directory</param>
+        /// <param name="directoryInArchive">Directory inside archive</param>
+        /// <param name="e">Zip entry to extract</param>
+        void TryExtractEntry(string destinationDir, string directoryInArchive, ZipEntry e)
+        {
+            try
+            {
+                ExtractEntry(destinationDir, directoryInArchive, e);
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// Extracts entry
+        /// </summary>
+        /// <param name="destinationDir">Destination extract directory</param>
+        /// <param name="directoryInArchive">Directory inside archive</param>
+        /// <param name="e">Zip entry to extract</param>
+        void ExtractEntry(string destinationDir, string directoryInArchive, ZipEntry e)
+        {
+            string postfix = e.FileName.Substring(directoryInArchive.Length);
+            string filename = destinationDir + postfix;
+
+            //Check if entry is directory
+            if (e.IsDirectory)
+            {
+                Directory.CreateDirectory(filename);
+                return;
+            }
+
+            //Entry is a file
+            //Extract file
+            using (FileStream fs = new FileStream(filename, FileMode.CreateNew))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    //Extract file to memory
+                    e.Extract(ms);
+                    //Write file
+                    byte[] file = ms.ToArray();
+                    fs.Write(file, 0, file.Length);
+                }
+            }
         }
     }
 }

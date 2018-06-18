@@ -41,12 +41,13 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             if (!modInstallInfo.StartsWith("sdklauncher:["))
                 return null;
 
-            //Cut beggining of install info
+            //Cut beggining of the string
+            //Remove sdklauncher:
             modInstallInfo = modInstallInfo.Substring(12);
 
-            //Get parameters
+            //Split string into parameters
             parameters = modInstallInfo.Split(',');
-            //Format parameters
+            //Remove brackets []
             Carve(ref parameters);
 
             //Validate parameters
