@@ -25,7 +25,7 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
     public class ModInfo
     {
         public string Url;
-        public int GameId;
+        public string GameId;
         public string CategoryId;
     }
 }

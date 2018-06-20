@@ -57,7 +57,7 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             //Get mod info
             returnInfo = new ModInfo();
             returnInfo.Url = parameters[0];
-            returnInfo.GameId = Convert.ToInt32(parameters[1]);
+            returnInfo.GameId = parameters[1];
 
             if (parameters.Length > 2)
             {

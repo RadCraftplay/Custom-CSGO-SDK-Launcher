@@ -55,8 +55,10 @@ namespace Distroir.CustomSDKLauncher.UI
                         //If mod was successfully installed
                         MessageBoxes.Error("Unable to install mod");
                     }
-
-                    MessageBoxes.Info("Mod has been successfully installed!");
+                    else
+                    {
+                        MessageBoxes.Info("Mod has been successfully installed!");
+                    }
                 }
                 catch (Exception ex)
                 {

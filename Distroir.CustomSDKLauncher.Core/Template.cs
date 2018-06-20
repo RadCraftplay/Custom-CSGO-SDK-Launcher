@@ -31,6 +31,11 @@ namespace Distroir.CustomSDKLauncher.Core
         /// Name of directory containing game files. Used only during first launch
         /// </summary>
         public string GameDirName;
+        /// <summary>
+        /// Id of game on GameBanana
+        /// </summary>
+        /// <seealso cref="https://gamebanana.com/games"/>
+        public string GameId;
 
 
         //Overrides ToString method and returns name of profile

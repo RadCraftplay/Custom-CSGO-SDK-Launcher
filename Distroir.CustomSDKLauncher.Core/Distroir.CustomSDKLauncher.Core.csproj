@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="Gamebanana\Exceptions\InvalidMetaFileException.cs" />
     <Compile Include="Gamebanana\Exceptions\NoMetaFileException.cs" />
+    <Compile Include="Gamebanana\Exceptions\UnknownGameIdException.cs" />
     <Compile Include="Gamebanana\MetaInfo.cs" />
     <Compile Include="Gamebanana\ModInfo.cs" />
     <Compile Include="Gamebanana\ModInstaller.cs" />

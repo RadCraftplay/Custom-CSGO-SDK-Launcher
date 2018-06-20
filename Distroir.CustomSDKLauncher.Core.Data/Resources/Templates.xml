@@ -21,65 +21,78 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <Name>Black Mesa</Name>
     <GameinfoDirName>bms</GameinfoDirName>
     <GameDirName>Black Mesa</GameDirName>
+    <GameId>12</GameId>
   </Template>
   <Template>
     <Name>Counter-Strike: Global Offensive</Name>
     <GameinfoDirName>csgo</GameinfoDirName>
     <GameDirName>Counter-Strike Global Offensive</GameDirName>
+    <GameId>4660</GameId>
   </Template>
   <Template>
     <Name>Counter-Strike: Source</Name>
     <GameinfoDirName>cstrike</GameinfoDirName>
     <GameDirName>Counter-Strike Source</GameDirName>
+    <GameId>2</GameId>
   </Template>
   <Template>
     <Name>Day of Defeat: Source</Name>
     <GameinfoDirName>dod</GameinfoDirName>
     <GameDirName>Day of Defeat Source</GameDirName>
+    <GameId>10</GameId>
   </Template>
   <Template>
     <Name>Day of Infamy</Name>
     <GameinfoDirName>doi</GameinfoDirName>
     <GameDirName>dayofinfamy</GameDirName>
+    <GameId>5531</GameId>
   </Template>
   <Template>
     <Name>Garry's mod</Name>
     <GameinfoDirName>garrysmod</GameinfoDirName>
     <GameDirName>GarrysMod</GameDirName>
+    <GameId>73</GameId>
   </Template>
   <Template>
     <Name>Half-Life 2: Deathmatch</Name>
     <GameinfoDirName>hl2mp</GameinfoDirName>
     <GameDirName>Half-Life 2 Deathmatch</GameDirName>
+    <GameId>5</GameId>
   </Template>
   <Template>
     <Name>Insurgency</Name>
     <GameinfoDirName>insurgency</GameinfoDirName>
     <GameDirName>insurgency2</GameDirName>
+    <GameId>5237</GameId>
   </Template>
   <Template>
     <Name>Left 4 Dead</Name>
     <GameinfoDirName>left4dead</GameinfoDirName>
     <GameDirName>Left 4 Dead</GameDirName>
+    <GameId>222</GameId>
   </Template>
   <Template>
     <Name>Left 4 Dead 2</Name>
     <GameinfoDirName>left4dead2</GameinfoDirName>
     <GameDirName>Left 4 Dead 2</GameDirName>
+    <GameId>3456</GameId>
   </Template>
   <Template>
     <Name>Portal</Name>
     <GameinfoDirName>portal</GameinfoDirName>
     <GameDirName>Portal</GameDirName>
+    <GameId>296</GameId>
   </Template>
   <Template>
     <Name>Portal 2</Name>
     <GameinfoDirName>portal2</GameinfoDirName>
     <GameDirName>Portal 2</GameDirName>
+    <GameId>4537</GameId>
   </Template>
   <Template>
     <Name>Team Fortress 2</Name>
     <GameinfoDirName>tf</GameinfoDirName>
     <GameDirName>Team Fortress 2</GameDirName>
+    <GameId>297</GameId>
   </Template>
 </ArrayOfTemplate>

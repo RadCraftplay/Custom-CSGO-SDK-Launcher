@@ -86,19 +86,33 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         bool InstallMod()
         {
             //Check if archive is zip
-            //Look for files and folders associated with specific mod type
-
             ZipFile f = new ZipFile(fileName);
-            ModType modType = ModType.FromId(info.CategoryId);
-            Profile current;
-
-            //Get current profiles
-            //TODO: Automatically try to find game dir based on directory id
-            if (!Utils.TryGetSelectedProfile(out current))
-                return false;
+            //Get profile associated with game id
+            Profile current = GetProfileAssociatedWithGameId(info.GameId);
 
             //Extract files
             return ExtractFiles(f, current);
+        }
+
+        Profile GetProfileAssociatedWithGameId(string gameId)
+        {
+            //Load templates
+            if (Managers.DataManagers.TemplateManager.Objects == null)
+                Managers.DataManagers.TemplateManager.Load();
+
+            //Look for template matching game id
+            foreach (Template t in Managers.DataManagers.TemplateManager.Objects)
+            {
+                //If game id matches
+                if (t.GameId == gameId) //Look for profile with matching game info directory
+                    foreach (Profile p in Managers.DataManagers.ProfileManager.Objects)
+                        if (p.GameinfoDirName == t.GameinfoDirName)
+                            return p; //If profile matches criteria, return this profile
+            }
+
+            //No template/profile matched criteria
+            //Throw an exception
+            throw new UnknownGameIdException();
         }
 
         /// <summary>
@@ -137,8 +151,7 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                     {
                         if (entry.FileName.StartsWith(mf.DirectoryInArchive))
                         {
-                            string exd = PathFormatter.Format(mf.Destination);
-                            TryExtractEntry(exd, mf.DirectoryInArchive, entry);
+                            TryExtractEntry(Path.Combine(p.GetGameinfoDirectory(), mf.Destination), mf.DirectoryInArchive, entry);
                         }  
                     }
                 }
