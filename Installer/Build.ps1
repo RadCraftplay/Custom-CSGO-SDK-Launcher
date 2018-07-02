@@ -14,9 +14,17 @@ $log = './Build.log'
 echo 'Building Solution...'
 (& $msbuild '../Custom SDK Launcher.sln' '/p:Configuration=Release' '/p:VisualStudioVersion=15.0') | Add-Content $log
 
+# Removing files
+
 if (Test-Path '../Distroir.CustomSDKLauncher/bin/release/Custom SDK Launcher.exe') {
     Remove-Item '../Distroir.CustomSDKLauncher/bin/release/Custom SDK Launcher.exe'
 }
+
+if (Test-Path '../Distroir.CustomSDKLauncher.Associator/bin/Release/Distroir.CustomSDKLauncher.Associator.exe') {
+    Remove-Item '../Distroir.CustomSDKLauncher.Associator/bin/Release/Distroir.CustomSDKLauncher.Associator.exe'
+}
+
+# Copying files
 
 echo 'Copying files...'
 if (Test-Path '../Distroir.CustomSDKLauncher/bin/release/Distroir.CustomSDKLauncher.exe') {
