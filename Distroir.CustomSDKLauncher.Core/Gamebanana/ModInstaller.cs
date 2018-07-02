@@ -58,6 +58,7 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             args = null;
             info = null;
             fileName = null;
+            failedEntries = null;
         }
 
         /// <summary>
