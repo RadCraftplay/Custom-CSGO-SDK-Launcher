@@ -30,9 +30,21 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 {
     public class ModInstaller : IDisposable
     {
+        /// <summary>
+        /// Installer arguments
+        /// </summary>
         string[] args;
+        /// <summary>
+        /// Mod informations
+        /// </summary>
         ModInfo info;
+        /// <summary>
+        /// Name of zip file
+        /// </summary>
         string fileName;
+        /// <summary>
+        /// List of failed entries
+        /// </summary>
         List<string> failedEntries = new List<string>();
 
         public ModInstaller(string[] Args)
