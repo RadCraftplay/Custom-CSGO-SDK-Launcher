@@ -33,6 +33,7 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         string[] args;
         ModInfo info;
         string fileName;
+        List<string> failedEntries = new List<string>();
 
         public ModInstaller(string[] Args)
         {
@@ -52,6 +53,9 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         /// </summary>
         public bool ProcessMod()
         {
+            //True if mod was succesfully downloaded and instaled
+            bool success = false;
+
             //Get mod info
             info = ArgsParser.Parse(args);
 
@@ -64,10 +68,13 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             if (DownloadMod())
             {
                 //Try to install mod
-                return InstallMod();
+                success = InstallMod();
             }
 
-            return false;
+            //Remove file after all operations
+            File.Delete(fileName);
+
+            return success;
         }
 
         /// <summary>
@@ -85,13 +92,18 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         /// </summary>
         bool InstallMod()
         {
+            bool success;
             //Check if archive is zip
             ZipFile f = new ZipFile(fileName);
             //Get profile associated with game id
             Profile current = GetProfileAssociatedWithGameId(info.GameId);
 
             //Extract files
-            return ExtractFiles(f, current);
+            success = ExtractFiles(f, current);
+            //Free access to file
+            f.Dispose();
+
+            return success;
         }
 
         Profile GetProfileAssociatedWithGameId(string gameId)
@@ -157,6 +169,19 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                 }
             }
 
+            if (failedEntries.Count > 0)
+            {
+                string message = "Entries failed to extract:";
+
+                foreach (string entry in failedEntries)
+                {
+                    message += "\n" + entry;
+                }
+
+                MessageBoxes.Error(message);
+                return false;
+            }
+
             return true;
 
         }
@@ -173,7 +198,10 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             {
                 ExtractEntry(destinationDir, directoryInArchive, e);
             }
-            catch { }
+            catch
+            {
+                failedEntries.Add(e.FileName);
+            }
         }
 
         /// <summary>
@@ -184,19 +212,24 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         /// <param name="e">Zip entry to extract</param>
         void ExtractEntry(string destinationDir, string directoryInArchive, ZipEntry e)
         {
-            string postfix = e.FileName.Substring(directoryInArchive.Length);
-            string filename = destinationDir + postfix;
+            //string postfix = e.FileName.Substring(directoryInArchive.Length);
+            //string filename = destinationDir + postfix;
+            string entryname = GeneratePath(destinationDir, directoryInArchive, e);
 
             //Check if entry is directory
             if (e.IsDirectory)
             {
-                Directory.CreateDirectory(filename);
+                Directory.CreateDirectory(entryname);
                 return;
             }
 
             //Entry is a file
+            //If file exists, skip entry
+            if (File.Exists(entryname))
+                return;
+
             //Extract file
-            using (FileStream fs = new FileStream(filename, FileMode.CreateNew))
+            using (FileStream fs = new FileStream(entryname, FileMode.CreateNew))
             {
                 using (MemoryStream ms = new MemoryStream())
                 {
@@ -207,6 +240,29 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                     fs.Write(file, 0, file.Length);
                 }
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="root"></param>
+        /// <param name="entryPath"></param>
+        /// <returns></returns>
+        string CutPath(string root, string entryPath)
+        {
+            return entryPath.Substring(root.Length);
+        }
+
+        /// <summary>
+        /// Generates name of output file
+        /// </summary>
+        string GeneratePath(string destinationDir, string directoryInArchive, ZipEntry e)
+        {
+            //Create file path relative to destination directory
+            string filePath = CutPath(directoryInArchive, e.FileName).Replace('/', '\\');
+
+            //Combine directory path and file path
+            return filePath.StartsWith("\\") ? destinationDir + filePath : Path.Combine(destinationDir, filePath);
         }
     }
 }
