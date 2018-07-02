@@ -34,6 +34,7 @@ Source: "Out\Custom SDK Launcher.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Out\Distroir.CustomSDKLauncher.Core.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Out\Distroir.CustomSDKLauncher.Core.Data.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Out\Distroir.CustomSDKLauncher.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Out\DotNetZip.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Out\Distroir.CustomSDKLauncher.Associator.exe"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\en\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\en"; Flags: ignoreversion
 ;Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\pl\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\pl"; Flags: ignoreversion
