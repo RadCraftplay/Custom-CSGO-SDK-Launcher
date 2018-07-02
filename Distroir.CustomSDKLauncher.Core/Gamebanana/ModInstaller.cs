@@ -169,8 +169,11 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                 }
             }
 
+            //If there are failed entries
+            //Display list of failed entries
             if (failedEntries.Count > 0)
             {
+                //Generate message
                 string message = "Entries failed to extract:";
 
                 foreach (string entry in failedEntries)
@@ -178,12 +181,12 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                     message += "\n" + entry;
                 }
 
+                //Display error message
                 MessageBoxes.Error(message);
                 return false;
             }
 
             return true;
-
         }
 
         /// <summary>
@@ -196,10 +199,12 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         {
             try
             {
+                //Tries to extract entry
                 ExtractEntry(destinationDir, directoryInArchive, e);
             }
             catch
             {
+                //If failed, adds entry to "failedEntries" list
                 failedEntries.Add(e.FileName);
             }
         }
@@ -243,11 +248,8 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         }
 
         /// <summary>
-        /// 
+        /// Cuts root directory from entry path
         /// </summary>
-        /// <param name="root"></param>
-        /// <param name="entryPath"></param>
-        /// <returns></returns>
         string CutPath(string root, string entryPath)
         {
             return entryPath.Substring(root.Length);
