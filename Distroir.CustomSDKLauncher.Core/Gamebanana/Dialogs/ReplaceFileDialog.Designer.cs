@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReplaceFileDialog));
             this.YesAllButton = new System.Windows.Forms.Button();
             this.YesButton = new System.Windows.Forms.Button();
             this.NoButton = new System.Windows.Forms.Button();
@@ -102,8 +103,8 @@
             this.Controls.Add(this.YesButton);
             this.Controls.Add(this.YesAllButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReplaceFileDialog";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "File with same filename already exists";
             this.ResumeLayout(false);

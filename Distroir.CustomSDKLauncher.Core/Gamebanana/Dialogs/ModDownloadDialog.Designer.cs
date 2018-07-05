@@ -28,22 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModDownloadDialog));
             this.downloadProgressBar = new System.Windows.Forms.ProgressBar();
             this.downloadProgressLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // downloadProgressBar
             // 
+            this.downloadProgressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.downloadProgressBar.Location = new System.Drawing.Point(13, 13);
             this.downloadProgressBar.Name = "downloadProgressBar";
-            this.downloadProgressBar.Size = new System.Drawing.Size(250, 23);
+            this.downloadProgressBar.Size = new System.Drawing.Size(331, 23);
             this.downloadProgressBar.TabIndex = 0;
             // 
             // downloadProgressLabel
             // 
+            this.downloadProgressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.downloadProgressLabel.Location = new System.Drawing.Point(12, 39);
             this.downloadProgressLabel.Name = "downloadProgressLabel";
-            this.downloadProgressLabel.Size = new System.Drawing.Size(251, 23);
+            this.downloadProgressLabel.Size = new System.Drawing.Size(332, 23);
             this.downloadProgressLabel.TabIndex = 1;
             this.downloadProgressLabel.Text = "0% (0b/0b)";
             this.downloadProgressLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -52,12 +57,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 68);
+            this.ClientSize = new System.Drawing.Size(361, 68);
             this.Controls.Add(this.downloadProgressLabel);
             this.Controls.Add(this.downloadProgressBar);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ModDownloadDialog";
-            this.ShowInTaskbar = false;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloading mod...";
             this.ResumeLayout(false);
