@@ -46,6 +46,14 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
         /// List of failed entries
         /// </summary>
         List<string> failedEntries = new List<string>();
+        /// <summary>
+        /// If true, cancels installation
+        /// </summary>
+        bool cancel = false;
+        /// <summary>
+        /// What to do if we find duplicated filename
+        /// </summary>
+        DefaultDuplicateAction replaceAction = DefaultDuplicateAction.Ask;
 
         public ModInstaller(string[] Args)
         {
@@ -174,10 +182,17 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
                     //Extract all files matching meta info
                     foreach (ZipEntry entry in f.Entries)
                     {
+                        //Try to extract entry
                         if (entry.FileName.StartsWith(mf.DirectoryInArchive))
                         {
                             TryExtractEntry(Path.Combine(p.GetGameinfoDirectory(), mf.Destination), mf.DirectoryInArchive, entry);
-                        }  
+                        }
+
+                        //Cancels installation
+                        if (cancel)
+                        {
+                            break;
+                        }
                     }
                 }
             }
@@ -244,7 +259,49 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
             //Entry is a file
             //If file exists, skip entry
             if (File.Exists(entryname))
-                return;
+            {
+                switch (replaceAction)
+                {
+                    case DefaultDuplicateAction.Ask:
+                        //Create dialog
+                        var dialog = new Dialogs.ReplaceFileDialog(entryname);
+
+                        if (dialog.ShowDialog() == DialogResult.OK)
+                        {
+                            if (dialog.action == DefaultDuplicateAction.Replace)
+                            {
+                                File.Delete(entryname);
+                                break;
+                            }
+                            if (dialog.action == DefaultDuplicateAction.Skip)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                replaceAction = dialog.action;
+
+                                if (replaceAction == DefaultDuplicateAction.ReplaceAll)
+                                {
+                                    File.Delete(entryname);
+                                    break;
+                                }
+                                else
+                                {
+                                    return;
+                                }
+                            }
+                        }
+
+                        //Skip file by default
+                        return;
+                    case DefaultDuplicateAction.SkipAll:
+                        return;
+                    case DefaultDuplicateAction.ReplaceAll:
+                        File.Delete(entryname);
+                        break;
+                }
+            }
 
             //Extract file
             using (FileStream fs = new FileStream(entryname, FileMode.CreateNew))
@@ -278,6 +335,15 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana
 
             //Combine directory path and file path
             return filePath.StartsWith("\\") ? destinationDir + filePath : Path.Combine(destinationDir, filePath);
+        }
+
+        public enum DefaultDuplicateAction
+        {
+            Ask,
+            Replace,
+            ReplaceAll,
+            Skip,
+            SkipAll
         }
     }
 }

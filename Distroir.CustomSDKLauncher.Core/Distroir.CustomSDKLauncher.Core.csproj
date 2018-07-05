@@ -78,6 +78,12 @@
     <Compile Include="Gamebanana\Dialogs\ModDownloadDialog.Designer.cs">
       <DependentUpon>ModDownloadDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gamebanana\Dialogs\ReplaceFileDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gamebanana\Dialogs\ReplaceFileDialog.Designer.cs">
+      <DependentUpon>ReplaceFileDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gamebanana\Exceptions\InvalidMetaFileException.cs" />
     <Compile Include="Gamebanana\Exceptions\NoMetaFileException.cs" />
     <Compile Include="Gamebanana\Exceptions\UnknownGameIdException.cs" />
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gamebanana\Dialogs\ModDownloadDialog.resx">
       <DependentUpon>ModDownloadDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gamebanana\Dialogs\ReplaceFileDialog.resx">
+      <DependentUpon>ReplaceFileDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
