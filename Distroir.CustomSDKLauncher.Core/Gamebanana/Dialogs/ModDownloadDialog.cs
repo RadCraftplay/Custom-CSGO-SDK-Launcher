@@ -84,8 +84,8 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Dialogs
                 // Cancel all downloading operations
                 c.CancelAsync();
 
-                //Wait until WebClient cancel downloading
-                //Probably isn't the best solution but that simply works
+                //Wait until WebClient cancel download
+                //Probably isn't the best solution but works
                 while (c.IsBusy) { }
             }
         }
