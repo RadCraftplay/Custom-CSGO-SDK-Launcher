@@ -45,25 +45,29 @@ namespace Distroir.CustomSDKLauncher.UI
             //Parse arguments
             if (args.Length > 0)
             {
-                ModInstaller i = new ModInstaller(args);
+                if (MessageBox.Show("Are you sure, you want to install modification?", "Custom SDK Launcher - Mod Installer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    ModInstaller i = new ModInstaller(args);
 
-                //Install mod
-                try
-                {
-                    if (!i.ProcessMod())
+                    //Install mod
+                    //TODO: Ask user to install mod
+                    try
                     {
-                        //If mod was successfully installed
-                        MessageBoxes.Error("Unable to install mod");
+                        if (!i.ProcessMod())
+                        {
+                            //If mod was successfully installed
+                            MessageBoxes.Error("Unable to install mod");
+                        }
+                        else
+                        {
+                            MessageBoxes.Info("Mod has been successfully installed!");
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBoxes.Info("Mod has been successfully installed!");
+                        //Show error message
+                        MessageBoxes.Error(ex.Message);
                     }
-                }
-                catch (Exception ex)
-                {
-                    //Show error message
-                    MessageBoxes.Error(ex.Message);
                 }
 
                 //Exit application
