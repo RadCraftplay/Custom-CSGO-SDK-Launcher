@@ -43,36 +43,7 @@ namespace Distroir.CustomSDKLauncher.UI
             LoadData();
 
             //Parse arguments
-            if (args.Length > 0)
-            {
-                if (MessageBox.Show("Are you sure, you want to install modification?", "Custom SDK Launcher - Mod Installer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    ModInstaller i = new ModInstaller(args);
-
-                    //Install mod
-                    //TODO: Ask user to install mod
-                    try
-                    {
-                        if (!i.ProcessMod())
-                        {
-                            //If mod was successfully installed
-                            MessageBoxes.Error("Unable to install mod");
-                        }
-                        else
-                        {
-                            MessageBoxes.Info("Mod has been successfully installed!");
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        //Show error message
-                        MessageBoxes.Error(ex.Message);
-                    }
-                }
-
-                //Exit application
-                Environment.Exit(0);
-            }
+            ParseCommandLineArguments(args);
 
             //Unused: Load theme
             //Reason: Themes on winforms do not look good
@@ -108,6 +79,46 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Ask for feedback
             System.Threading.Tasks.Task.Factory.StartNew(AskForFeedback);
+        }
+
+        /// <summary>
+        /// Parses command line arguments passed to application
+        /// </summary>
+        /// <param name="args">Application arguments</param>
+        private void ParseCommandLineArguments(string[] args)
+        {
+            //Check if any arguments were passed
+            if (args.Length > 0)
+            {
+                //Ask user to install mod
+                if (MessageBox.Show("Are you sure, you want to install modification?", "Custom SDK Launcher - Mod Installer", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    //Create mod installer
+                    ModInstaller i = new ModInstaller(args);
+
+                    //Install mod
+                    try
+                    {
+                        if (!i.ProcessMod())
+                        {
+                            //If mod was successfully installed
+                            MessageBoxes.Error("Unable to install mod");
+                        }
+                        else
+                        {
+                            MessageBoxes.Info("Mod has been successfully installed!");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //Show error message
+                        MessageBoxes.Error(ex.Message);
+                    }
+                }
+
+                //Exit application
+                Environment.Exit(0);
+            }
         }
 
         private void LoadData()
