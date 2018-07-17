@@ -67,6 +67,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Downloading mod...";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModDownloadDialog_FormClosing);
             this.ResumeLayout(false);
 
         }

@@ -37,15 +37,9 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Dialogs
         public ModDownloadDialog(string Url, string FileName)
         {
             InitializeComponent();
-            FormClosing += ModDownloadDialog_FormClosing;
             fileName = FileName;
 
             Download(Url);
-        }
-
-        private void ModDownloadDialog_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            c.CancelAsync();
         }
 
         void Download(string url)
@@ -81,6 +75,19 @@ namespace Distroir.CustomSDKLauncher.Core.Gamebanana.Dialogs
             }
             else
                 return Bytes + "b";
+        }
+
+        private void ModDownloadDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (c != null)
+            {
+                // Cancel all downloading operations
+                c.CancelAsync();
+
+                //Wait until WebClient cancel downloading
+                //Probably isn't the best solution but that simply works
+                while (c.IsBusy) { }
+            }
         }
     }
 }
