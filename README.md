@@ -9,3 +9,24 @@ Free and open source SDK launcher for Counter-Strike: Global Offensive and other
 - **Custom profiles:** Create profiles for many games and switch between them easily
 - **New to mapmaking? No problem:** List of specially selected tutorials will help you to get started creating content for various games
 - **No more annoying bugs:** We have fixed issues existing in default SDK launcher
+
+### GameBanana integration
+
+Custom SDK Launcher can be used as GameBanana mod installer. Currently, it can only install or update mods, but can't uninstall. To add support for your modification, you need to pack it inside ZIP archive, and add "meta" file inside "meta" directory (path "meta/meta"). First line should contain path to directory inside archive of which files should be extracted. Second line should contain path to directory under game dir (for csgo game directory would be named "Counter-Strike: Global Offensive\csgo") to which files would be extracted.
+
+Example meta files:
+
+```
+Distroir
+materials/Distroir
+```
+
+```
+materials
+materials
+```
+
+```
+Bills Mod/Example textures/Example modification
+models
+```
