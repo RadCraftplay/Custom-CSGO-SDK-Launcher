@@ -38,7 +38,7 @@
             this.tryToFindJavaExeRadioButton = new System.Windows.Forms.RadioButton();
             this.usePathVariableRadioButton = new System.Windows.Forms.RadioButton();
             this.okButton = new System.Windows.Forms.Button();
-            this.profileNameLabel = new System.Windows.Forms.Label();
+            this.nameLabel = new System.Windows.Forms.Label();
             this.profileNameTextBox = new System.Windows.Forms.TextBox();
             this.javaExecutablePathGroupBox.SuspendLayout();
             this.SuspendLayout();
@@ -158,14 +158,14 @@
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // profileNameLabel
+            // nameLabel
             // 
-            this.profileNameLabel.AutoSize = true;
-            this.profileNameLabel.Location = new System.Drawing.Point(12, 9);
-            this.profileNameLabel.Name = "profileNameLabel";
-            this.profileNameLabel.Size = new System.Drawing.Size(91, 17);
-            this.profileNameLabel.TabIndex = 16;
-            this.profileNameLabel.Text = "Profile name:";
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(12, 9);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(49, 17);
+            this.nameLabel.TabIndex = 16;
+            this.nameLabel.Text = "Name:";
             // 
             // profileNameTextBox
             // 
@@ -182,7 +182,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 290);
             this.Controls.Add(this.profileNameTextBox);
-            this.Controls.Add(this.profileNameLabel);
+            this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.javaExecutablePathGroupBox);
             this.Controls.Add(this.jarFileLabel);
@@ -212,7 +212,7 @@
         private System.Windows.Forms.RadioButton tryToFindJavaExeRadioButton;
         private System.Windows.Forms.RadioButton usePathVariableRadioButton;
         private System.Windows.Forms.Button okButton;
-        private System.Windows.Forms.Label profileNameLabel;
+        private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox profileNameTextBox;
     }
 }
