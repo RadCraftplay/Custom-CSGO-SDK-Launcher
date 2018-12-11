@@ -37,6 +37,7 @@
             this.profileLabel = new System.Windows.Forms.Label();
             this.profileListComboBox = new System.Windows.Forms.ComboBox();
             this.appLauncherTabPage = new System.Windows.Forms.TabPage();
+            this.actionChangeLabel = new System.Windows.Forms.Label();
             this.launcherEditButton3 = new System.Windows.Forms.Button();
             this.launcherEditButton2 = new System.Windows.Forms.Button();
             this.launcherEditButton1 = new System.Windows.Forms.Button();
@@ -57,7 +58,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.actionChangeLabel = new System.Windows.Forms.Label();
+            this.gamebananaLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.githubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -184,6 +186,15 @@
             this.appLauncherTabPage.TabIndex = 4;
             this.appLauncherTabPage.Text = "App launcher";
             this.appLauncherTabPage.UseVisualStyleBackColor = true;
+            // 
+            // actionChangeLabel
+            // 
+            this.actionChangeLabel.Location = new System.Drawing.Point(6, 133);
+            this.actionChangeLabel.Name = "actionChangeLabel";
+            this.actionChangeLabel.Size = new System.Drawing.Size(272, 23);
+            this.actionChangeLabel.TabIndex = 7;
+            this.actionChangeLabel.Text = "Click on a button to change an action";
+            this.actionChangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // launcherEditButton3
             // 
@@ -321,6 +332,8 @@
             // 
             // aboutTabPage
             // 
+            this.aboutTabPage.Controls.Add(this.githubLinkLabel);
+            this.aboutTabPage.Controls.Add(this.gamebananaLinkLabel);
             this.aboutTabPage.Controls.Add(this.ViewLicenseLinkLabel);
             this.aboutTabPage.Controls.Add(this.fugueIconsSetLicenseLinkLabel);
             this.aboutTabPage.Controls.Add(this.gpl3LicenseLinkLabel);
@@ -426,14 +439,27 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // actionChangeLabel
+            // gamebananaLinkLabel
             // 
-            this.actionChangeLabel.Location = new System.Drawing.Point(6, 133);
-            this.actionChangeLabel.Name = "actionChangeLabel";
-            this.actionChangeLabel.Size = new System.Drawing.Size(272, 23);
-            this.actionChangeLabel.TabIndex = 7;
-            this.actionChangeLabel.Text = "Click on a button to change an action";
-            this.actionChangeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.gamebananaLinkLabel.AutoSize = true;
+            this.gamebananaLinkLabel.Location = new System.Drawing.Point(4, 145);
+            this.gamebananaLinkLabel.Name = "gamebananaLinkLabel";
+            this.gamebananaLinkLabel.Size = new System.Drawing.Size(95, 17);
+            this.gamebananaLinkLabel.TabIndex = 7;
+            this.gamebananaLinkLabel.TabStop = true;
+            this.gamebananaLinkLabel.Text = "GameBanana";
+            this.gamebananaLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gamebananaLinkLabel_LinkClicked);
+            // 
+            // githubLinkLabel
+            // 
+            this.githubLinkLabel.AutoSize = true;
+            this.githubLinkLabel.Location = new System.Drawing.Point(4, 165);
+            this.githubLinkLabel.Name = "githubLinkLabel";
+            this.githubLinkLabel.Size = new System.Drawing.Size(52, 17);
+            this.githubLinkLabel.TabIndex = 8;
+            this.githubLinkLabel.TabStop = true;
+            this.githubLinkLabel.Text = "GitHub";
+            this.githubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLinkLabel_LinkClicked);
             // 
             // SettingsDialog
             // 
@@ -498,5 +524,7 @@
         private System.Windows.Forms.CheckBox disableFeedbackCheckBox;
         private System.Windows.Forms.Button sendFeedbackButton;
         private System.Windows.Forms.Label actionChangeLabel;
+        private System.Windows.Forms.LinkLabel githubLinkLabel;
+        private System.Windows.Forms.LinkLabel gamebananaLinkLabel;
     }
 }

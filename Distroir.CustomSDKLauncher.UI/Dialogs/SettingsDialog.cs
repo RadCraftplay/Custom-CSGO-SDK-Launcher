@@ -172,6 +172,16 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Utils.ShellLaunch("https://www.gnu.org/licenses/gpl-3.0.en.html");
         }
 
+        private void gamebananaLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utils.ShellLaunch("https://gamebanana.com/tools/6145");
+        }
+
+        private void githubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Utils.ShellLaunch("https://github.com/RadCraftplay/Custom-CSGO-SDK-Launcher");
+        }
+
         private void fugueIconsSetLicenseLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             var l = new LicenseDialog(Resources.Licenses.FUGUE_README);
