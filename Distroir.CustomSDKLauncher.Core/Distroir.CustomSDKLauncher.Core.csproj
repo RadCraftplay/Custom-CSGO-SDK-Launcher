@@ -57,9 +57,16 @@
     <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.Designer.cs">
       <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.Designer.cs">
+      <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppLauncher\Templates\BasicAppTemplate.cs" />
     <Compile Include="AppLauncher\Templates\CustomAppTemplate.cs" />
     <Compile Include="AppLauncher\Templates\JavaAppTemplate.cs" />
+    <Compile Include="AppLauncher\Templates\SteamAppTemplate.cs" />
     <Compile Include="Backups\BackupEntry.cs" />
     <Compile Include="Backups\BackupManager.cs" />
     <Compile Include="CommunityContent\ContentData.cs" />
@@ -107,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
       <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.resx">
+      <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

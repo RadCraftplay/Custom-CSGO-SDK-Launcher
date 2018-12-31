@@ -46,6 +46,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             templates.Add(new BasicAppTemplate());
             templates.Add(new CustomAppTemplate());
             templates.Add(new JavaAppTemplate());
+            templates.Add(new SteamAppTemplate());
 
             appListView.SmallImageList =  GetTemplateImages();
             //appListView.StateImageList = GetTemplateImages();
