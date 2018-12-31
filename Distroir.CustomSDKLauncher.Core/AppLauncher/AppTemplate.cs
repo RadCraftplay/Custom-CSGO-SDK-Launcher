@@ -30,6 +30,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher
     [XmlInclude(typeof(BasicAppTemplate))]
     [XmlInclude(typeof(CustomAppTemplate))]
     [XmlInclude(typeof(JavaAppTemplate))]
+    [XmlInclude(typeof(SteamAppTemplate))]
     public abstract class AppTemplate
     {
         public AppInfo Info;
