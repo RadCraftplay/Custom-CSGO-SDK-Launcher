@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017-2018 Distroir
+Copyright (C) 2017-2019 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-// Ogólne informacje o zestawie są kontrolowane poprzez następujący 
+// Ogólne informacje o zestawie są kontrolowane poprzez następujący
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
 [assembly: AssemblyTitle("Distroir.CustomSDKLauncher.UI")]
@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Distroir")]
 [assembly: AssemblyProduct("Distroir.CustomSDKLauncher.UI")]
-[assembly: AssemblyCopyright("Copyright © Distroir 2017-2018")]
+[assembly: AssemblyCopyright("Copyright © Distroir 2017-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
