@@ -78,6 +78,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Prevent user from editing data
             Enabled = false;
 
+            //List of profiles mustn't be null
+            DataManagers.ProfileManager.Objects = new System.Collections.Generic.List<Profile>();
+
             //Simple mode
             if (simpleRadioButton.Checked)
             {
