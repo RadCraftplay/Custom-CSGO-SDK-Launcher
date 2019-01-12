@@ -84,6 +84,7 @@
             // 
             this.tipLabel.AutoSize = true;
             this.tipLabel.BackColor = System.Drawing.Color.White;
+            this.tipLabel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tipLabel.ForeColor = System.Drawing.SystemColors.ActiveBorder;
             this.tipLabel.Location = new System.Drawing.Point(115, 43);
             this.tipLabel.Name = "tipLabel";
