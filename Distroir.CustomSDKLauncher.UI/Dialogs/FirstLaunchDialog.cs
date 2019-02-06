@@ -101,6 +101,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 //Add profile to list
                 DataManagers.ProfileManager.Objects.Add(p);
+
+                //Reload path variables
+                Utils.TryReloadPathFormatterVars();
             }
             else //Advanced mode
             {
