@@ -34,7 +34,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
             Info = new AppInfo()
             {
                 DisplayText = "Steam application",
-                Icon = Data.steam_x16
+                Icon = Data.DefaultIcon
             };
         }
 
@@ -49,7 +49,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
                 Info.UseCustomWorkingDirectory = false;
                 Info.Path = "steam://run/" + dialog.AppId;
                 Info.DisplayText = dialog.AppName;
-                Info.Icon = Data.steam_x16;
+                Info.Icon = Data.DefaultIcon;
 
                 return true;
             }

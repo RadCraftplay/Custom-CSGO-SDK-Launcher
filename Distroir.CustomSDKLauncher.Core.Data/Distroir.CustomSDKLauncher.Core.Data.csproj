@@ -66,7 +66,6 @@
     <Content Include="Resources\Icons\App\SDK\FacePoserIcon.png" />
     <Content Include="Resources\Icons\App\SDK\HammerIcon.png" />
     <Content Include="Resources\Icons\App\SDK\ModelViewerIcon.png" />
-    <None Include="Resources\steam_x16.png" />
     <None Include="Resources\UIThemes.xml" />
     <None Include="Resources\Tutorials.xml" />
     <None Include="Resources\Templates.xml" />
