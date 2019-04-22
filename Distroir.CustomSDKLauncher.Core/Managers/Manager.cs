@@ -27,7 +27,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// <summary>
         /// List of serializable objects
         /// </summary>
-        public List<T> Objects;
+        public List<T> Objects = new List<T>();
         /// <summary>
         /// Serializer used to serialize objects
         /// </summary>
