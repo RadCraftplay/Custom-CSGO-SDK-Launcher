@@ -80,7 +80,7 @@
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(33, 31);
             this.editButton.TabIndex = 4;
-            this.buttonsToolTip.SetToolTip(this.editButton, "Edit profile");
+            this.buttonsToolTip.SetToolTip(this.editButton, "Edit game");
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -92,7 +92,7 @@
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(33, 31);
             this.removeButton.TabIndex = 3;
-            this.buttonsToolTip.SetToolTip(this.removeButton, "Remove profile");
+            this.buttonsToolTip.SetToolTip(this.removeButton, "Remove game");
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
@@ -104,11 +104,11 @@
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(33, 31);
             this.addButton.TabIndex = 2;
-            this.buttonsToolTip.SetToolTip(this.addButton, "Add profile");
+            this.buttonsToolTip.SetToolTip(this.addButton, "Add game");
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // ProfileListEditDialog
+            // GameListEditDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,7 +121,7 @@
             this.Controls.Add(this.profileListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ProfileListEditDialog";
+            this.Name = "GameListEditDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit games";
