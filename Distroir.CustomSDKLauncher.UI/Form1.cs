@@ -82,7 +82,7 @@ namespace Distroir.CustomSDKLauncher.UI
             int LoadAtStartup, useNewLauncher;
 
             //Game profiles
-            DataManagers.ProfileManager.TryLoad();
+            DataManagers.GameManager.TryLoad();
             //Reloads list of variables used to format paths
             Utils.TryReloadPathFormatterVars();
             
@@ -222,7 +222,7 @@ namespace Distroir.CustomSDKLauncher.UI
             //Save config
             Config.Save();
             //Save list of profiles
-            DataManagers.ProfileManager.Save();
+            DataManagers.GameManager.Save();
         }
 
         #endregion
@@ -255,13 +255,13 @@ namespace Distroir.CustomSDKLauncher.UI
             if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
             {
                 //Create profile
-                Profile p = new Profile();
+                Game p = new Game();
                 p.ProfileName = "Counter-Strike: Global Offensive";
                 p.GameDir = Config.TryReadString("CSGO_DIR");
                 p.GameinfoDirName = "csgo";
 
                 //Add profile to list
-                DataManagers.ProfileManager.Objects.Add(p);
+                DataManagers.GameManager.Objects.Add(p);
 
                 //Select profile
                 Config.AddVariable("SelectedProfileId", 0);
@@ -303,7 +303,7 @@ namespace Distroir.CustomSDKLauncher.UI
         string GetCurrentProfileName()
         {
             //Get selected profile
-            Profile p;
+            Game p;
             Utils.TryGetSelectedProfile(out p);
 
             //Get and return profile name

@@ -40,10 +40,10 @@ namespace Distroir.CustomSDKLauncher.Core
         }
 
         //Creates profile based on template
-        public Profile ToProfile(string gameDir)
+        public Game ToProfile(string gameDir)
         {
             //Create profile
-            Profile p = new Profile()
+            Game p = new Game()
             {
                 ProfileName = Name,
                 GameinfoDirName = GameinfoDirName,

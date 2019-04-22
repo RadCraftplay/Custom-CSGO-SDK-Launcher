@@ -22,7 +22,7 @@ namespace Distroir.CustomSDKLauncher.Core
 {
     public class Launcher
     {
-        public static void Launch(Profile p, SDKApplication app)
+        public static void Launch(Game p, SDKApplication app)
         {
             //Create strings
             string filename = string.Empty;
@@ -62,7 +62,7 @@ namespace Distroir.CustomSDKLauncher.Core
         /// <param name="p">Selected profile</param>
         /// <param name="app">App to launch</param>
         /// <returns>Path to executable of specified tool</returns>
-        static string GetToolPath(Profile p, SDKApplication app)
+        static string GetToolPath(Game p, SDKApplication app)
         {
             switch (app)
             {

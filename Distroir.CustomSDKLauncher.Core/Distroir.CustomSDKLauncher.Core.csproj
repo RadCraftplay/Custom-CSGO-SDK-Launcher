@@ -89,7 +89,7 @@
     <Compile Include="Launcher.cs" />
     <Compile Include="Utilities\ExceptionLogger.cs" />
     <Compile Include="Utilities\PlatformChecker.cs" />
-    <Compile Include="Profile.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\PathFormatter.cs" />
     <Compile Include="Template.cs" />

@@ -50,7 +50,7 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
             List<string> FileNames = new List<string>()
                 {
                     Configuration.Config.destination,
-                    DataManagers.ProfileListFilename,
+                    DataManagers.GameListFilename,
                     DataManagers.AppListFilename
                 };
 

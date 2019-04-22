@@ -89,7 +89,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             profileListComboBox.Items.Clear();
 
             //Add profiles to ComboBox
-            foreach (Profile p in DataManagers.ProfileManager.Objects)
+            foreach (Game p in DataManagers.GameManager.Objects)
                 profileListComboBox.Items.Add(p);
 
             //Set profile
@@ -201,7 +201,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 {
                     //Save settings
                     Config.Save();
-                    DataManagers.ProfileManager.Save();
+                    DataManagers.GameManager.Save();
 
                     //Do backup
                     BackupManager m = new BackupManager(sfd.FileName);
@@ -228,7 +228,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                     //Restore settings
                     Config.Load();
-                    DataManagers.ProfileManager.Load();
+                    DataManagers.GameManager.Load();
                     DataManagers.AppManager.Load();
                     appListReference = DataManagers.AppManager.Objects;
                     UpdateControls();

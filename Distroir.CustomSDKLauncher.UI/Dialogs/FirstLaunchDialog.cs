@@ -79,7 +79,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Enabled = false;
 
             //List of profiles mustn't be null
-            DataManagers.ProfileManager.Objects = new System.Collections.Generic.List<Profile>();
+            DataManagers.GameManager.Objects = new System.Collections.Generic.List<Game>();
 
             //Simple mode
             if (simpleRadioButton.Checked)
@@ -97,10 +97,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 }
 
                 //Create profile
-                Profile p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(directoryTextBox.Text);
+                Game p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(directoryTextBox.Text);
 
                 //Add profile to list
-                DataManagers.ProfileManager.Objects.Add(p);
+                DataManagers.GameManager.Objects.Add(p);
 
                 //Reload path variables
                 Utils.TryReloadPathFormatterVars();
@@ -120,13 +120,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 }
 
                 //Create profile
-                Profile p = new Profile();
+                Game p = new Game();
                 p.ProfileName = profileNameTextBox.Text;
                 p.GameDir = gameDirectoryTextBox.Text;
                 p.GameinfoDirName = gameinfoDirectoryTextBox.Text;
 
                 //Add profile to list
-                DataManagers.ProfileManager.Objects.Add(p);
+                DataManagers.GameManager.Objects.Add(p);
             }
 
             //Select profile

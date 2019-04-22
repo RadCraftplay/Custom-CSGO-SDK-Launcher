@@ -84,7 +84,7 @@ namespace Distroir.CustomSDKLauncher.Core
                 }
 
                 //Get selected profile
-                Profile SelectedProfile = Managers.DataManagers.ProfileManager.Objects[SelectedProfileId];
+                Game SelectedProfile = Managers.DataManagers.GameManager.Objects[SelectedProfileId];
                 //Launch application
                 Launcher.Launch(SelectedProfile, app);
             }
@@ -95,20 +95,20 @@ namespace Distroir.CustomSDKLauncher.Core
             }
         }
 
-        public static bool TryGetSelectedProfile(out Profile p)
+        public static bool TryGetSelectedProfile(out Game p)
         {
             try
             {
                 //Get selected profile id
                 int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
                 //Get selected profile
-                p = Managers.DataManagers.ProfileManager.Objects[SelectedProfileId];
+                p = Managers.DataManagers.GameManager.Objects[SelectedProfileId];
 
                 return true;
             }
             catch
             {
-                p = new Profile();
+                p = new Game();
                 return false;
             }
         }
@@ -139,7 +139,7 @@ namespace Distroir.CustomSDKLauncher.Core
         {
             PathFormatter.Paths.Clear();
 
-            Profile p;
+            Game p;
 
             if (TryGetSelectedProfile(out p))
             {

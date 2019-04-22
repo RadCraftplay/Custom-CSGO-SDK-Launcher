@@ -19,7 +19,7 @@ using System.IO;
 
 namespace Distroir.CustomSDKLauncher.Core
 {
-    public class Profile
+    public class Game
     {
         /// <summary>
         /// Name of the profile

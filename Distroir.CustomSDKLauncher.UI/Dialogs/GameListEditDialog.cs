@@ -28,28 +28,28 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         /// <summary>
         /// Local copy of ProfileManager.Profiles
         /// </summary>
-        public List<Profile> Profiles;
+        public List<Game> Profiles;
 
         public GameListEditDialog()
         {
             InitializeComponent();
 
             //Create copy of profile list
-            Profiles = DataManagers.ProfileManager.Objects;
+            Profiles = DataManagers.GameManager.Objects;
             LoadList();
         }
 
         void LoadList()
         {
             //For every profile on list
-            foreach (Profile p in Profiles)
+            foreach (Game p in Profiles)
             {
                 //Add ListViewItem
                 AddIem(p);
             }
         }
 
-        public void AddIem(Profile p)
+        public void AddIem(Game p)
         {
             //Create new ListViewItem
             ListViewItem i = new ListViewItem()
@@ -85,7 +85,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 for (int i = 0; i < profileListView.SelectedItems.Count; i++)
                 {
                     //Remove item from list
-                    Profiles.Remove((Profile)profileListView.SelectedItems[i].Tag);
+                    Profiles.Remove((Game)profileListView.SelectedItems[i].Tag);
                     //And remove it from control
                     profileListView.SelectedItems[i].Remove();
                 }
@@ -99,7 +99,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 //Create instance of selected item
                 var i = profileListView.SelectedItems[0];
                 //Show EditItemDialog
-                var v = new EditGameDialog((Profile)i.Tag);
+                var v = new EditGameDialog((Game)i.Tag);
 
                 if (v.ShowDialog() == DialogResult.OK)
                 {
@@ -114,7 +114,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void okButton_Click(object sender, EventArgs e)
         {
             //Update profile list
-            DataManagers.ProfileManager.Objects = Profiles;
+            DataManagers.GameManager.Objects = Profiles;
             //Set dialog result
             DialogResult = DialogResult.OK;
             //Close dialog

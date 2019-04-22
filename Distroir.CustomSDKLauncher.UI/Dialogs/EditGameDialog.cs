@@ -23,12 +23,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class EditGameDialog : Form
     {
-        public Profile Profile;
+        public Game Profile;
 
         public EditGameDialog()
         {
             //Create profile
-            Profile = new Profile();
+            Profile = new Game();
             //Create controls
             InitializeComponent();
         }
@@ -36,7 +36,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         public EditGameDialog(Template t)
         {
             //Create profile
-            Profile = new Profile()
+            Profile = new Game()
             {
                 ProfileName = t.Name,
                 GameinfoDirName = t.GameinfoDirName
@@ -50,7 +50,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             gameInfoTextBox.Text = Profile.GameinfoDirName;
         }
 
-        public EditGameDialog(Profile p)
+        public EditGameDialog(Game p)
         {
             //Set profile
             Profile = p;
