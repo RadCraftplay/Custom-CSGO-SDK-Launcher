@@ -21,6 +21,7 @@ using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
 using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Migrators;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Drawing;
@@ -38,7 +39,8 @@ namespace Distroir.CustomSDKLauncher.UI
             Config.Load();
             //LanguageManager.LoadLanguageInfo();
 
-            //Load profiles
+            MigrateOldFiles();
+
             LoadData();
 
             //Unused: Load theme
@@ -77,11 +79,19 @@ namespace Distroir.CustomSDKLauncher.UI
             System.Threading.Tasks.Task.Factory.StartNew(AskForFeedback);
         }
 
+        private void MigrateOldFiles()
+        {
+            IMigrator m = new GameMigrator();
+
+            if (m.RequiresMigration())
+                m.Migrate();
+        }
+
         private void LoadData()
         {
             int LoadAtStartup, useNewLauncher;
 
-            //Game profiles
+            //Games
             DataManagers.GameManager.TryLoad();
             //Reloads list of variables used to format paths
             Utils.TryReloadPathFormatterVars();
@@ -221,7 +231,7 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             //Save config
             Config.Save();
-            //Save list of profiles
+            //Save list of games
             DataManagers.GameManager.Save();
         }
 
@@ -256,7 +266,7 @@ namespace Distroir.CustomSDKLauncher.UI
             {
                 //Create profile
                 Game p = new Game();
-                p.ProfileName = "Counter-Strike: Global Offensive";
+                p.Name = "Counter-Strike: Global Offensive";
                 p.GameDir = Config.TryReadString("CSGO_DIR");
                 p.GameinfoDirName = "csgo";
 
@@ -307,7 +317,7 @@ namespace Distroir.CustomSDKLauncher.UI
             Utils.TryGetSelectedProfile(out p);
 
             //Get and return profile name
-            return p.ProfileName;
+            return p.Name;
         }
 
         ///// <summary>

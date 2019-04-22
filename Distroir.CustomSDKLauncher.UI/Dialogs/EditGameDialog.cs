@@ -38,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Create profile
             Profile = new Game()
             {
-                ProfileName = t.Name,
+                Name = t.Name,
                 GameinfoDirName = t.GameinfoDirName
             };
 
@@ -46,7 +46,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
 
             //Set values
-            nameTextBox.Text = Profile.ProfileName;
+            nameTextBox.Text = Profile.Name;
             gameInfoTextBox.Text = Profile.GameinfoDirName;
         }
 
@@ -61,7 +61,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
 
             //Set values
-            nameTextBox.Text = Profile.ProfileName;
+            nameTextBox.Text = Profile.Name;
             gameDirTextBox.Text = Profile.GameDir;
             gameInfoTextBox.Text = Profile.GameinfoDirName;
             gameDirFolderBrowserDialog.SelectedPath = Profile.GameDir;
@@ -70,7 +70,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void saveButton_Click(object sender, EventArgs e)
         {
             //Save settings
-            Profile.ProfileName = nameTextBox.Text;
+            Profile.Name = nameTextBox.Text;
             Profile.GameDir = gameDirTextBox.Text;
             Profile.GameinfoDirName = gameInfoTextBox.Text;
 

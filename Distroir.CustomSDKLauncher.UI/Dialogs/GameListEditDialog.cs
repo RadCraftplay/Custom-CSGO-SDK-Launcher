@@ -54,8 +54,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             //Create new ListViewItem
             ListViewItem i = new ListViewItem()
             {
-                Name = p.ProfileName,
-                Text = p.ProfileName,
+                Name = p.Name,
+                Text = p.Name,
                 Tag = p
             };
 
@@ -104,8 +104,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 if (v.ShowDialog() == DialogResult.OK)
                 {
                     //Set values
-                    i.Name = v.Profile.ProfileName;
-                    i.Text = v.Profile.ProfileName;
+                    i.Name = v.Profile.Name;
+                    i.Text = v.Profile.Name;
                     i.Tag = v.Profile;
                 }
             }

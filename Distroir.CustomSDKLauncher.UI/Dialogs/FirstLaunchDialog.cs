@@ -121,7 +121,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 //Create profile
                 Game p = new Game();
-                p.ProfileName = profileNameTextBox.Text;
+                p.Name = profileNameTextBox.Text;
                 p.GameDir = gameDirectoryTextBox.Text;
                 p.GameinfoDirName = gameinfoDirectoryTextBox.Text;
 

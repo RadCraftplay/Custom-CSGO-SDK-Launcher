@@ -45,7 +45,7 @@ namespace Distroir.CustomSDKLauncher.Core
             //Create profile
             Game p = new Game()
             {
-                ProfileName = Name,
+                Name = Name,
                 GameinfoDirName = GameinfoDirName,
                 GameDir = gameDir
             };
