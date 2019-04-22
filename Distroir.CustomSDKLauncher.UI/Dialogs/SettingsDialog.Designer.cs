@@ -43,7 +43,7 @@
             this.launcherEditButton1 = new System.Windows.Forms.Button();
             this.useNewLauncherCheckBox = new System.Windows.Forms.CheckBox();
             this.backupTabPage = new System.Windows.Forms.TabPage();
-            this.settingsAndProfilesGroupBox = new System.Windows.Forms.GroupBox();
+            this.settingsGroupBox = new System.Windows.Forms.GroupBox();
             this.createBackupButton = new System.Windows.Forms.Button();
             this.restoreBackupButton = new System.Windows.Forms.Button();
             this.advancedTabPage = new System.Windows.Forms.TabPage();
@@ -64,7 +64,7 @@
             this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
             this.backupTabPage.SuspendLayout();
-            this.settingsAndProfilesGroupBox.SuspendLayout();
+            this.settingsGroupBox.SuspendLayout();
             this.advancedTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -248,7 +248,7 @@
             // 
             // backupTabPage
             // 
-            this.backupTabPage.Controls.Add(this.settingsAndProfilesGroupBox);
+            this.backupTabPage.Controls.Add(this.settingsGroupBox);
             this.backupTabPage.Location = new System.Drawing.Point(4, 25);
             this.backupTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.backupTabPage.Name = "backupTabPage";
@@ -258,20 +258,20 @@
             this.backupTabPage.Text = "Backups";
             this.backupTabPage.UseVisualStyleBackColor = true;
             // 
-            // settingsAndProfilesGroupBox
+            // settingsGroupBox
             // 
-            this.settingsAndProfilesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.settingsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsAndProfilesGroupBox.Controls.Add(this.createBackupButton);
-            this.settingsAndProfilesGroupBox.Controls.Add(this.restoreBackupButton);
-            this.settingsAndProfilesGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.settingsAndProfilesGroupBox.Margin = new System.Windows.Forms.Padding(4);
-            this.settingsAndProfilesGroupBox.Name = "settingsAndProfilesGroupBox";
-            this.settingsAndProfilesGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.settingsAndProfilesGroupBox.Size = new System.Drawing.Size(424, 123);
-            this.settingsAndProfilesGroupBox.TabIndex = 2;
-            this.settingsAndProfilesGroupBox.TabStop = false;
-            this.settingsAndProfilesGroupBox.Text = "Settings and profiles";
+            this.settingsGroupBox.Controls.Add(this.createBackupButton);
+            this.settingsGroupBox.Controls.Add(this.restoreBackupButton);
+            this.settingsGroupBox.Location = new System.Drawing.Point(8, 7);
+            this.settingsGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.settingsGroupBox.Name = "settingsGroupBox";
+            this.settingsGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.settingsGroupBox.Size = new System.Drawing.Size(424, 123);
+            this.settingsGroupBox.TabIndex = 2;
+            this.settingsGroupBox.TabStop = false;
+            this.settingsGroupBox.Text = "Settings";
             // 
             // createBackupButton
             // 
@@ -482,7 +482,7 @@
             this.appLauncherTabPage.ResumeLayout(false);
             this.appLauncherTabPage.PerformLayout();
             this.backupTabPage.ResumeLayout(false);
-            this.settingsAndProfilesGroupBox.ResumeLayout(false);
+            this.settingsGroupBox.ResumeLayout(false);
             this.advancedTabPage.ResumeLayout(false);
             this.advancedTabPage.PerformLayout();
             this.aboutTabPage.ResumeLayout(false);
@@ -510,7 +510,7 @@
         private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
         private System.Windows.Forms.TabPage backupTabPage;
-        private System.Windows.Forms.GroupBox settingsAndProfilesGroupBox;
+        private System.Windows.Forms.GroupBox settingsGroupBox;
         private System.Windows.Forms.Button createBackupButton;
         private System.Windows.Forms.Button restoreBackupButton;
         private System.Windows.Forms.TabPage advancedTabPage;
