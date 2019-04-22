@@ -50,6 +50,8 @@
             this.preLoadDataCheckBox = new System.Windows.Forms.CheckBox();
             this.advancedWarningLabel = new System.Windows.Forms.Label();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
+            this.githubLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.gamebananaLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ViewLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.gpl3LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -58,8 +60,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.gamebananaLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.githubLinkLabel = new System.Windows.Forms.LinkLabel();
             this.tabControl.SuspendLayout();
             this.profilesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -132,9 +132,9 @@
             this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(13, 57);
             this.displayCurrentlySelectedProfileCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
-            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(274, 21);
+            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(270, 21);
             this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
-            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected profile name";
+            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected game name";
             this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
             // 
             // editListOfProfilesLinkLabel
@@ -144,10 +144,10 @@
             this.editListOfProfilesLinkLabel.Location = new System.Drawing.Point(315, 37);
             this.editListOfProfilesLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editListOfProfilesLinkLabel.Name = "editListOfProfilesLinkLabel";
-            this.editListOfProfilesLinkLabel.Size = new System.Drawing.Size(119, 17);
+            this.editListOfProfilesLinkLabel.Size = new System.Drawing.Size(115, 17);
             this.editListOfProfilesLinkLabel.TabIndex = 3;
             this.editListOfProfilesLinkLabel.TabStop = true;
-            this.editListOfProfilesLinkLabel.Text = "Edit list of profiles";
+            this.editListOfProfilesLinkLabel.Text = "Edit list of games";
             this.editListOfProfilesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // profileLabel
@@ -156,9 +156,9 @@
             this.profileLabel.Location = new System.Drawing.Point(9, 11);
             this.profileLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.profileLabel.Name = "profileLabel";
-            this.profileLabel.Size = new System.Drawing.Size(52, 17);
+            this.profileLabel.Size = new System.Drawing.Size(50, 17);
             this.profileLabel.TabIndex = 2;
-            this.profileLabel.Text = "Profile:";
+            this.profileLabel.Text = "Game:";
             // 
             // profileListComboBox
             // 
@@ -349,6 +349,28 @@
             this.aboutTabPage.Text = "About";
             this.aboutTabPage.UseVisualStyleBackColor = true;
             // 
+            // githubLinkLabel
+            // 
+            this.githubLinkLabel.AutoSize = true;
+            this.githubLinkLabel.Location = new System.Drawing.Point(4, 165);
+            this.githubLinkLabel.Name = "githubLinkLabel";
+            this.githubLinkLabel.Size = new System.Drawing.Size(52, 17);
+            this.githubLinkLabel.TabIndex = 8;
+            this.githubLinkLabel.TabStop = true;
+            this.githubLinkLabel.Text = "GitHub";
+            this.githubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLinkLabel_LinkClicked);
+            // 
+            // gamebananaLinkLabel
+            // 
+            this.gamebananaLinkLabel.AutoSize = true;
+            this.gamebananaLinkLabel.Location = new System.Drawing.Point(4, 145);
+            this.gamebananaLinkLabel.Name = "gamebananaLinkLabel";
+            this.gamebananaLinkLabel.Size = new System.Drawing.Size(95, 17);
+            this.gamebananaLinkLabel.TabIndex = 7;
+            this.gamebananaLinkLabel.TabStop = true;
+            this.gamebananaLinkLabel.Text = "GameBanana";
+            this.gamebananaLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gamebananaLinkLabel_LinkClicked);
+            // 
             // ViewLicenseLinkLabel
             // 
             this.ViewLicenseLinkLabel.AutoSize = true;
@@ -438,28 +460,6 @@
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
-            // 
-            // gamebananaLinkLabel
-            // 
-            this.gamebananaLinkLabel.AutoSize = true;
-            this.gamebananaLinkLabel.Location = new System.Drawing.Point(4, 145);
-            this.gamebananaLinkLabel.Name = "gamebananaLinkLabel";
-            this.gamebananaLinkLabel.Size = new System.Drawing.Size(95, 17);
-            this.gamebananaLinkLabel.TabIndex = 7;
-            this.gamebananaLinkLabel.TabStop = true;
-            this.gamebananaLinkLabel.Text = "GameBanana";
-            this.gamebananaLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gamebananaLinkLabel_LinkClicked);
-            // 
-            // githubLinkLabel
-            // 
-            this.githubLinkLabel.AutoSize = true;
-            this.githubLinkLabel.Location = new System.Drawing.Point(4, 165);
-            this.githubLinkLabel.Name = "githubLinkLabel";
-            this.githubLinkLabel.Size = new System.Drawing.Size(52, 17);
-            this.githubLinkLabel.TabIndex = 8;
-            this.githubLinkLabel.TabStop = true;
-            this.githubLinkLabel.Text = "GitHub";
-            this.githubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLinkLabel_LinkClicked);
             // 
             // SettingsDialog
             // 

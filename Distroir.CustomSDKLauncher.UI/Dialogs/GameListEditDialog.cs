@@ -23,14 +23,14 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    public partial class ProfileListEditDialog : Form
+    public partial class GameListEditDialog : Form
     {
         /// <summary>
         /// Local copy of ProfileManager.Profiles
         /// </summary>
         public List<Profile> Profiles;
 
-        public ProfileListEditDialog()
+        public GameListEditDialog()
         {
             InitializeComponent();
 
@@ -66,7 +66,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void addButton_Click(object sender, EventArgs e)
         {
             //Show EditItemDialog
-            var v = new EditItemDialog();
+            var v = new EditGameDialog();
 
             if (v.ShowDialog() == DialogResult.OK)
             {
@@ -99,7 +99,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 //Create instance of selected item
                 var i = profileListView.SelectedItems[0];
                 //Show EditItemDialog
-                var v = new EditItemDialog((Profile)i.Tag);
+                var v = new EditGameDialog((Profile)i.Tag);
 
                 if (v.ShowDialog() == DialogResult.OK)
                 {

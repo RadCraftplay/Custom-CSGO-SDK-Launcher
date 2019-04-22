@@ -62,9 +62,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             if (templateListView.SelectedItems.Count > 0)
             {
                 //Create dialog
-                var v = new EditItemDialog((Template)templateListView.SelectedItems[0].Tag);
+                var v = new EditGameDialog((Template)templateListView.SelectedItems[0].Tag);
                 //Get parent control
-                var f = (ProfileListEditDialog)Tag;
+                var f = (GameListEditDialog)Tag;
 
                 //Show dialog
                 if (v.ShowDialog() == DialogResult.OK)

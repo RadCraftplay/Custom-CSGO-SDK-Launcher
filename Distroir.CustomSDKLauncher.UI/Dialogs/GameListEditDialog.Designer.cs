@@ -1,6 +1,6 @@
 ﻿namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    partial class ProfileListEditDialog
+    partial class GameListEditDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             // profileListView
             // 
             this.profileListView.Location = new System.Drawing.Point(17, 16);
-            this.profileListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.profileListView.Margin = new System.Windows.Forms.Padding(4);
             this.profileListView.MultiSelect = false;
             this.profileListView.Name = "profileListView";
             this.profileListView.Size = new System.Drawing.Size(303, 383);
@@ -52,7 +52,7 @@
             // okButton
             // 
             this.okButton.Location = new System.Drawing.Point(263, 407);
-            this.okButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(100, 28);
             this.okButton.TabIndex = 1;
@@ -64,7 +64,7 @@
             // 
             this.createFromTemplateButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__plus;
             this.createFromTemplateButton.Location = new System.Drawing.Point(329, 14);
-            this.createFromTemplateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.createFromTemplateButton.Margin = new System.Windows.Forms.Padding(4);
             this.createFromTemplateButton.Name = "createFromTemplateButton";
             this.createFromTemplateButton.Size = new System.Drawing.Size(33, 31);
             this.createFromTemplateButton.TabIndex = 5;
@@ -76,7 +76,7 @@
             // 
             this.editButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.pencil;
             this.editButton.Location = new System.Drawing.Point(329, 91);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(33, 31);
             this.editButton.TabIndex = 4;
@@ -88,7 +88,7 @@
             // 
             this.removeButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__minus;
             this.removeButton.Location = new System.Drawing.Point(329, 53);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.removeButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(33, 31);
             this.removeButton.TabIndex = 3;
@@ -100,7 +100,7 @@
             // 
             this.addButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.plus;
             this.addButton.Location = new System.Drawing.Point(329, 368);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(33, 31);
             this.addButton.TabIndex = 2;
@@ -120,11 +120,11 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.profileListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProfileListEditDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Edit profiles";
+            this.Text = "Edit games";
             this.ResumeLayout(false);
 
         }

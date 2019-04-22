@@ -142,7 +142,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Create dialog
-            var v = new ProfileListEditDialog();
+            var v = new GameListEditDialog();
 
             //Show dialog
             if (v.ShowDialog() == DialogResult.OK)

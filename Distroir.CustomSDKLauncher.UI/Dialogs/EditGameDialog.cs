@@ -21,11 +21,11 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    public partial class EditItemDialog : Form
+    public partial class EditGameDialog : Form
     {
         public Profile Profile;
 
-        public EditItemDialog()
+        public EditGameDialog()
         {
             //Create profile
             Profile = new Profile();
@@ -33,7 +33,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             InitializeComponent();
         }
 
-        public EditItemDialog(Template t)
+        public EditGameDialog(Template t)
         {
             //Create profile
             Profile = new Profile()
@@ -50,12 +50,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             gameInfoTextBox.Text = Profile.GameinfoDirName;
         }
 
-        public EditItemDialog(Profile p)
+        public EditGameDialog(Profile p)
         {
             //Set profile
             Profile = p;
             //We are now using this control to edit profile
-            Text = "Edit profile";
+            Text = "Edit game";
 
             //Create controls
             InitializeComponent();
