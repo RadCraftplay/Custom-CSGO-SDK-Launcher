@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.profilesTabPage = new System.Windows.Forms.TabPage();
+            this.gamesTabPage = new System.Windows.Forms.TabPage();
             this.sendFeedbackButton = new System.Windows.Forms.Button();
             this.disableFeedbackCheckBox = new System.Windows.Forms.CheckBox();
             this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
@@ -61,7 +61,7 @@
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
-            this.profilesTabPage.SuspendLayout();
+            this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
             this.backupTabPage.SuspendLayout();
             this.settingsAndProfilesGroupBox.SuspendLayout();
@@ -75,7 +75,7 @@
             this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl.Controls.Add(this.profilesTabPage);
+            this.tabControl.Controls.Add(this.gamesTabPage);
             this.tabControl.Controls.Add(this.appLauncherTabPage);
             this.tabControl.Controls.Add(this.backupTabPage);
             this.tabControl.Controls.Add(this.advancedTabPage);
@@ -87,22 +87,22 @@
             this.tabControl.Size = new System.Drawing.Size(451, 225);
             this.tabControl.TabIndex = 0;
             // 
-            // profilesTabPage
+            // gamesTabPage
             // 
-            this.profilesTabPage.Controls.Add(this.sendFeedbackButton);
-            this.profilesTabPage.Controls.Add(this.disableFeedbackCheckBox);
-            this.profilesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
-            this.profilesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
-            this.profilesTabPage.Controls.Add(this.profileLabel);
-            this.profilesTabPage.Controls.Add(this.profileListComboBox);
-            this.profilesTabPage.Location = new System.Drawing.Point(4, 25);
-            this.profilesTabPage.Margin = new System.Windows.Forms.Padding(4);
-            this.profilesTabPage.Name = "profilesTabPage";
-            this.profilesTabPage.Padding = new System.Windows.Forms.Padding(4);
-            this.profilesTabPage.Size = new System.Drawing.Size(443, 196);
-            this.profilesTabPage.TabIndex = 0;
-            this.profilesTabPage.Text = "Profiles";
-            this.profilesTabPage.UseVisualStyleBackColor = true;
+            this.gamesTabPage.Controls.Add(this.sendFeedbackButton);
+            this.gamesTabPage.Controls.Add(this.disableFeedbackCheckBox);
+            this.gamesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
+            this.gamesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
+            this.gamesTabPage.Controls.Add(this.profileLabel);
+            this.gamesTabPage.Controls.Add(this.profileListComboBox);
+            this.gamesTabPage.Location = new System.Drawing.Point(4, 25);
+            this.gamesTabPage.Margin = new System.Windows.Forms.Padding(4);
+            this.gamesTabPage.Name = "gamesTabPage";
+            this.gamesTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.gamesTabPage.Size = new System.Drawing.Size(443, 196);
+            this.gamesTabPage.TabIndex = 0;
+            this.gamesTabPage.Text = "Games";
+            this.gamesTabPage.UseVisualStyleBackColor = true;
             // 
             // sendFeedbackButton
             // 
@@ -477,8 +477,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.tabControl.ResumeLayout(false);
-            this.profilesTabPage.ResumeLayout(false);
-            this.profilesTabPage.PerformLayout();
+            this.gamesTabPage.ResumeLayout(false);
+            this.gamesTabPage.PerformLayout();
             this.appLauncherTabPage.ResumeLayout(false);
             this.appLauncherTabPage.PerformLayout();
             this.backupTabPage.ResumeLayout(false);
@@ -495,7 +495,7 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage profilesTabPage;
+        private System.Windows.Forms.TabPage gamesTabPage;
         private System.Windows.Forms.LinkLabel editListOfProfilesLinkLabel;
         private System.Windows.Forms.Label profileLabel;
         private System.Windows.Forms.ComboBox profileListComboBox;
