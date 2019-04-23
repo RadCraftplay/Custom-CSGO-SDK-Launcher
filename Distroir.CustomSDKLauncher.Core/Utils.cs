@@ -95,20 +95,20 @@ namespace Distroir.CustomSDKLauncher.Core
             }
         }
 
-        public static bool TryGetSelectedProfile(out Game p)
+        public static bool TryGetSelectedProfile(out Game game)
         {
             try
             {
                 //Get selected profile id
                 int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
                 //Get selected profile
-                p = Managers.DataManagers.GameManager.Objects[SelectedProfileId];
+                game = Managers.DataManagers.GameManager.Objects[SelectedProfileId];
 
                 return true;
             }
             catch
             {
-                p = new Game();
+                game = new Game();
                 return false;
             }
         }
@@ -151,10 +151,9 @@ namespace Distroir.CustomSDKLauncher.Core
             }
             else
             {
-                //TODO: Update all references to profiles
                 if (Config.TryReadInt("FirstLaunch") == 0)
-                    MessageBoxes.Warning("We were unable to get selected profile\n" +
-                        "Make sure that you have created at least one profile");
+                    MessageBoxes.Warning("We were unable to get selected game\n" +
+                        "Make sure that you have created at least one game");
             }
 
             return false;
