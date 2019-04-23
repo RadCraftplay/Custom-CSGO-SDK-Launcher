@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Custom CSGO SDK Launcher"
-#define MyAppVersion "3.5"
+#define MyAppVersion "3.5.1"
 #define MyAppPublisher "Distroir"
 #define MyAppExeName "Custom SDK Launcher.exe"
 
