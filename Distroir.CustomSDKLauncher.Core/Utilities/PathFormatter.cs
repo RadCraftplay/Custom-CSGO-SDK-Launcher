@@ -32,6 +32,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class PathFormatter
     {
+        //TODO: Remove commented out code
         //public static List<KeyValuePair<string, string>> Paths = new List<KeyValuePair<string, string>>();
         public static Dictionary<string, string> Paths = new Dictionary<string, string>();
 
@@ -43,8 +44,8 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             foreach (SearchResult r in res)
             {
                 string sr;
-                Paths.TryGetValue(r.Result, out sr);
-                Replace(ref Source, r, sr, Source.Length - Length);
+                if (Paths.TryGetValue(r.Result, out sr))
+                    Replace(ref Source, r, sr, Source.Length - Length);
             }
         }
 

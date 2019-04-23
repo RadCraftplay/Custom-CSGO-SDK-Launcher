@@ -35,7 +35,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void LoadTutorials()
         {
             //Load tutorials
-            if (DataManagers.TutorialManager.Objects == null)
+            if (DataManagers.TutorialManager.Objects == null
+                || DataManagers.TutorialManager.Objects.Count == 0)
                 DataManagers.TutorialManager.Load();
 
             foreach (Tutorial t in DataManagers.TutorialManager.Objects)

@@ -39,7 +39,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void RefreshList()
         {
             //Load templates
-            if (DataManagers.TemplateManager.Objects == null)
+            if (DataManagers.TemplateManager.Objects == null
+                || DataManagers.TemplateManager.Objects.Count == 0)
                 DataManagers.TemplateManager.Load();
 
             //Clear list

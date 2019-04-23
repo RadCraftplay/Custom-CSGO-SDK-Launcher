@@ -149,6 +149,13 @@ namespace Distroir.CustomSDKLauncher.Core
 
                 return true;
             }
+            else
+            {
+                //TODO: Update all references to profiles
+                if (Config.TryReadInt("FirstLaunch") == 0)
+                    MessageBoxes.Warning("We were unable to get selected profile\n" +
+                        "Make sure that you have created at least one profile");
+            }
 
             return false;
         }
