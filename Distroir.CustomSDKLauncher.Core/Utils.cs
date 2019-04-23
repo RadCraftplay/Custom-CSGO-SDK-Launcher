@@ -149,6 +149,12 @@ namespace Distroir.CustomSDKLauncher.Core
 
                 return true;
             }
+            else
+            {
+                //TODO: Update all references to profiles
+                MessageBoxes.Warning("We were unable to get selected profile\n" +
+                    "Make sure that you have created any");
+            }
 
             return false;
         }
