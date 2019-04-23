@@ -153,7 +153,7 @@ namespace Distroir.CustomSDKLauncher.Core
             {
                 //TODO: Update all references to profiles
                 MessageBoxes.Warning("We were unable to get selected profile\n" +
-                    "Make sure that you have created any");
+                    "Make sure that you have created at least one profile");
             }
 
             return false;
