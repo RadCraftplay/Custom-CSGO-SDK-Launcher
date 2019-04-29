@@ -316,7 +316,7 @@ namespace Distroir.CustomSDKLauncher.UI
             {
                 //Set text
                 string text = string.Format("Tools - {0}", GetCurrentGameName());
-                text = CutStringIfTooBig(text, 40);
+                text = CutStringIfTooLong(text, 40);
                 toolsGroupBox.Text = text;
             }
             else
@@ -327,12 +327,12 @@ namespace Distroir.CustomSDKLauncher.UI
         }
 
         /// <summary>
-        /// Cuts string if it's too big
+        /// Cuts string if it's too long
         /// </summary>
         /// <param name="s">Input string</param>
         /// <param name="length">Maximal length of string</param>
         /// <returns></returns>
-        string CutStringIfTooBig(string s, int length)
+        string CutStringIfTooLong(string s, int length)
         {
             if (s.Length > length)
             {
