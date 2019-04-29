@@ -251,7 +251,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 {
                     //If user closes dialog without selecting csgo directory
                     //Inform user that he needs to select his csgo directory
-                    MessageBox.Show("Can not continue. You need to create your first profile", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Can not continue. You need to create your first game", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //Cannot continue
                     //Close application
                     Environment.Exit(0);
@@ -264,19 +264,13 @@ namespace Distroir.CustomSDKLauncher.UI
             //Set gamedir
             if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
             {
-                //Create profile
                 Game p = new Game();
                 p.Name = "Counter-Strike: Global Offensive";
                 p.GameDir = Config.TryReadString("CSGO_DIR");
                 p.GameinfoDirName = "csgo";
 
-                //Add profile to list
                 DataManagers.GameManager.Objects.Add(p);
-
-                //Select profile
                 Config.AddVariable("SelectedProfileId", 0);
-
-                //Remove variable
                 Config.RemoveVariable("CSGO_DIR");
             }
         }
@@ -306,20 +300,13 @@ namespace Distroir.CustomSDKLauncher.UI
 
         #region Utilies
 
-        /// <summary>
-        /// Gets current profile name
-        /// </summary>
-        /// <returns>Current profile name</returns>
-        string GetCurrentProfileName()
+        string GetCurrentGameName()
         {
-            //Get selected profile
-            Game p;
-            Utils.TryGetSelectedProfile(out p);
-
-            //Get and return profile name
-            return p.Name;
+            Utils.TryGetSelectedGame(out Game g);
+            return g.Name;
         }
 
+        //TODO: Remove commented out code
         ///// <summary>
         ///// Changes text inside toolsGroupBox control
         ///// </summary>
@@ -329,6 +316,7 @@ namespace Distroir.CustomSDKLauncher.UI
         //    UpdateToolsGroupBoxText(rm);
         //}
 
+        //TODO: Remove obsolete method
         /// <summary>
         /// Changes text inside toolsGroupBox control
         /// </summary>
@@ -336,10 +324,10 @@ namespace Distroir.CustomSDKLauncher.UI
         [Obsolete]
         void UpdateToolsGroupBoxText(ResourceManager rm)
         {
-            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentGameName()))
             {
                 //Set text
-                string text = string.Format("Tools - {0}", GetCurrentProfileName());
+                string text = string.Format("Tools - {0}", GetCurrentGameName());
                 text = CutStringIfTooBig(text, 39);
                 toolsGroupBox.Text = text;
             }
@@ -356,10 +344,10 @@ namespace Distroir.CustomSDKLauncher.UI
         /// <param name="rm">Resource manager</param>
         void UpdateToolsGroupBoxText()
         {
-            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentGameName()))
             {
                 //Set text
-                string text = string.Format("Tools - {0}", GetCurrentProfileName());
+                string text = string.Format("Tools - {0}", GetCurrentGameName());
                 text = CutStringIfTooBig(text, 40);
                 toolsGroupBox.Text = text;
             }

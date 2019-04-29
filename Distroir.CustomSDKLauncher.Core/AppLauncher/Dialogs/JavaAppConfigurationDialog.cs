@@ -88,10 +88,10 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             info = new AppInfo();
             bool anyChecked = false;
 
-            //Check if profile name is empty
-            if (profileNameTextBox.Text == string.Empty)
+            //Check if game name is empty
+            if (gameNameTextBox.Text == string.Empty)
             {
-                Utilities.MessageBoxes.Warning("Profile name is empty!");
+                Utilities.MessageBoxes.Warning("Game name is empty!");
                 return;
             }
 
@@ -154,7 +154,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
             //Set AppInfo
             info.Icon = appIcon;
-            info.DisplayText = profileNameTextBox.Text;
+            info.DisplayText = gameNameTextBox.Text;
             info.UseCustomArguments = true;
             info.Arguments = String.Format("-jar {0}{1}{0}", '"', jarFilePathTextBox.Text);
 

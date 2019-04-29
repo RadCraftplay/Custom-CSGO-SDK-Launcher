@@ -40,7 +40,7 @@
             this.advancedRadioButton = new System.Windows.Forms.RadioButton();
             this.advancedLabel1 = new System.Windows.Forms.Label();
             this.advancedLabel2 = new System.Windows.Forms.Label();
-            this.profileNameTextBox = new System.Windows.Forms.TextBox();
+            this.gameNameTextBox = new System.Windows.Forms.TextBox();
             this.gameDirectoryTextBox = new System.Windows.Forms.TextBox();
             this.advancedLabel3 = new System.Windows.Forms.Label();
             this.gameinfoDirectoryTextBox = new System.Windows.Forms.TextBox();
@@ -68,7 +68,7 @@
             this.label2.Size = new System.Drawing.Size(466, 37);
             this.label2.TabIndex = 1;
             this.label2.Text = "You are launching this application for the first time. You need to setup your fir" +
-    "st profile";
+    "st game";
             // 
             // directoryTextBox
             // 
@@ -166,7 +166,7 @@
             this.advancedLabel1.Name = "advancedLabel1";
             this.advancedLabel1.Size = new System.Drawing.Size(230, 17);
             this.advancedLabel1.TabIndex = 10;
-            this.advancedLabel1.Text = "Profile name (For example CS:GO):";
+            this.advancedLabel1.Text = "Game name (For example CS:GO):";
             // 
             // advancedLabel2
             // 
@@ -178,13 +178,13 @@
             this.advancedLabel2.Text = "Game directory path (for example C:\\Program Files\\Steam\\steamapps\\common\\Counter-" +
     "Strike Global Offensive):";
             // 
-            // profileNameTextBox
+            // gameNameTextBox
             // 
-            this.profileNameTextBox.Enabled = false;
-            this.profileNameTextBox.Location = new System.Drawing.Point(16, 270);
-            this.profileNameTextBox.Name = "profileNameTextBox";
-            this.profileNameTextBox.Size = new System.Drawing.Size(459, 22);
-            this.profileNameTextBox.TabIndex = 12;
+            this.gameNameTextBox.Enabled = false;
+            this.gameNameTextBox.Location = new System.Drawing.Point(16, 270);
+            this.gameNameTextBox.Name = "gameNameTextBox";
+            this.gameNameTextBox.Size = new System.Drawing.Size(459, 22);
+            this.gameNameTextBox.TabIndex = 12;
             // 
             // gameDirectoryTextBox
             // 
@@ -234,7 +234,7 @@
             this.Controls.Add(this.gameinfoDirectoryTextBox);
             this.Controls.Add(this.advancedLabel3);
             this.Controls.Add(this.gameDirectoryTextBox);
-            this.Controls.Add(this.profileNameTextBox);
+            this.Controls.Add(this.gameNameTextBox);
             this.Controls.Add(this.advancedLabel2);
             this.Controls.Add(this.advancedLabel1);
             this.Controls.Add(this.advancedRadioButton);
@@ -272,7 +272,7 @@
         private System.Windows.Forms.RadioButton advancedRadioButton;
         private System.Windows.Forms.Label advancedLabel1;
         private System.Windows.Forms.Label advancedLabel2;
-        private System.Windows.Forms.TextBox profileNameTextBox;
+        private System.Windows.Forms.TextBox gameNameTextBox;
         private System.Windows.Forms.TextBox gameDirectoryTextBox;
         private System.Windows.Forms.Label advancedLabel3;
         private System.Windows.Forms.TextBox gameinfoDirectoryTextBox;

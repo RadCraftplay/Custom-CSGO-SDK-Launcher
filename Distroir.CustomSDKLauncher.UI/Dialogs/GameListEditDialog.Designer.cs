@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.profileListView = new System.Windows.Forms.ListView();
+            this.gameListView = new System.Windows.Forms.ListView();
             this.okButton = new System.Windows.Forms.Button();
             this.buttonsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.createFromTemplateButton = new System.Windows.Forms.Button();
@@ -38,16 +38,16 @@
             this.addButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // profileListView
+            // gameListView
             // 
-            this.profileListView.Location = new System.Drawing.Point(17, 16);
-            this.profileListView.Margin = new System.Windows.Forms.Padding(4);
-            this.profileListView.MultiSelect = false;
-            this.profileListView.Name = "profileListView";
-            this.profileListView.Size = new System.Drawing.Size(303, 383);
-            this.profileListView.TabIndex = 0;
-            this.profileListView.UseCompatibleStateImageBehavior = false;
-            this.profileListView.View = System.Windows.Forms.View.List;
+            this.gameListView.Location = new System.Drawing.Point(17, 16);
+            this.gameListView.Margin = new System.Windows.Forms.Padding(4);
+            this.gameListView.MultiSelect = false;
+            this.gameListView.Name = "gameListView";
+            this.gameListView.Size = new System.Drawing.Size(303, 383);
+            this.gameListView.TabIndex = 0;
+            this.gameListView.UseCompatibleStateImageBehavior = false;
+            this.gameListView.View = System.Windows.Forms.View.List;
             // 
             // okButton
             // 
@@ -118,7 +118,7 @@
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.okButton);
-            this.Controls.Add(this.profileListView);
+            this.Controls.Add(this.gameListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GameListEditDialog";
@@ -131,7 +131,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView profileListView;
+        private System.Windows.Forms.ListView gameListView;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button removeButton;

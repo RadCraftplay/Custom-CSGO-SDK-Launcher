@@ -29,7 +29,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
     public class DataManagers
     {
         /// <summary>
-        /// Full path of file containing list of profiles
+        /// Full path of file containing list of games
         /// </summary>
         public static string GameListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "games.xml");
         /// <summary>
@@ -38,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         public static string AppListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "applications.xml");
 
         /// <summary>
-        /// Profile manager
+        /// Game manager
         /// </summary>
         public static Manager<Game> GameManager = new Manager<Game>(new XmlFileSerializer<Game>(GameListFilename));
 

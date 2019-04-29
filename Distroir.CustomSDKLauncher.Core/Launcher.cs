@@ -59,19 +59,19 @@ namespace Distroir.CustomSDKLauncher.Core
         /// <summary>
         /// Gets path to executable file of specified tool
         /// </summary>
-        /// <param name="p">Selected profile</param>
+        /// <param name="g">Selected game</param>
         /// <param name="app">App to launch</param>
         /// <returns>Path to executable of specified tool</returns>
-        static string GetToolPath(Game p, SDKApplication app)
+        static string GetToolPath(Game g, SDKApplication app)
         {
             switch (app)
             {
                 case SDKApplication.Hammer:
-                    return Path.Combine(p.GetBinDirectory(), "hammer.exe");
+                    return Path.Combine(g.GetBinDirectory(), "hammer.exe");
                 case SDKApplication.HLMV:
-                    return Path.Combine(p.GetBinDirectory(), "hlmv.exe");
+                    return Path.Combine(g.GetBinDirectory(), "hlmv.exe");
                 case SDKApplication.FacePoser:
-                    return Path.Combine(p.GetBinDirectory(), "hlfaceposer.exe");
+                    return Path.Combine(g.GetBinDirectory(), "hlfaceposer.exe");
             }
 
             return string.Empty;

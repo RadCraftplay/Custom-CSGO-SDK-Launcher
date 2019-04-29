@@ -26,32 +26,28 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
     public partial class GameListEditDialog : Form
     {
         /// <summary>
-        /// Local copy of ProfileManager.Profiles
+        /// Local copy of GameManager.Games
         /// </summary>
-        public List<Game> Profiles;
+        public List<Game> Games;
 
         public GameListEditDialog()
         {
             InitializeComponent();
 
-            //Create copy of profile list
-            Profiles = DataManagers.GameManager.Objects;
+            Games = DataManagers.GameManager.Objects;
             LoadList();
         }
 
         void LoadList()
         {
-            //For every profile on list
-            foreach (Game p in Profiles)
+            foreach (Game p in Games)
             {
-                //Add ListViewItem
                 AddIem(p);
             }
         }
 
         public void AddIem(Game p)
         {
-            //Create new ListViewItem
             ListViewItem i = new ListViewItem()
             {
                 Name = p.Name,
@@ -59,8 +55,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 Tag = p
             };
 
-            //And add it to ListView
-            profileListView.Items.Add(i);
+            gameListView.Items.Add(i);
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -71,53 +66,50 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             if (v.ShowDialog() == DialogResult.OK)
             {
                 //Add ListViewItem
-                Profiles.Add(v.Profile);
-                AddIem(v.Profile);
+                Games.Add(v.Game);
+                AddIem(v.Game);
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             //If user selected any items
-            if (profileListView.SelectedItems.Count > 0)
+            if (gameListView.SelectedItems.Count > 0)
             {
                 //For every selected item
-                for (int i = 0; i < profileListView.SelectedItems.Count; i++)
+                for (int i = 0; i < gameListView.SelectedItems.Count; i++)
                 {
                     //Remove item from list
-                    Profiles.Remove((Game)profileListView.SelectedItems[i].Tag);
+                    Games.Remove((Game)gameListView.SelectedItems[i].Tag);
                     //And remove it from control
-                    profileListView.SelectedItems[i].Remove();
+                    gameListView.SelectedItems[i].Remove();
                 }
             }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (profileListView.SelectedItems.Count > 0)
+            if (gameListView.SelectedItems.Count > 0)
             {
                 //Create instance of selected item
-                var i = profileListView.SelectedItems[0];
+                var i = gameListView.SelectedItems[0];
                 //Show EditItemDialog
                 var v = new EditGameDialog((Game)i.Tag);
 
                 if (v.ShowDialog() == DialogResult.OK)
                 {
                     //Set values
-                    i.Name = v.Profile.Name;
-                    i.Text = v.Profile.Name;
-                    i.Tag = v.Profile;
+                    i.Name = v.Game.Name;
+                    i.Text = v.Game.Name;
+                    i.Tag = v.Game;
                 }
             }
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            //Update profile list
-            DataManagers.GameManager.Objects = Profiles;
-            //Set dialog result
+            DataManagers.GameManager.Objects = Games;
             DialogResult = DialogResult.OK;
-            //Close dialog
             Close();
         }
 

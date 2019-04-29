@@ -23,58 +23,47 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class EditGameDialog : Form
     {
-        public Game Profile;
+        public Game Game;
 
         public EditGameDialog()
         {
-            //Create profile
-            Profile = new Game();
-            //Create controls
+            Game = new Game();
             InitializeComponent();
         }
 
         public EditGameDialog(Template t)
         {
-            //Create profile
-            Profile = new Game()
+            Game = new Game()
             {
                 Name = t.Name,
                 GameinfoDirName = t.GameinfoDirName
             };
 
-            //Create controls
             InitializeComponent();
 
-            //Set values
-            nameTextBox.Text = Profile.Name;
-            gameInfoTextBox.Text = Profile.GameinfoDirName;
+            nameTextBox.Text = Game.Name;
+            gameInfoTextBox.Text = Game.GameinfoDirName;
         }
 
         public EditGameDialog(Game p)
         {
-            //Set profile
-            Profile = p;
-            //We are now using this control to edit profile
+            Game = p;
             Text = "Edit game";
 
-            //Create controls
             InitializeComponent();
 
-            //Set values
-            nameTextBox.Text = Profile.Name;
-            gameDirTextBox.Text = Profile.GameDir;
-            gameInfoTextBox.Text = Profile.GameinfoDirName;
-            gameDirFolderBrowserDialog.SelectedPath = Profile.GameDir;
+            nameTextBox.Text = Game.Name;
+            gameDirTextBox.Text = Game.GameDir;
+            gameInfoTextBox.Text = Game.GameinfoDirName;
+            gameDirFolderBrowserDialog.SelectedPath = Game.GameDir;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //Save settings
-            Profile.Name = nameTextBox.Text;
-            Profile.GameDir = gameDirTextBox.Text;
-            Profile.GameinfoDirName = gameInfoTextBox.Text;
+            Game.Name = nameTextBox.Text;
+            Game.GameDir = gameDirTextBox.Text;
+            Game.GameinfoDirName = gameInfoTextBox.Text;
 
-            //Close control
             DialogResult = DialogResult.OK;
             Close();
         }

@@ -72,37 +72,29 @@ namespace Distroir.CustomSDKLauncher.Core
         {
             try
             {
-                //Get selected profile id
-                int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
+                int SelectedGameId = Config.TryReadInt("SelectedProfileId");
 
-                if (SelectedProfileId < 0)
+                if (SelectedGameId < 0)
                 {
-                    //Tell user what went wrong
-                    MessageBox.Show("You need to select profile in settings and/or create new one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //Cancel execution of an application
+                    MessageBox.Show("You need to select game in settings and/or create new one", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                //Get selected profile
-                Game SelectedProfile = Managers.DataManagers.GameManager.Objects[SelectedProfileId];
-                //Launch application
-                Launcher.Launch(SelectedProfile, app);
+                Game SelectedGame = Managers.DataManagers.GameManager.Objects[SelectedGameId];
+                Launcher.Launch(SelectedGame, app);
             }
             catch (Exception ex)
             {
-                //Inform user that something unexpected happened
                 MessageBox.Show(ex.StackTrace, ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public static bool TryGetSelectedProfile(out Game game)
+        public static bool TryGetSelectedGame(out Game game)
         {
             try
             {
-                //Get selected profile id
-                int SelectedProfileId = Config.TryReadInt("SelectedProfileId");
-                //Get selected profile
-                game = Managers.DataManagers.GameManager.Objects[SelectedProfileId];
+                int SelectedGameId = Config.TryReadInt("SelectedProfileId");
+                game = Managers.DataManagers.GameManager.Objects[SelectedGameId];
 
                 return true;
             }
@@ -120,14 +112,11 @@ namespace Distroir.CustomSDKLauncher.Core
         /// <returns></returns>
         public static string CombineDefaultGameDirName(string gameDir)
         {
-            //Get program files directory
             string programfilesDir = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles);
 
-            //If 64 bit operating system, use x86 directory
             if (PlatformChecker.is64BitOperatingSystem)
                 programfilesDir = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86);
 
-            //Return game directory
             return $"{programfilesDir}\\Steam\\steamapps\\common\\{gameDir}";
         }
 
@@ -139,13 +128,13 @@ namespace Distroir.CustomSDKLauncher.Core
         {
             PathFormatter.Paths.Clear();
 
-            Game p;
+            Game g;
 
-            if (TryGetSelectedProfile(out p))
+            if (TryGetSelectedGame(out g))
             {
-                PathFormatter.Paths.Add("GameDir", p.GameDir);
-                PathFormatter.Paths.Add("GameinfoDir", p.GameinfoDirName);
-                PathFormatter.Paths.Add("GameBinDir", Path.Combine(p.GameDir, "bin"));
+                PathFormatter.Paths.Add("GameDir", g.GameDir);
+                PathFormatter.Paths.Add("GameinfoDir", g.GameinfoDirName);
+                PathFormatter.Paths.Add("GameBinDir", Path.Combine(g.GameDir, "bin"));
 
                 return true;
             }

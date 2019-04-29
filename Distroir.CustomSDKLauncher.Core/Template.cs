@@ -32,17 +32,13 @@ namespace Distroir.CustomSDKLauncher.Core
         /// </summary>
         public string GameDirName;
 
-
-        //Overrides ToString method and returns name of profile
         public override string ToString()
         {
             return Name;
         }
 
-        //Creates profile based on template
-        public Game ToProfile(string gameDir)
+        public Game ToGame(string gameDir)
         {
-            //Create profile
             Game p = new Game()
             {
                 Name = Name,
@@ -50,7 +46,6 @@ namespace Distroir.CustomSDKLauncher.Core
                 GameDir = gameDir
             };
 
-            //Return profile
             return p;
         }
     }

@@ -32,10 +32,10 @@
             this.gamesTabPage = new System.Windows.Forms.TabPage();
             this.sendFeedbackButton = new System.Windows.Forms.Button();
             this.disableFeedbackCheckBox = new System.Windows.Forms.CheckBox();
-            this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
-            this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.profileLabel = new System.Windows.Forms.Label();
-            this.profileListComboBox = new System.Windows.Forms.ComboBox();
+            this.displayCurrentlySelectedGameCheckBox = new System.Windows.Forms.CheckBox();
+            this.editListOfGamesLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.gameLabel = new System.Windows.Forms.Label();
+            this.gameListComboBox = new System.Windows.Forms.ComboBox();
             this.appLauncherTabPage = new System.Windows.Forms.TabPage();
             this.actionChangeLabel = new System.Windows.Forms.Label();
             this.launcherEditButton3 = new System.Windows.Forms.Button();
@@ -91,10 +91,10 @@
             // 
             this.gamesTabPage.Controls.Add(this.sendFeedbackButton);
             this.gamesTabPage.Controls.Add(this.disableFeedbackCheckBox);
-            this.gamesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
-            this.gamesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
-            this.gamesTabPage.Controls.Add(this.profileLabel);
-            this.gamesTabPage.Controls.Add(this.profileListComboBox);
+            this.gamesTabPage.Controls.Add(this.displayCurrentlySelectedGameCheckBox);
+            this.gamesTabPage.Controls.Add(this.editListOfGamesLinkLabel);
+            this.gamesTabPage.Controls.Add(this.gameLabel);
+            this.gamesTabPage.Controls.Add(this.gameListComboBox);
             this.gamesTabPage.Location = new System.Drawing.Point(4, 25);
             this.gamesTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.gamesTabPage.Name = "gamesTabPage";
@@ -126,51 +126,51 @@
             this.disableFeedbackCheckBox.Text = "Disable feedback notifications";
             this.disableFeedbackCheckBox.UseVisualStyleBackColor = true;
             // 
-            // displayCurrentlySelectedProfileCheckBox
+            // displayCurrentlySelectedGameCheckBox
             // 
-            this.displayCurrentlySelectedProfileCheckBox.AutoSize = true;
-            this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(13, 57);
-            this.displayCurrentlySelectedProfileCheckBox.Margin = new System.Windows.Forms.Padding(4);
-            this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
-            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(270, 21);
-            this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
-            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected game name";
-            this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
+            this.displayCurrentlySelectedGameCheckBox.AutoSize = true;
+            this.displayCurrentlySelectedGameCheckBox.Location = new System.Drawing.Point(13, 57);
+            this.displayCurrentlySelectedGameCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.displayCurrentlySelectedGameCheckBox.Name = "displayCurrentlySelectedGameCheckBox";
+            this.displayCurrentlySelectedGameCheckBox.Size = new System.Drawing.Size(270, 21);
+            this.displayCurrentlySelectedGameCheckBox.TabIndex = 4;
+            this.displayCurrentlySelectedGameCheckBox.Text = "Display currently selected game name";
+            this.displayCurrentlySelectedGameCheckBox.UseVisualStyleBackColor = true;
             // 
-            // editListOfProfilesLinkLabel
+            // editListOfGamesLinkLabel
             // 
-            this.editListOfProfilesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editListOfProfilesLinkLabel.AutoSize = true;
-            this.editListOfProfilesLinkLabel.Location = new System.Drawing.Point(315, 37);
-            this.editListOfProfilesLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.editListOfProfilesLinkLabel.Name = "editListOfProfilesLinkLabel";
-            this.editListOfProfilesLinkLabel.Size = new System.Drawing.Size(115, 17);
-            this.editListOfProfilesLinkLabel.TabIndex = 3;
-            this.editListOfProfilesLinkLabel.TabStop = true;
-            this.editListOfProfilesLinkLabel.Text = "Edit list of games";
-            this.editListOfProfilesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.editListOfGamesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editListOfGamesLinkLabel.AutoSize = true;
+            this.editListOfGamesLinkLabel.Location = new System.Drawing.Point(315, 37);
+            this.editListOfGamesLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.editListOfGamesLinkLabel.Name = "editListOfGamesLinkLabel";
+            this.editListOfGamesLinkLabel.Size = new System.Drawing.Size(115, 17);
+            this.editListOfGamesLinkLabel.TabIndex = 3;
+            this.editListOfGamesLinkLabel.TabStop = true;
+            this.editListOfGamesLinkLabel.Text = "Edit list of games";
+            this.editListOfGamesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // profileLabel
+            // gameLabel
             // 
-            this.profileLabel.AutoSize = true;
-            this.profileLabel.Location = new System.Drawing.Point(9, 11);
-            this.profileLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.profileLabel.Name = "profileLabel";
-            this.profileLabel.Size = new System.Drawing.Size(50, 17);
-            this.profileLabel.TabIndex = 2;
-            this.profileLabel.Text = "Game:";
+            this.gameLabel.AutoSize = true;
+            this.gameLabel.Location = new System.Drawing.Point(9, 11);
+            this.gameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gameLabel.Name = "gameLabel";
+            this.gameLabel.Size = new System.Drawing.Size(50, 17);
+            this.gameLabel.TabIndex = 2;
+            this.gameLabel.Text = "Game:";
             // 
-            // profileListComboBox
+            // gameListComboBox
             // 
-            this.profileListComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gameListComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.profileListComboBox.FormattingEnabled = true;
-            this.profileListComboBox.Location = new System.Drawing.Point(69, 7);
-            this.profileListComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this.profileListComboBox.Name = "profileListComboBox";
-            this.profileListComboBox.Size = new System.Drawing.Size(361, 24);
-            this.profileListComboBox.TabIndex = 1;
+            this.gameListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gameListComboBox.FormattingEnabled = true;
+            this.gameListComboBox.Location = new System.Drawing.Point(69, 7);
+            this.gameListComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.gameListComboBox.Name = "gameListComboBox";
+            this.gameListComboBox.Size = new System.Drawing.Size(361, 24);
+            this.gameListComboBox.TabIndex = 1;
             // 
             // appLauncherTabPage
             // 
@@ -496,12 +496,12 @@
 
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage gamesTabPage;
-        private System.Windows.Forms.LinkLabel editListOfProfilesLinkLabel;
-        private System.Windows.Forms.Label profileLabel;
-        private System.Windows.Forms.ComboBox profileListComboBox;
+        private System.Windows.Forms.LinkLabel editListOfGamesLinkLabel;
+        private System.Windows.Forms.Label gameLabel;
+        private System.Windows.Forms.ComboBox gameListComboBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TabPage aboutTabPage;
-        private System.Windows.Forms.CheckBox displayCurrentlySelectedProfileCheckBox;
+        private System.Windows.Forms.CheckBox displayCurrentlySelectedGameCheckBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label appnameLabel;
         private System.Windows.Forms.Label copyrightLabel;

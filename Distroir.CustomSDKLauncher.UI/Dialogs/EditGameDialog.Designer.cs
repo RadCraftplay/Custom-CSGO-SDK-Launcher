@@ -51,7 +51,7 @@
             this.nameLabel.Size = new System.Drawing.Size(49, 17);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name:";
-            this.toolTip.SetToolTip(this.nameLabel, "Name of profile");
+            this.toolTip.SetToolTip(this.nameLabel, "Name of the game");
             // 
             // nameTextBox
             // 
