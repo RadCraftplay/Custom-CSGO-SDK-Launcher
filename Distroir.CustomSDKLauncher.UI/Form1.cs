@@ -306,16 +306,6 @@ namespace Distroir.CustomSDKLauncher.UI
             return g.Name;
         }
 
-        //TODO: Remove commented out code
-        ///// <summary>
-        ///// Changes text inside toolsGroupBox control
-        ///// </summary>
-        //void UpdateToolsGroupBoxText()
-        //{
-        //    ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
-        //    UpdateToolsGroupBoxText(rm);
-        //}
-
         //TODO: Remove obsolete method
         /// <summary>
         /// Changes text inside toolsGroupBox control
