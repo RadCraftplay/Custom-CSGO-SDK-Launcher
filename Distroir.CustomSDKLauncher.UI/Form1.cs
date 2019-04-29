@@ -306,28 +306,6 @@ namespace Distroir.CustomSDKLauncher.UI
             return g.Name;
         }
 
-        //TODO: Remove obsolete method
-        /// <summary>
-        /// Changes text inside toolsGroupBox control
-        /// </summary>
-        /// <param name="rm">Resource manager</param>
-        [Obsolete]
-        void UpdateToolsGroupBoxText(ResourceManager rm)
-        {
-            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentGameName()))
-            {
-                //Set text
-                string text = string.Format("Tools - {0}", GetCurrentGameName());
-                text = CutStringIfTooBig(text, 39);
-                toolsGroupBox.Text = text;
-            }
-            else
-            {
-                //Set text
-                toolsGroupBox.Text = "Tools";
-            }
-        }
-
         /// <summary>
         /// Changes text inside toolsGroupBox control
         /// </summary>
