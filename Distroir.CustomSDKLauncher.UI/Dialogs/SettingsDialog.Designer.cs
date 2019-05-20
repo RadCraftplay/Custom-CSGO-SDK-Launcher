@@ -132,9 +132,9 @@
             this.displayCurrentlySelectedGameCheckBox.Location = new System.Drawing.Point(13, 57);
             this.displayCurrentlySelectedGameCheckBox.Margin = new System.Windows.Forms.Padding(4);
             this.displayCurrentlySelectedGameCheckBox.Name = "displayCurrentlySelectedGameCheckBox";
-            this.displayCurrentlySelectedGameCheckBox.Size = new System.Drawing.Size(270, 21);
+            this.displayCurrentlySelectedGameCheckBox.Size = new System.Drawing.Size(286, 21);
             this.displayCurrentlySelectedGameCheckBox.TabIndex = 4;
-            this.displayCurrentlySelectedGameCheckBox.Text = "Display currently selected game name";
+            this.displayCurrentlySelectedGameCheckBox.Text = "Display name of currently selected game";
             this.displayCurrentlySelectedGameCheckBox.UseVisualStyleBackColor = true;
             // 
             // editListOfGamesLinkLabel
