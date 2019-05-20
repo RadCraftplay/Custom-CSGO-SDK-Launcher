@@ -22,6 +22,7 @@ using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
+    //TODO: Use Lazy<T> for lazy loading?
     public class Manager<T>
     {
         /// <summary>

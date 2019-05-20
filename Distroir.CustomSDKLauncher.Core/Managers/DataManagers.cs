@@ -58,6 +58,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// </summary>
         public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
 
+        //TODO: Remove commented out code
         /*
         /// <summary>
         /// Content serializer
