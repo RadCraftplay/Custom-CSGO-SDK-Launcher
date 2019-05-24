@@ -30,9 +30,14 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         private void WriteDocument()
         {
+            var settings = new XmlWriterSettings()
+            {
+                Indent = true
+            };
+
             using (TextWriter textWriter = new StreamWriter(DataManagers.GameListFilename))
             {
-                using (XmlWriter newFileWriter = new XmlTextWriter(textWriter))
+                using (XmlWriter newFileWriter = XmlWriter.Create(textWriter, settings))
                 {
                     using (XmlReader oldFileReader = new XmlTextReader(oldGameListFilename))
                     {
