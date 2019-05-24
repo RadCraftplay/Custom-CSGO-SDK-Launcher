@@ -24,8 +24,16 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         public void Migrate()
         {
+            RemoveGamesFileIfRequired();
             WriteDocument();
             File.Delete(oldGameListFilename);
+        }
+
+        private void RemoveGamesFileIfRequired()
+        {
+            //TODO: Ask user if he wants to keep existing games.xml file
+            if (File.Exists(DataManagers.GameListFilename))
+                File.Delete(DataManagers.GameListFilename);
         }
 
         private void WriteDocument()
