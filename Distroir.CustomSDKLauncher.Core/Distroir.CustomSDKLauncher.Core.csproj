@@ -83,7 +83,14 @@
     <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />
     <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
     <Compile Include="Migrators\GameMigrator.cs" />
+    <Compile Include="Migrators\Games\GameMigrationConflictDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Migrators\Games\GameMigrationConflictDialog.Designer.cs">
+      <DependentUpon>GameMigrationConflictDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrators\IMigrator.cs" />
+    <Compile Include="Migrators\MigrationConflictSolution.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
@@ -119,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.resx">
       <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrators\Games\GameMigrationConflictDialog.resx">
+      <DependentUpon>GameMigrationConflictDialog.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

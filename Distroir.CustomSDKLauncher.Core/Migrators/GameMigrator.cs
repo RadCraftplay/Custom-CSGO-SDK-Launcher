@@ -11,7 +11,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 {
     public class GameMigrator : IMigrator
     {
-        string oldGameListFilename = System.IO.Path.Combine(
+        internal string oldGameListFilename = Path.Combine(
                 Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                 "Distroir",
                 "Custom SDK Launcher",
@@ -24,9 +24,45 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         public void Migrate()
         {
-            RemoveGamesFileIfRequired();
-            WriteDocument();
-            File.Delete(oldGameListFilename);
+            var solution = CheckForConflicts() ?
+                LetUserDecide() : MigrationConflictSolution.NoConflict;
+
+            PerformMigration(solution);
+        }
+
+        private bool CheckForConflicts()
+        {
+            return File.Exists(DataManagers.GameListFilename)
+                && File.Exists(oldGameListFilename);
+        }
+
+        private MigrationConflictSolution LetUserDecide()
+        {
+            var dialog = new Games.GameMigrationConflictDialog();
+            
+            return dialog.DialogResult == System.Windows.Forms.DialogResult.OK ?
+                dialog.ConflictSolution : MigrationConflictSolution.NoDecission;
+        }
+
+        private void PerformMigration(MigrationConflictSolution solution)
+        {
+            switch (solution)
+            {
+                case MigrationConflictSolution.NoDecission:
+                    //TODO: Decide what to do with migration if user canceled dialog
+                    throw new NotImplementedException();
+                case MigrationConflictSolution.KeepProfilesXml:
+                    File.Delete(DataManagers.GameListFilename);
+                    break;
+                case MigrationConflictSolution.KeepBoth:
+                    //TODO: Implement keep both
+                    throw new NotImplementedException();
+                case MigrationConflictSolution.KeepGamesXml:
+                default:
+                    WriteDocument();
+                    File.Delete(oldGameListFilename);
+                    break;
+            }
         }
 
         private void RemoveGamesFileIfRequired()
@@ -55,7 +91,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
             }
         }
 
-        private void WriteDocument(XmlReader oldFileReader, XmlWriter newFileWriter)
+        internal void WriteDocument(XmlReader oldFileReader, XmlWriter newFileWriter)
         {
             newFileWriter.WriteStartDocument();
 

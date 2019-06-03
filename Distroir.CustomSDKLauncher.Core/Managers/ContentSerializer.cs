@@ -22,6 +22,7 @@ using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
+    //TODO: Rename Load to Deserialize and Load to Serialize
     public abstract class ContentSerializer<T>
     {
         /// <summary>
