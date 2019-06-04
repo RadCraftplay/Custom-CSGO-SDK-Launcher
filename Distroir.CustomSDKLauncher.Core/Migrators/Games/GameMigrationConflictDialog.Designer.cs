@@ -156,7 +156,9 @@
             this.Controls.Add(this.keepAllButton);
             this.Controls.Add(this.keepProfilesButton);
             this.Controls.Add(this.listPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GameMigrationConflictDialog";
+            this.ShowInTaskbar = false;
             this.Text = "Version conflict";
             this.listPanel.ResumeLayout(false);
             this.listSplitContainer.Panel1.ResumeLayout(false);
