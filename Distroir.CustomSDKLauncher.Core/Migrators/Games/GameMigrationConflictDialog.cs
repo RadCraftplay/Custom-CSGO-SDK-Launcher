@@ -10,6 +10,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
     public partial class GameMigrationConflictDialog : Form
     {
         public MigrationConflictSolution ConflictSolution { get; private set; }
+            = MigrationConflictSolution.NoDecission;
 
         public GameMigrationConflictDialog()
         {
@@ -60,6 +61,60 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
                 listView.Items.Add(gameItem);
             }
+        }
+
+        private void KeepProfilesButton_Click(object sender, System.EventArgs e)
+        {
+            ContinueAndCloseIfAgeed(MigrationConflictSolution.KeepProfilesXml);
+        }
+
+        private void KeepAllButton_Click(object sender, System.EventArgs e)
+        {
+            ContinueAndCloseIfAgeed(MigrationConflictSolution.KeepBoth);
+        }
+
+        private void KeepGamesButton_Click(object sender, System.EventArgs e)
+        {
+            ContinueAndCloseIfAgeed(MigrationConflictSolution.KeepGamesXml);
+        }
+
+        void ContinueAndCloseIfAgeed(MigrationConflictSolution solution)
+        {
+            if (AskForConfirmation(solution))
+            {
+                ConflictSolution = solution;
+                Close();
+            }
+        }
+
+        /// <returns>True if user confirmed</returns>
+        bool AskForConfirmation(MigrationConflictSolution solution)
+        {
+            StringBuilder messageBuilder = new StringBuilder();
+
+            switch (solution)
+            {
+                case MigrationConflictSolution.KeepProfilesXml:
+                    messageBuilder.AppendLine("Are you sure to keep ONLY games from file profiles.xml?");
+                    break;
+                case MigrationConflictSolution.KeepGamesXml:
+                    messageBuilder.AppendLine("Are you sure to keep ONLY games from file games.xml?");
+                    break;
+                case MigrationConflictSolution.KeepBoth:
+                    messageBuilder.AppendLine("Are you sure to keep ALL games from both files?");
+                    break;
+                default:
+                    messageBuilder.AppendLine("Are you sure you want to continue?");
+                    break;
+            }
+            messageBuilder.Append("This can not be undone");
+
+            var dialogResult = MessageBox.Show(
+                messageBuilder.ToString(),
+                "Custom SDK Launcher",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Warning);
+            return dialogResult == DialogResult.Yes;
         }
     }
 }

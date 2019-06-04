@@ -123,6 +123,7 @@
             this.keepProfilesButton.TabIndex = 1;
             this.keepProfilesButton.Text = "Keep only games from profiles.xml";
             this.keepProfilesButton.UseVisualStyleBackColor = true;
+            this.keepProfilesButton.Click += new System.EventHandler(this.KeepProfilesButton_Click);
             // 
             // keepAllButton
             // 
@@ -133,6 +134,7 @@
             this.keepAllButton.TabIndex = 2;
             this.keepAllButton.Text = "Keep all games";
             this.keepAllButton.UseVisualStyleBackColor = true;
+            this.keepAllButton.Click += new System.EventHandler(this.KeepAllButton_Click);
             // 
             // keepGamesButton
             // 
@@ -143,6 +145,7 @@
             this.keepGamesButton.TabIndex = 3;
             this.keepGamesButton.Text = "Keep only games from games.xml";
             this.keepGamesButton.UseVisualStyleBackColor = true;
+            this.keepGamesButton.Click += new System.EventHandler(this.KeepGamesButton_Click);
             // 
             // GameMigrationConflictDialog
             // 
