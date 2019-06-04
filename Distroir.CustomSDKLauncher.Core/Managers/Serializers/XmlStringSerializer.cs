@@ -45,7 +45,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
             using (TextReader reader = new StringReader(toProcess))
             {
                 //Create instance of XMLSerializer
-                XmlSerializer s = new XmlSerializer(typeof(Template[]));
+                XmlSerializer s = new XmlSerializer(typeof(T[]));
                 //Read data
                 return (T[])s.Deserialize(reader);
             }
