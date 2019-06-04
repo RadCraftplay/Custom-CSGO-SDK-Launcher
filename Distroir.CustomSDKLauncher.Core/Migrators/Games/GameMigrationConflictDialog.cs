@@ -83,6 +83,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
             if (AskForConfirmation(solution))
             {
                 ConflictSolution = solution;
+                DialogResult = DialogResult.OK;
                 Close();
             }
         }
