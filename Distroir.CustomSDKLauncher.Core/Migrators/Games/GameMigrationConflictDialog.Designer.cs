@@ -84,6 +84,7 @@
             this.profilesListView.Size = new System.Drawing.Size(383, 366);
             this.profilesListView.TabIndex = 1;
             this.profilesListView.UseCompatibleStateImageBehavior = false;
+            this.profilesListView.View = System.Windows.Forms.View.List;
             // 
             // profilesContentsLabel
             // 
@@ -104,6 +105,7 @@
             this.gamesListView.Size = new System.Drawing.Size(379, 366);
             this.gamesListView.TabIndex = 1;
             this.gamesListView.UseCompatibleStateImageBehavior = false;
+            this.gamesListView.View = System.Windows.Forms.View.List;
             // 
             // gamesContentsLabel
             // 
