@@ -90,7 +90,7 @@
       <DependentUpon>GameMigrationConflictDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrators\IMigrator.cs" />
-    <Compile Include="Migrators\MigrationConflictSolution.cs" />
+    <Compile Include="Migrators\GameMigrationConflictSolution.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />

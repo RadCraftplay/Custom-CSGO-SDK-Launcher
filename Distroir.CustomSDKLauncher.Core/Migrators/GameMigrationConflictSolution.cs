@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators
 {
-    public enum MigrationConflictSolution
+    public enum GameMigrationConflictSolution
     {
         NoConflict = 0,
         KeepProfilesXml = 1,

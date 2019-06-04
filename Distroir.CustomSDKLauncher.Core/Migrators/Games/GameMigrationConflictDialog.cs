@@ -9,8 +9,8 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 {
     public partial class GameMigrationConflictDialog : Form
     {
-        public MigrationConflictSolution ConflictSolution { get; private set; }
-            = MigrationConflictSolution.NoDecission;
+        public GameMigrationConflictSolution ConflictSolution { get; private set; }
+            = GameMigrationConflictSolution.NoDecission;
 
         public GameMigrationConflictDialog()
         {
@@ -65,20 +65,20 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
         private void KeepProfilesButton_Click(object sender, System.EventArgs e)
         {
-            ContinueAndCloseIfAgeed(MigrationConflictSolution.KeepProfilesXml);
+            ContinueAndCloseIfAgeed(GameMigrationConflictSolution.KeepProfilesXml);
         }
 
         private void KeepAllButton_Click(object sender, System.EventArgs e)
         {
-            ContinueAndCloseIfAgeed(MigrationConflictSolution.KeepBoth);
+            ContinueAndCloseIfAgeed(GameMigrationConflictSolution.KeepBoth);
         }
 
         private void KeepGamesButton_Click(object sender, System.EventArgs e)
         {
-            ContinueAndCloseIfAgeed(MigrationConflictSolution.KeepGamesXml);
+            ContinueAndCloseIfAgeed(GameMigrationConflictSolution.KeepGamesXml);
         }
 
-        void ContinueAndCloseIfAgeed(MigrationConflictSolution solution)
+        void ContinueAndCloseIfAgeed(GameMigrationConflictSolution solution)
         {
             if (AskForConfirmation(solution))
             {
@@ -89,19 +89,19 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
         }
 
         /// <returns>True if user confirmed</returns>
-        bool AskForConfirmation(MigrationConflictSolution solution)
+        bool AskForConfirmation(GameMigrationConflictSolution solution)
         {
             StringBuilder messageBuilder = new StringBuilder();
 
             switch (solution)
             {
-                case MigrationConflictSolution.KeepProfilesXml:
+                case GameMigrationConflictSolution.KeepProfilesXml:
                     messageBuilder.AppendLine("Are you sure to keep ONLY games from file profiles.xml?");
                     break;
-                case MigrationConflictSolution.KeepGamesXml:
+                case GameMigrationConflictSolution.KeepGamesXml:
                     messageBuilder.AppendLine("Are you sure to keep ONLY games from file games.xml?");
                     break;
-                case MigrationConflictSolution.KeepBoth:
+                case GameMigrationConflictSolution.KeepBoth:
                     messageBuilder.AppendLine("Are you sure to keep ALL games from both files?");
                     break;
                 default:

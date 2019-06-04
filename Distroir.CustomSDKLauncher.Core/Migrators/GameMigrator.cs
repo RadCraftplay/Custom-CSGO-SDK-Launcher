@@ -25,7 +25,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
         public void Migrate()
         {
             var solution = CheckForConflicts() ?
-                LetUserDecide() : MigrationConflictSolution.NoConflict;
+                LetUserDecide() : GameMigrationConflictSolution.NoConflict;
 
             PerformMigration(solution);
         }
@@ -36,28 +36,28 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 && File.Exists(oldGameListFilename);
         }
 
-        private MigrationConflictSolution LetUserDecide()
+        private GameMigrationConflictSolution LetUserDecide()
         {
             var dialog = new Games.GameMigrationConflictDialog();
             
             return dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK ?
-                dialog.ConflictSolution : MigrationConflictSolution.NoDecission;
+                dialog.ConflictSolution : GameMigrationConflictSolution.NoDecission;
         }
 
-        private void PerformMigration(MigrationConflictSolution solution)
+        private void PerformMigration(GameMigrationConflictSolution solution)
         {
             switch (solution)
             {
-                case MigrationConflictSolution.NoDecission:
+                case GameMigrationConflictSolution.NoDecission:
                     //TODO: Decide what to do with migration if user canceled dialog
                     throw new NotImplementedException();
-                case MigrationConflictSolution.KeepProfilesXml:
+                case GameMigrationConflictSolution.KeepProfilesXml:
                     File.Delete(DataManagers.GameListFilename);
                     break;
-                case MigrationConflictSolution.KeepBoth:
+                case GameMigrationConflictSolution.KeepBoth:
                     //TODO: Implement keep both
                     throw new NotImplementedException();
-                case MigrationConflictSolution.KeepGamesXml:
+                case GameMigrationConflictSolution.KeepGamesXml:
                 default:
                     WriteDocument();
                     File.Delete(oldGameListFilename);
