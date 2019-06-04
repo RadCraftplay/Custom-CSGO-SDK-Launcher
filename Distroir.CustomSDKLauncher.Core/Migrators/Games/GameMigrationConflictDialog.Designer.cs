@@ -161,6 +161,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GameMigrationConflictDialog";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Version conflict";
             this.listPanel.ResumeLayout(false);
             this.listSplitContainer.Panel1.ResumeLayout(false);
