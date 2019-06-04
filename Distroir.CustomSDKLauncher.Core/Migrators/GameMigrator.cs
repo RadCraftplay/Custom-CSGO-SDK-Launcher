@@ -40,7 +40,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
         {
             var dialog = new Games.GameMigrationConflictDialog();
             
-            return dialog.DialogResult == System.Windows.Forms.DialogResult.OK ?
+            return dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK ?
                 dialog.ConflictSolution : MigrationConflictSolution.NoDecission;
         }
 
