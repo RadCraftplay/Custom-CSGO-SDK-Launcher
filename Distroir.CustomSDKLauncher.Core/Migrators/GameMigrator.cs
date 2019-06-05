@@ -66,13 +66,6 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
             }
         }
 
-        private void RemoveGamesFileIfRequired()
-        {
-            //TODO: Ask user if he wants to keep existing games.xml file
-            if (File.Exists(DataManagers.GameListFilename))
-                File.Delete(DataManagers.GameListFilename);
-        }
-
         private void WriteDocument()
         {
             var settings = new XmlWriterSettings()
