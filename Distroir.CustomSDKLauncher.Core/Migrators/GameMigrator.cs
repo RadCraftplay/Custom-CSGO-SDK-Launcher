@@ -57,6 +57,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 case GameMigrationConflictSolution.KeepBoth:
                     //TODO: Implement keep both
                     throw new NotImplementedException();
+                case GameMigrationConflictSolution.NoConflict:
                 case GameMigrationConflictSolution.KeepGamesXml:
                 default:
                     WriteDocument();
