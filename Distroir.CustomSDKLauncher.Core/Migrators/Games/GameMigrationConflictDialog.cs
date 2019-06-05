@@ -22,24 +22,11 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
         private void LoadProfiles()
         {
-            string gamesString = ConvertProfilesToGames();
-            XmlStringSerializer<Game> gameListSerializer
-                = new XmlStringSerializer<Game>(gamesString);
-
-            LoadListOfGamesIntoListView(gameListSerializer, profilesListView);
-        }
-
-        private string ConvertProfilesToGames()
-        {
-            GameMigrator migrator = new GameMigrator();
-            StringBuilder xmlBuilder = new StringBuilder();
-
-            using (TextWriter textWriter = new StringWriter(xmlBuilder))
-            using (XmlWriter writer = XmlWriter.Create(textWriter))
-            using (XmlReader reader = new XmlTextReader(migrator.oldGameListFilename))
-                migrator.WriteDocument(reader, writer);
-
-            return xmlBuilder.ToString();
+            foreach (Game game in GameCache.CachedGames)
+                profilesListView.Items.Add(new ListViewItem(game.Name)
+                {
+                    Tag = game
+                });
         }
 
         private void LoadGames()

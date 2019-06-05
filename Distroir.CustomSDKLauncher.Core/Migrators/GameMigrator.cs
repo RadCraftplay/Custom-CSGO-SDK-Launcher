@@ -1,4 +1,5 @@
 ﻿using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -11,11 +12,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 {
     public class GameMigrator : IMigrator
     {
-        internal string oldGameListFilename = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                "Distroir",
-                "Custom SDK Launcher",
-                "profiles.xml");
+        readonly string oldGameListFilename = GameCache.oldGameListFilename;
 
         public bool RequiresMigration()
         {
@@ -54,8 +51,9 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                     File.Delete(oldGameListFilename);
                     break;
                 case GameMigrationConflictSolution.KeepBoth:
-                    //TODO: Implement keep both
-                    throw new NotImplementedException();
+                    WriteGamesFromBothFiles();
+                    File.Delete(oldGameListFilename);
+                    break;
                 case GameMigrationConflictSolution.NoConflict:
                 case GameMigrationConflictSolution.KeepProfilesXml:
                 default:
@@ -64,6 +62,21 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                     File.Delete(oldGameListFilename);
                     break;
             }
+        }
+
+        private void WriteGamesFromBothFiles()
+        {
+            XmlFileSerializer<Game> gameListSerializer
+                = new XmlFileSerializer<Game>(DataManagers.GameListFilename);
+            List<Game> games = gameListSerializer.Load().ToList();
+
+            foreach (Game game in GameCache.CachedGames)
+            {
+                game.Name += " (profiles.xml)";
+                games.Add(game);
+            }
+
+            gameListSerializer.Save(games.ToArray());
         }
 
         private void WriteDocument()
