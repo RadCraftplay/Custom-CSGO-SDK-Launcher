@@ -49,8 +49,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
             switch (solution)
             {
                 case GameMigrationConflictSolution.NoDecission:
-                    //TODO: Decide what to do with migration if user canceled dialog
-                    throw new NotImplementedException();
+                    break;
                 case GameMigrationConflictSolution.KeepGamesXml:
                     File.Delete(oldGameListFilename);
                     break;
