@@ -51,15 +51,16 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 case GameMigrationConflictSolution.NoDecission:
                     //TODO: Decide what to do with migration if user canceled dialog
                     throw new NotImplementedException();
-                case GameMigrationConflictSolution.KeepProfilesXml:
-                    File.Delete(DataManagers.GameListFilename);
+                case GameMigrationConflictSolution.KeepGamesXml:
+                    File.Delete(oldGameListFilename);
                     break;
                 case GameMigrationConflictSolution.KeepBoth:
                     //TODO: Implement keep both
                     throw new NotImplementedException();
                 case GameMigrationConflictSolution.NoConflict:
-                case GameMigrationConflictSolution.KeepGamesXml:
+                case GameMigrationConflictSolution.KeepProfilesXml:
                 default:
+                    File.Delete(DataManagers.GameListFilename);
                     WriteDocument();
                     File.Delete(oldGameListFilename);
                     break;
