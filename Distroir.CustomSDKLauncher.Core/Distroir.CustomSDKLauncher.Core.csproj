@@ -89,10 +89,10 @@
     <Compile Include="Migrators\Games\GameMigrationConflictDialog.Designer.cs">
       <DependentUpon>GameMigrationConflictDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrators\GameToProfileConverter.cs" />
+    <Compile Include="Migrators\Games\GameToProfileConverter.cs" />
     <Compile Include="Migrators\IMigrator.cs" />
-    <Compile Include="Migrators\GameMigrationConflictSolution.cs" />
-    <Compile Include="Migrators\GameCache.cs" />
+    <Compile Include="Migrators\Games\GameMigrationConflictSolution.cs" />
+    <Compile Include="Migrators\Games\GameCache.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />

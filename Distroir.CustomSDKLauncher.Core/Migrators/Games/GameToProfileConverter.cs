@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 
-namespace Distroir.CustomSDKLauncher.Core.Migrators
+namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 {
     public class GameToProfileConverter
     {

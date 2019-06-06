@@ -1,5 +1,6 @@
 ﻿using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
+using Distroir.CustomSDKLauncher.Core.Migrators.Games;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
