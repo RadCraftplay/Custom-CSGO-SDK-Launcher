@@ -34,9 +34,10 @@
             this.profilesContentsLabel = new System.Windows.Forms.Label();
             this.gamesListView = new System.Windows.Forms.ListView();
             this.gamesContentsLabel = new System.Windows.Forms.Label();
-            this.keepProfilesButton = new System.Windows.Forms.Button();
-            this.keepAllButton = new System.Windows.Forms.Button();
-            this.keepGamesButton = new System.Windows.Forms.Button();
+            this.keepOnlyProfilesXmlRadioButton = new System.Windows.Forms.RadioButton();
+            this.keepOnlyGamesXmlRadioButton = new System.Windows.Forms.RadioButton();
+            this.keepAllGamesRadioButton = new System.Windows.Forms.RadioButton();
+            this.okButton = new System.Windows.Forms.Button();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listSplitContainer)).BeginInit();
             this.listSplitContainer.Panel1.SuspendLayout();
@@ -46,8 +47,7 @@
             // 
             // listPanel
             // 
-            this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listPanel.Controls.Add(this.listSplitContainer);
             this.listPanel.Location = new System.Drawing.Point(13, 13);
@@ -116,47 +116,62 @@
             this.gamesContentsLabel.TabIndex = 0;
             this.gamesContentsLabel.Text = "Contents of \"games.xml\" file:";
             // 
-            // keepProfilesButton
+            // keepOnlyProfilesXmlRadioButton
             // 
-            this.keepProfilesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.keepProfilesButton.Location = new System.Drawing.Point(12, 413);
-            this.keepProfilesButton.Name = "keepProfilesButton";
-            this.keepProfilesButton.Size = new System.Drawing.Size(250, 25);
-            this.keepProfilesButton.TabIndex = 1;
-            this.keepProfilesButton.Text = "Keep only games from profiles.xml";
-            this.keepProfilesButton.UseVisualStyleBackColor = true;
-            this.keepProfilesButton.Click += new System.EventHandler(this.KeepProfilesButton_Click);
+            this.keepOnlyProfilesXmlRadioButton.AutoSize = true;
+            this.keepOnlyProfilesXmlRadioButton.Location = new System.Drawing.Point(13, 411);
+            this.keepOnlyProfilesXmlRadioButton.Name = "keepOnlyProfilesXmlRadioButton";
+            this.keepOnlyProfilesXmlRadioButton.Size = new System.Drawing.Size(244, 21);
+            this.keepOnlyProfilesXmlRadioButton.TabIndex = 4;
+            this.keepOnlyProfilesXmlRadioButton.TabStop = true;
+            this.keepOnlyProfilesXmlRadioButton.Text = "Keep only games from profiles.xml";
+            this.keepOnlyProfilesXmlRadioButton.UseVisualStyleBackColor = true;
+            this.keepOnlyProfilesXmlRadioButton.Click += new System.EventHandler(this.KeepOnlyProfilesXmlRadioButton_Click);
             // 
-            // keepAllButton
+            // keepOnlyGamesXmlRadioButton
             // 
-            this.keepAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.keepAllButton.Location = new System.Drawing.Point(268, 413);
-            this.keepAllButton.Name = "keepAllButton";
-            this.keepAllButton.Size = new System.Drawing.Size(264, 25);
-            this.keepAllButton.TabIndex = 2;
-            this.keepAllButton.Text = "Keep all games";
-            this.keepAllButton.UseVisualStyleBackColor = true;
-            this.keepAllButton.Click += new System.EventHandler(this.KeepAllButton_Click);
+            this.keepOnlyGamesXmlRadioButton.AutoSize = true;
+            this.keepOnlyGamesXmlRadioButton.Location = new System.Drawing.Point(12, 465);
+            this.keepOnlyGamesXmlRadioButton.Name = "keepOnlyGamesXmlRadioButton";
+            this.keepOnlyGamesXmlRadioButton.Size = new System.Drawing.Size(240, 21);
+            this.keepOnlyGamesXmlRadioButton.TabIndex = 5;
+            this.keepOnlyGamesXmlRadioButton.TabStop = true;
+            this.keepOnlyGamesXmlRadioButton.Text = "Keep only games from games.xml";
+            this.keepOnlyGamesXmlRadioButton.UseVisualStyleBackColor = true;
+            this.keepOnlyGamesXmlRadioButton.Click += new System.EventHandler(this.KeepOnlyProfilesXmlRadioButton_Click);
             // 
-            // keepGamesButton
+            // keepAllGamesRadioButton
             // 
-            this.keepGamesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.keepGamesButton.Location = new System.Drawing.Point(538, 413);
-            this.keepGamesButton.Name = "keepGamesButton";
-            this.keepGamesButton.Size = new System.Drawing.Size(250, 25);
-            this.keepGamesButton.TabIndex = 3;
-            this.keepGamesButton.Text = "Keep only games from games.xml";
-            this.keepGamesButton.UseVisualStyleBackColor = true;
-            this.keepGamesButton.Click += new System.EventHandler(this.KeepGamesButton_Click);
+            this.keepAllGamesRadioButton.AutoSize = true;
+            this.keepAllGamesRadioButton.Location = new System.Drawing.Point(12, 438);
+            this.keepAllGamesRadioButton.Name = "keepAllGamesRadioButton";
+            this.keepAllGamesRadioButton.Size = new System.Drawing.Size(126, 21);
+            this.keepAllGamesRadioButton.TabIndex = 6;
+            this.keepAllGamesRadioButton.TabStop = true;
+            this.keepAllGamesRadioButton.Text = "Keep all games";
+            this.keepAllGamesRadioButton.UseVisualStyleBackColor = true;
+            this.keepAllGamesRadioButton.Click += new System.EventHandler(this.KeepOnlyProfilesXmlRadioButton_Click);
+            // 
+            // okButton
+            // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.Location = new System.Drawing.Point(716, 457);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(75, 25);
+            this.okButton.TabIndex = 7;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // GameMigrationConflictDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 450);
-            this.Controls.Add(this.keepGamesButton);
-            this.Controls.Add(this.keepAllButton);
-            this.Controls.Add(this.keepProfilesButton);
+            this.ClientSize = new System.Drawing.Size(803, 494);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.keepAllGamesRadioButton);
+            this.Controls.Add(this.keepOnlyGamesXmlRadioButton);
+            this.Controls.Add(this.keepOnlyProfilesXmlRadioButton);
             this.Controls.Add(this.listPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "GameMigrationConflictDialog";
@@ -171,6 +186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.listSplitContainer)).EndInit();
             this.listSplitContainer.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -182,8 +198,9 @@
         private System.Windows.Forms.Label profilesContentsLabel;
         private System.Windows.Forms.ListView gamesListView;
         private System.Windows.Forms.Label gamesContentsLabel;
-        private System.Windows.Forms.Button keepProfilesButton;
-        private System.Windows.Forms.Button keepAllButton;
-        private System.Windows.Forms.Button keepGamesButton;
+        private System.Windows.Forms.RadioButton keepOnlyProfilesXmlRadioButton;
+        private System.Windows.Forms.RadioButton keepOnlyGamesXmlRadioButton;
+        private System.Windows.Forms.RadioButton keepAllGamesRadioButton;
+        private System.Windows.Forms.Button okButton;
     }
 }

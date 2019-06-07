@@ -1,5 +1,7 @@
 ﻿using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
+using System;
+using System.Linq;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -18,6 +20,14 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
             LoadProfiles();
             LoadGames();
+            TagRadioButtons();
+        }
+
+        private void TagRadioButtons()
+        {
+            keepAllGamesRadioButton.Tag = GameMigrationConflictSolution.KeepBoth;
+            keepOnlyGamesXmlRadioButton.Tag = GameMigrationConflictSolution.KeepGamesXml;
+            keepOnlyProfilesXmlRadioButton.Tag = GameMigrationConflictSolution.KeepProfilesXml;
         }
 
         private void LoadProfiles()
@@ -50,21 +60,6 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
             }
         }
 
-        private void KeepProfilesButton_Click(object sender, System.EventArgs e)
-        {
-            ContinueAndCloseIfAgeed(GameMigrationConflictSolution.KeepProfilesXml);
-        }
-
-        private void KeepAllButton_Click(object sender, System.EventArgs e)
-        {
-            ContinueAndCloseIfAgeed(GameMigrationConflictSolution.KeepBoth);
-        }
-
-        private void KeepGamesButton_Click(object sender, System.EventArgs e)
-        {
-            ContinueAndCloseIfAgeed(GameMigrationConflictSolution.KeepGamesXml);
-        }
-
         void ContinueAndCloseIfAgeed(GameMigrationConflictSolution solution)
         {
             if (AskForConfirmation(solution))
@@ -92,8 +87,12 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
                     messageBuilder.AppendLine("Are you sure to keep ALL games from both files?");
                     break;
                 default:
-                    messageBuilder.AppendLine("Are you sure you want to continue?");
-                    break;
+                    MessageBox.Show(
+                        "Please choose at least one option",
+                        "Custom SDK Launcher",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    return false;
             }
             messageBuilder.Append("This can not be undone");
 
@@ -103,6 +102,32 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Warning);
             return dialogResult == DialogResult.Yes;
+        }
+
+        private void KeepOnlyProfilesXmlRadioButton_Click(object sender, EventArgs e)
+        {
+            foreach (Control c in Controls)
+                if (c is RadioButton radioButton)
+                    radioButton.Checked = c == (Control)sender;
+        }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            GameMigrationConflictSolution solution = GameMigrationConflictSolution.NoDecission;
+
+            foreach (Control c in Controls)
+            {
+                if (c is RadioButton radioButton)
+                {
+                    if (radioButton.Checked)
+                    {
+                        solution = (GameMigrationConflictSolution)radioButton.Tag;
+                        break;
+                    }
+                }
+            }
+
+            ContinueAndCloseIfAgeed(solution);
         }
     }
 }
