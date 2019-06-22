@@ -39,6 +39,7 @@
             this.keepAllGamesRadioButton = new System.Windows.Forms.RadioButton();
             this.okButton = new System.Windows.Forms.Button();
             this.ignoreFutureConflictsCheckBox = new System.Windows.Forms.CheckBox();
+            this.doNotDoAnythingRadioButton = new System.Windows.Forms.RadioButton();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listSplitContainer)).BeginInit();
             this.listSplitContainer.Panel1.SuspendLayout();
@@ -156,7 +157,7 @@
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(716, 496);
+            this.okButton.Location = new System.Drawing.Point(716, 522);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 25);
             this.okButton.TabIndex = 7;
@@ -168,18 +169,30 @@
             // 
             this.ignoreFutureConflictsCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ignoreFutureConflictsCheckBox.AutoSize = true;
-            this.ignoreFutureConflictsCheckBox.Location = new System.Drawing.Point(12, 500);
+            this.ignoreFutureConflictsCheckBox.Location = new System.Drawing.Point(12, 526);
             this.ignoreFutureConflictsCheckBox.Name = "ignoreFutureConflictsCheckBox";
             this.ignoreFutureConflictsCheckBox.Size = new System.Drawing.Size(488, 21);
             this.ignoreFutureConflictsCheckBox.TabIndex = 8;
             this.ignoreFutureConflictsCheckBox.Text = "Ignore game migration conflicts in the future (can be disabled in settings)";
             this.ignoreFutureConflictsCheckBox.UseVisualStyleBackColor = true;
             // 
+            // doNotDoAnythingRadioButton
+            // 
+            this.doNotDoAnythingRadioButton.AutoSize = true;
+            this.doNotDoAnythingRadioButton.Location = new System.Drawing.Point(12, 492);
+            this.doNotDoAnythingRadioButton.Name = "doNotDoAnythingRadioButton";
+            this.doNotDoAnythingRadioButton.Size = new System.Drawing.Size(149, 21);
+            this.doNotDoAnythingRadioButton.TabIndex = 9;
+            this.doNotDoAnythingRadioButton.TabStop = true;
+            this.doNotDoAnythingRadioButton.Text = "Do not do anything";
+            this.doNotDoAnythingRadioButton.UseVisualStyleBackColor = true;
+            // 
             // GameMigrationConflictDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 533);
+            this.ClientSize = new System.Drawing.Size(803, 559);
+            this.Controls.Add(this.doNotDoAnythingRadioButton);
             this.Controls.Add(this.ignoreFutureConflictsCheckBox);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.keepAllGamesRadioButton);
@@ -216,5 +229,6 @@
         private System.Windows.Forms.RadioButton keepAllGamesRadioButton;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.CheckBox ignoreFutureConflictsCheckBox;
+        private System.Windows.Forms.RadioButton doNotDoAnythingRadioButton;
     }
 }

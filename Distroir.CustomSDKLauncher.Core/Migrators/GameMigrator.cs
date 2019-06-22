@@ -60,6 +60,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
         {
             switch (solution)
             {
+                case GameMigrationConflictSolution.NoDecisionThisTime:
                 case GameMigrationConflictSolution.NoDecission:
                     break;
                 case GameMigrationConflictSolution.KeepGamesXml:

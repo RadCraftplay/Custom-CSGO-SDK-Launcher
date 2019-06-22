@@ -29,6 +29,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
             keepAllGamesRadioButton.Tag = GameMigrationConflictSolution.KeepBoth;
             keepOnlyGamesXmlRadioButton.Tag = GameMigrationConflictSolution.KeepGamesXml;
             keepOnlyProfilesXmlRadioButton.Tag = GameMigrationConflictSolution.KeepProfilesXml;
+            doNotDoAnythingRadioButton.Tag = GameMigrationConflictSolution.NoDecisionThisTime;
         }
 
         private void LoadProfiles()
@@ -87,6 +88,8 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
                 case GameMigrationConflictSolution.KeepBoth:
                     messageBuilder.AppendLine("Are you sure to keep ALL games from both files?");
                     break;
+                case GameMigrationConflictSolution.NoDecisionThisTime:
+                    return true;
                 default:
                     MessageBox.Show(
                         "Please choose at least one option",
