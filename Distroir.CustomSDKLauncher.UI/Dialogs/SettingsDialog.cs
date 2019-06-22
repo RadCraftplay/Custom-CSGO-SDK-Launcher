@@ -57,6 +57,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
             disableFeedbackCheckBox.Checked = Config.TryReadBool("DisableFeedbackNotifications");
+            ignoreGameMigrationConflictsCheckBox.Checked = Config.TryReadBool("IgnoreGameMigrationConflicts");
 
             launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
@@ -114,6 +115,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
             Config.AddVariable("UseNewLauncher", BoolToInt(useNewLauncherCheckBox.Checked));
             Config.AddVariable("DisableFeedbackNotifications", disableFeedbackCheckBox.Checked);
+            Config.AddVariable("IgnoreGameMigrationConflicts", ignoreGameMigrationConflictsCheckBox.Checked);
 
             Utils.TryReloadPathFormatterVars();
             DataManagers.AppManager.Objects = appListReference;

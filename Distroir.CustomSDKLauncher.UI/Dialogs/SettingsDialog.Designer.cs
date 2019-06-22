@@ -60,6 +60,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
+            this.ignoreGameMigrationConflictsCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
@@ -301,6 +302,7 @@
             // 
             // advancedTabPage
             // 
+            this.advancedTabPage.Controls.Add(this.ignoreGameMigrationConflictsCheckBox);
             this.advancedTabPage.Controls.Add(this.preLoadDataCheckBox);
             this.advancedTabPage.Controls.Add(this.advancedWarningLabel);
             this.advancedTabPage.Location = new System.Drawing.Point(4, 25);
@@ -461,6 +463,16 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // ignoreGameMigrationConflictsCheckBox
+            // 
+            this.ignoreGameMigrationConflictsCheckBox.AutoSize = true;
+            this.ignoreGameMigrationConflictsCheckBox.Location = new System.Drawing.Point(9, 72);
+            this.ignoreGameMigrationConflictsCheckBox.Name = "ignoreGameMigrationConflictsCheckBox";
+            this.ignoreGameMigrationConflictsCheckBox.Size = new System.Drawing.Size(226, 21);
+            this.ignoreGameMigrationConflictsCheckBox.TabIndex = 2;
+            this.ignoreGameMigrationConflictsCheckBox.Text = "Ignore game migration conflicts";
+            this.ignoreGameMigrationConflictsCheckBox.UseVisualStyleBackColor = true;
+            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -526,5 +538,6 @@
         private System.Windows.Forms.Label actionChangeLabel;
         private System.Windows.Forms.LinkLabel githubLinkLabel;
         private System.Windows.Forms.LinkLabel gamebananaLinkLabel;
+        private System.Windows.Forms.CheckBox ignoreGameMigrationConflictsCheckBox;
     }
 }

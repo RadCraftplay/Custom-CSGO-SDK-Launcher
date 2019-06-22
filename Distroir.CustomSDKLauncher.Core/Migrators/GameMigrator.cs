@@ -1,4 +1,5 @@
-﻿using Distroir.CustomSDKLauncher.Core.Managers;
+﻿using Distroir.Configuration;
+using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Core.Migrators.Games;
 using System;
@@ -22,6 +23,9 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         public void Migrate()
         {
+            if (IgnoreMigrationConflists())
+                return;
+
             var solution = CheckForConflicts() ?
                 LetUserDecide() : GameMigrationConflictSolution.NoConflict;
 
@@ -32,6 +36,16 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
         {
             return File.Exists(DataManagers.GameListFilename)
                 && File.Exists(oldGameListFilename);
+        }
+
+        private bool IgnoreMigrationConflists()
+        {
+            bool ignoreConflicts = false;
+
+            if (!Config.TryReadBool("IgnoreGameMigrationConflicts", out ignoreConflicts))
+                Config.AddVariable("IgnoreGameMigrationConflicts", false);
+
+            return ignoreConflicts;
         }
 
         private GameMigrationConflictSolution LetUserDecide()

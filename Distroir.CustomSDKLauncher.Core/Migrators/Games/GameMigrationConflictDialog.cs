@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using Distroir.Configuration;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 {
@@ -114,6 +115,9 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
         private void OkButton_Click(object sender, EventArgs e)
         {
             GameMigrationConflictSolution solution = GameMigrationConflictSolution.NoDecission;
+
+            if (ignoreFutureConflictsCheckBox.Checked)
+                Config.AddVariable("IgnoreGameMigrationConflicts", true);
 
             foreach (Control c in Controls)
             {
