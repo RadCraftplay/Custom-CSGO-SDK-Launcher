@@ -53,7 +53,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
             var dialog = new Games.GameMigrationConflictDialog();
             
             return dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK ?
-                dialog.ConflictSolution : GameMigrationConflictSolution.NoDecission;
+                dialog.ConflictSolution : GameMigrationConflictSolution.NoDecision;
         }
 
         private void PerformMigration(GameMigrationConflictSolution solution)
@@ -61,7 +61,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
             switch (solution)
             {
                 case GameMigrationConflictSolution.NoDecisionThisTime:
-                case GameMigrationConflictSolution.NoDecission:
+                case GameMigrationConflictSolution.NoDecision:
                     break;
                 case GameMigrationConflictSolution.KeepGamesXml:
                     File.Delete(oldGameListFilename);

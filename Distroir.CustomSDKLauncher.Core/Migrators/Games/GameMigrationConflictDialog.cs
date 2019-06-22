@@ -13,7 +13,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
     public partial class GameMigrationConflictDialog : Form
     {
         public GameMigrationConflictSolution ConflictSolution { get; private set; }
-            = GameMigrationConflictSolution.NoDecission;
+            = GameMigrationConflictSolution.NoDecision;
 
         public GameMigrationConflictDialog()
         {
@@ -117,7 +117,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            GameMigrationConflictSolution solution = GameMigrationConflictSolution.NoDecission;
+            GameMigrationConflictSolution solution = GameMigrationConflictSolution.NoDecision;
 
             if (ignoreFutureConflictsCheckBox.Checked)
                 Config.AddVariable("IgnoreGameMigrationConflicts", true);

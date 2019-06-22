@@ -11,7 +11,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
         KeepProfilesXml = 1,
         KeepGamesXml = 2,
         KeepBoth = 4,
-        NoDecission = 8,
+        NoDecision = 8,
         NoDecisionThisTime = 16
     }
 }
