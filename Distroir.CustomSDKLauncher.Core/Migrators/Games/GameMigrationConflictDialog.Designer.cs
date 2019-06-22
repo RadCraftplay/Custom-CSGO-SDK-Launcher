@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameMigrationConflictDialog));
             this.listPanel = new System.Windows.Forms.Panel();
             this.listSplitContainer = new System.Windows.Forms.SplitContainer();
             this.profilesListView = new System.Windows.Forms.ListView();
@@ -199,9 +200,9 @@
             this.Controls.Add(this.keepOnlyGamesXmlRadioButton);
             this.Controls.Add(this.keepOnlyProfilesXmlRadioButton);
             this.Controls.Add(this.listPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameMigrationConflictDialog";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Version conflict";
             this.listPanel.ResumeLayout(false);
