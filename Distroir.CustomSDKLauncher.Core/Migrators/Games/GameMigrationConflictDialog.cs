@@ -22,6 +22,17 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
             LoadProfiles();
             LoadGames();
             TagRadioButtons();
+
+            FormClosing += GameMigrationConflictDialog_FormClosing;
+        }
+
+        private void GameMigrationConflictDialog_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to close this window?", 
+                "Custom SDK Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
         }
 
         private void TagRadioButtons()
