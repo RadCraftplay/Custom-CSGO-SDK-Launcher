@@ -106,7 +106,7 @@
             this.gamesListView.Location = new System.Drawing.Point(3, 25);
             this.gamesListView.Name = "gamesListView";
             this.gamesListView.Size = new System.Drawing.Size(379, 366);
-            this.gamesListView.TabIndex = 1;
+            this.gamesListView.TabIndex = 2;
             this.gamesListView.UseCompatibleStateImageBehavior = false;
             this.gamesListView.View = System.Windows.Forms.View.List;
             // 
@@ -125,7 +125,7 @@
             this.keepOnlyProfilesXmlRadioButton.Location = new System.Drawing.Point(13, 411);
             this.keepOnlyProfilesXmlRadioButton.Name = "keepOnlyProfilesXmlRadioButton";
             this.keepOnlyProfilesXmlRadioButton.Size = new System.Drawing.Size(244, 21);
-            this.keepOnlyProfilesXmlRadioButton.TabIndex = 4;
+            this.keepOnlyProfilesXmlRadioButton.TabIndex = 3;
             this.keepOnlyProfilesXmlRadioButton.TabStop = true;
             this.keepOnlyProfilesXmlRadioButton.Text = "Keep only games from profiles.xml";
             this.keepOnlyProfilesXmlRadioButton.UseVisualStyleBackColor = true;
@@ -149,7 +149,7 @@
             this.keepAllGamesRadioButton.Location = new System.Drawing.Point(12, 438);
             this.keepAllGamesRadioButton.Name = "keepAllGamesRadioButton";
             this.keepAllGamesRadioButton.Size = new System.Drawing.Size(126, 21);
-            this.keepAllGamesRadioButton.TabIndex = 6;
+            this.keepAllGamesRadioButton.TabIndex = 4;
             this.keepAllGamesRadioButton.TabStop = true;
             this.keepAllGamesRadioButton.Text = "Keep all games";
             this.keepAllGamesRadioButton.UseVisualStyleBackColor = true;
@@ -161,7 +161,7 @@
             this.okButton.Location = new System.Drawing.Point(716, 522);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 25);
-            this.okButton.TabIndex = 7;
+            this.okButton.TabIndex = 8;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.OkButton_Click);
@@ -173,7 +173,7 @@
             this.ignoreFutureConflictsCheckBox.Location = new System.Drawing.Point(12, 526);
             this.ignoreFutureConflictsCheckBox.Name = "ignoreFutureConflictsCheckBox";
             this.ignoreFutureConflictsCheckBox.Size = new System.Drawing.Size(488, 21);
-            this.ignoreFutureConflictsCheckBox.TabIndex = 8;
+            this.ignoreFutureConflictsCheckBox.TabIndex = 7;
             this.ignoreFutureConflictsCheckBox.Text = "Ignore game migration conflicts in the future (can be disabled in settings)";
             this.ignoreFutureConflictsCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -183,7 +183,7 @@
             this.doNotDoAnythingRadioButton.Location = new System.Drawing.Point(12, 492);
             this.doNotDoAnythingRadioButton.Name = "doNotDoAnythingRadioButton";
             this.doNotDoAnythingRadioButton.Size = new System.Drawing.Size(149, 21);
-            this.doNotDoAnythingRadioButton.TabIndex = 9;
+            this.doNotDoAnythingRadioButton.TabIndex = 6;
             this.doNotDoAnythingRadioButton.TabStop = true;
             this.doNotDoAnythingRadioButton.Text = "Do not do anything";
             this.doNotDoAnythingRadioButton.UseVisualStyleBackColor = true;
