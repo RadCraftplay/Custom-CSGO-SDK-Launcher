@@ -41,6 +41,8 @@
             this.okButton = new System.Windows.Forms.Button();
             this.ignoreFutureConflictsCheckBox = new System.Windows.Forms.CheckBox();
             this.doNotDoAnythingRadioButton = new System.Windows.Forms.RadioButton();
+            this.migrationConflictInfoLabel = new System.Windows.Forms.Label();
+            this.migrationConflictInfoLinkLabel = new System.Windows.Forms.LinkLabel();
             this.listPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listSplitContainer)).BeginInit();
             this.listSplitContainer.Panel1.SuspendLayout();
@@ -53,9 +55,9 @@
             this.listPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listPanel.Controls.Add(this.listSplitContainer);
-            this.listPanel.Location = new System.Drawing.Point(13, 13);
+            this.listPanel.Location = new System.Drawing.Point(13, 43);
             this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(778, 394);
+            this.listPanel.Size = new System.Drawing.Size(778, 364);
             this.listPanel.TabIndex = 0;
             // 
             // listSplitContainer
@@ -73,7 +75,7 @@
             // 
             this.listSplitContainer.Panel2.Controls.Add(this.gamesListView);
             this.listSplitContainer.Panel2.Controls.Add(this.gamesContentsLabel);
-            this.listSplitContainer.Size = new System.Drawing.Size(778, 394);
+            this.listSplitContainer.Size = new System.Drawing.Size(778, 364);
             this.listSplitContainer.SplitterDistance = 389;
             this.listSplitContainer.TabIndex = 0;
             // 
@@ -84,7 +86,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.profilesListView.Location = new System.Drawing.Point(3, 25);
             this.profilesListView.Name = "profilesListView";
-            this.profilesListView.Size = new System.Drawing.Size(383, 366);
+            this.profilesListView.Size = new System.Drawing.Size(383, 336);
             this.profilesListView.TabIndex = 1;
             this.profilesListView.UseCompatibleStateImageBehavior = false;
             this.profilesListView.View = System.Windows.Forms.View.List;
@@ -105,7 +107,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gamesListView.Location = new System.Drawing.Point(3, 25);
             this.gamesListView.Name = "gamesListView";
-            this.gamesListView.Size = new System.Drawing.Size(379, 366);
+            this.gamesListView.Size = new System.Drawing.Size(379, 336);
             this.gamesListView.TabIndex = 2;
             this.gamesListView.UseCompatibleStateImageBehavior = false;
             this.gamesListView.View = System.Windows.Forms.View.List;
@@ -188,11 +190,32 @@
             this.doNotDoAnythingRadioButton.Text = "Do not do anything";
             this.doNotDoAnythingRadioButton.UseVisualStyleBackColor = true;
             // 
+            // migrationConflictInfoLabel
+            // 
+            this.migrationConflictInfoLabel.AutoSize = true;
+            this.migrationConflictInfoLabel.Location = new System.Drawing.Point(13, 13);
+            this.migrationConflictInfoLabel.Name = "migrationConflictInfoLabel";
+            this.migrationConflictInfoLabel.Size = new System.Drawing.Size(286, 17);
+            this.migrationConflictInfoLabel.TabIndex = 9;
+            this.migrationConflictInfoLabel.Text = "We found out that migration conflict occured";
+            // 
+            // migrationConflictInfoLinkLabel
+            // 
+            this.migrationConflictInfoLinkLabel.AutoSize = true;
+            this.migrationConflictInfoLinkLabel.Location = new System.Drawing.Point(300, 13);
+            this.migrationConflictInfoLinkLabel.Name = "migrationConflictInfoLinkLabel";
+            this.migrationConflictInfoLinkLabel.Size = new System.Drawing.Size(181, 17);
+            this.migrationConflictInfoLinkLabel.TabIndex = 10;
+            this.migrationConflictInfoLinkLabel.TabStop = true;
+            this.migrationConflictInfoLinkLabel.Text = "[What is migration conflict?]";
+            // 
             // GameMigrationConflictDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 559);
+            this.Controls.Add(this.migrationConflictInfoLinkLabel);
+            this.Controls.Add(this.migrationConflictInfoLabel);
             this.Controls.Add(this.doNotDoAnythingRadioButton);
             this.Controls.Add(this.ignoreFutureConflictsCheckBox);
             this.Controls.Add(this.okButton);
@@ -231,5 +254,7 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.CheckBox ignoreFutureConflictsCheckBox;
         private System.Windows.Forms.RadioButton doNotDoAnythingRadioButton;
+        private System.Windows.Forms.Label migrationConflictInfoLabel;
+        private System.Windows.Forms.LinkLabel migrationConflictInfoLinkLabel;
     }
 }
