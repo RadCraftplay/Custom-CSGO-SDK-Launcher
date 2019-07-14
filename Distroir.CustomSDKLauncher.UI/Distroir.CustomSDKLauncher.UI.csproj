@@ -158,6 +158,10 @@
       <Project>{abefcede-8964-427c-ac88-fe00daca6474}</Project>
       <Name>Distroir.CustomSDKLauncher.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Distroir.CustomSDKLauncher.Shared\Distroir.CustomSDKLauncher.Shared.csproj">
+      <Project>{8cf7dc06-2f75-451d-b22e-491d8f6b8aa7}</Project>
+      <Name>Distroir.CustomSDKLauncher.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Distroir.CustomSDKLauncher\Distroir.Custom SDK Launcher.licenseheader">

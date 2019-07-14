@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher", "Distroir.CustomSDKLauncher\Distroir.CustomSDKLauncher.csproj", "{7E3C2178-DF29-418B-9341-0C57C70E0B2F}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher.UI", "Distroir.CustomSDKLauncher.UI\Distroir.CustomSDKLauncher.UI.csproj", "{3C5E58B4-E3A2-4299-A168-B3F1322039B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher.Core.Data", "Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj", "{7B1A697A-96C8-40D8-9DDF-058ED283236D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Distroir.CustomSDKLauncher.Shared", "Distroir.CustomSDKLauncher.Shared\Distroir.CustomSDKLauncher.Shared.csproj", "{8CF7DC06-2F75-451D-B22E-491D8F6B8AA7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7B1A697A-96C8-40D8-9DDF-058ED283236D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B1A697A-96C8-40D8-9DDF-058ED283236D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B1A697A-96C8-40D8-9DDF-058ED283236D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF7DC06-2F75-451D-B22E-491D8F6B8AA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF7DC06-2F75-451D-B22E-491D8F6B8AA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF7DC06-2F75-451D-B22E-491D8F6B8AA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF7DC06-2F75-451D-B22E-491D8F6B8AA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
