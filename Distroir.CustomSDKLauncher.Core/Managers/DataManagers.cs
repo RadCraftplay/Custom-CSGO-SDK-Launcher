@@ -23,6 +23,7 @@ using System.Text;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
+using Distroir.CustomSDKLauncher.Shared.Core;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
@@ -57,6 +58,8 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// App serializer
         /// </summary>
         public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
+
+        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringSerializer<HelpTopic>(Data.HelpTopicsXML));
 
         //TODO: Remove commented out code
         /*
