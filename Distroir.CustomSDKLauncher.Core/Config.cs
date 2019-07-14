@@ -265,7 +265,9 @@ namespace Distroir.Configuration
         /// <returns>Value of specified variable (as int)</returns>
         public static int TryReadInt(string name)
         {
-            return Convert.ToInt32((string)TryReadVariable(name));
+            int retVal = 0;
+            TryReadInt(name, out retVal);
+            return retVal;
         }
 
         /// <summary>
