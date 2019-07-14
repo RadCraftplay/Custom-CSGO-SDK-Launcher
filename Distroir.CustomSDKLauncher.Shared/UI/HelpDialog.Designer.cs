@@ -60,8 +60,9 @@
             this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.topicTextRichTextBox);
             this.Controls.Add(this.topicNameLabel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "HelpDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Custom SDK Launcher - Help";
             this.ResumeLayout(false);
             this.PerformLayout();
