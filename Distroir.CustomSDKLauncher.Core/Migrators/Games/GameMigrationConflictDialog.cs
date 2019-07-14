@@ -7,6 +7,9 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using Distroir.Configuration;
+using Distroir.CustomSDKLauncher.Shared.Core;
+using System.Collections.Generic;
+using Distroir.CustomSDKLauncher.Shared.UI;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 {
@@ -146,6 +149,25 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
             }
 
             ContinueAndCloseIfAgeed(solution);
+        }
+
+        private void MigrationConflictInfoLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            HelpTopic migrationTopic = GetTopics()
+                .Where(topic => topic.Name == "Migration conflicts")
+                .First();
+
+            HelpDialog dialog = new HelpDialog(migrationTopic);
+            dialog.ShowDialog();
+
+        }
+
+        private List<HelpTopic> GetTopics()
+        {
+            if (DataManagers.HelpTopicManager.Objects.Count == 0)
+                DataManagers.HelpTopicManager.Load();
+
+            return DataManagers.HelpTopicManager.Objects;
         }
     }
 }

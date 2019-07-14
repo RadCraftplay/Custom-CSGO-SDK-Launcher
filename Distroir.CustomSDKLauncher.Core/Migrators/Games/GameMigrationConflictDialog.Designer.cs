@@ -208,6 +208,7 @@
             this.migrationConflictInfoLinkLabel.TabIndex = 10;
             this.migrationConflictInfoLinkLabel.TabStop = true;
             this.migrationConflictInfoLinkLabel.Text = "[What is migration conflict?]";
+            this.migrationConflictInfoLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MigrationConflictInfoLinkLabel_LinkClicked);
             // 
             // GameMigrationConflictDialog
             // 
