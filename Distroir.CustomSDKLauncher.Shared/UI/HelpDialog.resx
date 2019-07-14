@@ -117,46 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="aboutTabPage_text" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="displayCurrentlySelectedProfileCheckBox_text" xml:space="preserve">
-    <value>Display currently selected profile name</value>
-  </data>
-  <data name="editListOfProfilesLinkLabel_text" xml:space="preserve">
-    <value>Edit list of profiles</value>
-  </data>
-  <data name="editListOfProfilesLinkLabel_X" xml:space="preserve">
-    <value>236</value>
-  </data>
-  <data name="profileLabel_text" xml:space="preserve">
-    <value>Profile:</value>
-  </data>
-  <data name="profileListComboBox_length" xml:space="preserve">
-    <value>272</value>
-  </data>
-  <data name="profileListComboBox_X" xml:space="preserve">
-    <value>52</value>
-  </data>
-  <data name="profilesTabPage_text" xml:space="preserve">
-    <value>Profiles</value>
-  </data>
-  <data name="saveButton_text" xml:space="preserve">
-    <value>Save</value>
-  </data>
-  <data name="settingsDialog_text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="backupTabPage_text" xml:space="preserve">
-    <value>Backups</value>
-  </data>
-  <data name="createBackupButton_text" xml:space="preserve">
-    <value>Create backup</value>
-  </data>
-  <data name="restoreBackupButton_text" xml:space="preserve">
-    <value>Restore backup</value>
-  </data>
-  <data name="settingsAndProfilesGroupBox_text" xml:space="preserve">
-    <value>Settings and profiles</value>
-  </data>
 </root>

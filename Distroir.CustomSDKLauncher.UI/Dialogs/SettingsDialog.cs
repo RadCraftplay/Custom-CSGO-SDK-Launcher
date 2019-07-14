@@ -50,13 +50,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateControls()
         {
-            //Refresh list of profiles
+            //Refresh list of games
             RefreshList();
             //Update controls
-            displayCurrentlySelectedProfileCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
+            displayCurrentlySelectedGameCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
             disableFeedbackCheckBox.Checked = Config.TryReadBool("DisableFeedbackNotifications");
+            ignoreGameMigrationConflictsCheckBox.Checked = Config.TryReadBool("IgnoreGameMigrationConflicts");
 
             launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
             launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
@@ -85,17 +86,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void RefreshList()
         {
-            //Clear item list
-            profileListComboBox.Items.Clear();
+            gameListComboBox.Items.Clear();
 
-            //Add profiles to ComboBox
-            foreach (Profile p in DataManagers.ProfileManager.Objects)
-                profileListComboBox.Items.Add(p);
+            foreach (Game g in DataManagers.GameManager.Objects)
+                gameListComboBox.Items.Add(g);
 
-            //Set profile
             try
             {
-                profileListComboBox.SelectedIndex = Config.TryReadInt("SelectedProfileId");
+                gameListComboBox.SelectedIndex = Config.TryReadInt("SelectedProfileId");
             }
             catch
             {
@@ -112,21 +110,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         /// </summary>
         void SaveSettings()
         {
-            //Save current profile ID
-            Config.AddVariable("SelectedProfileId", profileListComboBox.SelectedIndex);
-
-            //Save orther settings
-            Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedProfileCheckBox.Checked));
+            Config.AddVariable("SelectedProfileId", gameListComboBox.SelectedIndex);
+            Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedGameCheckBox.Checked));
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
             Config.AddVariable("UseNewLauncher", BoolToInt(useNewLauncherCheckBox.Checked));
             Config.AddVariable("DisableFeedbackNotifications", disableFeedbackCheckBox.Checked);
+            Config.AddVariable("IgnoreGameMigrationConflicts", ignoreGameMigrationConflictsCheckBox.Checked);
 
-            //Reload Path Formatter, apps and buttons
             Utils.TryReloadPathFormatterVars();
             DataManagers.AppManager.Objects = appListReference;
             formReference.ApplyLauncherSettings();
 
-            //Save app manager settings
             DataManagers.AppManager.Save();
         }
 
@@ -142,12 +136,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             //Create dialog
-            var v = new ProfileListEditDialog();
+            var v = new GameListEditDialog();
 
             //Show dialog
             if (v.ShowDialog() == DialogResult.OK)
             {
-                //Refresh profile list
                 RefreshList();
             }
         }
@@ -201,7 +194,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 {
                     //Save settings
                     Config.Save();
-                    DataManagers.ProfileManager.Save();
+                    DataManagers.GameManager.Save();
 
                     //Do backup
                     BackupManager m = new BackupManager(sfd.FileName);
@@ -228,7 +221,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                     //Restore settings
                     Config.Load();
-                    DataManagers.ProfileManager.Load();
+                    DataManagers.GameManager.Load();
                     DataManagers.AppManager.Load();
                     appListReference = DataManagers.AppManager.Objects;
                     UpdateControls();

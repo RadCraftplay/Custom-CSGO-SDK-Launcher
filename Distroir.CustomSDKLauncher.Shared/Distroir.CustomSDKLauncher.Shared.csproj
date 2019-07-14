@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7B1A697A-96C8-40D8-9DDF-058ED283236D}</ProjectGuid>
+    <ProjectGuid>{8CF7DC06-2F75-451D-B22E-491D8F6B8AA7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Distroir.CustomSDKLauncher.Core</RootNamespace>
-    <AssemblyName>Distroir.CustomSDKLauncher.Core.Data</AssemblyName>
+    <RootNamespace>Distroir.CustomSDKLauncher.Shared</RootNamespace>
+    <AssemblyName>Distroir.CustomSDKLauncher.Shared</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +34,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,36 +42,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data.Designer.cs">
-      <DependentUpon>Data.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <Compile Include="Core\HelpTopic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\HelpDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HelpDialog.Designer.cs">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Data.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Data.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="UI\HelpDialog.resx">
+      <DependentUpon>HelpDialog.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj">
+      <Project>{7b1a697a-96c8-40d8-9ddf-058ed283236d}</Project>
+      <Name>Distroir.CustomSDKLauncher.Core.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Distroir.CustomSDKLauncher\Distroir.Custom SDK Launcher.licenseheader">
       <Link>Distroir.Custom SDK Launcher.licenseheader</Link>
     </None>
-    <None Include="Resources\ContentGroups.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AppIcon.ico" />
-    <Content Include="Resources\HelpTopics.xml" />
-    <Content Include="Resources\Icons\App\DefaultIcon.png" />
-    <Content Include="Resources\Icons\App\SDK\FacePoserIcon.png" />
-    <Content Include="Resources\Icons\App\SDK\HammerIcon.png" />
-    <Content Include="Resources\Icons\App\SDK\ModelViewerIcon.png" />
-    <None Include="Resources\UIThemes.xml" />
-    <None Include="Resources\Tutorials.xml" />
-    <None Include="Resources\Templates.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

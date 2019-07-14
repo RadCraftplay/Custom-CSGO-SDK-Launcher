@@ -19,12 +19,12 @@ using System.IO;
 
 namespace Distroir.CustomSDKLauncher.Core
 {
-    public class Profile
+    public class Game
     {
         /// <summary>
-        /// Name of the profile
+        /// Name of the game
         /// </summary>
-        public string ProfileName;
+        public string Name;
 
         /// <summary>
         /// Full path of game directory. For example "C:\Program Files\Steam\steamapps\common\Counter-Strike Global Offensive"
@@ -47,7 +47,7 @@ namespace Distroir.CustomSDKLauncher.Core
 
         public override string ToString()
         {
-            return ProfileName;
+            return Name;
         }
     }
 }

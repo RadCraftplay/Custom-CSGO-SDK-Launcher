@@ -75,39 +75,29 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            //Prevent user from editing data
             Enabled = false;
 
-            //List of profiles mustn't be null
-            DataManagers.ProfileManager.Objects = new System.Collections.Generic.List<Profile>();
+            //List of games can't be null
+            DataManagers.GameManager.Objects = new System.Collections.Generic.List<Game>();
 
-            //Simple mode
             if (simpleRadioButton.Checked)
             {
-
-                //Check if directory exists
                 if (!Directory.Exists(directoryTextBox.Text))
                 {
-                    //Inform user that directory does not exist
                     MessageBox.Show("Directory does not exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Re-enable control
                     Enabled = true;
-                    //Skip rest of the method
+                    
                     return;
                 }
 
-                //Create profile
-                Profile p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToProfile(directoryTextBox.Text);
+                Game p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
+                DataManagers.GameManager.Objects.Add(p);
 
-                //Add profile to list
-                DataManagers.ProfileManager.Objects.Add(p);
-
-                //Reload path variables
                 Utils.TryReloadPathFormatterVars();
             }
             else //Advanced mode
             {
-                if (profileNameTextBox.Text.Length == 0 ||
+                if (gameNameTextBox.Text.Length == 0 ||
                     gameDirectoryTextBox.Text.Length == 0 ||
                     gameinfoDirectoryTextBox.Text.Length == 0)
                 {
@@ -119,23 +109,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     return;
                 }
 
-                //Create profile
-                Profile p = new Profile();
-                p.ProfileName = profileNameTextBox.Text;
-                p.GameDir = gameDirectoryTextBox.Text;
-                p.GameinfoDirName = gameinfoDirectoryTextBox.Text;
+                Game g = new Game();
+                g.Name = gameNameTextBox.Text;
+                g.GameDir = gameDirectoryTextBox.Text;
+                g.GameinfoDirName = gameinfoDirectoryTextBox.Text;
 
-                //Add profile to list
-                DataManagers.ProfileManager.Objects.Add(p);
+                DataManagers.GameManager.Objects.Add(g);
             }
 
-            //Select profile
             Config.AddVariable("SelectedProfileId", 0);
 
-            //Set dialog result
             DialogResult = DialogResult.OK;
-
-            //Close dialog
             Close();
         }
 
@@ -170,7 +154,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             advancedLabel1.Enabled = !simple;
             advancedLabel2.Enabled = !simple;
             advancedLabel3.Enabled = !simple;
-            profileNameTextBox.Enabled = !simple;
+            gameNameTextBox.Enabled = !simple;
             gameDirectoryTextBox.Enabled = !simple;
             selectDirectoryAdvancedButton.Enabled = !simple;
             gameinfoDirectoryTextBox.Enabled = !simple;

@@ -23,101 +23,93 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    public partial class ProfileListEditDialog : Form
+    public partial class GameListEditDialog : Form
     {
         /// <summary>
-        /// Local copy of ProfileManager.Profiles
+        /// Local copy of GameManager.Games
         /// </summary>
-        public List<Profile> Profiles;
+        public List<Game> Games;
 
-        public ProfileListEditDialog()
+        public GameListEditDialog()
         {
             InitializeComponent();
 
-            //Create copy of profile list
-            Profiles = DataManagers.ProfileManager.Objects;
+            Games = DataManagers.GameManager.Objects;
             LoadList();
         }
 
         void LoadList()
         {
-            //For every profile on list
-            foreach (Profile p in Profiles)
+            foreach (Game p in Games)
             {
-                //Add ListViewItem
                 AddIem(p);
             }
         }
 
-        public void AddIem(Profile p)
+        public void AddIem(Game p)
         {
-            //Create new ListViewItem
             ListViewItem i = new ListViewItem()
             {
-                Name = p.ProfileName,
-                Text = p.ProfileName,
+                Name = p.Name,
+                Text = p.Name,
                 Tag = p
             };
 
-            //And add it to ListView
-            profileListView.Items.Add(i);
+            gameListView.Items.Add(i);
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
             //Show EditItemDialog
-            var v = new EditItemDialog();
+            var v = new EditGameDialog();
 
             if (v.ShowDialog() == DialogResult.OK)
             {
                 //Add ListViewItem
-                Profiles.Add(v.Profile);
-                AddIem(v.Profile);
+                Games.Add(v.Game);
+                AddIem(v.Game);
             }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
             //If user selected any items
-            if (profileListView.SelectedItems.Count > 0)
+            if (gameListView.SelectedItems.Count > 0)
             {
                 //For every selected item
-                for (int i = 0; i < profileListView.SelectedItems.Count; i++)
+                for (int i = 0; i < gameListView.SelectedItems.Count; i++)
                 {
                     //Remove item from list
-                    Profiles.Remove((Profile)profileListView.SelectedItems[i].Tag);
+                    Games.Remove((Game)gameListView.SelectedItems[i].Tag);
                     //And remove it from control
-                    profileListView.SelectedItems[i].Remove();
+                    gameListView.SelectedItems[i].Remove();
                 }
             }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            if (profileListView.SelectedItems.Count > 0)
+            if (gameListView.SelectedItems.Count > 0)
             {
                 //Create instance of selected item
-                var i = profileListView.SelectedItems[0];
+                var i = gameListView.SelectedItems[0];
                 //Show EditItemDialog
-                var v = new EditItemDialog((Profile)i.Tag);
+                var v = new EditGameDialog((Game)i.Tag);
 
                 if (v.ShowDialog() == DialogResult.OK)
                 {
                     //Set values
-                    i.Name = v.Profile.ProfileName;
-                    i.Text = v.Profile.ProfileName;
-                    i.Tag = v.Profile;
+                    i.Name = v.Game.Name;
+                    i.Text = v.Game.Name;
+                    i.Tag = v.Game;
                 }
             }
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            //Update profile list
-            DataManagers.ProfileManager.Objects = Profiles;
-            //Set dialog result
+            DataManagers.GameManager.Objects = Games;
             DialogResult = DialogResult.OK;
-            //Close dialog
             Close();
         }
 

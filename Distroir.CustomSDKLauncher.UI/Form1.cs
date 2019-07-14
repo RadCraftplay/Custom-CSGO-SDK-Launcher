@@ -21,6 +21,7 @@ using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
 using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Migrators;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Drawing;
@@ -38,7 +39,8 @@ namespace Distroir.CustomSDKLauncher.UI
             Config.Load();
             //LanguageManager.LoadLanguageInfo();
 
-            //Load profiles
+            MigrateOldFiles();
+
             LoadData();
 
             //Unused: Load theme
@@ -77,12 +79,20 @@ namespace Distroir.CustomSDKLauncher.UI
             System.Threading.Tasks.Task.Factory.StartNew(AskForFeedback);
         }
 
+        private void MigrateOldFiles()
+        {
+            IMigrator m = new GameMigrator();
+
+            if (m.RequiresMigration())
+                m.Migrate();
+        }
+
         private void LoadData()
         {
             int LoadAtStartup, useNewLauncher;
 
-            //Game profiles
-            DataManagers.ProfileManager.TryLoad();
+            //Games
+            DataManagers.GameManager.TryLoad();
             //Reloads list of variables used to format paths
             Utils.TryReloadPathFormatterVars();
             
@@ -221,8 +231,8 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             //Save config
             Config.Save();
-            //Save list of profiles
-            DataManagers.ProfileManager.Save();
+            //Save list of games
+            DataManagers.GameManager.Save();
         }
 
         #endregion
@@ -241,7 +251,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 {
                     //If user closes dialog without selecting csgo directory
                     //Inform user that he needs to select his csgo directory
-                    MessageBox.Show("Can not continue. You need to create your first profile", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Can not continue. You need to create your first game", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     //Cannot continue
                     //Close application
                     Environment.Exit(0);
@@ -254,19 +264,13 @@ namespace Distroir.CustomSDKLauncher.UI
             //Set gamedir
             if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
             {
-                //Create profile
-                Profile p = new Profile();
-                p.ProfileName = "Counter-Strike: Global Offensive";
+                Game p = new Game();
+                p.Name = "Counter-Strike: Global Offensive";
                 p.GameDir = Config.TryReadString("CSGO_DIR");
                 p.GameinfoDirName = "csgo";
 
-                //Add profile to list
-                DataManagers.ProfileManager.Objects.Add(p);
-
-                //Select profile
+                DataManagers.GameManager.Objects.Add(p);
                 Config.AddVariable("SelectedProfileId", 0);
-
-                //Remove variable
                 Config.RemoveVariable("CSGO_DIR");
             }
         }
@@ -296,48 +300,10 @@ namespace Distroir.CustomSDKLauncher.UI
 
         #region Utilies
 
-        /// <summary>
-        /// Gets current profile name
-        /// </summary>
-        /// <returns>Current profile name</returns>
-        string GetCurrentProfileName()
+        string GetCurrentGameName()
         {
-            //Get selected profile
-            Profile p;
-            Utils.TryGetSelectedProfile(out p);
-
-            //Get and return profile name
-            return p.ProfileName;
-        }
-
-        ///// <summary>
-        ///// Changes text inside toolsGroupBox control
-        ///// </summary>
-        //void UpdateToolsGroupBoxText()
-        //{
-        //    ResourceManager rm = new ResourceManager(LanguageResourcesList.Form1Res, typeof(Form1).Assembly);
-        //    UpdateToolsGroupBoxText(rm);
-        //}
-
-        /// <summary>
-        /// Changes text inside toolsGroupBox control
-        /// </summary>
-        /// <param name="rm">Resource manager</param>
-        [Obsolete]
-        void UpdateToolsGroupBoxText(ResourceManager rm)
-        {
-            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
-            {
-                //Set text
-                string text = string.Format("Tools - {0}", GetCurrentProfileName());
-                text = CutStringIfTooBig(text, 39);
-                toolsGroupBox.Text = text;
-            }
-            else
-            {
-                //Set text
-                toolsGroupBox.Text = "Tools";
-            }
+            Utils.TryGetSelectedGame(out Game g);
+            return g.Name;
         }
 
         /// <summary>
@@ -346,11 +312,11 @@ namespace Distroir.CustomSDKLauncher.UI
         /// <param name="rm">Resource manager</param>
         void UpdateToolsGroupBoxText()
         {
-            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentProfileName()))
+            if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentGameName()))
             {
                 //Set text
-                string text = string.Format("Tools - {0}", GetCurrentProfileName());
-                text = CutStringIfTooBig(text, 40);
+                string text = string.Format("Tools - {0}", GetCurrentGameName());
+                text = CutStringIfTooLong(text, 40);
                 toolsGroupBox.Text = text;
             }
             else
@@ -361,12 +327,12 @@ namespace Distroir.CustomSDKLauncher.UI
         }
 
         /// <summary>
-        /// Cuts string if it's too big
+        /// Cuts string if it's too long
         /// </summary>
         /// <param name="s">Input string</param>
         /// <param name="length">Maximal length of string</param>
         /// <returns></returns>
-        string CutStringIfTooBig(string s, int length)
+        string CutStringIfTooLong(string s, int length)
         {
             if (s.Length > length)
             {

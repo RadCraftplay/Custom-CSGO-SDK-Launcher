@@ -20,23 +20,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers
+namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 {
-    //TODO: Rename Load to Deserialize and Load to Serialize
-    public abstract class ContentSerializer<T>
+    public enum GameMigrationConflictSolution
     {
-        /// <summary>
-        /// Determines if content serializer can serialize objects
-        /// </summary>
-        public bool CanSave = false;
-        /// <summary>
-        /// Serializes an array ans saves it to file
-        /// </summary>
-        /// <param name="Array">Array to serialize</param>
-        public abstract void Save(T[] Array);
-        /// <summary>
-        /// Loads an array 
-        /// </summary>
-        public abstract T[] Load();
+        NoConflict = 0,
+        KeepProfilesXml = 1,
+        KeepGamesXml = 2,
+        KeepBoth = 4,
+        NoDecision = 8,
+        NoDecisionThisTime = 16
     }
 }

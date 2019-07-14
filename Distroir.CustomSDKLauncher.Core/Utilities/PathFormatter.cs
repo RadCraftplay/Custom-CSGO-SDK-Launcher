@@ -32,8 +32,6 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class PathFormatter
     {
-        //TODO: Remove commented out code
-        //public static List<KeyValuePair<string, string>> Paths = new List<KeyValuePair<string, string>>();
         public static Dictionary<string, string> Paths = new Dictionary<string, string>();
 
         public static void Format(ref string Source)

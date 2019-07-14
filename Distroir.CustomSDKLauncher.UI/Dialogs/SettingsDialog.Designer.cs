@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.tabControl = new System.Windows.Forms.TabControl();
-            this.profilesTabPage = new System.Windows.Forms.TabPage();
+            this.gamesTabPage = new System.Windows.Forms.TabPage();
             this.sendFeedbackButton = new System.Windows.Forms.Button();
             this.disableFeedbackCheckBox = new System.Windows.Forms.CheckBox();
-            this.displayCurrentlySelectedProfileCheckBox = new System.Windows.Forms.CheckBox();
-            this.editListOfProfilesLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.profileLabel = new System.Windows.Forms.Label();
-            this.profileListComboBox = new System.Windows.Forms.ComboBox();
+            this.displayCurrentlySelectedGameCheckBox = new System.Windows.Forms.CheckBox();
+            this.editListOfGamesLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.gameLabel = new System.Windows.Forms.Label();
+            this.gameListComboBox = new System.Windows.Forms.ComboBox();
             this.appLauncherTabPage = new System.Windows.Forms.TabPage();
             this.actionChangeLabel = new System.Windows.Forms.Label();
             this.launcherEditButton3 = new System.Windows.Forms.Button();
@@ -43,13 +43,15 @@
             this.launcherEditButton1 = new System.Windows.Forms.Button();
             this.useNewLauncherCheckBox = new System.Windows.Forms.CheckBox();
             this.backupTabPage = new System.Windows.Forms.TabPage();
-            this.settingsAndProfilesGroupBox = new System.Windows.Forms.GroupBox();
+            this.settingsGroupBox = new System.Windows.Forms.GroupBox();
             this.createBackupButton = new System.Windows.Forms.Button();
             this.restoreBackupButton = new System.Windows.Forms.Button();
             this.advancedTabPage = new System.Windows.Forms.TabPage();
             this.preLoadDataCheckBox = new System.Windows.Forms.CheckBox();
             this.advancedWarningLabel = new System.Windows.Forms.Label();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
+            this.githubLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.gamebananaLinkLabel = new System.Windows.Forms.LinkLabel();
             this.ViewLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.fugueIconsSetLicenseLinkLabel = new System.Windows.Forms.LinkLabel();
             this.gpl3LicenseLinkLabel = new System.Windows.Forms.LinkLabel();
@@ -58,13 +60,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.gamebananaLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.githubLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.ignoreGameMigrationConflictsCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
-            this.profilesTabPage.SuspendLayout();
+            this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
             this.backupTabPage.SuspendLayout();
-            this.settingsAndProfilesGroupBox.SuspendLayout();
+            this.settingsGroupBox.SuspendLayout();
             this.advancedTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -75,7 +76,7 @@
             this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl.Controls.Add(this.profilesTabPage);
+            this.tabControl.Controls.Add(this.gamesTabPage);
             this.tabControl.Controls.Add(this.appLauncherTabPage);
             this.tabControl.Controls.Add(this.backupTabPage);
             this.tabControl.Controls.Add(this.advancedTabPage);
@@ -87,22 +88,22 @@
             this.tabControl.Size = new System.Drawing.Size(451, 225);
             this.tabControl.TabIndex = 0;
             // 
-            // profilesTabPage
+            // gamesTabPage
             // 
-            this.profilesTabPage.Controls.Add(this.sendFeedbackButton);
-            this.profilesTabPage.Controls.Add(this.disableFeedbackCheckBox);
-            this.profilesTabPage.Controls.Add(this.displayCurrentlySelectedProfileCheckBox);
-            this.profilesTabPage.Controls.Add(this.editListOfProfilesLinkLabel);
-            this.profilesTabPage.Controls.Add(this.profileLabel);
-            this.profilesTabPage.Controls.Add(this.profileListComboBox);
-            this.profilesTabPage.Location = new System.Drawing.Point(4, 25);
-            this.profilesTabPage.Margin = new System.Windows.Forms.Padding(4);
-            this.profilesTabPage.Name = "profilesTabPage";
-            this.profilesTabPage.Padding = new System.Windows.Forms.Padding(4);
-            this.profilesTabPage.Size = new System.Drawing.Size(443, 196);
-            this.profilesTabPage.TabIndex = 0;
-            this.profilesTabPage.Text = "Profiles";
-            this.profilesTabPage.UseVisualStyleBackColor = true;
+            this.gamesTabPage.Controls.Add(this.sendFeedbackButton);
+            this.gamesTabPage.Controls.Add(this.disableFeedbackCheckBox);
+            this.gamesTabPage.Controls.Add(this.displayCurrentlySelectedGameCheckBox);
+            this.gamesTabPage.Controls.Add(this.editListOfGamesLinkLabel);
+            this.gamesTabPage.Controls.Add(this.gameLabel);
+            this.gamesTabPage.Controls.Add(this.gameListComboBox);
+            this.gamesTabPage.Location = new System.Drawing.Point(4, 25);
+            this.gamesTabPage.Margin = new System.Windows.Forms.Padding(4);
+            this.gamesTabPage.Name = "gamesTabPage";
+            this.gamesTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.gamesTabPage.Size = new System.Drawing.Size(443, 196);
+            this.gamesTabPage.TabIndex = 0;
+            this.gamesTabPage.Text = "Games";
+            this.gamesTabPage.UseVisualStyleBackColor = true;
             // 
             // sendFeedbackButton
             // 
@@ -126,51 +127,51 @@
             this.disableFeedbackCheckBox.Text = "Disable feedback notifications";
             this.disableFeedbackCheckBox.UseVisualStyleBackColor = true;
             // 
-            // displayCurrentlySelectedProfileCheckBox
+            // displayCurrentlySelectedGameCheckBox
             // 
-            this.displayCurrentlySelectedProfileCheckBox.AutoSize = true;
-            this.displayCurrentlySelectedProfileCheckBox.Location = new System.Drawing.Point(13, 57);
-            this.displayCurrentlySelectedProfileCheckBox.Margin = new System.Windows.Forms.Padding(4);
-            this.displayCurrentlySelectedProfileCheckBox.Name = "displayCurrentlySelectedProfileCheckBox";
-            this.displayCurrentlySelectedProfileCheckBox.Size = new System.Drawing.Size(274, 21);
-            this.displayCurrentlySelectedProfileCheckBox.TabIndex = 4;
-            this.displayCurrentlySelectedProfileCheckBox.Text = "Display currently selected profile name";
-            this.displayCurrentlySelectedProfileCheckBox.UseVisualStyleBackColor = true;
+            this.displayCurrentlySelectedGameCheckBox.AutoSize = true;
+            this.displayCurrentlySelectedGameCheckBox.Location = new System.Drawing.Point(13, 57);
+            this.displayCurrentlySelectedGameCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.displayCurrentlySelectedGameCheckBox.Name = "displayCurrentlySelectedGameCheckBox";
+            this.displayCurrentlySelectedGameCheckBox.Size = new System.Drawing.Size(286, 21);
+            this.displayCurrentlySelectedGameCheckBox.TabIndex = 4;
+            this.displayCurrentlySelectedGameCheckBox.Text = "Display name of currently selected game";
+            this.displayCurrentlySelectedGameCheckBox.UseVisualStyleBackColor = true;
             // 
-            // editListOfProfilesLinkLabel
+            // editListOfGamesLinkLabel
             // 
-            this.editListOfProfilesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.editListOfProfilesLinkLabel.AutoSize = true;
-            this.editListOfProfilesLinkLabel.Location = new System.Drawing.Point(315, 37);
-            this.editListOfProfilesLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.editListOfProfilesLinkLabel.Name = "editListOfProfilesLinkLabel";
-            this.editListOfProfilesLinkLabel.Size = new System.Drawing.Size(119, 17);
-            this.editListOfProfilesLinkLabel.TabIndex = 3;
-            this.editListOfProfilesLinkLabel.TabStop = true;
-            this.editListOfProfilesLinkLabel.Text = "Edit list of profiles";
-            this.editListOfProfilesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.editListOfGamesLinkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.editListOfGamesLinkLabel.AutoSize = true;
+            this.editListOfGamesLinkLabel.Location = new System.Drawing.Point(315, 37);
+            this.editListOfGamesLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.editListOfGamesLinkLabel.Name = "editListOfGamesLinkLabel";
+            this.editListOfGamesLinkLabel.Size = new System.Drawing.Size(115, 17);
+            this.editListOfGamesLinkLabel.TabIndex = 3;
+            this.editListOfGamesLinkLabel.TabStop = true;
+            this.editListOfGamesLinkLabel.Text = "Edit list of games";
+            this.editListOfGamesLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // profileLabel
+            // gameLabel
             // 
-            this.profileLabel.AutoSize = true;
-            this.profileLabel.Location = new System.Drawing.Point(9, 11);
-            this.profileLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.profileLabel.Name = "profileLabel";
-            this.profileLabel.Size = new System.Drawing.Size(52, 17);
-            this.profileLabel.TabIndex = 2;
-            this.profileLabel.Text = "Profile:";
+            this.gameLabel.AutoSize = true;
+            this.gameLabel.Location = new System.Drawing.Point(9, 11);
+            this.gameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gameLabel.Name = "gameLabel";
+            this.gameLabel.Size = new System.Drawing.Size(50, 17);
+            this.gameLabel.TabIndex = 2;
+            this.gameLabel.Text = "Game:";
             // 
-            // profileListComboBox
+            // gameListComboBox
             // 
-            this.profileListComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gameListComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.profileListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.profileListComboBox.FormattingEnabled = true;
-            this.profileListComboBox.Location = new System.Drawing.Point(69, 7);
-            this.profileListComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this.profileListComboBox.Name = "profileListComboBox";
-            this.profileListComboBox.Size = new System.Drawing.Size(361, 24);
-            this.profileListComboBox.TabIndex = 1;
+            this.gameListComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gameListComboBox.FormattingEnabled = true;
+            this.gameListComboBox.Location = new System.Drawing.Point(69, 7);
+            this.gameListComboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.gameListComboBox.Name = "gameListComboBox";
+            this.gameListComboBox.Size = new System.Drawing.Size(361, 24);
+            this.gameListComboBox.TabIndex = 1;
             // 
             // appLauncherTabPage
             // 
@@ -248,7 +249,7 @@
             // 
             // backupTabPage
             // 
-            this.backupTabPage.Controls.Add(this.settingsAndProfilesGroupBox);
+            this.backupTabPage.Controls.Add(this.settingsGroupBox);
             this.backupTabPage.Location = new System.Drawing.Point(4, 25);
             this.backupTabPage.Margin = new System.Windows.Forms.Padding(4);
             this.backupTabPage.Name = "backupTabPage";
@@ -258,20 +259,20 @@
             this.backupTabPage.Text = "Backups";
             this.backupTabPage.UseVisualStyleBackColor = true;
             // 
-            // settingsAndProfilesGroupBox
+            // settingsGroupBox
             // 
-            this.settingsAndProfilesGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.settingsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsAndProfilesGroupBox.Controls.Add(this.createBackupButton);
-            this.settingsAndProfilesGroupBox.Controls.Add(this.restoreBackupButton);
-            this.settingsAndProfilesGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.settingsAndProfilesGroupBox.Margin = new System.Windows.Forms.Padding(4);
-            this.settingsAndProfilesGroupBox.Name = "settingsAndProfilesGroupBox";
-            this.settingsAndProfilesGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.settingsAndProfilesGroupBox.Size = new System.Drawing.Size(424, 123);
-            this.settingsAndProfilesGroupBox.TabIndex = 2;
-            this.settingsAndProfilesGroupBox.TabStop = false;
-            this.settingsAndProfilesGroupBox.Text = "Settings and profiles";
+            this.settingsGroupBox.Controls.Add(this.createBackupButton);
+            this.settingsGroupBox.Controls.Add(this.restoreBackupButton);
+            this.settingsGroupBox.Location = new System.Drawing.Point(8, 7);
+            this.settingsGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.settingsGroupBox.Name = "settingsGroupBox";
+            this.settingsGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.settingsGroupBox.Size = new System.Drawing.Size(424, 123);
+            this.settingsGroupBox.TabIndex = 2;
+            this.settingsGroupBox.TabStop = false;
+            this.settingsGroupBox.Text = "Settings";
             // 
             // createBackupButton
             // 
@@ -301,6 +302,7 @@
             // 
             // advancedTabPage
             // 
+            this.advancedTabPage.Controls.Add(this.ignoreGameMigrationConflictsCheckBox);
             this.advancedTabPage.Controls.Add(this.preLoadDataCheckBox);
             this.advancedTabPage.Controls.Add(this.advancedWarningLabel);
             this.advancedTabPage.Location = new System.Drawing.Point(4, 25);
@@ -348,6 +350,28 @@
             this.aboutTabPage.TabIndex = 1;
             this.aboutTabPage.Text = "About";
             this.aboutTabPage.UseVisualStyleBackColor = true;
+            // 
+            // githubLinkLabel
+            // 
+            this.githubLinkLabel.AutoSize = true;
+            this.githubLinkLabel.Location = new System.Drawing.Point(4, 165);
+            this.githubLinkLabel.Name = "githubLinkLabel";
+            this.githubLinkLabel.Size = new System.Drawing.Size(52, 17);
+            this.githubLinkLabel.TabIndex = 8;
+            this.githubLinkLabel.TabStop = true;
+            this.githubLinkLabel.Text = "GitHub";
+            this.githubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLinkLabel_LinkClicked);
+            // 
+            // gamebananaLinkLabel
+            // 
+            this.gamebananaLinkLabel.AutoSize = true;
+            this.gamebananaLinkLabel.Location = new System.Drawing.Point(4, 145);
+            this.gamebananaLinkLabel.Name = "gamebananaLinkLabel";
+            this.gamebananaLinkLabel.Size = new System.Drawing.Size(95, 17);
+            this.gamebananaLinkLabel.TabIndex = 7;
+            this.gamebananaLinkLabel.TabStop = true;
+            this.gamebananaLinkLabel.Text = "GameBanana";
+            this.gamebananaLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gamebananaLinkLabel_LinkClicked);
             // 
             // ViewLicenseLinkLabel
             // 
@@ -439,27 +463,15 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // gamebananaLinkLabel
+            // ignoreGameMigrationConflictsCheckBox
             // 
-            this.gamebananaLinkLabel.AutoSize = true;
-            this.gamebananaLinkLabel.Location = new System.Drawing.Point(4, 145);
-            this.gamebananaLinkLabel.Name = "gamebananaLinkLabel";
-            this.gamebananaLinkLabel.Size = new System.Drawing.Size(95, 17);
-            this.gamebananaLinkLabel.TabIndex = 7;
-            this.gamebananaLinkLabel.TabStop = true;
-            this.gamebananaLinkLabel.Text = "GameBanana";
-            this.gamebananaLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gamebananaLinkLabel_LinkClicked);
-            // 
-            // githubLinkLabel
-            // 
-            this.githubLinkLabel.AutoSize = true;
-            this.githubLinkLabel.Location = new System.Drawing.Point(4, 165);
-            this.githubLinkLabel.Name = "githubLinkLabel";
-            this.githubLinkLabel.Size = new System.Drawing.Size(52, 17);
-            this.githubLinkLabel.TabIndex = 8;
-            this.githubLinkLabel.TabStop = true;
-            this.githubLinkLabel.Text = "GitHub";
-            this.githubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLinkLabel_LinkClicked);
+            this.ignoreGameMigrationConflictsCheckBox.AutoSize = true;
+            this.ignoreGameMigrationConflictsCheckBox.Location = new System.Drawing.Point(9, 72);
+            this.ignoreGameMigrationConflictsCheckBox.Name = "ignoreGameMigrationConflictsCheckBox";
+            this.ignoreGameMigrationConflictsCheckBox.Size = new System.Drawing.Size(226, 21);
+            this.ignoreGameMigrationConflictsCheckBox.TabIndex = 2;
+            this.ignoreGameMigrationConflictsCheckBox.Text = "Ignore game migration conflicts";
+            this.ignoreGameMigrationConflictsCheckBox.UseVisualStyleBackColor = true;
             // 
             // SettingsDialog
             // 
@@ -477,12 +489,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Settings";
             this.tabControl.ResumeLayout(false);
-            this.profilesTabPage.ResumeLayout(false);
-            this.profilesTabPage.PerformLayout();
+            this.gamesTabPage.ResumeLayout(false);
+            this.gamesTabPage.PerformLayout();
             this.appLauncherTabPage.ResumeLayout(false);
             this.appLauncherTabPage.PerformLayout();
             this.backupTabPage.ResumeLayout(false);
-            this.settingsAndProfilesGroupBox.ResumeLayout(false);
+            this.settingsGroupBox.ResumeLayout(false);
             this.advancedTabPage.ResumeLayout(false);
             this.advancedTabPage.PerformLayout();
             this.aboutTabPage.ResumeLayout(false);
@@ -495,13 +507,13 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage profilesTabPage;
-        private System.Windows.Forms.LinkLabel editListOfProfilesLinkLabel;
-        private System.Windows.Forms.Label profileLabel;
-        private System.Windows.Forms.ComboBox profileListComboBox;
+        private System.Windows.Forms.TabPage gamesTabPage;
+        private System.Windows.Forms.LinkLabel editListOfGamesLinkLabel;
+        private System.Windows.Forms.Label gameLabel;
+        private System.Windows.Forms.ComboBox gameListComboBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TabPage aboutTabPage;
-        private System.Windows.Forms.CheckBox displayCurrentlySelectedProfileCheckBox;
+        private System.Windows.Forms.CheckBox displayCurrentlySelectedGameCheckBox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label appnameLabel;
         private System.Windows.Forms.Label copyrightLabel;
@@ -510,7 +522,7 @@
         private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
         private System.Windows.Forms.TabPage backupTabPage;
-        private System.Windows.Forms.GroupBox settingsAndProfilesGroupBox;
+        private System.Windows.Forms.GroupBox settingsGroupBox;
         private System.Windows.Forms.Button createBackupButton;
         private System.Windows.Forms.Button restoreBackupButton;
         private System.Windows.Forms.TabPage advancedTabPage;
@@ -526,5 +538,6 @@
         private System.Windows.Forms.Label actionChangeLabel;
         private System.Windows.Forms.LinkLabel githubLinkLabel;
         private System.Windows.Forms.LinkLabel gamebananaLinkLabel;
+        private System.Windows.Forms.CheckBox ignoreGameMigrationConflictsCheckBox;
     }
 }

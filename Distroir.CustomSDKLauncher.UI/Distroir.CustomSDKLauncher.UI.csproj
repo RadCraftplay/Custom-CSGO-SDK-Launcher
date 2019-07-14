@@ -55,11 +55,11 @@
     <Compile Include="Dialogs\CommunityContentBrowserDialog.Designer.cs">
       <DependentUpon>CommunityContentBrowserDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\EditItemDialog.cs">
+    <Compile Include="Dialogs\EditGameDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\EditItemDialog.Designer.cs">
-      <DependentUpon>EditItemDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\EditGameDialog.Designer.cs">
+      <DependentUpon>EditGameDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\FirstLaunchDialog.cs">
       <SubType>Form</SubType>
@@ -73,11 +73,11 @@
     <Compile Include="Dialogs\LicenseDialog.Designer.cs">
       <DependentUpon>LicenseDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ProfileListEditDialog.cs">
+    <Compile Include="Dialogs\GameListEditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ProfileListEditDialog.Designer.cs">
-      <DependentUpon>ProfileListEditDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\GameListEditDialog.Designer.cs">
+      <DependentUpon>GameListEditDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SettingsDialog.cs">
       <SubType>Form</SubType>
@@ -119,8 +119,8 @@
     <EmbeddedResource Include="Dialogs\CommunityContentBrowserDialog.resx">
       <DependentUpon>CommunityContentBrowserDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\EditItemDialog.resx">
-      <DependentUpon>EditItemDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\EditGameDialog.resx">
+      <DependentUpon>EditGameDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\FirstLaunchDialog.resx">
       <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="Dialogs\LicenseDialog.resx">
       <DependentUpon>LicenseDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ProfileListEditDialog.resx">
-      <DependentUpon>ProfileListEditDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\GameListEditDialog.resx">
+      <DependentUpon>GameListEditDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SettingsDialog.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
@@ -148,8 +148,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Licenses.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\SettingsDialog.en.resx" />
-    <EmbeddedResource Include="Resources\SettingsDialog.pl.resx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj">
@@ -159,6 +157,10 @@
     <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core\Distroir.CustomSDKLauncher.Core.csproj">
       <Project>{abefcede-8964-427c-ac88-fe00daca6474}</Project>
       <Name>Distroir.CustomSDKLauncher.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Distroir.CustomSDKLauncher.Shared\Distroir.CustomSDKLauncher.Shared.csproj">
+      <Project>{8cf7dc06-2f75-451d-b22e-491d8f6b8aa7}</Project>
+      <Name>Distroir.CustomSDKLauncher.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

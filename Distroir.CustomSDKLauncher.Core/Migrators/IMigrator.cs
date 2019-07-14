@@ -20,23 +20,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers
+namespace Distroir.CustomSDKLauncher.Core.Migrators
 {
-    //TODO: Rename Load to Deserialize and Load to Serialize
-    public abstract class ContentSerializer<T>
+    public interface IMigrator
     {
-        /// <summary>
-        /// Determines if content serializer can serialize objects
-        /// </summary>
-        public bool CanSave = false;
-        /// <summary>
-        /// Serializes an array ans saves it to file
-        /// </summary>
-        /// <param name="Array">Array to serialize</param>
-        public abstract void Save(T[] Array);
-        /// <summary>
-        /// Loads an array 
-        /// </summary>
-        public abstract T[] Load();
+        bool RequiresMigration();
+        void Migrate();
     }
 }

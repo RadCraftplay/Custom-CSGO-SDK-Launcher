@@ -39,7 +39,7 @@
             this.usePathVariableRadioButton = new System.Windows.Forms.RadioButton();
             this.okButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.profileNameTextBox = new System.Windows.Forms.TextBox();
+            this.gameNameTextBox = new System.Windows.Forms.TextBox();
             this.javaExecutablePathGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,21 +167,21 @@
             this.nameLabel.TabIndex = 16;
             this.nameLabel.Text = "Name:";
             // 
-            // profileNameTextBox
+            // gameNameTextBox
             // 
-            this.profileNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gameNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.profileNameTextBox.Location = new System.Drawing.Point(12, 29);
-            this.profileNameTextBox.Name = "profileNameTextBox";
-            this.profileNameTextBox.Size = new System.Drawing.Size(288, 22);
-            this.profileNameTextBox.TabIndex = 10;
+            this.gameNameTextBox.Location = new System.Drawing.Point(12, 29);
+            this.gameNameTextBox.Name = "gameNameTextBox";
+            this.gameNameTextBox.Size = new System.Drawing.Size(288, 22);
+            this.gameNameTextBox.TabIndex = 10;
             // 
             // JavaAppConfigurationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 290);
-            this.Controls.Add(this.profileNameTextBox);
+            this.Controls.Add(this.gameNameTextBox);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.javaExecutablePathGroupBox);
@@ -213,6 +213,6 @@
         private System.Windows.Forms.RadioButton usePathVariableRadioButton;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.TextBox profileNameTextBox;
+        private System.Windows.Forms.TextBox gameNameTextBox;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    partial class EditItemDialog
+    partial class EditGameDialog
     {
         /// <summary>
         /// Required designer variable.
@@ -51,14 +51,14 @@
             this.nameLabel.Size = new System.Drawing.Size(49, 17);
             this.nameLabel.TabIndex = 0;
             this.nameLabel.Text = "Name:";
-            this.toolTip.SetToolTip(this.nameLabel, "Name of profile");
+            this.toolTip.SetToolTip(this.nameLabel, "Name of the game");
             // 
             // nameTextBox
             // 
             this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nameTextBox.Location = new System.Drawing.Point(93, 16);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(227, 22);
             this.nameTextBox.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.saveButton.Location = new System.Drawing.Point(221, 117);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 28);
             this.saveButton.TabIndex = 2;
@@ -93,7 +93,7 @@
             this.gameDirTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gameDirTextBox.Location = new System.Drawing.Point(93, 49);
-            this.gameDirTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gameDirTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.gameDirTextBox.Name = "gameDirTextBox";
             this.gameDirTextBox.Size = new System.Drawing.Size(185, 22);
             this.gameDirTextBox.TabIndex = 4;
@@ -102,7 +102,7 @@
             // 
             this.gameDirBrowseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gameDirBrowseButton.Location = new System.Drawing.Point(288, 48);
-            this.gameDirBrowseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gameDirBrowseButton.Margin = new System.Windows.Forms.Padding(4);
             this.gameDirBrowseButton.Name = "gameDirBrowseButton";
             this.gameDirBrowseButton.Size = new System.Drawing.Size(33, 28);
             this.gameDirBrowseButton.TabIndex = 5;
@@ -115,7 +115,7 @@
             this.gameInfoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gameInfoTextBox.Location = new System.Drawing.Point(116, 81);
-            this.gameInfoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gameInfoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.gameInfoTextBox.Name = "gameInfoTextBox";
             this.gameInfoTextBox.Size = new System.Drawing.Size(204, 22);
             this.gameInfoTextBox.TabIndex = 6;
@@ -152,13 +152,13 @@
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.nameLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1280, 207);
             this.MinimumSize = new System.Drawing.Size(355, 207);
             this.Name = "EditItemDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Add profile";
+            this.Text = "Add game";
             this.ResumeLayout(false);
             this.PerformLayout();
 

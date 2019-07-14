@@ -23,24 +23,25 @@ using System.Text;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
+using Distroir.CustomSDKLauncher.Shared.Core;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
     public class DataManagers
     {
         /// <summary>
-        /// Full path of file containing list of profiles
+        /// Full path of file containing list of games
         /// </summary>
-        public static string ProfileListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "profiles.xml");
+        public static string GameListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "games.xml");
         /// <summary>
         /// Full path of file containing list of applications
         /// </summary>
         public static string AppListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "applications.xml");
 
         /// <summary>
-        /// Profile manager
+        /// Game manager
         /// </summary>
-        public static Manager<Profile> ProfileManager = new Manager<Profile>(new XmlFileSerializer<Profile>(ProfileListFilename));
+        public static Manager<Game> GameManager = new Manager<Game>(new XmlFileSerializer<Game>(GameListFilename));
 
         /// <summary>
         /// Template manager
@@ -58,6 +59,9 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// </summary>
         public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
 
+        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringSerializer<HelpTopic>(Data.HelpTopicsXML));
+
+        //TODO: Remove commented out code
         /*
         /// <summary>
         /// Content serializer
