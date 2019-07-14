@@ -13,6 +13,7 @@ namespace Distroir.CustomSDKLauncher.Shared.UI
 
         private void UpdateUI(HelpTopic topic)
         {
+            this.Icon = CustomSDKLauncher.Core.Data.AppIcon;
             topicNameLabel.Text = topic.Name;
             topicTextRichTextBox.Text = topic.Text;
         }

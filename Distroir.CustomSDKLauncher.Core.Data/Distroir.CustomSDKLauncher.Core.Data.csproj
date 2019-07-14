@@ -62,6 +62,7 @@
     <None Include="Resources\ContentGroups.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AppIcon.ico" />
     <Content Include="Resources\Icons\App\DefaultIcon.png" />
     <Content Include="Resources\Icons\App\SDK\FacePoserIcon.png" />
     <Content Include="Resources\Icons\App\SDK\HammerIcon.png" />
