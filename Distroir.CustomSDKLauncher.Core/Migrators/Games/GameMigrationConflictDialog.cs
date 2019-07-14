@@ -31,10 +31,13 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
         private void GameMigrationConflictDialog_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close this window?", 
-                "Custom SDK Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            if (ConflictSolution == GameMigrationConflictSolution.NoDecision)
             {
-                e.Cancel = true;
+                if (MessageBox.Show("Are you sure you want to close this window?",
+                "Custom SDK Launcher", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
