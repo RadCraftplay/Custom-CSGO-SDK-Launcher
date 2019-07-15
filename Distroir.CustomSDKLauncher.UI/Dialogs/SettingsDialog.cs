@@ -31,17 +31,15 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class SettingsDialog : Form
     {
-        Form1 formReference;
-        List<AppInfo> appListReference = new List<AppInfo>();
+        private readonly Form1 _formReference;
+        private List<AppInfo> _appListReference = new List<AppInfo>();
 
         public SettingsDialog(Form1 f)
         {
-            //Add references
-            formReference = f;
-            appListReference = DataManagers.AppManager.Objects;
-            //Create controls
+            _formReference = f;
+            _appListReference = DataManagers.AppManager.Objects;
+
             InitializeComponent();
-            //Apply settings to controls
             UpdateControls();
             UpdateButtons();
         }
@@ -50,9 +48,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateControls()
         {
-            //Refresh list of games
             RefreshList();
-            //Update controls
+
             displayCurrentlySelectedGameCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
             useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
@@ -64,7 +61,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             launcherEditButton3.Enabled = useNewLauncherCheckBox.Checked;
             actionChangeLabel.Visible = useNewLauncherCheckBox.Checked;
 
-            //Update version info
             copyrightLabel.Text = GetCopyright();
             versionLabel.Text = string.Format("Version: {0}", ProductVersion);
         }
@@ -105,9 +101,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         #region Saving settings
 
-        /// <summary>
-        /// Saves settings
-        /// </summary>
         void SaveSettings()
         {
             Config.AddVariable("SelectedProfileId", gameListComboBox.SelectedIndex);
@@ -118,8 +111,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("IgnoreGameMigrationConflicts", ignoreGameMigrationConflictsCheckBox.Checked);
 
             Utils.TryReloadPathFormatterVars();
-            DataManagers.AppManager.Objects = appListReference;
-            formReference.ApplyLauncherSettings();
+            DataManagers.AppManager.Objects = _appListReference;
+            _formReference.ApplyLauncherSettings();
 
             DataManagers.AppManager.Save();
         }
@@ -148,10 +141,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            //Save settings
             SaveSettings();
-
-            //Close dialog
             Close();
         }
 
@@ -184,20 +174,15 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void createBackupButton_Click(object sender, EventArgs e)
         {
-            //Create dialog
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                //Set filter
                 sfd.Filter = "Backup files|*.dbak";
 
-                //If User pressed ok
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    //Save settings
                     Config.Save();
                     DataManagers.GameManager.Save();
 
-                    //Do backup
                     BackupManager m = new BackupManager(sfd.FileName);
                     m.Backup();
                 }
@@ -206,25 +191,20 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void restoreBackupButton_Click(object sender, EventArgs e)
         {
-            //Create dialog
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                //Set filter
                 ofd.Filter = "Backup files|*.dbak";
 
-                //If User pressed ok
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    //Restore backup
                     BackupManager m = new BackupManager(ofd.FileName);
                     m.Restore();
                     m.Dispose();
 
-                    //Restore settings
                     Config.Load();
                     DataManagers.GameManager.Load();
                     DataManagers.AppManager.Load();
-                    appListReference = DataManagers.AppManager.Objects;
+                    _appListReference = DataManagers.AppManager.Objects;
                     UpdateControls();
                     UpdateButtons();
                 }
@@ -233,16 +213,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void launcherButtonEdit_Click(object sender, EventArgs e)
         {
-            Button b = (Button)sender;
+            Button button = (Button)sender;
 
-            //Edit button AppInfo
-            var d = new AppSelectorDialog();
-            if (d.ShowDialog() == DialogResult.OK)
-                b.Tag = d.selectedAppInfo;
+            var dialog = new AppSelectorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+                button.Tag = dialog.selectedAppInfo;
 
-            //Update application list
             UpdateAppList();
-            //Update button actions in main window
             UpdateButtons();
         }
 
@@ -256,7 +233,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void sendFeedbackButton_Click(object sender, EventArgs e)
         {
-            //Open survey URL in default browser 
+            //Open survey URL in default browser
             Core.Feedback.FeedbackFetcher.SendFeedback();
         }
 
@@ -266,7 +243,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateButtons()
         {
-            AppUtils.UpdateButtons(appListReference, new Button[]
+            AppUtils.UpdateButtons(_appListReference, new Button[]
             {
                 launcherEditButton1,
                 launcherEditButton2,
@@ -276,10 +253,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateAppList()
         {
-            appListReference.Clear();
-            appListReference.Add((AppInfo)launcherEditButton1.Tag);
-            appListReference.Add((AppInfo)launcherEditButton2.Tag);
-            appListReference.Add((AppInfo)launcherEditButton3.Tag);
+            _appListReference.Clear();
+            _appListReference.Add((AppInfo)launcherEditButton1.Tag);
+            _appListReference.Add((AppInfo)launcherEditButton2.Tag);
+            _appListReference.Add((AppInfo)launcherEditButton3.Tag);
         }
 
         #endregion
