@@ -26,10 +26,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class GameListEditDialog : Form
     {
-        /// <summary>
-        /// Local copy of GameManager.Games
-        /// </summary>
-        public List<Game> Games;
+        public List<Game> Games { get; private set; } = new List<Game>();
 
         public GameListEditDialog()
         {
@@ -119,7 +116,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            DataManagers.GameManager.Objects = RebuildListOfGames();
+            Games = RebuildListOfGames();
             DialogResult = DialogResult.OK;
             Close();
         }

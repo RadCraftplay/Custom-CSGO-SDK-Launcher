@@ -135,12 +135,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //Create dialog
-            var v = new GameListEditDialog();
+            var gameListEditDialog = new GameListEditDialog();
 
-            //Show dialog
-            if (v.ShowDialog() == DialogResult.OK)
+            if (gameListEditDialog.ShowDialog() == DialogResult.OK)
             {
+                // TODO: Create class-level variable to store games
+                // TODO: Update games in GameManager only when user clicks "Save" button
+                DataManagers.GameManager.Objects = gameListEditDialog.Games;
                 RefreshList();
             }
         }
