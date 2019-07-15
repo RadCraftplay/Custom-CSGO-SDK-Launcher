@@ -31,13 +31,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class SettingsDialog : Form
     {
-        private readonly Form1 _formReference;
         private List<AppInfo> _appListReference = new List<AppInfo>();
         private List<Game> _games;
 
-        public SettingsDialog(Form1 f)
+        public SettingsDialog()
         {
-            _formReference = f;
             _appListReference = DataManagers.AppManager.Objects;
             _games = DataManagers.GameManager.Objects;
 
@@ -115,7 +113,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Utils.TryReloadPathFormatterVars();
             DataManagers.AppManager.Objects = _appListReference;
             DataManagers.GameManager.Objects = _games;
-            _formReference.ApplyLauncherSettings();
 
             DataManagers.GameManager.Save();
             DataManagers.AppManager.Save();
