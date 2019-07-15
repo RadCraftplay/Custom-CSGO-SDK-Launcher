@@ -37,10 +37,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         void LoadList(List<Game> games)
         {
             foreach (Game p in games)
-                AddIem(p);
+                AddItem(p);
         }
 
-        public void AddIem(Game p)
+        public void AddItem(Game p)
         {
             ListViewItem i = new ListViewItem()
             {
@@ -57,7 +57,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             var v = new EditGameDialog();
 
             if (v.ShowDialog() == DialogResult.OK)
-                AddIem(v.Game);
+                AddItem(v.Game);
         }
 
         private void removeButton_Click(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             var chooseTemplateDialog = new ChooseTemplateDialog(this);
 
             if (chooseTemplateDialog.ShowDialog() == DialogResult.OK)
-                AddIem(chooseTemplateDialog.Game);
+                AddItem(chooseTemplateDialog.Game);
         }
 
         private void MoveItem(int index, ListViewItem item)
