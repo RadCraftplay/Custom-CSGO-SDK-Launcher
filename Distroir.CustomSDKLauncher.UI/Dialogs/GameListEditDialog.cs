@@ -19,6 +19,7 @@ using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
@@ -106,9 +107,19 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
         }
 
+        private List<Game> RebuildListOfGames()
+        {
+            IEnumerable<ListViewItem> enumerableItems = gameListView.Items.Cast<ListViewItem>();
+            var games = from item in enumerableItems
+                        select item.Tag
+                        as Game;
+
+            return games.ToList();
+        }
+
         private void okButton_Click(object sender, EventArgs e)
         {
-            DataManagers.GameManager.Objects = Games;
+            DataManagers.GameManager.Objects = RebuildListOfGames();
             DialogResult = DialogResult.OK;
             Close();
         }
