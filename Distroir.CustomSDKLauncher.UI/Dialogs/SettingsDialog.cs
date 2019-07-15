@@ -33,11 +33,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
     {
         private readonly Form1 _formReference;
         private List<AppInfo> _appListReference = new List<AppInfo>();
+        private List<Game> _games;
 
         public SettingsDialog(Form1 f)
         {
             _formReference = f;
             _appListReference = DataManagers.AppManager.Objects;
+            _games = DataManagers.GameManager.Objects;
 
             InitializeComponent();
             UpdateControls();
@@ -84,7 +86,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             gameListComboBox.Items.Clear();
 
-            foreach (Game g in DataManagers.GameManager.Objects)
+            foreach (Game g in _games)
                 gameListComboBox.Items.Add(g);
 
             try
@@ -112,8 +114,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             Utils.TryReloadPathFormatterVars();
             DataManagers.AppManager.Objects = _appListReference;
+            DataManagers.GameManager.Objects = _games;
             _formReference.ApplyLauncherSettings();
 
+            DataManagers.GameManager.Save();
             DataManagers.AppManager.Save();
         }
 
@@ -132,9 +136,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             if (gameListEditDialog.ShowDialog() == DialogResult.OK)
             {
-                // TODO: Create class-level variable to store games
-                // TODO: Update games in GameManager only when user clicks "Save" button
-                DataManagers.GameManager.Objects = gameListEditDialog.Games;
+                _games = gameListEditDialog.Games;
                 RefreshList();
             }
         }
