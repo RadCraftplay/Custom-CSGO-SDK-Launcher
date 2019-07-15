@@ -31,17 +31,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         public GameListEditDialog()
         {
             InitializeComponent();
-
-            Games = DataManagers.GameManager.Objects;
-            LoadList();
+            LoadList(DataManagers.GameManager.Objects);
         }
 
-        void LoadList()
+        void LoadList(List<Game> games)
         {
-            foreach (Game p in Games)
-            {
+            foreach (Game p in games)
                 AddIem(p);
-            }
         }
 
         public void AddIem(Game p)
@@ -58,48 +54,33 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //Show EditItemDialog
             var v = new EditGameDialog();
 
             if (v.ShowDialog() == DialogResult.OK)
-            {
-                //Add ListViewItem
-                Games.Add(v.Game);
                 AddIem(v.Game);
-            }
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            //If user selected any items
             if (gameListView.SelectedItems.Count > 0)
-            {
-                //For every selected item
                 for (int i = 0; i < gameListView.SelectedItems.Count; i++)
-                {
-                    //Remove item from list
-                    Games.Remove((Game)gameListView.SelectedItems[i].Tag);
-                    //And remove it from control
                     gameListView.SelectedItems[i].Remove();
-                }
-            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
             if (gameListView.SelectedItems.Count > 0)
             {
-                //Create instance of selected item
-                var i = gameListView.SelectedItems[0];
-                //Show EditItemDialog
-                var v = new EditGameDialog((Game)i.Tag);
+                var item = gameListView.SelectedItems[0];
+                var editGameDialog = new EditGameDialog((Game)item.Tag);
 
-                if (v.ShowDialog() == DialogResult.OK)
+                if (editGameDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Set values
-                    i.Name = v.Game.Name;
-                    i.Text = v.Game.Name;
-                    i.Tag = v.Game;
+                    Game editedGame = editGameDialog.Game;
+
+                    item.Name = editedGame.Name;
+                    item.Text = editedGame.Name;
+                    item.Tag = editedGame;
                 }
             }
         }
@@ -123,10 +104,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void createFromTemplateButton_Click(object sender, EventArgs e)
         {
-            //Show ChooseTemplateDialog
-            var c = new ChooseTemplateDialog();
-            c.Tag = this;
-            c.ShowDialog();
+            var chooseTemplateDialog = new ChooseTemplateDialog(this);
+
+            if (chooseTemplateDialog.ShowDialog() == DialogResult.OK)
+                AddIem(chooseTemplateDialog.Game);
         }
 
         private void MoveItem(int index, ListViewItem item)
