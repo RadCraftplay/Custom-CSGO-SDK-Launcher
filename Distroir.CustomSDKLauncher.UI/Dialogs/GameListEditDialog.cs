@@ -120,5 +120,60 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             c.Tag = this;
             c.ShowDialog();
         }
+
+        private void MoveItem(int index, ListViewItem item)
+        {
+            gameListView.Items.RemoveAt(item.Index);
+            gameListView.Items.Insert(index, item);
+        }
+
+        private void MoveToTopButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem == null)
+                return;
+
+            MoveItem(0, selectedItem);
+            gameListView.Select();
+        }
+
+        private void MoveUpButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem != null && selectedItem.Index != 0)
+            {
+                int newIndex = selectedItem.Index - 1;
+                MoveItem(newIndex, selectedItem);
+            }
+
+            gameListView.Select();
+        }
+
+        private void MoveDownButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem != null && selectedItem.Index != gameListView.Items.Count - 1)
+            {
+                int newIndex = selectedItem.Index + 1;
+                MoveItem(newIndex, selectedItem);
+            }
+
+            gameListView.Select();
+        }
+
+        private void MoveToBottomButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem == null)
+                return;
+
+            int newIndex = gameListView.Items.Count - 1;
+            MoveItem(newIndex, selectedItem);
+            gameListView.Select();
+        }
     }
 }

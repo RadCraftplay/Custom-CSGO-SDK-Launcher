@@ -142,4 +142,16 @@
   <data name="source" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\source.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_090" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-090.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_270" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-270.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_skip_090" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-skip-090.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_skip_270" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow-skip-270.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
