@@ -130,7 +130,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var gameListEditDialog = new GameListEditDialog();
+            var gameListEditDialog = new GameListEditDialog(_games);
 
             if (gameListEditDialog.ShowDialog() == DialogResult.OK)
             {

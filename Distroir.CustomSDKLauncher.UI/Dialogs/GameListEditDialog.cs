@@ -28,10 +28,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
     {
         public List<Game> Games { get; private set; } = new List<Game>();
 
-        public GameListEditDialog()
+        public GameListEditDialog(List<Game> games)
         {
+            Games = games;
+
             InitializeComponent();
-            LoadList(DataManagers.GameManager.Objects);
+            LoadList(Games);
         }
 
         void LoadList(List<Game> games)
