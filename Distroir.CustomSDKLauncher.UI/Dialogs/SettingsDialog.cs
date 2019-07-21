@@ -23,6 +23,7 @@ using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
@@ -48,7 +49,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void UpdateControls()
         {
-            RefreshList();
+            RefreshList(Config.TryReadInt("SelectedProfileId"));
 
             displayCurrentlySelectedGameCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
@@ -80,7 +81,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             return string.Empty;
         }
 
-        void RefreshList()
+        void RefreshList(int selectedIndex)
         {
             gameListComboBox.Items.Clear();
 
@@ -89,7 +90,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             try
             {
-                gameListComboBox.SelectedIndex = Config.TryReadInt("SelectedProfileId");
+                gameListComboBox.SelectedIndex = selectedIndex;
             }
             catch
             {
@@ -133,9 +134,40 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             if (gameListEditDialog.ShowDialog() == DialogResult.OK)
             {
-                _games = gameListEditDialog.Games;
-                RefreshList();
+                Game selectedGame = _games[gameListComboBox.SelectedIndex];
+                List<Game> newListOfGames = gameListEditDialog.Games;
+
+                int selectedIndex = FindOutSelectedIndex(
+                    selectedGame,
+                    newListOfGames);
+                _games = newListOfGames;
+                RefreshList(selectedIndex);
             }
+        }
+
+        private int FindOutSelectedIndex(Game activeGame, List<Game> games)
+        {
+            var mostLikelySelectedGameId = games
+                .OrderByDescending(game => CalculateScore(activeGame, (Game)game))
+                .Select(game => games.IndexOf(game))
+                .First();
+
+            return mostLikelySelectedGameId;
+        }
+
+        private object CalculateScore(Game activeGame, Game comparedGame)
+        {
+            int score = 0;
+
+            if (activeGame.GameDir == comparedGame.GameDir)
+                score++;
+            if (activeGame.GameinfoDirName == comparedGame.GameinfoDirName)
+                score++;
+            if (activeGame.Name == comparedGame.Name)
+                score++;
+
+            return score;
+
         }
 
         private void saveButton_Click(object sender, EventArgs e)
