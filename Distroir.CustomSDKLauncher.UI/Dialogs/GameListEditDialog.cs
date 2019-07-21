@@ -38,17 +38,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void LoadList(List<Game> games)
         {
-            foreach (Game p in games)
-                AddItem(p);
+            foreach (Game game in games)
+                AddItem(game);
         }
 
-        public void AddItem(Game p)
+        public void AddItem(Game game)
         {
             ListViewItem i = new ListViewItem()
             {
-                Name = p.Name,
-                Text = p.Name,
-                Tag = p
+                Name = game.Name,
+                Text = game.Name,
+                Tag = game
             };
 
             gameListView.Items.Add(i);
