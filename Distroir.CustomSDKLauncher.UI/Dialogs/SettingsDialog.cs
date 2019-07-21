@@ -145,30 +145,34 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
         }
 
+        #region Finding selected game
+
         private int FindOutSelectedIndex(Game activeGame, List<Game> games)
         {
             var mostLikelySelectedGameId = games
-                .OrderByDescending(game => CalculateScore(activeGame, (Game)game))
+                .OrderByDescending(game => CalculateMatchScore(activeGame, (Game)game))
                 .Select(game => games.IndexOf(game))
                 .First();
 
             return mostLikelySelectedGameId;
         }
 
-        private object CalculateScore(Game activeGame, Game comparedGame)
+        private object CalculateMatchScore(Game activeGame, Game comparedGame)
         {
-            int score = 0;
+            int matchScore = 0;
 
             if (activeGame.GameDir == comparedGame.GameDir)
-                score++;
+                matchScore++;
             if (activeGame.GameinfoDirName == comparedGame.GameinfoDirName)
-                score++;
+                matchScore++;
             if (activeGame.Name == comparedGame.Name)
-                score++;
+                matchScore++;
 
-            return score;
+            return matchScore;
 
         }
+
+        #endregion
 
         private void saveButton_Click(object sender, EventArgs e)
         {
