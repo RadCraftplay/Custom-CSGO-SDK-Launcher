@@ -176,6 +176,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.OK;
+
             SaveSettings();
             Close();
         }
