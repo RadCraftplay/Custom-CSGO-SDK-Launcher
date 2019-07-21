@@ -212,11 +212,13 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            var d = new Dialogs.SettingsDialog(this);
-            d.ShowDialog();ApplyLauncherSettings();
+            var settingsDialog = new Dialogs.SettingsDialog();
 
-            //Update controls
-            UpdateToolsGroupBoxText();
+            if (settingsDialog.ShowDialog() == DialogResult.OK)
+            {
+                ApplyLauncherSettings();
+                UpdateToolsGroupBoxText();
+            }
         }
 
         private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

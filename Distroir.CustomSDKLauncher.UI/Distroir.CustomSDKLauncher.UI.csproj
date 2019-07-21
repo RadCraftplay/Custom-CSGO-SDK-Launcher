@@ -196,5 +196,17 @@
   <ItemGroup>
     <None Include="Resources\source.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-skip-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-skip-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-090.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-270.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

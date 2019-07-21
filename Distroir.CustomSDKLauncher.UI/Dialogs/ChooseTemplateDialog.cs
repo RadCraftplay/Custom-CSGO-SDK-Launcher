@@ -24,12 +24,16 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class ChooseTemplateDialog : Form
     {
-        public ChooseTemplateDialog()
+        private GameListEditDialog _gameListEditDialog;
+        private Game _game;
+
+        public Game Game => _game;
+
+        public ChooseTemplateDialog(GameListEditDialog dialog)
         {
-            //Create controls
             InitializeComponent();
 
-            //Load templates
+            _gameListEditDialog = dialog;
             RefreshList();
         }
 
@@ -38,22 +42,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         /// </summary>
         void RefreshList()
         {
-            //Load templates
             if (DataManagers.TemplateManager.Objects == null
                 || DataManagers.TemplateManager.Objects.Count == 0)
                 DataManagers.TemplateManager.Load();
 
-            //Clear list
             templateListView.Items.Clear();
 
-            //For every template
             foreach (Template t in DataManagers.TemplateManager.Objects)
             {
-                //Create ListViewItem
                 ListViewItem i = new ListViewItem(t.Name);
                 i.Tag = t;
 
-                //And add it to the list
                 templateListView.Items.Add(i);
             }
         }
@@ -63,13 +62,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             if (templateListView.SelectedItems.Count > 0)
             {
                 var editGameDialog = new EditGameDialog((Template)templateListView.SelectedItems[0].Tag);
-                var gameListDialog = (GameListEditDialog)Tag;
 
                 if (editGameDialog.ShowDialog() == DialogResult.OK)
                 {
-                    gameListDialog.Games.Add(editGameDialog.Game);
-                    gameListDialog.AddIem(editGameDialog.Game);
-
+                    _game = editGameDialog.Game;
+                    DialogResult = DialogResult.OK;
                     Close();
                 }
             }

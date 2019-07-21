@@ -19,40 +19,36 @@ using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class GameListEditDialog : Form
     {
-        /// <summary>
-        /// Local copy of GameManager.Games
-        /// </summary>
-        public List<Game> Games;
+        public List<Game> Games { get; private set; } = new List<Game>();
 
-        public GameListEditDialog()
+        public GameListEditDialog(List<Game> games)
         {
+            Games = games;
+
             InitializeComponent();
-
-            Games = DataManagers.GameManager.Objects;
-            LoadList();
+            LoadList(Games);
         }
 
-        void LoadList()
+        void LoadList(List<Game> games)
         {
-            foreach (Game p in Games)
-            {
-                AddIem(p);
-            }
+            foreach (Game game in games)
+                AddItem(game);
         }
 
-        public void AddIem(Game p)
+        public void AddItem(Game game)
         {
             ListViewItem i = new ListViewItem()
             {
-                Name = p.Name,
-                Text = p.Name,
-                Tag = p
+                Name = game.Name,
+                Text = game.Name,
+                Tag = game
             };
 
             gameListView.Items.Add(i);
@@ -60,65 +56,115 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //Show EditItemDialog
             var v = new EditGameDialog();
 
             if (v.ShowDialog() == DialogResult.OK)
-            {
-                //Add ListViewItem
-                Games.Add(v.Game);
-                AddIem(v.Game);
-            }
+                AddItem(v.Game);
         }
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            //If user selected any items
             if (gameListView.SelectedItems.Count > 0)
-            {
-                //For every selected item
                 for (int i = 0; i < gameListView.SelectedItems.Count; i++)
-                {
-                    //Remove item from list
-                    Games.Remove((Game)gameListView.SelectedItems[i].Tag);
-                    //And remove it from control
                     gameListView.SelectedItems[i].Remove();
-                }
-            }
         }
 
         private void editButton_Click(object sender, EventArgs e)
         {
             if (gameListView.SelectedItems.Count > 0)
             {
-                //Create instance of selected item
-                var i = gameListView.SelectedItems[0];
-                //Show EditItemDialog
-                var v = new EditGameDialog((Game)i.Tag);
+                var item = gameListView.SelectedItems[0];
+                var editGameDialog = new EditGameDialog((Game)item.Tag);
 
-                if (v.ShowDialog() == DialogResult.OK)
+                if (editGameDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Set values
-                    i.Name = v.Game.Name;
-                    i.Text = v.Game.Name;
-                    i.Tag = v.Game;
+                    Game editedGame = editGameDialog.Game;
+
+                    item.Name = editedGame.Name;
+                    item.Text = editedGame.Name;
+                    item.Tag = editedGame;
                 }
             }
         }
 
+        private List<Game> RebuildListOfGames()
+        {
+            IEnumerable<ListViewItem> enumerableItems = gameListView.Items.Cast<ListViewItem>();
+            var games = from item in enumerableItems
+                        select item.Tag
+                        as Game;
+
+            return games.ToList();
+        }
+
         private void okButton_Click(object sender, EventArgs e)
         {
-            DataManagers.GameManager.Objects = Games;
+            Games = RebuildListOfGames();
             DialogResult = DialogResult.OK;
             Close();
         }
 
         private void createFromTemplateButton_Click(object sender, EventArgs e)
         {
-            //Show ChooseTemplateDialog
-            var c = new ChooseTemplateDialog();
-            c.Tag = this;
-            c.ShowDialog();
+            var chooseTemplateDialog = new ChooseTemplateDialog(this);
+
+            if (chooseTemplateDialog.ShowDialog() == DialogResult.OK)
+                AddItem(chooseTemplateDialog.Game);
+        }
+
+        private void MoveItem(int index, ListViewItem item)
+        {
+            gameListView.Items.RemoveAt(item.Index);
+            gameListView.Items.Insert(index, item);
+        }
+
+        private void MoveToTopButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem == null)
+                return;
+
+            MoveItem(0, selectedItem);
+            gameListView.Select();
+        }
+
+        private void MoveUpButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem != null && selectedItem.Index != 0)
+            {
+                int newIndex = selectedItem.Index - 1;
+                MoveItem(newIndex, selectedItem);
+            }
+
+            gameListView.Select();
+        }
+
+        private void MoveDownButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem != null && selectedItem.Index != gameListView.Items.Count - 1)
+            {
+                int newIndex = selectedItem.Index + 1;
+                MoveItem(newIndex, selectedItem);
+            }
+
+            gameListView.Select();
+        }
+
+        private void MoveToBottomButton_Click(object sender, EventArgs e)
+        {
+            ListViewItem selectedItem = gameListView.SelectedItems[0];
+
+            if (selectedItem == null)
+                return;
+
+            int newIndex = gameListView.Items.Count - 1;
+            MoveItem(newIndex, selectedItem);
+            gameListView.Select();
         }
     }
 }
