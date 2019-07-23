@@ -16,14 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core.Utilities;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
@@ -150,7 +144,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             }
 
             //Get appIcon
-            IconProvider provider = new IconProvider(Etier.IconHelper.IconReader.IconSize.Small);
+            IconProvider provider = IconProvider.Default;
             Image appIcon = provider.GetFileIcon(info.Path);
 
             //Set AppInfo

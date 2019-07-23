@@ -16,27 +16,22 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Utilities;
-using Etier.IconHelper;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
     public partial class CustomAppConfigurationDialog : Form
     {
         public AppInfo info = null;
+        private IconProvider iconProvider;
 
         public CustomAppConfigurationDialog()
         {
+            iconProvider = IconProvider.Default;
             InitializeComponent();
         }
 
@@ -68,7 +63,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             i.DisplayText = nameTextBox.Text;
 
             if (IconPictureBox.Image == null)
-                TrySetDefaultIcon();
+                SetDefaultIcon();
 
             Image buff = IconPictureBox.Image;
             i.Icon = buff;
@@ -94,7 +89,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         private void defaultIconButton_Click(object sender, EventArgs e)
         {
-            TrySetDefaultIcon();
+            SetDefaultIcon();
         }
 
         #region Browsers
@@ -117,7 +112,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                     //if (nameTextBox.Text == string.Empty)
                     nameTextBox.Text = GetAppName(ofd.FileName);
 
-                    TrySetDefaultIcon();
+                    SetDefaultIcon();
                 }
             }
         }
@@ -169,33 +164,13 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         #endregion
 
-
-
         #region Methods
 
         #region Images
 
-        bool TrySetDefaultIcon()
+        void SetDefaultIcon()
         {
-            if (!System.IO.File.Exists(pathTextBox.Text))
-            {
-                IconPictureBox.Image = Data.DefaultIcon;
-                return false;
-            }
-
-            try
-            {
-                IconPictureBox.Image = IconReader.GetFileIcon(
-                    pathTextBox.Text,
-                    IconReader.IconSize.Small,
-                    false).ToBitmap();
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            IconPictureBox.Image = iconProvider.GetFileIcon(pathTextBox.Text);
         }
 
         void SetIcon(string path)

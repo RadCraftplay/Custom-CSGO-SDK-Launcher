@@ -29,8 +29,19 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             IconSoze = iconSize;
         }
 
+        public static IconProvider Default
+        {
+            get
+            {
+                return new IconProvider(IconReader.IconSize.Small);
+            }
+        }
+
         public Image GetFileIcon(string path)
         {
+            if (string.IsNullOrEmpty(path))
+                return Data.DefaultIcon;
+
             try
             {
                 return IconReader.GetFileIcon(path, IconSoze, false)
