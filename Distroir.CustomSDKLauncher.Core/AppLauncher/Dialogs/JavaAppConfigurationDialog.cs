@@ -15,6 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+using Distroir.CustomSDKLauncher.Core.Utilities;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -149,8 +150,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             }
 
             //Get appIcon
-            Image appIcon;
-            Utilities.IconHelper.TrySetDefaultIcon(info.Path, out appIcon);
+            IconProvider provider = new IconProvider(Etier.IconHelper.IconReader.IconSize.Small);
+            Image appIcon = provider.GetFileIcon(info.Path);
 
             //Set AppInfo
             info.Icon = appIcon;
