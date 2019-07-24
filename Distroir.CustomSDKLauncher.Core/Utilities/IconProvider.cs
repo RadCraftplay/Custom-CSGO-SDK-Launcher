@@ -22,11 +22,11 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class IconProvider
     {
-        public IconReader.IconSize IconSoze { get; }
+        public IconReader.IconSize IconSize { get; }
 
         public IconProvider(IconReader.IconSize iconSize)
         {
-            IconSoze = iconSize;
+            IconSize = iconSize;
         }
 
         public static IconProvider Default
@@ -44,7 +44,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
             try
             {
-                return IconReader.GetFileIcon(path, IconSoze, false)
+                return IconReader.GetFileIcon(path, IconSize, false)
                     .ToBitmap();
             }
             catch
