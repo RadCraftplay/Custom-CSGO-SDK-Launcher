@@ -39,6 +39,12 @@
   <ItemGroup>
     <Compile Include="AppLauncher\AppInfo.cs" />
     <Compile Include="AppLauncher\AppTemplate.cs" />
+    <Compile Include="AppLauncher\Controls\IconSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppLauncher\Controls\IconSelector.Designer.cs">
+      <DependentUpon>IconSelector.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AppLauncher\Controls\IconSelector.resx">
+      <DependentUpon>IconSelector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
