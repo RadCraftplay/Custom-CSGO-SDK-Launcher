@@ -27,11 +27,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
     public partial class CustomAppConfigurationDialog : Form
     {
         public AppInfo info = null;
-        private IconProvider iconProvider;
 
         public CustomAppConfigurationDialog()
         {
-            iconProvider = IconProvider.Default;
             InitializeComponent();
         }
 
@@ -61,12 +59,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             AppInfo i = new AppInfo();
             i.Path = pathTextBox.Text;
             i.DisplayText = nameTextBox.Text;
-
-            if (IconPictureBox.Image == null)
-                SetDefaultIcon();
-
-            Image buff = IconPictureBox.Image;
-            i.Icon = buff;
+            i.Icon = iconSelector.Icon;
 
             if (argumentsCheckBox.Checked)
             {
@@ -87,9 +80,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             Close();
         }
 
-        private void defaultIconButton_Click(object sender, EventArgs e)
+        private void PathTextBox_TextChanged(object sender, EventArgs e)
         {
-            SetDefaultIcon();
+            iconSelector.TrySetDefaultSource(pathTextBox.Text);
         }
 
         #region Browsers
@@ -111,8 +104,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
                     //if (nameTextBox.Text == string.Empty)
                     nameTextBox.Text = GetAppName(ofd.FileName);
-
-                    SetDefaultIcon();
+                    iconSelector.TrySetIconFromExecutableFile(ofd.FileName);
                 }
             }
         }
@@ -126,21 +118,6 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     customWorkingDirectoryTextBox.Text = ofd.SelectedPath;
-                }
-            }
-        }
-
-        private void overrideAppIconButton_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog()
-            {
-                Filter = "Supported icon files|*.ico;*.png;*.jpg;*.tiff;*.bmp",
-                CheckFileExists = true
-            })
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    SetIcon(ofd.FileName);
                 }
             }
         }
@@ -165,52 +142,6 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
         #endregion
 
         #region Methods
-
-        #region Images
-
-        void SetDefaultIcon()
-        {
-            IconPictureBox.Image = iconProvider.GetFileIcon(pathTextBox.Text);
-        }
-
-        void SetIcon(string path)
-        {
-            Image icon = Image.FromFile(path);
-
-            if (icon.Size != new Size(16, 16))
-            {
-                icon = ResizeImage(icon, 16, 16);
-            }
-
-            IconPictureBox.Image = icon;
-        }
-
-        public static Bitmap ResizeImage(Image image, int width, int height)
-        {
-            var destRect = new Rectangle(0, 0, width, height);
-            var destImage = new Bitmap(width, height);
-
-            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-
-            using (var graphics = Graphics.FromImage(destImage))
-            {
-                graphics.CompositingMode = CompositingMode.SourceCopy;
-                graphics.CompositingQuality = CompositingQuality.HighQuality;
-                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                graphics.SmoothingMode = SmoothingMode.HighQuality;
-                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-                using (var wrapMode = new ImageAttributes())
-                {
-                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
-                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
-                }
-            }
-
-            return destImage;
-        }
-
-        #endregion
 
         string GetAppName(string filename)
         {

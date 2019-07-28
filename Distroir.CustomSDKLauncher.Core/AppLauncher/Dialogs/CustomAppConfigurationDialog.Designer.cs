@@ -36,15 +36,11 @@
             this.pathTextBox = new System.Windows.Forms.TextBox();
             this.argumentsTextBox = new System.Windows.Forms.TextBox();
             this.customWorkingDirectoryTextBox = new System.Windows.Forms.TextBox();
-            this.iconLabel = new System.Windows.Forms.Label();
-            this.IconPictureBox = new System.Windows.Forms.PictureBox();
-            this.overrideAppIconButton = new System.Windows.Forms.Button();
-            this.defaultIconButton = new System.Windows.Forms.Button();
             this.selectPathButton = new System.Windows.Forms.Button();
             this.selectCustomWorkingDirectoryButton = new System.Windows.Forms.Button();
             this.buttonLabelLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).BeginInit();
+            this.iconSelector = new Distroir.CustomSDKLauncher.Core.AppLauncher.Controls.IconSelector();
             this.SuspendLayout();
             // 
             // okButton
@@ -108,6 +104,7 @@
             this.pathTextBox.Name = "pathTextBox";
             this.pathTextBox.Size = new System.Drawing.Size(322, 22);
             this.pathTextBox.TabIndex = 5;
+            this.pathTextBox.TextChanged += new System.EventHandler(this.PathTextBox_TextChanged);
             // 
             // argumentsTextBox
             // 
@@ -128,43 +125,6 @@
             this.customWorkingDirectoryTextBox.Name = "customWorkingDirectoryTextBox";
             this.customWorkingDirectoryTextBox.Size = new System.Drawing.Size(322, 22);
             this.customWorkingDirectoryTextBox.TabIndex = 5;
-            // 
-            // iconLabel
-            // 
-            this.iconLabel.AutoSize = true;
-            this.iconLabel.Location = new System.Drawing.Point(12, 216);
-            this.iconLabel.Name = "iconLabel";
-            this.iconLabel.Size = new System.Drawing.Size(38, 17);
-            this.iconLabel.TabIndex = 6;
-            this.iconLabel.Text = "Icon:";
-            // 
-            // IconPictureBox
-            // 
-            this.IconPictureBox.Location = new System.Drawing.Point(56, 216);
-            this.IconPictureBox.Name = "IconPictureBox";
-            this.IconPictureBox.Size = new System.Drawing.Size(20, 20);
-            this.IconPictureBox.TabIndex = 7;
-            this.IconPictureBox.TabStop = false;
-            // 
-            // overrideAppIconButton
-            // 
-            this.overrideAppIconButton.Location = new System.Drawing.Point(92, 242);
-            this.overrideAppIconButton.Name = "overrideAppIconButton";
-            this.overrideAppIconButton.Size = new System.Drawing.Size(75, 25);
-            this.overrideAppIconButton.TabIndex = 8;
-            this.overrideAppIconButton.Text = "Override";
-            this.overrideAppIconButton.UseVisualStyleBackColor = true;
-            this.overrideAppIconButton.Click += new System.EventHandler(this.overrideAppIconButton_Click);
-            // 
-            // defaultIconButton
-            // 
-            this.defaultIconButton.Location = new System.Drawing.Point(11, 242);
-            this.defaultIconButton.Name = "defaultIconButton";
-            this.defaultIconButton.Size = new System.Drawing.Size(75, 25);
-            this.defaultIconButton.TabIndex = 8;
-            this.defaultIconButton.Text = "Default";
-            this.defaultIconButton.UseVisualStyleBackColor = true;
-            this.defaultIconButton.Click += new System.EventHandler(this.defaultIconButton_Click);
             // 
             // selectPathButton
             // 
@@ -202,19 +162,25 @@
             this.nameTextBox.Size = new System.Drawing.Size(358, 22);
             this.nameTextBox.TabIndex = 11;
             // 
+            // iconSelector
+            // 
+            this.iconSelector.Location = new System.Drawing.Point(12, 213);
+            this.iconSelector.MaximumSize = new System.Drawing.Size(0, 60);
+            this.iconSelector.MinimumSize = new System.Drawing.Size(162, 60);
+            this.iconSelector.Name = "iconSelector";
+            this.iconSelector.Size = new System.Drawing.Size(162, 60);
+            this.iconSelector.TabIndex = 12;
+            // 
             // CustomAppConfigurationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 331);
+            this.Controls.Add(this.iconSelector);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.buttonLabelLabel);
             this.Controls.Add(this.selectCustomWorkingDirectoryButton);
             this.Controls.Add(this.selectPathButton);
-            this.Controls.Add(this.defaultIconButton);
-            this.Controls.Add(this.overrideAppIconButton);
-            this.Controls.Add(this.IconPictureBox);
-            this.Controls.Add(this.iconLabel);
             this.Controls.Add(this.customWorkingDirectoryTextBox);
             this.Controls.Add(this.argumentsTextBox);
             this.Controls.Add(this.pathTextBox);
@@ -228,7 +194,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Configuration";
-            ((System.ComponentModel.ISupportInitialize)(this.IconPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,13 +209,10 @@
         private System.Windows.Forms.TextBox pathTextBox;
         private System.Windows.Forms.TextBox argumentsTextBox;
         private System.Windows.Forms.TextBox customWorkingDirectoryTextBox;
-        private System.Windows.Forms.Label iconLabel;
-        private System.Windows.Forms.PictureBox IconPictureBox;
-        private System.Windows.Forms.Button overrideAppIconButton;
-        private System.Windows.Forms.Button defaultIconButton;
         private System.Windows.Forms.Button selectPathButton;
         private System.Windows.Forms.Button selectCustomWorkingDirectoryButton;
         private System.Windows.Forms.Label buttonLabelLabel;
         private System.Windows.Forms.TextBox nameTextBox;
+        private Controls.IconSelector iconSelector;
     }
 }
