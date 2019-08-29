@@ -30,6 +30,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
         {
             InitializeComponent();
             TagRadioButtons();
+            SetDefaultIcon();
         }
 
         void TagRadioButtons()
@@ -37,6 +38,29 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             usePathVariableRadioButton.Tag = new JavaPathFinders.PathFinder();
             tryToFindJavaExeRadioButton.Tag = new JavaPathFinders.RegistryFinder();
             customPathRadioButton.Tag = new JavaPathFinders.CustomFinder();
+        }
+
+        private void SetDefaultIcon()
+        {
+            JavaPathFinder finder = GetSelectedJavaPathFinder();
+
+            if (finder != null)
+            {
+                if (finder.Test(jarFilePathTextBox.Text))
+                {
+                    iconSelector.SetIconFromExecutableFile(finder.Path);
+                }
+            }
+        }
+
+        private JavaPathFinder GetSelectedJavaPathFinder()
+        {
+            foreach (Control control in javaExecutablePathGroupBox.Controls)
+                if (control is RadioButton button)
+                    if (button.Checked)
+                        return (JavaPathFinder)button.Tag;
+
+            return null;
         }
 
         private void selectJarPathButton_Click(object sender, EventArgs e)
@@ -76,6 +100,11 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             }
 
             customPathTextBox.Enabled = selectJavaExePathButton.Enabled = customPathRadioButton.Checked;
+
+            JavaPathFinder finder = GetSelectedJavaPathFinder();
+            if (finder != null)
+                if (finder.Test(jarFilePathTextBox.Text))
+                    iconSelector.TrySetIconFromExecutableFile(finder.Path);
         }
 
         private void okButton_Click(object sender, EventArgs e)
@@ -143,12 +172,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 return;
             }
 
-            //Get appIcon
-            IconProvider provider = IconProvider.Default;
-            Image appIcon = provider.GetFileIcon(info.Path);
-
-            //Set AppInfo
-            info.Icon = appIcon;
+            info.Icon = iconSelector.Icon;
             info.DisplayText = gameNameTextBox.Text;
             info.UseCustomArguments = true;
             info.Arguments = String.Format("-jar {0}{1}{0}", '"', jarFilePathTextBox.Text);
