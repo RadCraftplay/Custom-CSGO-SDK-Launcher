@@ -15,16 +15,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
     public partial class JavaAppConfigurationDialog : Form
     {
-        public AppInfo info;
+        public AppInfo Info { get; private set; }
 
         public JavaAppConfigurationDialog()
         {
@@ -33,11 +31,11 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             SetDefaultIcon();
         }
 
-        void TagRadioButtons()
+        private void TagRadioButtons()
         {
             usePathVariableRadioButton.Tag = new JavaPathFinders.PathFinder();
             tryToFindJavaExeRadioButton.Tag = new JavaPathFinders.RegistryFinder();
-            customPathRadioButton.Tag = new JavaPathFinders.CustomFinder();
+            customPathRadioButton.Tag = new JavaPathFinders.CustomFinder(ref customPathTextBox);
         }
 
         private void SetDefaultIcon()
@@ -45,12 +43,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             JavaPathFinder finder = GetSelectedJavaPathFinder();
 
             if (finder != null)
-            {
-                if (finder.Test(jarFilePathTextBox.Text))
-                {
+                if (finder.IsPathValid())
                     iconSelector.SetIconFromExecutableFile(finder.Path);
-                }
-            }
         }
 
         private JavaPathFinder GetSelectedJavaPathFinder()
@@ -103,13 +97,13 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
             JavaPathFinder finder = GetSelectedJavaPathFinder();
             if (finder != null)
-                if (finder.Test(jarFilePathTextBox.Text))
+                if (finder.IsPathValid())
                     iconSelector.TrySetIconFromExecutableFile(finder.Path);
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            info = new AppInfo();
+            Info = new AppInfo();
             bool anyChecked = false;
 
             //Check if game name is empty
@@ -129,11 +123,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             //Try to find RadioButtons
             foreach (Control c in javaExecutablePathGroupBox.Controls)
             {
-                try
+                if (c is RadioButton b)
                 {
-                    //Try to convert control to RadioButton
-                    RadioButton b = (RadioButton)c;
-
                     if (b.Checked)
                     {
                         //At least one RadioButton is checked
@@ -143,7 +134,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                         JavaPathFinder f = (JavaPathFinder)b.Tag;
 
                         //If test of the path fails
-                        if (!f.Test(customPathTextBox.Text))
+                        if (!f.IsPathValid())
                         {
                             //Throw an error
                             Utilities.MessageBoxes.Error("Unable to find java executable. Try to select other method");
@@ -151,16 +142,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                             return;
                         }
 
-                        //Get java executable path
-                        if (f.pathType == PathType.Embed)
-                            info.Path = f.Path;
-                        else
-                            info.Path = customPathTextBox.Text;
+                        Info.Path = f.Path;
                     }
-                }
-                catch
-                {
-                    //Control isn't RadioButton -> skip
                 }
             }
 
@@ -172,10 +155,10 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 return;
             }
 
-            info.Icon = iconSelector.Icon;
-            info.DisplayText = gameNameTextBox.Text;
-            info.UseCustomArguments = true;
-            info.Arguments = String.Format("-jar {0}{1}{0}", '"', jarFilePathTextBox.Text);
+            Info.Icon = iconSelector.Icon;
+            Info.DisplayText = gameNameTextBox.Text;
+            Info.UseCustomArguments = true;
+            Info.Arguments = String.Format("-jar {0}{1}{0}", '"', jarFilePathTextBox.Text);
 
             //Close dialog
             DialogResult = DialogResult.OK;
@@ -186,47 +169,26 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
     /// <summary>
     /// As the name suggests, tries to find java path
     /// </summary>
-    abstract class JavaPathFinder
+    internal abstract class JavaPathFinder
     {
         /// <summary>
         /// Tests if executable can be found that way
         /// </summary>
-        /// <param name="textBoxPath">Path from PathTextBox</param>
-        /// <returns></returns>
-        public abstract bool Test(string textBoxPath);
+        public abstract bool IsPathValid();
 
         /// <summary>
         /// Path to java executable
         /// </summary>
         public abstract string Path { get; }
-
-        /// <summary>
-        /// Way to get path
-        /// </summary>
-        public PathType pathType;
     }
 
-    enum PathType
-    {
-        /// <summary>
-        /// Uses JavaPathFinder.Path
-        /// </summary>
-        Embed,
-        /// <summary>
-        /// Uses PathTextBox.Text
-        /// </summary>
-        FromTextbox
-    }
-
-    class JavaPathFinders
+    internal class JavaPathFinders
     {
         public class PathFinder : JavaPathFinder
         {
             public override string Path => "javaw";
 
-            public PathFinder() => pathType = PathType.Embed;
-
-            public override bool Test(string textBoxPath)
+            public override bool IsPathValid()
             {
                 return Utils.TryLaunch(Path);
             }
@@ -234,30 +196,32 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         public class RegistryFinder : JavaPathFinder
         {
-            public override string Path => exePath;
-            string exePath;
+            public override string Path => _exePath;
 
-            public RegistryFinder() => pathType = PathType.Embed;
+            private string _exePath;
 
-            public override bool Test(string textBoxPath)
+            public override bool IsPathValid()
             {
-                string output;
-                bool result = Utilities.JavaUtils.TryGetJavaHomePath(out output);
+                bool result = Utilities.JavaUtils.TryGetJavaHomePath(out string output);
 
-                exePath = System.IO.Path.Combine(output, "bin\\javaw.exe");
+                _exePath = System.IO.Path.Combine(output, "bin\\javaw.exe");
                 return result;
             }
         }
 
         public class CustomFinder : JavaPathFinder
         {
-            public override string Path => null;
+            public override string Path => _pathTextBox.Text;
+            private TextBox _pathTextBox;
 
-            public CustomFinder() => pathType = PathType.FromTextbox;
-
-            public override bool Test(string textBoxPath)
+            public CustomFinder(ref TextBox pathTextBox)
             {
-                return Utils.TryLaunch(textBoxPath);
+                _pathTextBox = pathTextBox;
+            }
+
+            public override bool IsPathValid()
+            {
+                return Utils.TryLaunch(Path);
             }
         }
     }
