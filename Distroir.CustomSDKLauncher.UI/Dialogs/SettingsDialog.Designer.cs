@@ -42,7 +42,7 @@
             this.launcherEditButton2 = new System.Windows.Forms.Button();
             this.launcherEditButton1 = new System.Windows.Forms.Button();
             this.useNewLauncherCheckBox = new System.Windows.Forms.CheckBox();
-            this.backupTabPage = new System.Windows.Forms.TabPage();
+            this.configTabPage = new System.Windows.Forms.TabPage();
             this.settingsGroupBox = new System.Windows.Forms.GroupBox();
             this.createBackupButton = new System.Windows.Forms.Button();
             this.restoreBackupButton = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@
             this.tabControl.SuspendLayout();
             this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
-            this.backupTabPage.SuspendLayout();
+            this.configTabPage.SuspendLayout();
             this.settingsGroupBox.SuspendLayout();
             this.advancedTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
@@ -78,7 +78,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.gamesTabPage);
             this.tabControl.Controls.Add(this.appLauncherTabPage);
-            this.tabControl.Controls.Add(this.backupTabPage);
+            this.tabControl.Controls.Add(this.configTabPage);
             this.tabControl.Controls.Add(this.advancedTabPage);
             this.tabControl.Controls.Add(this.aboutTabPage);
             this.tabControl.Location = new System.Drawing.Point(17, 16);
@@ -247,17 +247,17 @@
             this.useNewLauncherCheckBox.UseVisualStyleBackColor = true;
             this.useNewLauncherCheckBox.CheckedChanged += new System.EventHandler(this.useNewLauncherCheckBox_CheckedChanged);
             // 
-            // backupTabPage
+            // configTabPage
             // 
-            this.backupTabPage.Controls.Add(this.settingsGroupBox);
-            this.backupTabPage.Location = new System.Drawing.Point(4, 25);
-            this.backupTabPage.Margin = new System.Windows.Forms.Padding(4);
-            this.backupTabPage.Name = "backupTabPage";
-            this.backupTabPage.Padding = new System.Windows.Forms.Padding(4);
-            this.backupTabPage.Size = new System.Drawing.Size(443, 196);
-            this.backupTabPage.TabIndex = 2;
-            this.backupTabPage.Text = "Backups";
-            this.backupTabPage.UseVisualStyleBackColor = true;
+            this.configTabPage.Controls.Add(this.settingsGroupBox);
+            this.configTabPage.Location = new System.Drawing.Point(4, 25);
+            this.configTabPage.Margin = new System.Windows.Forms.Padding(4);
+            this.configTabPage.Name = "configTabPage";
+            this.configTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.configTabPage.Size = new System.Drawing.Size(443, 196);
+            this.configTabPage.TabIndex = 2;
+            this.configTabPage.Text = "Configuration";
+            this.configTabPage.UseVisualStyleBackColor = true;
             // 
             // settingsGroupBox
             // 
@@ -493,7 +493,7 @@
             this.gamesTabPage.PerformLayout();
             this.appLauncherTabPage.ResumeLayout(false);
             this.appLauncherTabPage.PerformLayout();
-            this.backupTabPage.ResumeLayout(false);
+            this.configTabPage.ResumeLayout(false);
             this.settingsGroupBox.ResumeLayout(false);
             this.advancedTabPage.ResumeLayout(false);
             this.advancedTabPage.PerformLayout();
@@ -521,7 +521,7 @@
         private System.Windows.Forms.LinkLabel fugueIconsSetLicenseLinkLabel;
         private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
-        private System.Windows.Forms.TabPage backupTabPage;
+        private System.Windows.Forms.TabPage configTabPage;
         private System.Windows.Forms.GroupBox settingsGroupBox;
         private System.Windows.Forms.Button createBackupButton;
         private System.Windows.Forms.Button restoreBackupButton;
