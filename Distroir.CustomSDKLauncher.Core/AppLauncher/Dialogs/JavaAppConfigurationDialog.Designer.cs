@@ -40,6 +40,7 @@
             this.okButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.gameNameTextBox = new System.Windows.Forms.TextBox();
+            this.iconSelector = new Distroir.CustomSDKLauncher.Core.AppLauncher.Controls.IconSelector();
             this.javaExecutablePathGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,9 +48,9 @@
             // 
             this.selectJarPathButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.selectJarPathButton.Location = new System.Drawing.Point(270, 74);
+            this.selectJarPathButton.Location = new System.Drawing.Point(377, 74);
             this.selectJarPathButton.Name = "selectJarPathButton";
-            this.selectJarPathButton.Size = new System.Drawing.Size(30, 23);
+            this.selectJarPathButton.Size = new System.Drawing.Size(30, 22);
             this.selectJarPathButton.TabIndex = 12;
             this.selectJarPathButton.Text = "...";
             this.selectJarPathButton.UseVisualStyleBackColor = true;
@@ -61,7 +62,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.jarFilePathTextBox.Location = new System.Drawing.Point(12, 74);
             this.jarFilePathTextBox.Name = "jarFilePathTextBox";
-            this.jarFilePathTextBox.Size = new System.Drawing.Size(252, 22);
+            this.jarFilePathTextBox.Size = new System.Drawing.Size(359, 22);
             this.jarFilePathTextBox.TabIndex = 11;
             // 
             // jarFileLabel
@@ -75,8 +76,7 @@
             // 
             // javaExecutablePathGroupBox
             // 
-            this.javaExecutablePathGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.javaExecutablePathGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.javaExecutablePathGroupBox.Controls.Add(this.selectJavaExePathButton);
             this.javaExecutablePathGroupBox.Controls.Add(this.customPathRadioButton);
@@ -85,7 +85,7 @@
             this.javaExecutablePathGroupBox.Controls.Add(this.usePathVariableRadioButton);
             this.javaExecutablePathGroupBox.Location = new System.Drawing.Point(12, 103);
             this.javaExecutablePathGroupBox.Name = "javaExecutablePathGroupBox";
-            this.javaExecutablePathGroupBox.Size = new System.Drawing.Size(288, 146);
+            this.javaExecutablePathGroupBox.Size = new System.Drawing.Size(395, 146);
             this.javaExecutablePathGroupBox.TabIndex = 14;
             this.javaExecutablePathGroupBox.TabStop = false;
             this.javaExecutablePathGroupBox.Text = "Java executable path";
@@ -94,7 +94,7 @@
             // 
             this.selectJavaExePathButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.selectJavaExePathButton.Enabled = false;
-            this.selectJavaExePathButton.Location = new System.Drawing.Point(252, 104);
+            this.selectJavaExePathButton.Location = new System.Drawing.Point(359, 104);
             this.selectJavaExePathButton.Name = "selectJavaExePathButton";
             this.selectJavaExePathButton.Size = new System.Drawing.Size(30, 23);
             this.selectJavaExePathButton.TabIndex = 16;
@@ -120,7 +120,7 @@
             this.customPathTextBox.Enabled = false;
             this.customPathTextBox.Location = new System.Drawing.Point(6, 105);
             this.customPathTextBox.Name = "customPathTextBox";
-            this.customPathTextBox.Size = new System.Drawing.Size(240, 22);
+            this.customPathTextBox.Size = new System.Drawing.Size(347, 22);
             this.customPathTextBox.TabIndex = 2;
             // 
             // tryToFindJavaExeRadioButton
@@ -150,7 +150,7 @@
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(225, 255);
+            this.okButton.Location = new System.Drawing.Point(332, 326);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 15;
@@ -173,14 +173,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gameNameTextBox.Location = new System.Drawing.Point(12, 29);
             this.gameNameTextBox.Name = "gameNameTextBox";
-            this.gameNameTextBox.Size = new System.Drawing.Size(288, 22);
+            this.gameNameTextBox.Size = new System.Drawing.Size(395, 22);
             this.gameNameTextBox.TabIndex = 10;
+            // 
+            // iconSelector
+            // 
+            this.iconSelector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconSelector.Location = new System.Drawing.Point(12, 255);
+            this.iconSelector.MaximumSize = new System.Drawing.Size(0, 52);
+            this.iconSelector.MinimumSize = new System.Drawing.Size(156, 52);
+            this.iconSelector.Name = "iconSelector";
+            this.iconSelector.Size = new System.Drawing.Size(395, 52);
+            this.iconSelector.TabIndex = 17;
             // 
             // JavaAppConfigurationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 290);
+            this.ClientSize = new System.Drawing.Size(419, 361);
+            this.Controls.Add(this.iconSelector);
             this.Controls.Add(this.gameNameTextBox);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.okButton);
@@ -214,5 +226,6 @@
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.TextBox gameNameTextBox;
+        private Controls.IconSelector iconSelector;
     }
 }

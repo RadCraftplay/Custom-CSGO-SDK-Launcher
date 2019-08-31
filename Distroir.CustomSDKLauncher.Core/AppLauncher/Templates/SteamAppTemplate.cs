@@ -49,7 +49,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
                 Info.UseCustomWorkingDirectory = false;
                 Info.Path = "steam://run/" + dialog.AppId;
                 Info.DisplayText = dialog.AppName;
-                Info.Icon = Data.DefaultIcon;
+                Info.Icon = dialog.AppIcon;
 
                 return true;
             }

@@ -16,18 +16,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Utilities;
-using Etier.IconHelper;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
@@ -66,12 +59,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             AppInfo i = new AppInfo();
             i.Path = pathTextBox.Text;
             i.DisplayText = nameTextBox.Text;
-
-            if (IconPictureBox.Image == null)
-                TrySetDefaultIcon();
-
-            Image buff = IconPictureBox.Image;
-            i.Icon = buff;
+            i.Icon = iconSelector.Icon;
 
             if (argumentsCheckBox.Checked)
             {
@@ -92,9 +80,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             Close();
         }
 
-        private void defaultIconButton_Click(object sender, EventArgs e)
+        private void PathTextBox_TextChanged(object sender, EventArgs e)
         {
-            TrySetDefaultIcon();
+            iconSelector.TrySetDefaultSource(pathTextBox.Text);
         }
 
         #region Browsers
@@ -116,8 +104,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
                     //if (nameTextBox.Text == string.Empty)
                     nameTextBox.Text = GetAppName(ofd.FileName);
-
-                    TrySetDefaultIcon();
+                    iconSelector.TrySetIconFromExecutableFile(ofd.FileName);
                 }
             }
         }
@@ -131,21 +118,6 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     customWorkingDirectoryTextBox.Text = ofd.SelectedPath;
-                }
-            }
-        }
-
-        private void overrideAppIconButton_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog ofd = new OpenFileDialog()
-            {
-                Filter = "Supported icon files|*.ico;*.png;*.jpg;*.tiff;*.bmp",
-                CheckFileExists = true
-            })
-            {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    SetIcon(ofd.FileName);
                 }
             }
         }
@@ -169,73 +141,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         #endregion
 
-
-
         #region Methods
-
-        #region Images
-
-        bool TrySetDefaultIcon()
-        {
-            if (!System.IO.File.Exists(pathTextBox.Text))
-            {
-                IconPictureBox.Image = Data.DefaultIcon;
-                return false;
-            }
-
-            try
-            {
-                IconPictureBox.Image = IconReader.GetFileIcon(
-                    pathTextBox.Text,
-                    IconReader.IconSize.Small,
-                    false).ToBitmap();
-
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        void SetIcon(string path)
-        {
-            Image icon = Image.FromFile(path);
-
-            if (icon.Size != new Size(16, 16))
-            {
-                icon = ResizeImage(icon, 16, 16);
-            }
-
-            IconPictureBox.Image = icon;
-        }
-
-        public static Bitmap ResizeImage(Image image, int width, int height)
-        {
-            var destRect = new Rectangle(0, 0, width, height);
-            var destImage = new Bitmap(width, height);
-
-            destImage.SetResolution(image.HorizontalResolution, image.VerticalResolution);
-
-            using (var graphics = Graphics.FromImage(destImage))
-            {
-                graphics.CompositingMode = CompositingMode.SourceCopy;
-                graphics.CompositingQuality = CompositingQuality.HighQuality;
-                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                graphics.SmoothingMode = SmoothingMode.HighQuality;
-                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
-
-                using (var wrapMode = new ImageAttributes())
-                {
-                    wrapMode.SetWrapMode(WrapMode.TileFlipXY);
-                    graphics.DrawImage(image, destRect, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
-                }
-            }
-
-            return destImage;
-        }
-
-        #endregion
 
         string GetAppName(string filename)
         {

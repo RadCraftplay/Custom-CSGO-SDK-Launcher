@@ -35,6 +35,7 @@
             this.tipLabel = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.nameLabel = new System.Windows.Forms.Label();
+            this.iconSelector = new Distroir.CustomSDKLauncher.Core.AppLauncher.Controls.IconSelector();
             this.SuspendLayout();
             // 
             // label1
@@ -72,7 +73,7 @@
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.okButton.Location = new System.Drawing.Point(286, 89);
+            this.okButton.Location = new System.Drawing.Point(286, 111);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 3;
@@ -109,11 +110,21 @@
             this.nameLabel.TabIndex = 6;
             this.nameLabel.Text = "Name:";
             // 
+            // iconSelector
+            // 
+            this.iconSelector.Location = new System.Drawing.Point(12, 85);
+            this.iconSelector.MaximumSize = new System.Drawing.Size(0, 52);
+            this.iconSelector.MinimumSize = new System.Drawing.Size(156, 52);
+            this.iconSelector.Name = "iconSelector";
+            this.iconSelector.Size = new System.Drawing.Size(156, 52);
+            this.iconSelector.TabIndex = 7;
+            // 
             // SteamAppConfigurationDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 124);
+            this.ClientSize = new System.Drawing.Size(373, 146);
+            this.Controls.Add(this.iconSelector);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.tipLabel);
@@ -140,5 +151,6 @@
         private System.Windows.Forms.Label tipLabel;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label nameLabel;
+        private Controls.IconSelector iconSelector;
     }
 }

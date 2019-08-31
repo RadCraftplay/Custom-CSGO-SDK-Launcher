@@ -30,6 +30,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
     {
         public string AppId => idTextBox.Text;
         public string AppName => nameTextBox.Text;
+        public Image AppIcon => iconSelector.Icon;
 
         public SteamAppConfigurationDialog()
         {

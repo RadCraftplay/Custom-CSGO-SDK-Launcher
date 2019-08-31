@@ -38,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
             var v = new JavaAppConfigurationDialog();
             if (v.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Info = v.info;
+                Info = v.Info;
                 return true;
             }
 
