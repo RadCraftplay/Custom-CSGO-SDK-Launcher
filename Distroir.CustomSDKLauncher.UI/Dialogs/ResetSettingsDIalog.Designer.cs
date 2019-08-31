@@ -79,7 +79,7 @@
             // 
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.resetButton.ForeColor = System.Drawing.Color.Red;
-            this.resetButton.Location = new System.Drawing.Point(196, 119);
+            this.resetButton.Location = new System.Drawing.Point(195, 116);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 25);
             this.resetButton.TabIndex = 5;
@@ -90,7 +90,7 @@
             // cancelButton
             // 
             this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cancelButton.Location = new System.Drawing.Point(12, 119);
+            this.cancelButton.Location = new System.Drawing.Point(12, 116);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
             this.cancelButton.TabIndex = 6;
@@ -98,19 +98,24 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // ResetSettingsDIalog
+            // ResetSettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 156);
+            this.ClientSize = new System.Drawing.Size(282, 153);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.otherCheckBox);
             this.Controls.Add(this.launcherCheckBox);
             this.Controls.Add(this.gamesCheckBox);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "ResetSettingsDIalog";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(300, 200);
+            this.MinimumSize = new System.Drawing.Size(300, 200);
+            this.Name = "ResetSettingsDialog";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Reset settings";
             this.ResumeLayout(false);
             this.PerformLayout();
