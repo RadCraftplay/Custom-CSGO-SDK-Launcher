@@ -248,6 +248,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
         }
 
+        private void ResetSettingsButton_Click(object sender, EventArgs e)
+        {
+            var dialog = new ResetSettingsDialog();
+            dialog.ShowDialog();
+        }
+
         private void launcherButtonEdit_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
