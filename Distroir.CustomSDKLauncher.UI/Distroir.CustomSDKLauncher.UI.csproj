@@ -79,11 +79,11 @@
     <Compile Include="Dialogs\GameListEditDialog.Designer.cs">
       <DependentUpon>GameListEditDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\ResetSettingsDIalog.cs">
+    <Compile Include="Dialogs\ResetSettingsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\ResetSettingsDIalog.Designer.cs">
-      <DependentUpon>ResetSettingsDIalog.cs</DependentUpon>
+    <Compile Include="Dialogs\ResetSettingsDialog.Designer.cs">
+      <DependentUpon>ResetSettingsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SettingsDialog.cs">
       <SubType>Form</SubType>
@@ -137,8 +137,8 @@
     <EmbeddedResource Include="Dialogs\GameListEditDialog.resx">
       <DependentUpon>GameListEditDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\ResetSettingsDIalog.resx">
-      <DependentUpon>ResetSettingsDIalog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\ResetSettingsDialog.resx">
+      <DependentUpon>ResetSettingsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SettingsDialog.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>

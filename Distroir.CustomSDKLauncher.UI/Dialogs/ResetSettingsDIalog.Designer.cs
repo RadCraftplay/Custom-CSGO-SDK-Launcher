@@ -1,6 +1,6 @@
 ﻿namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    partial class ResetSettingsDIalog
+    partial class ResetSettingsDialog
     {
         /// <summary>
         /// Required designer variable.
