@@ -42,11 +42,16 @@
             this.launcherEditButton2 = new System.Windows.Forms.Button();
             this.launcherEditButton1 = new System.Windows.Forms.Button();
             this.useNewLauncherCheckBox = new System.Windows.Forms.CheckBox();
-            this.backupTabPage = new System.Windows.Forms.TabPage();
-            this.settingsGroupBox = new System.Windows.Forms.GroupBox();
+            this.configTabPage = new System.Windows.Forms.TabPage();
+            this.resetSettingsGroupBox = new System.Windows.Forms.GroupBox();
+            this.resetSettingsButton = new System.Windows.Forms.Button();
+            this.warningResetSettingsLabel2 = new System.Windows.Forms.Label();
+            this.warningResetSettingsLabel = new System.Windows.Forms.Label();
+            this.backupsGroupBox = new System.Windows.Forms.GroupBox();
             this.createBackupButton = new System.Windows.Forms.Button();
             this.restoreBackupButton = new System.Windows.Forms.Button();
             this.advancedTabPage = new System.Windows.Forms.TabPage();
+            this.ignoreGameMigrationConflictsCheckBox = new System.Windows.Forms.CheckBox();
             this.preLoadDataCheckBox = new System.Windows.Forms.CheckBox();
             this.advancedWarningLabel = new System.Windows.Forms.Label();
             this.aboutTabPage = new System.Windows.Forms.TabPage();
@@ -60,12 +65,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.appnameLabel = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
-            this.ignoreGameMigrationConflictsCheckBox = new System.Windows.Forms.CheckBox();
             this.tabControl.SuspendLayout();
             this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
-            this.backupTabPage.SuspendLayout();
-            this.settingsGroupBox.SuspendLayout();
+            this.configTabPage.SuspendLayout();
+            this.resetSettingsGroupBox.SuspendLayout();
+            this.backupsGroupBox.SuspendLayout();
             this.advancedTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -78,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.gamesTabPage);
             this.tabControl.Controls.Add(this.appLauncherTabPage);
-            this.tabControl.Controls.Add(this.backupTabPage);
+            this.tabControl.Controls.Add(this.configTabPage);
             this.tabControl.Controls.Add(this.advancedTabPage);
             this.tabControl.Controls.Add(this.aboutTabPage);
             this.tabControl.Location = new System.Drawing.Point(17, 16);
@@ -247,38 +252,81 @@
             this.useNewLauncherCheckBox.UseVisualStyleBackColor = true;
             this.useNewLauncherCheckBox.CheckedChanged += new System.EventHandler(this.useNewLauncherCheckBox_CheckedChanged);
             // 
-            // backupTabPage
+            // configTabPage
             // 
-            this.backupTabPage.Controls.Add(this.settingsGroupBox);
-            this.backupTabPage.Location = new System.Drawing.Point(4, 25);
-            this.backupTabPage.Margin = new System.Windows.Forms.Padding(4);
-            this.backupTabPage.Name = "backupTabPage";
-            this.backupTabPage.Padding = new System.Windows.Forms.Padding(4);
-            this.backupTabPage.Size = new System.Drawing.Size(443, 196);
-            this.backupTabPage.TabIndex = 2;
-            this.backupTabPage.Text = "Backups";
-            this.backupTabPage.UseVisualStyleBackColor = true;
+            this.configTabPage.Controls.Add(this.resetSettingsGroupBox);
+            this.configTabPage.Controls.Add(this.backupsGroupBox);
+            this.configTabPage.Location = new System.Drawing.Point(4, 25);
+            this.configTabPage.Margin = new System.Windows.Forms.Padding(4);
+            this.configTabPage.Name = "configTabPage";
+            this.configTabPage.Padding = new System.Windows.Forms.Padding(4);
+            this.configTabPage.Size = new System.Drawing.Size(443, 196);
+            this.configTabPage.TabIndex = 2;
+            this.configTabPage.Text = "Configuration";
+            this.configTabPage.UseVisualStyleBackColor = true;
             // 
-            // settingsGroupBox
+            // resetSettingsGroupBox
             // 
-            this.settingsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.resetSettingsGroupBox.Controls.Add(this.resetSettingsButton);
+            this.resetSettingsGroupBox.Controls.Add(this.warningResetSettingsLabel2);
+            this.resetSettingsGroupBox.Controls.Add(this.warningResetSettingsLabel);
+            this.resetSettingsGroupBox.Location = new System.Drawing.Point(8, 111);
+            this.resetSettingsGroupBox.Name = "resetSettingsGroupBox";
+            this.resetSettingsGroupBox.Size = new System.Drawing.Size(424, 75);
+            this.resetSettingsGroupBox.TabIndex = 8;
+            this.resetSettingsGroupBox.TabStop = false;
+            this.resetSettingsGroupBox.Text = "Reset settings";
+            // 
+            // resetSettingsButton
+            // 
+            this.resetSettingsButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.resetSettingsButton.Location = new System.Drawing.Point(6, 44);
+            this.resetSettingsButton.Name = "resetSettingsButton";
+            this.resetSettingsButton.Size = new System.Drawing.Size(410, 25);
+            this.resetSettingsButton.TabIndex = 3;
+            this.resetSettingsButton.Text = "Reset settings to default";
+            this.resetSettingsButton.UseVisualStyleBackColor = true;
+            this.resetSettingsButton.Click += new System.EventHandler(this.ResetSettingsButton_Click);
+            // 
+            // warningResetSettingsLabel2
+            // 
+            this.warningResetSettingsLabel2.AutoSize = true;
+            this.warningResetSettingsLabel2.Location = new System.Drawing.Point(69, 20);
+            this.warningResetSettingsLabel2.Name = "warningResetSettingsLabel2";
+            this.warningResetSettingsLabel2.Size = new System.Drawing.Size(161, 17);
+            this.warningResetSettingsLabel2.TabIndex = 5;
+            this.warningResetSettingsLabel2.Text = "This can not be undone!";
+            // 
+            // warningResetSettingsLabel
+            // 
+            this.warningResetSettingsLabel.AutoSize = true;
+            this.warningResetSettingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warningResetSettingsLabel.Location = new System.Drawing.Point(3, 20);
+            this.warningResetSettingsLabel.Name = "warningResetSettingsLabel";
+            this.warningResetSettingsLabel.Size = new System.Drawing.Size(73, 17);
+            this.warningResetSettingsLabel.TabIndex = 4;
+            this.warningResetSettingsLabel.Text = "Warning:";
+            // 
+            // backupsGroupBox
+            // 
+            this.backupsGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsGroupBox.Controls.Add(this.createBackupButton);
-            this.settingsGroupBox.Controls.Add(this.restoreBackupButton);
-            this.settingsGroupBox.Location = new System.Drawing.Point(8, 7);
-            this.settingsGroupBox.Margin = new System.Windows.Forms.Padding(4);
-            this.settingsGroupBox.Name = "settingsGroupBox";
-            this.settingsGroupBox.Padding = new System.Windows.Forms.Padding(4);
-            this.settingsGroupBox.Size = new System.Drawing.Size(424, 123);
-            this.settingsGroupBox.TabIndex = 2;
-            this.settingsGroupBox.TabStop = false;
-            this.settingsGroupBox.Text = "Settings";
+            this.backupsGroupBox.Controls.Add(this.createBackupButton);
+            this.backupsGroupBox.Controls.Add(this.restoreBackupButton);
+            this.backupsGroupBox.Location = new System.Drawing.Point(8, 7);
+            this.backupsGroupBox.Margin = new System.Windows.Forms.Padding(4);
+            this.backupsGroupBox.Name = "backupsGroupBox";
+            this.backupsGroupBox.Padding = new System.Windows.Forms.Padding(4);
+            this.backupsGroupBox.Size = new System.Drawing.Size(424, 97);
+            this.backupsGroupBox.TabIndex = 2;
+            this.backupsGroupBox.TabStop = false;
+            this.backupsGroupBox.Text = "Backups";
             // 
             // createBackupButton
             // 
             this.createBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.createBackupButton.Location = new System.Drawing.Point(8, 31);
+            this.createBackupButton.Location = new System.Drawing.Point(8, 23);
             this.createBackupButton.Margin = new System.Windows.Forms.Padding(4);
             this.createBackupButton.Name = "createBackupButton";
             this.createBackupButton.Size = new System.Drawing.Size(408, 28);
@@ -291,7 +339,7 @@
             // 
             this.restoreBackupButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.restoreBackupButton.Location = new System.Drawing.Point(8, 74);
+            this.restoreBackupButton.Location = new System.Drawing.Point(8, 59);
             this.restoreBackupButton.Margin = new System.Windows.Forms.Padding(4);
             this.restoreBackupButton.Name = "restoreBackupButton";
             this.restoreBackupButton.Size = new System.Drawing.Size(408, 28);
@@ -312,6 +360,16 @@
             this.advancedTabPage.TabIndex = 3;
             this.advancedTabPage.Text = "Advanced";
             this.advancedTabPage.UseVisualStyleBackColor = true;
+            // 
+            // ignoreGameMigrationConflictsCheckBox
+            // 
+            this.ignoreGameMigrationConflictsCheckBox.AutoSize = true;
+            this.ignoreGameMigrationConflictsCheckBox.Location = new System.Drawing.Point(9, 72);
+            this.ignoreGameMigrationConflictsCheckBox.Name = "ignoreGameMigrationConflictsCheckBox";
+            this.ignoreGameMigrationConflictsCheckBox.Size = new System.Drawing.Size(226, 21);
+            this.ignoreGameMigrationConflictsCheckBox.TabIndex = 2;
+            this.ignoreGameMigrationConflictsCheckBox.Text = "Ignore game migration conflicts";
+            this.ignoreGameMigrationConflictsCheckBox.UseVisualStyleBackColor = true;
             // 
             // preLoadDataCheckBox
             // 
@@ -463,16 +521,6 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // ignoreGameMigrationConflictsCheckBox
-            // 
-            this.ignoreGameMigrationConflictsCheckBox.AutoSize = true;
-            this.ignoreGameMigrationConflictsCheckBox.Location = new System.Drawing.Point(9, 72);
-            this.ignoreGameMigrationConflictsCheckBox.Name = "ignoreGameMigrationConflictsCheckBox";
-            this.ignoreGameMigrationConflictsCheckBox.Size = new System.Drawing.Size(226, 21);
-            this.ignoreGameMigrationConflictsCheckBox.TabIndex = 2;
-            this.ignoreGameMigrationConflictsCheckBox.Text = "Ignore game migration conflicts";
-            this.ignoreGameMigrationConflictsCheckBox.UseVisualStyleBackColor = true;
-            // 
             // SettingsDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -493,8 +541,10 @@
             this.gamesTabPage.PerformLayout();
             this.appLauncherTabPage.ResumeLayout(false);
             this.appLauncherTabPage.PerformLayout();
-            this.backupTabPage.ResumeLayout(false);
-            this.settingsGroupBox.ResumeLayout(false);
+            this.configTabPage.ResumeLayout(false);
+            this.resetSettingsGroupBox.ResumeLayout(false);
+            this.resetSettingsGroupBox.PerformLayout();
+            this.backupsGroupBox.ResumeLayout(false);
             this.advancedTabPage.ResumeLayout(false);
             this.advancedTabPage.PerformLayout();
             this.aboutTabPage.ResumeLayout(false);
@@ -521,8 +571,8 @@
         private System.Windows.Forms.LinkLabel fugueIconsSetLicenseLinkLabel;
         private System.Windows.Forms.LinkLabel gpl3LicenseLinkLabel;
         private System.Windows.Forms.LinkLabel ViewLicenseLinkLabel;
-        private System.Windows.Forms.TabPage backupTabPage;
-        private System.Windows.Forms.GroupBox settingsGroupBox;
+        private System.Windows.Forms.TabPage configTabPage;
+        private System.Windows.Forms.GroupBox backupsGroupBox;
         private System.Windows.Forms.Button createBackupButton;
         private System.Windows.Forms.Button restoreBackupButton;
         private System.Windows.Forms.TabPage advancedTabPage;
@@ -539,5 +589,9 @@
         private System.Windows.Forms.LinkLabel githubLinkLabel;
         private System.Windows.Forms.LinkLabel gamebananaLinkLabel;
         private System.Windows.Forms.CheckBox ignoreGameMigrationConflictsCheckBox;
+        private System.Windows.Forms.GroupBox resetSettingsGroupBox;
+        private System.Windows.Forms.Button resetSettingsButton;
+        private System.Windows.Forms.Label warningResetSettingsLabel2;
+        private System.Windows.Forms.Label warningResetSettingsLabel;
     }
 }
