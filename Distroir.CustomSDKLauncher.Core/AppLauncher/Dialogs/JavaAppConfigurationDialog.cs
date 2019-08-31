@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
@@ -117,6 +118,12 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             if (jarFilePathTextBox.Text == string.Empty)
             {
                 Utilities.MessageBoxes.Warning("Jar file path is empty!");
+                return;
+            }
+
+            if (!File.Exists(jarFilePathTextBox.Text))
+            {
+                Utilities.MessageBoxes.Warning("Provided jar file does not exist!");
                 return;
             }
 
