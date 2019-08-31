@@ -43,6 +43,10 @@
             this.launcherEditButton1 = new System.Windows.Forms.Button();
             this.useNewLauncherCheckBox = new System.Windows.Forms.CheckBox();
             this.configTabPage = new System.Windows.Forms.TabPage();
+            this.resetSettingsGroupBox = new System.Windows.Forms.GroupBox();
+            this.resetSettingsButton = new System.Windows.Forms.Button();
+            this.warningResetSettingsLabel2 = new System.Windows.Forms.Label();
+            this.warningResetSettingsLabel = new System.Windows.Forms.Label();
             this.backupsGroupBox = new System.Windows.Forms.GroupBox();
             this.createBackupButton = new System.Windows.Forms.Button();
             this.restoreBackupButton = new System.Windows.Forms.Button();
@@ -65,6 +69,7 @@
             this.gamesTabPage.SuspendLayout();
             this.appLauncherTabPage.SuspendLayout();
             this.configTabPage.SuspendLayout();
+            this.resetSettingsGroupBox.SuspendLayout();
             this.backupsGroupBox.SuspendLayout();
             this.advancedTabPage.SuspendLayout();
             this.aboutTabPage.SuspendLayout();
@@ -249,6 +254,7 @@
             // 
             // configTabPage
             // 
+            this.configTabPage.Controls.Add(this.resetSettingsGroupBox);
             this.configTabPage.Controls.Add(this.backupsGroupBox);
             this.configTabPage.Location = new System.Drawing.Point(4, 25);
             this.configTabPage.Margin = new System.Windows.Forms.Padding(4);
@@ -258,6 +264,47 @@
             this.configTabPage.TabIndex = 2;
             this.configTabPage.Text = "Configuration";
             this.configTabPage.UseVisualStyleBackColor = true;
+            // 
+            // resetSettingsGroupBox
+            // 
+            this.resetSettingsGroupBox.Controls.Add(this.resetSettingsButton);
+            this.resetSettingsGroupBox.Controls.Add(this.warningResetSettingsLabel2);
+            this.resetSettingsGroupBox.Controls.Add(this.warningResetSettingsLabel);
+            this.resetSettingsGroupBox.Location = new System.Drawing.Point(8, 111);
+            this.resetSettingsGroupBox.Name = "resetSettingsGroupBox";
+            this.resetSettingsGroupBox.Size = new System.Drawing.Size(424, 75);
+            this.resetSettingsGroupBox.TabIndex = 8;
+            this.resetSettingsGroupBox.TabStop = false;
+            this.resetSettingsGroupBox.Text = "Reset settings";
+            // 
+            // resetSettingsButton
+            // 
+            this.resetSettingsButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.resetSettingsButton.Location = new System.Drawing.Point(6, 44);
+            this.resetSettingsButton.Name = "resetSettingsButton";
+            this.resetSettingsButton.Size = new System.Drawing.Size(410, 25);
+            this.resetSettingsButton.TabIndex = 3;
+            this.resetSettingsButton.Text = "Reset settings to default";
+            this.resetSettingsButton.UseVisualStyleBackColor = true;
+            // 
+            // warningResetSettingsLabel2
+            // 
+            this.warningResetSettingsLabel2.AutoSize = true;
+            this.warningResetSettingsLabel2.Location = new System.Drawing.Point(69, 20);
+            this.warningResetSettingsLabel2.Name = "warningResetSettingsLabel2";
+            this.warningResetSettingsLabel2.Size = new System.Drawing.Size(161, 17);
+            this.warningResetSettingsLabel2.TabIndex = 5;
+            this.warningResetSettingsLabel2.Text = "This can not be undone!";
+            // 
+            // warningResetSettingsLabel
+            // 
+            this.warningResetSettingsLabel.AutoSize = true;
+            this.warningResetSettingsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warningResetSettingsLabel.Location = new System.Drawing.Point(3, 20);
+            this.warningResetSettingsLabel.Name = "warningResetSettingsLabel";
+            this.warningResetSettingsLabel.Size = new System.Drawing.Size(73, 17);
+            this.warningResetSettingsLabel.TabIndex = 4;
+            this.warningResetSettingsLabel.Text = "Warning:";
             // 
             // backupsGroupBox
             // 
@@ -494,6 +541,8 @@
             this.appLauncherTabPage.ResumeLayout(false);
             this.appLauncherTabPage.PerformLayout();
             this.configTabPage.ResumeLayout(false);
+            this.resetSettingsGroupBox.ResumeLayout(false);
+            this.resetSettingsGroupBox.PerformLayout();
             this.backupsGroupBox.ResumeLayout(false);
             this.advancedTabPage.ResumeLayout(false);
             this.advancedTabPage.PerformLayout();
@@ -539,5 +588,9 @@
         private System.Windows.Forms.LinkLabel githubLinkLabel;
         private System.Windows.Forms.LinkLabel gamebananaLinkLabel;
         private System.Windows.Forms.CheckBox ignoreGameMigrationConflictsCheckBox;
+        private System.Windows.Forms.GroupBox resetSettingsGroupBox;
+        private System.Windows.Forms.Button resetSettingsButton;
+        private System.Windows.Forms.Label warningResetSettingsLabel2;
+        private System.Windows.Forms.Label warningResetSettingsLabel;
     }
 }
