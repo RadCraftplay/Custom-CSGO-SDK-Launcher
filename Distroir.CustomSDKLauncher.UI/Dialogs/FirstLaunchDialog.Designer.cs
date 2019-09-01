@@ -55,7 +55,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 20);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 100;
             this.label1.Text = "Hello!";
             // 
             // label2
@@ -100,7 +100,7 @@
             this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(100, 28);
-            this.okButton.TabIndex = 4;
+            this.okButton.TabIndex = 9;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -112,7 +112,7 @@
             this.gameComboBox.Location = new System.Drawing.Point(12, 129);
             this.gameComboBox.Name = "gameComboBox";
             this.gameComboBox.Size = new System.Drawing.Size(463, 24);
-            this.gameComboBox.TabIndex = 5;
+            this.gameComboBox.TabIndex = 1;
             this.gameComboBox.SelectedIndexChanged += new System.EventHandler(this.gameComboBox_SelectedIndexChanged);
             // 
             // simpleLabel1
@@ -140,7 +140,7 @@
             this.simpleRadioButton.Location = new System.Drawing.Point(12, 85);
             this.simpleRadioButton.Name = "simpleRadioButton";
             this.simpleRadioButton.Size = new System.Drawing.Size(157, 21);
-            this.simpleRadioButton.TabIndex = 8;
+            this.simpleRadioButton.TabIndex = 0;
             this.simpleRadioButton.TabStop = true;
             this.simpleRadioButton.Text = "Simple configuration";
             this.simpleRadioButton.UseVisualStyleBackColor = true;
@@ -152,7 +152,7 @@
             this.advancedRadioButton.Location = new System.Drawing.Point(12, 222);
             this.advancedRadioButton.Name = "advancedRadioButton";
             this.advancedRadioButton.Size = new System.Drawing.Size(178, 21);
-            this.advancedRadioButton.TabIndex = 9;
+            this.advancedRadioButton.TabIndex = 4;
             this.advancedRadioButton.TabStop = true;
             this.advancedRadioButton.Text = "Advanced configuration";
             this.advancedRadioButton.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@
             this.gameNameTextBox.Location = new System.Drawing.Point(16, 270);
             this.gameNameTextBox.Name = "gameNameTextBox";
             this.gameNameTextBox.Size = new System.Drawing.Size(459, 22);
-            this.gameNameTextBox.TabIndex = 12;
+            this.gameNameTextBox.TabIndex = 5;
             // 
             // gameDirectoryTextBox
             // 
@@ -192,7 +192,7 @@
             this.gameDirectoryTextBox.Location = new System.Drawing.Point(16, 337);
             this.gameDirectoryTextBox.Name = "gameDirectoryTextBox";
             this.gameDirectoryTextBox.Size = new System.Drawing.Size(419, 22);
-            this.gameDirectoryTextBox.TabIndex = 13;
+            this.gameDirectoryTextBox.TabIndex = 6;
             // 
             // advancedLabel3
             // 
@@ -210,7 +210,7 @@
             this.gameinfoDirectoryTextBox.Location = new System.Drawing.Point(16, 387);
             this.gameinfoDirectoryTextBox.Name = "gameinfoDirectoryTextBox";
             this.gameinfoDirectoryTextBox.Size = new System.Drawing.Size(459, 22);
-            this.gameinfoDirectoryTextBox.TabIndex = 15;
+            this.gameinfoDirectoryTextBox.TabIndex = 8;
             // 
             // selectDirectoryAdvancedButton
             // 
@@ -220,7 +220,7 @@
             this.selectDirectoryAdvancedButton.Margin = new System.Windows.Forms.Padding(4);
             this.selectDirectoryAdvancedButton.Name = "selectDirectoryAdvancedButton";
             this.selectDirectoryAdvancedButton.Size = new System.Drawing.Size(33, 28);
-            this.selectDirectoryAdvancedButton.TabIndex = 16;
+            this.selectDirectoryAdvancedButton.TabIndex = 7;
             this.selectDirectoryAdvancedButton.Text = "...";
             this.selectDirectoryAdvancedButton.UseVisualStyleBackColor = true;
             this.selectDirectoryAdvancedButton.Click += new System.EventHandler(this.selectDirectoryAdvancedButton_Click);
