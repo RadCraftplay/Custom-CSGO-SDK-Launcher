@@ -51,7 +51,7 @@
             this.gamesCheckBox.Location = new System.Drawing.Point(15, 33);
             this.gamesCheckBox.Name = "gamesCheckBox";
             this.gamesCheckBox.Size = new System.Drawing.Size(75, 21);
-            this.gamesCheckBox.TabIndex = 2;
+            this.gamesCheckBox.TabIndex = 0;
             this.gamesCheckBox.Text = "Games";
             this.gamesCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -61,7 +61,7 @@
             this.launcherCheckBox.Location = new System.Drawing.Point(15, 60);
             this.launcherCheckBox.Name = "launcherCheckBox";
             this.launcherCheckBox.Size = new System.Drawing.Size(158, 21);
-            this.launcherCheckBox.TabIndex = 3;
+            this.launcherCheckBox.TabIndex = 1;
             this.launcherCheckBox.Text = "Application launcher";
             this.launcherCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -71,7 +71,7 @@
             this.otherCheckBox.Location = new System.Drawing.Point(15, 87);
             this.otherCheckBox.Name = "otherCheckBox";
             this.otherCheckBox.Size = new System.Drawing.Size(66, 21);
-            this.otherCheckBox.TabIndex = 4;
+            this.otherCheckBox.TabIndex = 2;
             this.otherCheckBox.Text = "Other";
             this.otherCheckBox.UseVisualStyleBackColor = true;
             // 
@@ -82,7 +82,7 @@
             this.resetButton.Location = new System.Drawing.Point(195, 116);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 25);
-            this.resetButton.TabIndex = 5;
+            this.resetButton.TabIndex = 4;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
@@ -93,7 +93,7 @@
             this.cancelButton.Location = new System.Drawing.Point(12, 116);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
-            this.cancelButton.TabIndex = 6;
+            this.cancelButton.TabIndex = 3;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
