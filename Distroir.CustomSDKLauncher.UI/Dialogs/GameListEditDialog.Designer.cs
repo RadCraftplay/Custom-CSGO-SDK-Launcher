@@ -60,7 +60,7 @@
             this.okButton.Margin = new System.Windows.Forms.Padding(4);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(100, 28);
-            this.okButton.TabIndex = 1;
+            this.okButton.TabIndex = 8;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -72,7 +72,7 @@
             this.moveToBottomButton.Margin = new System.Windows.Forms.Padding(4);
             this.moveToBottomButton.Name = "moveToBottomButton";
             this.moveToBottomButton.Size = new System.Drawing.Size(33, 31);
-            this.moveToBottomButton.TabIndex = 10;
+            this.moveToBottomButton.TabIndex = 7;
             this.buttonsToolTip.SetToolTip(this.moveToBottomButton, "Move to bottom");
             this.moveToBottomButton.UseVisualStyleBackColor = true;
             this.moveToBottomButton.Click += new System.EventHandler(this.MoveToBottomButton_Click);
@@ -84,7 +84,7 @@
             this.moveDownButton.Margin = new System.Windows.Forms.Padding(4);
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.Size = new System.Drawing.Size(33, 31);
-            this.moveDownButton.TabIndex = 9;
+            this.moveDownButton.TabIndex = 6;
             this.buttonsToolTip.SetToolTip(this.moveDownButton, "Move down");
             this.moveDownButton.UseVisualStyleBackColor = true;
             this.moveDownButton.Click += new System.EventHandler(this.MoveDownButton_Click);
@@ -96,7 +96,7 @@
             this.moveUpButton.Margin = new System.Windows.Forms.Padding(4);
             this.moveUpButton.Name = "moveUpButton";
             this.moveUpButton.Size = new System.Drawing.Size(33, 31);
-            this.moveUpButton.TabIndex = 8;
+            this.moveUpButton.TabIndex = 5;
             this.buttonsToolTip.SetToolTip(this.moveUpButton, "Move up");
             this.moveUpButton.UseVisualStyleBackColor = true;
             this.moveUpButton.Click += new System.EventHandler(this.MoveUpButton_Click);
@@ -108,7 +108,7 @@
             this.moveToTopButton.Margin = new System.Windows.Forms.Padding(4);
             this.moveToTopButton.Name = "moveToTopButton";
             this.moveToTopButton.Size = new System.Drawing.Size(33, 31);
-            this.moveToTopButton.TabIndex = 7;
+            this.moveToTopButton.TabIndex = 4;
             this.buttonsToolTip.SetToolTip(this.moveToTopButton, "Move to top");
             this.moveToTopButton.UseVisualStyleBackColor = true;
             this.moveToTopButton.Click += new System.EventHandler(this.MoveToTopButton_Click);
@@ -120,7 +120,7 @@
             this.createFromTemplateButton.Margin = new System.Windows.Forms.Padding(4);
             this.createFromTemplateButton.Name = "createFromTemplateButton";
             this.createFromTemplateButton.Size = new System.Drawing.Size(33, 31);
-            this.createFromTemplateButton.TabIndex = 5;
+            this.createFromTemplateButton.TabIndex = 1;
             this.buttonsToolTip.SetToolTip(this.createFromTemplateButton, "Add using template");
             this.createFromTemplateButton.UseVisualStyleBackColor = true;
             this.createFromTemplateButton.Click += new System.EventHandler(this.createFromTemplateButton_Click);
@@ -132,7 +132,7 @@
             this.editButton.Margin = new System.Windows.Forms.Padding(4);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(33, 31);
-            this.editButton.TabIndex = 4;
+            this.editButton.TabIndex = 3;
             this.buttonsToolTip.SetToolTip(this.editButton, "Edit game");
             this.editButton.UseVisualStyleBackColor = true;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
@@ -144,7 +144,7 @@
             this.removeButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(33, 31);
-            this.removeButton.TabIndex = 3;
+            this.removeButton.TabIndex = 2;
             this.buttonsToolTip.SetToolTip(this.removeButton, "Remove game");
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
@@ -156,7 +156,7 @@
             this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(33, 31);
-            this.addButton.TabIndex = 2;
+            this.addButton.TabIndex = 8;
             this.buttonsToolTip.SetToolTip(this.addButton, "Add game");
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
