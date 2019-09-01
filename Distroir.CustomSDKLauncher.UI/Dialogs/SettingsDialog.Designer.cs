@@ -415,7 +415,7 @@
             this.githubLinkLabel.Location = new System.Drawing.Point(4, 165);
             this.githubLinkLabel.Name = "githubLinkLabel";
             this.githubLinkLabel.Size = new System.Drawing.Size(52, 17);
-            this.githubLinkLabel.TabIndex = 8;
+            this.githubLinkLabel.TabIndex = 5;
             this.githubLinkLabel.TabStop = true;
             this.githubLinkLabel.Text = "GitHub";
             this.githubLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLinkLabel_LinkClicked);
@@ -426,7 +426,7 @@
             this.gamebananaLinkLabel.Location = new System.Drawing.Point(4, 145);
             this.gamebananaLinkLabel.Name = "gamebananaLinkLabel";
             this.gamebananaLinkLabel.Size = new System.Drawing.Size(95, 17);
-            this.gamebananaLinkLabel.TabIndex = 7;
+            this.gamebananaLinkLabel.TabIndex = 4;
             this.gamebananaLinkLabel.TabStop = true;
             this.gamebananaLinkLabel.Text = "GameBanana";
             this.gamebananaLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gamebananaLinkLabel_LinkClicked);
@@ -438,7 +438,7 @@
             this.ViewLicenseLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ViewLicenseLinkLabel.Name = "ViewLicenseLinkLabel";
             this.ViewLicenseLinkLabel.Size = new System.Drawing.Size(57, 17);
-            this.ViewLicenseLinkLabel.TabIndex = 6;
+            this.ViewLicenseLinkLabel.TabIndex = 1;
             this.ViewLicenseLinkLabel.TabStop = true;
             this.ViewLicenseLinkLabel.Text = "License";
             this.ViewLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ViewLicenseLinkLabel_LinkClicked);
@@ -450,7 +450,7 @@
             this.fugueIconsSetLicenseLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.fugueIconsSetLicenseLinkLabel.Name = "fugueIconsSetLicenseLinkLabel";
             this.fugueIconsSetLicenseLinkLabel.Size = new System.Drawing.Size(156, 17);
-            this.fugueIconsSetLicenseLinkLabel.TabIndex = 5;
+            this.fugueIconsSetLicenseLinkLabel.TabIndex = 3;
             this.fugueIconsSetLicenseLinkLabel.TabStop = true;
             this.fugueIconsSetLicenseLinkLabel.Text = "Fugue icons set license";
             this.fugueIconsSetLicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.fugueIconsSetLicenseLinkLabel_LinkClicked);
@@ -462,7 +462,7 @@
             this.gpl3LicenseLinkLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gpl3LicenseLinkLabel.Name = "gpl3LicenseLinkLabel";
             this.gpl3LicenseLinkLabel.Size = new System.Drawing.Size(96, 17);
-            this.gpl3LicenseLinkLabel.TabIndex = 4;
+            this.gpl3LicenseLinkLabel.TabIndex = 2;
             this.gpl3LicenseLinkLabel.TabStop = true;
             this.gpl3LicenseLinkLabel.Text = "GPL 3 license";
             this.gpl3LicenseLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.gpl3LicenseLinkLabel_LinkClicked);

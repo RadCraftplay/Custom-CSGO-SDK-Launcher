@@ -61,7 +61,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(227, 22);
-            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TabIndex = 0;
             // 
             // saveButton
             // 
@@ -70,7 +70,7 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 28);
-            this.saveButton.TabIndex = 2;
+            this.saveButton.TabIndex = 4;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -96,7 +96,7 @@
             this.gameDirTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.gameDirTextBox.Name = "gameDirTextBox";
             this.gameDirTextBox.Size = new System.Drawing.Size(185, 22);
-            this.gameDirTextBox.TabIndex = 4;
+            this.gameDirTextBox.TabIndex = 1;
             // 
             // gameDirBrowseButton
             // 
@@ -105,7 +105,7 @@
             this.gameDirBrowseButton.Margin = new System.Windows.Forms.Padding(4);
             this.gameDirBrowseButton.Name = "gameDirBrowseButton";
             this.gameDirBrowseButton.Size = new System.Drawing.Size(33, 28);
-            this.gameDirBrowseButton.TabIndex = 5;
+            this.gameDirBrowseButton.TabIndex = 2;
             this.gameDirBrowseButton.Text = "...";
             this.gameDirBrowseButton.UseVisualStyleBackColor = true;
             this.gameDirBrowseButton.Click += new System.EventHandler(this.gameDirBrowseButton_Click);
@@ -118,7 +118,7 @@
             this.gameInfoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.gameInfoTextBox.Name = "gameInfoTextBox";
             this.gameInfoTextBox.Size = new System.Drawing.Size(204, 22);
-            this.gameInfoTextBox.TabIndex = 6;
+            this.gameInfoTextBox.TabIndex = 3;
             // 
             // gameInfoDirLabel
             // 

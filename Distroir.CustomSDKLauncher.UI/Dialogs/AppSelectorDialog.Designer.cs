@@ -38,7 +38,7 @@
             this.selectButton.Location = new System.Drawing.Point(295, 316);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(75, 25);
-            this.selectButton.TabIndex = 0;
+            this.selectButton.TabIndex = 1;
             this.selectButton.Text = "Select";
             this.selectButton.UseVisualStyleBackColor = true;
             this.selectButton.Click += new System.EventHandler(this.selectButton_Click);
@@ -48,7 +48,7 @@
             this.appListView.Location = new System.Drawing.Point(13, 13);
             this.appListView.Name = "appListView";
             this.appListView.Size = new System.Drawing.Size(357, 297);
-            this.appListView.TabIndex = 1;
+            this.appListView.TabIndex = 0;
             this.appListView.UseCompatibleStateImageBehavior = false;
             this.appListView.View = System.Windows.Forms.View.List;
             // 

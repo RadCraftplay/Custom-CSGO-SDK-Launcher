@@ -49,7 +49,7 @@
             this.okButton.Location = new System.Drawing.Point(295, 294);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 25);
-            this.okButton.TabIndex = 0;
+            this.okButton.TabIndex = 10;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -60,7 +60,7 @@
             this.cancelButton.Location = new System.Drawing.Point(214, 294);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 25);
-            this.cancelButton.TabIndex = 1;
+            this.cancelButton.TabIndex = 9;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -91,7 +91,7 @@
             this.customWorkingDirectoryCheckBox.Location = new System.Drawing.Point(11, 158);
             this.customWorkingDirectoryCheckBox.Name = "customWorkingDirectoryCheckBox";
             this.customWorkingDirectoryCheckBox.Size = new System.Drawing.Size(188, 21);
-            this.customWorkingDirectoryCheckBox.TabIndex = 4;
+            this.customWorkingDirectoryCheckBox.TabIndex = 5;
             this.customWorkingDirectoryCheckBox.Text = "Custom working directory";
             this.customWorkingDirectoryCheckBox.UseVisualStyleBackColor = true;
             this.customWorkingDirectoryCheckBox.CheckedChanged += new System.EventHandler(this.customWorkingDirectoryCheckBox_CheckedChanged);
@@ -103,7 +103,7 @@
             this.pathTextBox.Location = new System.Drawing.Point(11, 75);
             this.pathTextBox.Name = "pathTextBox";
             this.pathTextBox.Size = new System.Drawing.Size(322, 22);
-            this.pathTextBox.TabIndex = 5;
+            this.pathTextBox.TabIndex = 1;
             this.pathTextBox.TextChanged += new System.EventHandler(this.PathTextBox_TextChanged);
             // 
             // argumentsTextBox
@@ -114,7 +114,7 @@
             this.argumentsTextBox.Location = new System.Drawing.Point(11, 130);
             this.argumentsTextBox.Name = "argumentsTextBox";
             this.argumentsTextBox.Size = new System.Drawing.Size(358, 22);
-            this.argumentsTextBox.TabIndex = 5;
+            this.argumentsTextBox.TabIndex = 4;
             // 
             // customWorkingDirectoryTextBox
             // 
@@ -124,14 +124,14 @@
             this.customWorkingDirectoryTextBox.Location = new System.Drawing.Point(11, 185);
             this.customWorkingDirectoryTextBox.Name = "customWorkingDirectoryTextBox";
             this.customWorkingDirectoryTextBox.Size = new System.Drawing.Size(322, 22);
-            this.customWorkingDirectoryTextBox.TabIndex = 5;
+            this.customWorkingDirectoryTextBox.TabIndex = 6;
             // 
             // selectPathButton
             // 
             this.selectPathButton.Location = new System.Drawing.Point(339, 75);
             this.selectPathButton.Name = "selectPathButton";
             this.selectPathButton.Size = new System.Drawing.Size(30, 23);
-            this.selectPathButton.TabIndex = 9;
+            this.selectPathButton.TabIndex = 2;
             this.selectPathButton.Text = "...";
             this.selectPathButton.UseVisualStyleBackColor = true;
             this.selectPathButton.Click += new System.EventHandler(this.selectPathButton_Click);
@@ -141,7 +141,7 @@
             this.selectCustomWorkingDirectoryButton.Location = new System.Drawing.Point(339, 184);
             this.selectCustomWorkingDirectoryButton.Name = "selectCustomWorkingDirectoryButton";
             this.selectCustomWorkingDirectoryButton.Size = new System.Drawing.Size(30, 23);
-            this.selectCustomWorkingDirectoryButton.TabIndex = 9;
+            this.selectCustomWorkingDirectoryButton.TabIndex = 7;
             this.selectCustomWorkingDirectoryButton.Text = "...";
             this.selectCustomWorkingDirectoryButton.UseVisualStyleBackColor = true;
             this.selectCustomWorkingDirectoryButton.Click += new System.EventHandler(this.selectCustomWorkingDirectoryButton_Click);
@@ -160,7 +160,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(11, 30);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(358, 22);
-            this.nameTextBox.TabIndex = 11;
+            this.nameTextBox.TabIndex = 0;
             // 
             // iconSelector
             // 
@@ -169,7 +169,7 @@
             this.iconSelector.MinimumSize = new System.Drawing.Size(162, 60);
             this.iconSelector.Name = "iconSelector";
             this.iconSelector.Size = new System.Drawing.Size(162, 60);
-            this.iconSelector.TabIndex = 12;
+            this.iconSelector.TabIndex = 8;
             // 
             // CustomAppConfigurationDialog
             // 
