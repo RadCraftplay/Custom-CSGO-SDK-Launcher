@@ -51,7 +51,7 @@
             this.selectJarPathButton.Location = new System.Drawing.Point(377, 74);
             this.selectJarPathButton.Name = "selectJarPathButton";
             this.selectJarPathButton.Size = new System.Drawing.Size(30, 22);
-            this.selectJarPathButton.TabIndex = 12;
+            this.selectJarPathButton.TabIndex = 2;
             this.selectJarPathButton.Text = "...";
             this.selectJarPathButton.UseVisualStyleBackColor = true;
             this.selectJarPathButton.Click += new System.EventHandler(this.selectJarPathButton_Click);
@@ -63,7 +63,7 @@
             this.jarFilePathTextBox.Location = new System.Drawing.Point(12, 74);
             this.jarFilePathTextBox.Name = "jarFilePathTextBox";
             this.jarFilePathTextBox.Size = new System.Drawing.Size(359, 22);
-            this.jarFilePathTextBox.TabIndex = 11;
+            this.jarFilePathTextBox.TabIndex = 1;
             // 
             // jarFileLabel
             // 
@@ -86,7 +86,7 @@
             this.javaExecutablePathGroupBox.Location = new System.Drawing.Point(12, 103);
             this.javaExecutablePathGroupBox.Name = "javaExecutablePathGroupBox";
             this.javaExecutablePathGroupBox.Size = new System.Drawing.Size(395, 146);
-            this.javaExecutablePathGroupBox.TabIndex = 14;
+            this.javaExecutablePathGroupBox.TabIndex = 3;
             this.javaExecutablePathGroupBox.TabStop = false;
             this.javaExecutablePathGroupBox.Text = "Java executable path";
             // 
@@ -97,7 +97,7 @@
             this.selectJavaExePathButton.Location = new System.Drawing.Point(359, 104);
             this.selectJavaExePathButton.Name = "selectJavaExePathButton";
             this.selectJavaExePathButton.Size = new System.Drawing.Size(30, 23);
-            this.selectJavaExePathButton.TabIndex = 16;
+            this.selectJavaExePathButton.TabIndex = 4;
             this.selectJavaExePathButton.Text = "...";
             this.selectJavaExePathButton.UseVisualStyleBackColor = true;
             this.selectJavaExePathButton.Click += new System.EventHandler(this.selectJavaExePathButton_Click);
@@ -108,7 +108,7 @@
             this.customPathRadioButton.Location = new System.Drawing.Point(7, 78);
             this.customPathRadioButton.Name = "customPathRadioButton";
             this.customPathRadioButton.Size = new System.Drawing.Size(108, 21);
-            this.customPathRadioButton.TabIndex = 3;
+            this.customPathRadioButton.TabIndex = 2;
             this.customPathRadioButton.Text = "Custom path";
             this.customPathRadioButton.UseVisualStyleBackColor = true;
             this.customPathRadioButton.Click += new System.EventHandler(this.UpdateRadioButtons);
@@ -121,7 +121,7 @@
             this.customPathTextBox.Location = new System.Drawing.Point(6, 105);
             this.customPathTextBox.Name = "customPathTextBox";
             this.customPathTextBox.Size = new System.Drawing.Size(347, 22);
-            this.customPathTextBox.TabIndex = 2;
+            this.customPathTextBox.TabIndex = 3;
             // 
             // tryToFindJavaExeRadioButton
             // 
@@ -153,7 +153,7 @@
             this.okButton.Location = new System.Drawing.Point(332, 326);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 15;
+            this.okButton.TabIndex = 9;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -174,7 +174,7 @@
             this.gameNameTextBox.Location = new System.Drawing.Point(12, 29);
             this.gameNameTextBox.Name = "gameNameTextBox";
             this.gameNameTextBox.Size = new System.Drawing.Size(395, 22);
-            this.gameNameTextBox.TabIndex = 10;
+            this.gameNameTextBox.TabIndex = 0;
             // 
             // iconSelector
             // 
@@ -184,8 +184,8 @@
             this.iconSelector.MaximumSize = new System.Drawing.Size(0, 52);
             this.iconSelector.MinimumSize = new System.Drawing.Size(156, 52);
             this.iconSelector.Name = "iconSelector";
-            this.iconSelector.Size = new System.Drawing.Size(395, 52);
-            this.iconSelector.TabIndex = 17;
+            this.iconSelector.Size = new System.Drawing.Size(156, 52);
+            this.iconSelector.TabIndex = 8;
             // 
             // JavaAppConfigurationDialog
             // 
