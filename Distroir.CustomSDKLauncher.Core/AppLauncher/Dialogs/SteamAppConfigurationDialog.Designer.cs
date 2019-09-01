@@ -54,7 +54,7 @@
             this.idTextBox.Location = new System.Drawing.Point(114, 40);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(247, 22);
-            this.idTextBox.TabIndex = 5;
+            this.idTextBox.TabIndex = 1;
             this.idTextBox.Enter += new System.EventHandler(this.idTextBox_Enter);
             this.idTextBox.Leave += new System.EventHandler(this.idTextBox_Leave);
             // 
@@ -76,7 +76,7 @@
             this.okButton.Location = new System.Drawing.Point(286, 111);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
-            this.okButton.TabIndex = 3;
+            this.okButton.TabIndex = 4;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
@@ -99,7 +99,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(114, 12);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(247, 22);
-            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TabIndex = 0;
             // 
             // nameLabel
             // 
@@ -117,7 +117,7 @@
             this.iconSelector.MinimumSize = new System.Drawing.Size(156, 52);
             this.iconSelector.Name = "iconSelector";
             this.iconSelector.Size = new System.Drawing.Size(156, 52);
-            this.iconSelector.TabIndex = 7;
+            this.iconSelector.TabIndex = 3;
             // 
             // SteamAppConfigurationDialog
             // 
