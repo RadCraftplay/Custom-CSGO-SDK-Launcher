@@ -70,6 +70,7 @@
             // 
             this.listSplitContainer.Panel1.Controls.Add(this.profilesListView);
             this.listSplitContainer.Panel1.Controls.Add(this.profilesContentsLabel);
+            this.listSplitContainer.TabIndex = 1;
             // 
             // listSplitContainer.Panel2
             // 
@@ -77,7 +78,7 @@
             this.listSplitContainer.Panel2.Controls.Add(this.gamesContentsLabel);
             this.listSplitContainer.Size = new System.Drawing.Size(778, 364);
             this.listSplitContainer.SplitterDistance = 389;
-            this.listSplitContainer.TabIndex = 0;
+            this.listSplitContainer.TabIndex = 2;
             // 
             // profilesListView
             // 
@@ -205,7 +206,7 @@
             this.migrationConflictInfoLinkLabel.Location = new System.Drawing.Point(300, 13);
             this.migrationConflictInfoLinkLabel.Name = "migrationConflictInfoLinkLabel";
             this.migrationConflictInfoLinkLabel.Size = new System.Drawing.Size(181, 17);
-            this.migrationConflictInfoLinkLabel.TabIndex = 10;
+            this.migrationConflictInfoLinkLabel.TabIndex = 0;
             this.migrationConflictInfoLinkLabel.TabStop = true;
             this.migrationConflictInfoLinkLabel.Text = "[What is migration conflict?]";
             this.migrationConflictInfoLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.MigrationConflictInfoLinkLabel_LinkClicked);
