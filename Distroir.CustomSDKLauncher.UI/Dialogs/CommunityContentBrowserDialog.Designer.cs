@@ -52,6 +52,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.contentTreeView);
+            this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer1.Panel2
             // 
@@ -79,7 +80,7 @@
             this.goButton.Location = new System.Drawing.Point(560, 9);
             this.goButton.Name = "goButton";
             this.goButton.Size = new System.Drawing.Size(44, 44);
-            this.goButton.TabIndex = 3;
+            this.goButton.TabIndex = 2;
             this.goButton.Text = "Go";
             this.goButton.UseVisualStyleBackColor = true;
             this.goButton.Visible = false;
