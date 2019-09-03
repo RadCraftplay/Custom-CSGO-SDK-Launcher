@@ -40,9 +40,6 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         public void Migrate()
         {
-            if (IgnoreMigrationConflists())
-                return;
-
             var solution = CheckForConflicts() ?
                 LetUserDecide() : GameMigrationConflictSolution.NoConflict;
 
@@ -55,7 +52,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 && File.Exists(oldGameListFilename);
         }
 
-        private bool IgnoreMigrationConflists()
+        private bool IgnoreMigrationConflicts()
         {
             bool ignoreConflicts = false;
 
