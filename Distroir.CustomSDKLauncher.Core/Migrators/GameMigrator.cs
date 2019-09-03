@@ -40,9 +40,6 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         public void Migrate()
         {
-            if (IgnoreMigrationConflists())
-                return;
-
             var solution = CheckForConflicts() ?
                 LetUserDecide() : GameMigrationConflictSolution.NoConflict;
 
