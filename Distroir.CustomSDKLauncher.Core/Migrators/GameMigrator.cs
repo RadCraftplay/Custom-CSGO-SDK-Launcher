@@ -52,7 +52,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 && File.Exists(oldGameListFilename);
         }
 
-        private bool IgnoreMigrationConflists()
+        private bool IgnoreMigrationConflicts()
         {
             bool ignoreConflicts = false;
 
