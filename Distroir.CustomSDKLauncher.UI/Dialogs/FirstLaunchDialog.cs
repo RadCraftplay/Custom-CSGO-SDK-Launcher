@@ -92,6 +92,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 Game p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
                 DataManagers.GameManager.Objects.Add(p);
+                Config.AddVariable("SelectedProfileId", 0);
 
                 Utils.TryReloadPathFormatterVars();
             }
