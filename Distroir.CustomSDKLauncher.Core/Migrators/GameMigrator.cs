@@ -35,7 +35,8 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         public bool RequiresMigration()
         {
-            return File.Exists(oldGameListFilename);
+            return File.Exists(oldGameListFilename)
+                && !IgnoreMigrationConflicts();
         }
 
         public void Migrate()
