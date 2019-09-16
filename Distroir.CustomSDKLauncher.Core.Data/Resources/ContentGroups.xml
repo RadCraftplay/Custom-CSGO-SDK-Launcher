@@ -99,4 +99,33 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </ContentInfo>
     </Contents>
   </ContentGroup>
+  <ContentGroup>
+    <Name>Tools</Name>
+    <Contents>
+      <ContentInfo>
+        <Name>VIDE</Name>
+        <Author>Nicholas Ray</Author>
+        <Description>Lorem ipsum sit amet</Description>
+        <url>http://www.riintouge.com/VIDE/</url>
+        <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>BSPSource</Name>
+        <Author>Lorem ipsum sit amet</Author>
+        <Description>Lorem ipsum sit amet</Description>
+        <url>Lorem ipsum sit amet</url>
+        <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Compile Pal</Name>
+        <Author>Lorem ipsum sit amet</Author>
+        <Description>Lorem ipsum sit amet</Description>
+        <url>Lorem ipsum sit amet</url>
+        <Game></Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+    </Contents>
+  </ContentGroup>
 </ArrayOfContentGroup>
