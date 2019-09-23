@@ -116,6 +116,7 @@
     <Compile Include="Utilities\JavaUtils.cs" />
     <Compile Include="Utilities\MessageBoxes.cs" />
     <Compile Include="Utilities\RegistryUtils.cs" />
+    <Compile Include="Utilities\ToolChecker.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
