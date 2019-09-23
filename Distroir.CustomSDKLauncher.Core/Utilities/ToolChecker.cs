@@ -39,7 +39,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
                         errorMessageBuilder.AppendLine("The following tools were not found:");
                     }
 
-                    errorMessageBuilder.AppendFormat("{0}{1}{0} - {0}{2}{0}", '"', pair.Key, pair.Value);
+                    errorMessageBuilder.AppendFormat("{0}{1}{0} - {0}{2}{0}", '"', pair.Key, fullToolPath);
                     errorMessageBuilder.AppendLine();
                 }
             }
@@ -60,7 +60,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             Dictionary<string, string> toolset = new Dictionary<string, string>();
             toolset.Add("Hammer World Editor", "bin\\hammer.exe");
             toolset.Add("Half-Life Model Viewer", "bin\\hlmv.exe");
-            toolset.Add("Face Poser", "bin\\hlmv.exe");
+            toolset.Add("Face Poser", "bin\\hlfaceposer.exe");
             return toolset;
         }
     }
