@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Managers;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -75,6 +76,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
+            ToolChecker pathChecker;
             Enabled = false;
 
             //List of games can't be null
@@ -82,11 +84,21 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             if (simpleRadioButton.Checked)
             {
+                pathChecker = new ToolChecker(directoryTextBox.Text);
+
                 if (!Directory.Exists(directoryTextBox.Text))
                 {
                     MessageBox.Show("Directory does not exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     Enabled = true;
                     
+                    return;
+                }
+
+                if (!pathChecker.CheckIfToolsExist())
+                {
+                    MessageBoxes.Error(pathChecker.LastErrorMessage);
+                    Enabled = true;
+
                     return;
                 }
 
@@ -98,6 +110,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
             else //Advanced mode
             {
+                pathChecker = new ToolChecker(gameDirectoryTextBox.Text);
+
                 if (gameNameTextBox.Text.Length == 0 ||
                     gameDirectoryTextBox.Text.Length == 0 ||
                     gameinfoDirectoryTextBox.Text.Length == 0)
@@ -107,6 +121,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     //Re-enable control
                     Enabled = true;
                     //Skip rest of the method
+                    return;
+                }
+
+                if (!pathChecker.CheckIfToolsExist())
+                {
+                    MessageBoxes.Error(pathChecker.LastErrorMessage);
+                    Enabled = true;
+
                     return;
                 }
 
