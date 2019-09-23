@@ -88,7 +88,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 if (!Directory.Exists(directoryTextBox.Text))
                 {
-                    MessageBox.Show("Directory does not exist", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBoxes.Error(string.Format(string.Format("Directory does not exist:\n{0}{1}{0}", '"', directoryTextBox.Text)));
                     Enabled = true;
                     
                     return;
