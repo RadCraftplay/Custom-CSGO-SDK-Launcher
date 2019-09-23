@@ -111,6 +111,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             else //Advanced mode
             {
                 pathChecker = new ToolChecker(gameDirectoryTextBox.Text);
+                string gameInfoDirectory = Path.Combine(gameDirectoryTextBox.Text, gameinfoDirectoryTextBox.Text);
 
                 if (gameNameTextBox.Text.Length == 0 ||
                     gameDirectoryTextBox.Text.Length == 0 ||
@@ -121,6 +122,22 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     //Re-enable control
                     Enabled = true;
                     //Skip rest of the method
+                    return;
+                }
+
+                if (!Directory.Exists(gameDirectoryTextBox.Text))
+                {
+                    MessageBoxes.Error(string.Format("Directory does not exist:\n{0}{1}{0}", '"', gameDirectoryTextBox.Text));
+                    Enabled = true;
+
+                    return;
+                }
+
+                if (!Directory.Exists(gameInfoDirectory))
+                {
+                    MessageBoxes.Error(string.Format("Directory does not exist:\n{0}{1}{0}", '"', gameInfoDirectory));
+                    Enabled = true;
+
                     return;
                 }
 
