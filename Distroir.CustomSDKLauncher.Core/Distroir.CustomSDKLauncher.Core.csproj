@@ -106,6 +106,7 @@
     <Compile Include="Launcher.cs" />
     <Compile Include="Utilities\ExceptionLogger.cs" />
     <Compile Include="Utilities\GameChecker.cs" />
+    <Compile Include="Utilities\IChecker.cs" />
     <Compile Include="Utilities\IconProvider.cs" />
     <Compile Include="Utilities\PlatformChecker.cs" />
     <Compile Include="Game.cs" />
