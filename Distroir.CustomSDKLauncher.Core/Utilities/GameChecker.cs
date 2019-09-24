@@ -10,11 +10,13 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
     {
         private readonly Game _gameToCheck;
         private readonly ToolChecker _toolChecker;
+        private readonly DirectoryChecker _directoryChecker;
 
         public GameChecker(Game gameToCheck)
         {
             _gameToCheck = gameToCheck;
             _toolChecker = new ToolChecker(_gameToCheck.GameDir);
+            _directoryChecker = new DirectoryChecker(_gameToCheck);
         }
 
         public bool IsValid()
@@ -30,10 +32,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
         private bool ValidateDirectories()
         {
-            string gameInfoDirPath = Path.Combine(_gameToCheck.GameDir, _gameToCheck.GameinfoDirName);
-
-            return Directory.Exists(_gameToCheck.GameDir)
-                && Directory.Exists(gameInfoDirPath);
+            return _directoryChecker.Validate();
         }
     }
 }
