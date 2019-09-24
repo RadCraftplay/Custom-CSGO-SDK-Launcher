@@ -26,7 +26,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
     /// <summary>
     /// Used in first launch dialog to check if SDK tools are installed
     /// </summary>
-    public class ToolChecker
+    public class ToolChecker : IChecker
     {
         public string LastErrorMessage { get; private set; }
 
@@ -39,7 +39,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             _gamePath = gamePath;
         }
 
-        public bool CheckIfToolsExist()
+        public bool Validate()
         {
             bool error = false;
             StringBuilder errorMessageBuilder = new StringBuilder();

@@ -25,7 +25,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
         private bool ValidateToolPaths()
         {
-            return _toolChecker.CheckIfToolsExist();
+            return _toolChecker.Validate();
         }
 
         private bool ValidateDirectories()

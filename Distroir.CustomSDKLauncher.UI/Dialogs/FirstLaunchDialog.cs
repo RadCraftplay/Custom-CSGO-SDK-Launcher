@@ -94,7 +94,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     return;
                 }
 
-                if (!pathChecker.CheckIfToolsExist())
+                if (!pathChecker.Validate())
                 {
                     MessageBoxes.Error(pathChecker.LastErrorMessage);
                     Enabled = true;
@@ -141,7 +141,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     return;
                 }
 
-                if (!pathChecker.CheckIfToolsExist())
+                if (!pathChecker.Validate())
                 {
                     MessageBoxes.Error(pathChecker.LastErrorMessage);
                     Enabled = true;
