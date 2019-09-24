@@ -16,7 +16,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
         public bool Validate()
         {
             bool valid = true;
-            StringBuilder errorMessageBuilder = default;
+            StringBuilder errorMessageBuilder = new StringBuilder();
 
             string gameInfoDirPath = Path.Combine(_gameToCheck.GameDir, _gameToCheck.GameinfoDirName);
 
@@ -32,18 +32,18 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
                 valid = false;
             }
 
+            LastErrorMessage = errorMessageBuilder?.ToString();
             return valid;
         }
 
         private void LogMissingDirectory(StringBuilder sb, string path)
         {
-            if (sb == null)
+            if (sb.Length == 0)
             {
-                sb = new StringBuilder();
                 sb.AppendLine("The following directories were not found:");
             }
 
-            sb.AppendFormat("{0}{1}{0}", '"', path);
+            sb.AppendFormat("{0}{1}{0}\n", '"', path);
         }
     }
 }
