@@ -1,9 +1,26 @@
-﻿namespace Distroir.CustomSDKLauncher.Core.Utilities
+﻿using System.Collections.Generic;
+
+namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class GameChecker
     {
         private readonly ToolChecker _toolChecker;
         private readonly DirectoryChecker _directoryChecker;
+
+        public string[] ErrorMessages
+        {
+            get
+            {
+                List<string> errorMessages = new List<string>();
+
+                if (!string.IsNullOrEmpty(_toolChecker.LastErrorMessage))
+                    errorMessages.Add(_toolChecker.LastErrorMessage);
+                if (!string.IsNullOrEmpty(_directoryChecker.LastErrorMessage))
+                    errorMessages.Add(_directoryChecker.LastErrorMessage);
+
+                return errorMessages.ToArray();
+            }
+        }
 
         public GameChecker(Game gameToCheck)
         {
