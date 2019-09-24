@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
@@ -14,10 +15,35 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
         public bool Validate()
         {
+            bool valid = true;
+            StringBuilder errorMessageBuilder = default;
+
             string gameInfoDirPath = Path.Combine(_gameToCheck.GameDir, _gameToCheck.GameinfoDirName);
 
-            return Directory.Exists(_gameToCheck.GameDir)
-                && Directory.Exists(gameInfoDirPath);
+            if (!Directory.Exists(_gameToCheck.GameDir))
+            {
+                LogMissingDirectory(errorMessageBuilder, _gameToCheck.GameDir);
+                valid = false;
+            }
+
+            if (!Directory.Exists(gameInfoDirPath))
+            {
+                LogMissingDirectory(errorMessageBuilder, gameInfoDirPath);
+                valid = false;
+            }
+
+            return valid;
+        }
+
+        private void LogMissingDirectory(StringBuilder sb, string path)
+        {
+            if (sb == null)
+            {
+                sb = new StringBuilder();
+                sb.AppendLine("The following directories were not found:");
+            }
+
+            sb.AppendFormat("{0}{1}{0}", '"', path);
         }
     }
 }
