@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-
-namespace Distroir.CustomSDKLauncher.Core.Utilities
+﻿namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class GameChecker
     {
-        private readonly Game _gameToCheck;
         private readonly ToolChecker _toolChecker;
         private readonly DirectoryChecker _directoryChecker;
 
         public GameChecker(Game gameToCheck)
         {
-            _gameToCheck = gameToCheck;
-            _toolChecker = new ToolChecker(_gameToCheck.GameDir);
-            _directoryChecker = new DirectoryChecker(_gameToCheck);
+            _toolChecker = new ToolChecker(gameToCheck.GameDir);
+            _directoryChecker = new DirectoryChecker(gameToCheck);
         }
 
         public bool IsValid()
