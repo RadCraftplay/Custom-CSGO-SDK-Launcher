@@ -104,6 +104,7 @@
     <Compile Include="Feedback\FeedbackFetcher.cs" />
     <Compile Include="Feedback\Scheduler.cs" />
     <Compile Include="Launcher.cs" />
+    <Compile Include="Utilities\DirectoryChecker.cs" />
     <Compile Include="Utilities\ExceptionLogger.cs" />
     <Compile Include="Utilities\GameChecker.cs" />
     <Compile Include="Utilities\IChecker.cs" />
