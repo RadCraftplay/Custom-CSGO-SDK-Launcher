@@ -76,7 +76,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            ToolChecker pathChecker;
+            GameChecker gameChecker;
             Enabled = false;
 
             //List of games can't be null
@@ -84,77 +84,54 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             if (simpleRadioButton.Checked)
             {
-                pathChecker = new ToolChecker(directoryTextBox.Text);
+                Game game = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
+                gameChecker = new GameChecker(game);
 
-                if (!Directory.Exists(directoryTextBox.Text))
+                if (!gameChecker.IsValid())
                 {
-                    MessageBoxes.Error(string.Format(string.Format("Directory does not exist:\n{0}{1}{0}", '"', directoryTextBox.Text)));
+                    foreach (string message in gameChecker.ErrorMessages)
+                        MessageBoxes.Error(message);
+
                     Enabled = true;
-                    
                     return;
                 }
 
-                if (!pathChecker.Validate())
-                {
-                    MessageBoxes.Error(pathChecker.LastErrorMessage);
-                    Enabled = true;
-
-                    return;
-                }
-
-                Game p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
-                DataManagers.GameManager.Objects.Add(p);
+                DataManagers.GameManager.Objects.Add(game);
                 Config.AddVariable("SelectedProfileId", 0);
 
                 Utils.TryReloadPathFormatterVars();
             }
             else //Advanced mode
             {
-                pathChecker = new ToolChecker(gameDirectoryTextBox.Text);
-                string gameInfoDirectory = Path.Combine(gameDirectoryTextBox.Text, gameinfoDirectoryTextBox.Text);
-
                 if (gameNameTextBox.Text.Length == 0 ||
                     gameDirectoryTextBox.Text.Length == 0 ||
                     gameinfoDirectoryTextBox.Text.Length == 0)
                 {
-                    //Inform user that he need to fill all fields
                     MessageBox.Show("You need to fill all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Re-enable control
+
                     Enabled = true;
-                    //Skip rest of the method
                     return;
                 }
 
-                if (!Directory.Exists(gameDirectoryTextBox.Text))
+                Game game = new Game()
                 {
-                    MessageBoxes.Error(string.Format("Directory does not exist:\n{0}{1}{0}", '"', gameDirectoryTextBox.Text));
-                    Enabled = true;
+                    Name = gameNameTextBox.Text,
+                    GameDir = gameDirectoryTextBox.Text,
+                    GameinfoDirName = gameinfoDirectoryTextBox.Text
+                };
+                gameChecker = new GameChecker(game);
+                string gameInfoDirectory = Path.Combine(gameDirectoryTextBox.Text, gameinfoDirectoryTextBox.Text);
 
-                    return;
-                }
-
-                if (!Directory.Exists(gameInfoDirectory))
+                if (!gameChecker.IsValid())
                 {
-                    MessageBoxes.Error(string.Format("Directory does not exist:\n{0}{1}{0}", '"', gameInfoDirectory));
-                    Enabled = true;
+                    foreach (string message in gameChecker.ErrorMessages)
+                        MessageBoxes.Error(message);
 
+                    Enabled = true;
                     return;
                 }
 
-                if (!pathChecker.Validate())
-                {
-                    MessageBoxes.Error(pathChecker.LastErrorMessage);
-                    Enabled = true;
-
-                    return;
-                }
-
-                Game g = new Game();
-                g.Name = gameNameTextBox.Text;
-                g.GameDir = gameDirectoryTextBox.Text;
-                g.GameinfoDirName = gameinfoDirectoryTextBox.Text;
-
-                DataManagers.GameManager.Objects.Add(g);
+                DataManagers.GameManager.Objects.Add(game);
             }
 
             Config.AddVariable("SelectedProfileId", 0);
