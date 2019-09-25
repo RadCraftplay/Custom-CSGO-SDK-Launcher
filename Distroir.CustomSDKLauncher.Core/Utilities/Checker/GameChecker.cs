@@ -23,7 +23,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
     {
         private readonly List<IChecker> _checkers;
 
-        public string[] ErrorMessages
+        public List<string> ErrorMessages
         {
             get
             {
@@ -33,7 +33,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
                     if (!string.IsNullOrEmpty(checker.LastErrorMessage))
                         errorMessages.Add(checker.LastErrorMessage);
 
-                return errorMessages.ToArray();
+                return errorMessages;
             }
         }
 
