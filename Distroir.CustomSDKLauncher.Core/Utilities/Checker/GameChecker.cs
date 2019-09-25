@@ -21,7 +21,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
     public class GameChecker
     {
-        private readonly List<IChecker> _checkers;
+        private readonly List<IChecker> _checkers = new List<IChecker>();
 
         public string LastErrorMessage { get; private set; }
 
