@@ -72,8 +72,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             
             if (!checker.IsValid())
             {
-                MessageBoxes.Error(checker.LastErrorMessage);
-                return;
+                string message = checker.LastErrorMessage + "\nWould you like to continue anyways?";
+
+                if (MessageBoxes.Warning(message, MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
             }
 
             Game = newGame;
