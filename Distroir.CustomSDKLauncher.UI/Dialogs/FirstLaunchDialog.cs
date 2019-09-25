@@ -90,8 +90,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 if (!gameChecker.IsValid())
                 {
-                    foreach (string message in gameChecker.ErrorMessages)
-                        MessageBoxes.Error(message);
+                    MessageBoxes.Error(gameChecker.LastErrorMessage);
 
                     Enabled = true;
                     return;
@@ -125,8 +124,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 if (!gameChecker.IsValid())
                 {
-                    foreach (string message in gameChecker.ErrorMessages)
-                        MessageBoxes.Error(message);
+                    MessageBoxes.Error(gameChecker.LastErrorMessage);
 
                     Enabled = true;
                     return;

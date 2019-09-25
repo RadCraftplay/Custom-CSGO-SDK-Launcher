@@ -23,30 +23,27 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
     {
         private readonly List<IChecker> _checkers;
 
-        public List<string> ErrorMessages { get; }
+        public string LastErrorMessage { get; private set; }
 
         public GameChecker(Game gameToCheck)
         {
             _checkers.Add(new EmptyValueChecker(gameToCheck));
             _checkers.Add(new DirectoryChecker(gameToCheck));
             _checkers.Add(new ToolChecker(gameToCheck.GameDir));
-            ErrorMessages = new List<string>();
         }
 
         public bool IsValid()
         {
-            bool valid = true;
-
             foreach (IChecker checker in _checkers)
             {
                 if (!checker.Validate())
                 {
-                    ErrorMessages.Add(checker.LastErrorMessage);
-                    valid = false;
+                    LastErrorMessage = checker.LastErrorMessage;
+                    return false;
                 }
             }
 
-            return valid;
+            return true;
         }
     }
 }
