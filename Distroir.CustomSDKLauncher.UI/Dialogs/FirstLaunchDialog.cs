@@ -21,6 +21,7 @@ using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 using Distroir.CustomSDKLauncher.Core.Utilities.Checker;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -77,56 +78,39 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            GameChecker gameChecker;
             Enabled = false;
 
-            //List of games can't be null
-            DataManagers.GameManager.Objects = new System.Collections.Generic.List<Game>();
+            DataManagers.GameManager.Objects = new List<Game>();
+            Game promptedGame = GetPromptedGame();
+            GameChecker gameChecker = new GameChecker(promptedGame);
 
-            if (simpleRadioButton.Checked)
+            if (!gameChecker.IsValid())
             {
-                Game game = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
-                gameChecker = new GameChecker(game);
+                MessageBoxes.Error(gameChecker.LastErrorMessage);
 
-                if (!gameChecker.IsValid())
-                {
-                    MessageBoxes.Error(gameChecker.LastErrorMessage);
-
-                    Enabled = true;
-                    return;
-                }
-
-                DataManagers.GameManager.Objects.Add(game);
-                Config.AddVariable("SelectedProfileId", 0);
-
-                Utils.TryReloadPathFormatterVars();
+                Enabled = true;
+                return;
             }
-            else //Advanced mode
-            {
-                Game game = new Game()
+
+            DataManagers.GameManager.Objects.Add(promptedGame);
+            Config.AddVariable("SelectedProfileId", 0);
+            Utils.TryReloadPathFormatterVars();
+
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private Game GetPromptedGame()
+        {
+            if (simpleRadioButton.Checked)
+                return ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
+            else
+                return new Game()
                 {
                     Name = gameNameTextBox.Text,
                     GameDir = gameDirectoryTextBox.Text,
                     GameinfoDirName = gameinfoDirectoryTextBox.Text
                 };
-                gameChecker = new GameChecker(game);
-                string gameInfoDirectory = Path.Combine(gameDirectoryTextBox.Text, gameinfoDirectoryTextBox.Text);
-
-                if (!gameChecker.IsValid())
-                {
-                    MessageBoxes.Error(gameChecker.LastErrorMessage);
-
-                    Enabled = true;
-                    return;
-                }
-
-                DataManagers.GameManager.Objects.Add(game);
-            }
-
-            Config.AddVariable("SelectedProfileId", 0);
-
-            DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void directoryTextBox_TextChanged(object sender, EventArgs e)
