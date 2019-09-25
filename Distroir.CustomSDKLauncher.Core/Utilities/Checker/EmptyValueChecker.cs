@@ -30,8 +30,8 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
         public bool Validate()
         {
             bool invalid = string.IsNullOrWhiteSpace(_gameToCheck.GameDir)
-                        && string.IsNullOrWhiteSpace(_gameToCheck.GameinfoDirName)
-                        && string.IsNullOrWhiteSpace(_gameToCheck.Name);
+                        || string.IsNullOrWhiteSpace(_gameToCheck.GameinfoDirName)
+                        || string.IsNullOrWhiteSpace(_gameToCheck.Name);
 
             if (invalid)
                 LastErrorMessage = "One or more fields are empty";
