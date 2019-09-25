@@ -103,16 +103,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             }
             else //Advanced mode
             {
-                if (gameNameTextBox.Text.Length == 0 ||
-                    gameDirectoryTextBox.Text.Length == 0 ||
-                    gameinfoDirectoryTextBox.Text.Length == 0)
-                {
-                    MessageBox.Show("You need to fill all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    Enabled = true;
-                    return;
-                }
-
                 Game game = new Game()
                 {
                     Name = gameNameTextBox.Text,
