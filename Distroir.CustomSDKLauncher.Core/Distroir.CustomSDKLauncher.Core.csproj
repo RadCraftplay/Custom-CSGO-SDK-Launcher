@@ -100,6 +100,7 @@
     <Compile Include="Migrators\Games\GameMigrationConflictSolution.cs" />
     <Compile Include="Migrators\Games\GameCache.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
+    <Compile Include="Utilities\Checker\EmptyValueChecker.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
     <Compile Include="Feedback\Scheduler.cs" />
