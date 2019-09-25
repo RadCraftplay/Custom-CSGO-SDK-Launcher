@@ -19,6 +19,7 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
+using Distroir.CustomSDKLauncher.Core.Utilities.Checker;
 using System;
 using System.IO;
 using System.Windows.Forms;
