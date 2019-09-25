@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Distroir.CustomSDKLauncher.Core.Utilities
+namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
     public class GameChecker
     {

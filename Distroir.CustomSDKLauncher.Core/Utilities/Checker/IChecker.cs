@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Utilities
+namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    public interface IChecker
+    interface IChecker
     {
         string LastErrorMessage { get; }
         bool Validate();

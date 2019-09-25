@@ -19,12 +19,12 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Utilities
+namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
     /// <summary>
     /// Used in first launch dialog to check if SDK tools are installed
     /// </summary>
-    public class ToolChecker : IChecker
+    class ToolChecker : IChecker
     {
         public string LastErrorMessage { get; private set; }
 

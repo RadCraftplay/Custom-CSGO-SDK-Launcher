@@ -1,9 +1,9 @@
 ﻿using System.IO;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Utilities
+namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    public class DirectoryChecker : IChecker
+    class DirectoryChecker : IChecker
     {
         public string LastErrorMessage { get; private set; }
         private readonly Game _gameToCheck;
