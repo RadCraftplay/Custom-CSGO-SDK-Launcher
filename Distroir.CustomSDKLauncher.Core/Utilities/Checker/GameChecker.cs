@@ -27,6 +27,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 
         public GameChecker(Game gameToCheck)
         {
+            _checkers.Add(new EmptyValueChecker(gameToCheck));
             _checkers.Add(new ToolChecker(gameToCheck.GameDir));
             _checkers.Add(new DirectoryChecker(gameToCheck));
             ErrorMessages = new List<string>();
