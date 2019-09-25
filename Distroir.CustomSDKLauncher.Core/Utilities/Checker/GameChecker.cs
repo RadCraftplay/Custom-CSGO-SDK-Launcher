@@ -21,8 +21,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
     public class GameChecker
     {
-        private readonly ToolChecker _toolChecker;
-        private readonly DirectoryChecker _directoryChecker;
+        private readonly List<IChecker> _checkers;
 
         public string[] ErrorMessages
         {
@@ -30,10 +29,9 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
             {
                 List<string> errorMessages = new List<string>();
 
-                if (!string.IsNullOrEmpty(_toolChecker.LastErrorMessage))
-                    errorMessages.Add(_toolChecker.LastErrorMessage);
-                if (!string.IsNullOrEmpty(_directoryChecker.LastErrorMessage))
-                    errorMessages.Add(_directoryChecker.LastErrorMessage);
+                foreach (IChecker checker in _checkers)
+                    if (!string.IsNullOrEmpty(checker.LastErrorMessage))
+                        errorMessages.Add(checker.LastErrorMessage);
 
                 return errorMessages.ToArray();
             }
@@ -41,24 +39,21 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 
         public GameChecker(Game gameToCheck)
         {
-            _toolChecker = new ToolChecker(gameToCheck.GameDir);
-            _directoryChecker = new DirectoryChecker(gameToCheck);
+            _checkers.Add(new ToolChecker(gameToCheck.GameDir));
+            _checkers.Add(new DirectoryChecker(gameToCheck));
         }
 
         public bool IsValid()
         {
-            return ValidateDirectories()
-                && ValidateToolPaths();
-        }
+            bool valid = true;
 
-        private bool ValidateToolPaths()
-        {
-            return _toolChecker.Validate();
-        }
+            foreach (IChecker checker in _checkers)
+            {
+                if (!checker.Validate())
+                    valid = false;
+            }
 
-        private bool ValidateDirectories()
-        {
-            return _directoryChecker.Validate();
+            return valid;
         }
     }
 }
