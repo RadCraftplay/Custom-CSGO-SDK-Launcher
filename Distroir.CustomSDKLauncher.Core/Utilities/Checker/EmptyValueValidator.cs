@@ -15,9 +15,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    class EmptyValueValidator : IValidator
+    internal class EmptyValueValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
         private Game _gameToValidate;

@@ -15,6 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -24,7 +25,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
     /// <summary>
     /// Used in first launch dialog to check if SDK tools are installed
     /// </summary>
-    class ToolValidator : IValidator
+    internal class ToolValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
 

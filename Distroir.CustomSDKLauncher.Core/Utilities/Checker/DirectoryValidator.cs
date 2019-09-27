@@ -15,12 +15,13 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 using System.IO;
 using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    class DirectoryValidator : IValidator
+    internal class DirectoryValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
         private readonly Game _gameToValidate;
