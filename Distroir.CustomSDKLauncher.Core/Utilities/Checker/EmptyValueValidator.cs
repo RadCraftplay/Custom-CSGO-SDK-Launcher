@@ -17,21 +17,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    class EmptyValueChecker : IChecker
+    class EmptyValueValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
-        private Game _gameToCheck;
+        private Game _gameToValidate;
 
-        public EmptyValueChecker(Game toCheck)
+        public EmptyValueValidator(Game toValidate)
         {
-            _gameToCheck = toCheck;
+            _gameToValidate = toValidate;
         }
 
         public bool Validate()
         {
-            bool invalid = string.IsNullOrWhiteSpace(_gameToCheck.GameDir)
-                        || string.IsNullOrWhiteSpace(_gameToCheck.GameinfoDirName)
-                        || string.IsNullOrWhiteSpace(_gameToCheck.Name);
+            bool invalid = string.IsNullOrWhiteSpace(_gameToValidate.GameDir)
+                        || string.IsNullOrWhiteSpace(_gameToValidate.GameinfoDirName)
+                        || string.IsNullOrWhiteSpace(_gameToValidate.Name);
 
             if (invalid)
                 LastErrorMessage = "One or more fields are empty";

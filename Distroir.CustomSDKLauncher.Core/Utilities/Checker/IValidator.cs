@@ -22,7 +22,7 @@ using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    interface IChecker
+    interface IValidator
     {
         string LastErrorMessage { get; }
         bool Validate();

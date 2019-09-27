@@ -24,14 +24,14 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
     /// <summary>
     /// Used in first launch dialog to check if SDK tools are installed
     /// </summary>
-    class ToolChecker : IChecker
+    class ToolValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
 
         private readonly Dictionary<string, string> _toolset;
         private string _gamePath;
 
-        public ToolChecker(string gamePath)
+        public ToolValidator(string gamePath)
         {
             _toolset = GetToolset();
             _gamePath = gamePath;

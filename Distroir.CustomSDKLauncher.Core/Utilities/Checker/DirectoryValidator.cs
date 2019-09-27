@@ -20,14 +20,14 @@ using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
-    class DirectoryChecker : IChecker
+    class DirectoryValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
-        private readonly Game _gameToCheck;
+        private readonly Game _gameToValidate;
 
-        public DirectoryChecker(Game toCheck)
+        public DirectoryValidator(Game toValidate)
         {
-            _gameToCheck = toCheck;
+            _gameToValidate = toValidate;
         }
 
         public bool Validate()
@@ -35,11 +35,11 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
             bool valid = true;
             StringBuilder errorMessageBuilder = new StringBuilder();
 
-            string gameInfoDirPath = Path.Combine(_gameToCheck.GameDir, _gameToCheck.GameinfoDirName);
+            string gameInfoDirPath = Path.Combine(_gameToValidate.GameDir, _gameToValidate.GameinfoDirName);
 
-            if (!Directory.Exists(_gameToCheck.GameDir))
+            if (!Directory.Exists(_gameToValidate.GameDir))
             {
-                LogMissingDirectory(errorMessageBuilder, _gameToCheck.GameDir);
+                LogMissingDirectory(errorMessageBuilder, _gameToValidate.GameDir);
                 valid = false;
             }
 

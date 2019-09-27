@@ -100,15 +100,15 @@
     <Compile Include="Migrators\Games\GameMigrationConflictSolution.cs" />
     <Compile Include="Migrators\Games\GameCache.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
-    <Compile Include="Utilities\Checker\EmptyValueChecker.cs" />
+    <Compile Include="Utilities\Checker\EmptyValueValidator.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
     <Compile Include="Feedback\Scheduler.cs" />
     <Compile Include="Launcher.cs" />
-    <Compile Include="Utilities\Checker\DirectoryChecker.cs" />
+    <Compile Include="Utilities\Checker\DirectoryValidator.cs" />
     <Compile Include="Utilities\ExceptionLogger.cs" />
     <Compile Include="Utilities\Checker\GameChecker.cs" />
-    <Compile Include="Utilities\Checker\IChecker.cs" />
+    <Compile Include="Utilities\Checker\IValidator.cs" />
     <Compile Include="Utilities\IconProvider.cs" />
     <Compile Include="Utilities\PlatformChecker.cs" />
     <Compile Include="Game.cs" />
@@ -120,7 +120,7 @@
     <Compile Include="Utilities\JavaUtils.cs" />
     <Compile Include="Utilities\MessageBoxes.cs" />
     <Compile Include="Utilities\RegistryUtils.cs" />
-    <Compile Include="Utilities\Checker\ToolChecker.cs" />
+    <Compile Include="Utilities\Checker\ToolValidator.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
