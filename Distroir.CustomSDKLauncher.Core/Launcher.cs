@@ -15,8 +15,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+using Distroir.CustomSDKLauncher.Core.Utilities;
+using Distroir.CustomSDKLauncher.Core.Utilities.Checker;
+using System;
 using System.Diagnostics;
 using System.IO;
+using System.Text;
 
 namespace Distroir.CustomSDKLauncher.Core
 {
@@ -24,9 +28,15 @@ namespace Distroir.CustomSDKLauncher.Core
     {
         public static void Launch(Game p, SDKApplication app)
         {
-            //Create strings
+            GameChecker checker = new GameChecker(p);
             string filename = string.Empty;
             string arguments = string.Empty;
+
+            if (!checker.IsValid())
+            {
+                MessageBoxes.Error(BuildFullErrorMessage(checker.LastErrorMessage));
+                return;
+            }
 
             //Select configuration
             switch (app)
@@ -54,6 +64,15 @@ namespace Distroir.CustomSDKLauncher.Core
             proc.StartInfo.Arguments = arguments;
             //Start process
             proc.Start();
+        }
+
+        private static string BuildFullErrorMessage(string lastErrorMessage)
+        {
+            StringBuilder builder = new StringBuilder();
+            builder.AppendLine(lastErrorMessage);
+            builder.AppendLine("1. Go to 'Settings -> Edit list of games' and check if your game has been configured properly");
+            builder.AppendLine("2. Make sure you have installed all required SDK's (For example: in case of CS:GO, you have to install Counter-Strike: Global Offensive SDK for tools to work correctly)");
+            return builder.ToString();
         }
 
         /// <summary>
