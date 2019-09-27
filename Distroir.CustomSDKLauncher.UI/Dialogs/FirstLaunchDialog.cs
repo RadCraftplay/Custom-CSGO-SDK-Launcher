@@ -19,7 +19,9 @@ using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
+using Distroir.CustomSDKLauncher.Core.Utilities.Checker;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
@@ -76,91 +78,39 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            ToolChecker pathChecker;
             Enabled = false;
 
-            //List of games can't be null
-            DataManagers.GameManager.Objects = new System.Collections.Generic.List<Game>();
+            DataManagers.GameManager.Objects = new List<Game>();
+            Game promptedGame = GetPromptedGame();
+            GameChecker gameChecker = new GameChecker(promptedGame);
 
-            if (simpleRadioButton.Checked)
+            if (!gameChecker.IsValid())
             {
-                pathChecker = new ToolChecker(directoryTextBox.Text);
+                MessageBoxes.Error(gameChecker.LastErrorMessage);
 
-                if (!Directory.Exists(directoryTextBox.Text))
-                {
-                    MessageBoxes.Error(string.Format(string.Format("Directory does not exist:\n{0}{1}{0}", '"', directoryTextBox.Text)));
-                    Enabled = true;
-                    
-                    return;
-                }
-
-                if (!pathChecker.CheckIfToolsExist())
-                {
-                    MessageBoxes.Error(pathChecker.LastErrorMessage);
-                    Enabled = true;
-
-                    return;
-                }
-
-                Game p = ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
-                DataManagers.GameManager.Objects.Add(p);
-                Config.AddVariable("SelectedProfileId", 0);
-
-                Utils.TryReloadPathFormatterVars();
-            }
-            else //Advanced mode
-            {
-                pathChecker = new ToolChecker(gameDirectoryTextBox.Text);
-                string gameInfoDirectory = Path.Combine(gameDirectoryTextBox.Text, gameinfoDirectoryTextBox.Text);
-
-                if (gameNameTextBox.Text.Length == 0 ||
-                    gameDirectoryTextBox.Text.Length == 0 ||
-                    gameinfoDirectoryTextBox.Text.Length == 0)
-                {
-                    //Inform user that he need to fill all fields
-                    MessageBox.Show("You need to fill all fields", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Re-enable control
-                    Enabled = true;
-                    //Skip rest of the method
-                    return;
-                }
-
-                if (!Directory.Exists(gameDirectoryTextBox.Text))
-                {
-                    MessageBoxes.Error(string.Format("Directory does not exist:\n{0}{1}{0}", '"', gameDirectoryTextBox.Text));
-                    Enabled = true;
-
-                    return;
-                }
-
-                if (!Directory.Exists(gameInfoDirectory))
-                {
-                    MessageBoxes.Error(string.Format("Directory does not exist:\n{0}{1}{0}", '"', gameInfoDirectory));
-                    Enabled = true;
-
-                    return;
-                }
-
-                if (!pathChecker.CheckIfToolsExist())
-                {
-                    MessageBoxes.Error(pathChecker.LastErrorMessage);
-                    Enabled = true;
-
-                    return;
-                }
-
-                Game g = new Game();
-                g.Name = gameNameTextBox.Text;
-                g.GameDir = gameDirectoryTextBox.Text;
-                g.GameinfoDirName = gameinfoDirectoryTextBox.Text;
-
-                DataManagers.GameManager.Objects.Add(g);
+                Enabled = true;
+                return;
             }
 
+            DataManagers.GameManager.Objects.Add(promptedGame);
             Config.AddVariable("SelectedProfileId", 0);
+            Utils.TryReloadPathFormatterVars();
 
             DialogResult = DialogResult.OK;
             Close();
+        }
+
+        private Game GetPromptedGame()
+        {
+            if (simpleRadioButton.Checked)
+                return ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
+            else
+                return new Game()
+                {
+                    Name = gameNameTextBox.Text,
+                    GameDir = gameDirectoryTextBox.Text,
+                    GameinfoDirName = gameinfoDirectoryTextBox.Text
+                };
         }
 
         private void directoryTextBox_TextChanged(object sender, EventArgs e)

@@ -15,31 +15,30 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
+
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.Utilities
+namespace Distroir.CustomSDKLauncher.Core.Utilities.Checker
 {
     /// <summary>
     /// Used in first launch dialog to check if SDK tools are installed
     /// </summary>
-    public class ToolChecker
+    internal class ToolValidator : IValidator
     {
         public string LastErrorMessage { get; private set; }
 
         private readonly Dictionary<string, string> _toolset;
         private string _gamePath;
 
-        public ToolChecker(string gamePath)
+        public ToolValidator(string gamePath)
         {
             _toolset = GetToolset();
             _gamePath = gamePath;
         }
 
-        public bool CheckIfToolsExist()
+        public bool Validate()
         {
             bool error = false;
             StringBuilder errorMessageBuilder = new StringBuilder();

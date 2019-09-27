@@ -16,6 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.Utilities;
+using Distroir.CustomSDKLauncher.Core.Utilities.Checker;
 using System;
 using System.Windows.Forms;
 
@@ -60,10 +62,23 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            Game.Name = nameTextBox.Text;
-            Game.GameDir = gameDirTextBox.Text;
-            Game.GameinfoDirName = gameInfoTextBox.Text;
+            Game newGame = new Game()
+            {
+                Name = nameTextBox.Text,
+                GameDir = gameDirTextBox.Text,
+                GameinfoDirName = gameInfoTextBox.Text
+            };
+            GameChecker checker = new GameChecker(newGame);
+            
+            if (!checker.IsValid())
+            {
+                string message = checker.LastErrorMessage + "\nWould you like to continue anyways?";
 
+                if (MessageBoxes.Warning(message, MessageBoxButtons.YesNo) != DialogResult.Yes)
+                    return;
+            }
+
+            Game = newGame;
             DialogResult = DialogResult.OK;
             Close();
         }
