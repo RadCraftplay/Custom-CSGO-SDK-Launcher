@@ -81,6 +81,7 @@
     <Compile Include="CommunityContent\ContentManager.cs" />
     <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Launchers\Apps\CustomizableApp.cs" />
     <Compile Include="Launchers\Apps\IApp.cs" />
     <Compile Include="Launchers\Apps\StandardApp.cs" />
     <Compile Include="Launchers\StandardSdkApplication.cs" />
