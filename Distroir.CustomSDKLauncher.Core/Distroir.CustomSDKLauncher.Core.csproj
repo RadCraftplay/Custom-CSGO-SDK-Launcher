@@ -85,6 +85,7 @@
     <Compile Include="Launchers\Apps\IApp.cs" />
     <Compile Include="Launchers\Apps\StandardApp.cs" />
     <Compile Include="Launchers\Launcher.cs" />
+    <Compile Include="Launchers\StandardLauncher.cs" />
     <Compile Include="Launchers\StandardSdkApplication.cs" />
     <Compile Include="Launchers\View\AppDependentDisplayableItem.cs" />
     <Compile Include="Launchers\View\IDisplayableItem.cs" />
