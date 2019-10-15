@@ -28,6 +28,7 @@ using System.Drawing;
 using System.Resources;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers;
+using Distroir.CustomSDKLauncher.Core.Launchers.View;
 using Launcher = Distroir.CustomSDKLauncher.Core.Launcher;
 
 namespace Distroir.CustomSDKLauncher.UI
@@ -67,12 +68,6 @@ namespace Distroir.CustomSDKLauncher.UI
             InitializeComponent();
 
             //Update controls
-            AppUtils.UpdateButtons(new Button[]
-                {
-                    launchHammerButton,
-                    launchModelViewerButton,
-                    launchFacePoserButton
-                });
             UpdateToolsGroupBoxText();
             ApplyLauncherSettings();
 
@@ -130,6 +125,21 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             bool useNewLauncher = Config.ReadInt("UseNewLauncher") == 1;
             _launcher = useNewLauncher ? (Core.Launchers.Launcher) new CustomizableLauncher() : new StandardLauncher();
+            UpdateButtons();
+        }
+        
+        private void UpdateButtons()
+        {
+            launchHammerButton = ApplyVisuals(launchHammerButton, _launcher.Apps[0].DisplayableItem);
+            launchModelViewerButton = ApplyVisuals(launchModelViewerButton, _launcher.Apps[1].DisplayableItem);
+            launchFacePoserButton = ApplyVisuals(launchFacePoserButton, _launcher.Apps[2].DisplayableItem);
+        }
+
+        private Button ApplyVisuals(Button button, IDisplayableItem item)
+        {
+            button.Text = item.Name;
+            button.Image = item.Icon;
+            return button;
         }
 
         #region Form events
