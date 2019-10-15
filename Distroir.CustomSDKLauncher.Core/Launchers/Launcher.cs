@@ -33,7 +33,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers
         /// <param name="activeGame">Currently active game</param>
         public void Launch(int applicationId, Game activeGame)
         {
-            if (!Enumerable.Range(0, 2).Contains(applicationId))
+            if (!Enumerable.Range(0, 3).Contains(applicationId))
                 throw new ArgumentOutOfRangeException("Application id has to be a number between 0 and two");
 
             if (Apps.Count != 3)
