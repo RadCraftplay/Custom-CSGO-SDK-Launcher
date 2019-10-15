@@ -27,11 +27,15 @@ using System;
 using System.Drawing;
 using System.Resources;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Launchers;
+using Launcher = Distroir.CustomSDKLauncher.Core.Launcher;
 
 namespace Distroir.CustomSDKLauncher.UI
 {
     public partial class Form1 : Form
     {
+        private Core.Launchers.Launcher _launcher;
+        
         public Form1()
         {
             //Load configuration
@@ -122,72 +126,32 @@ namespace Distroir.CustomSDKLauncher.UI
             }
         }
 
-        public void ApplyLauncherSettings()
+        private void ApplyLauncherSettings()
         {
             bool useNewLauncher = Config.ReadInt("UseNewLauncher") == 1;
-
-            launchHammerButton.Click -= launchHammerButton_Click;
-            launchHammerButton.Click -= launchAppButton_Click;
-            launchModelViewerButton.Click -= launchModelViewerButton_Click;
-            launchModelViewerButton.Click -= launchAppButton_Click;
-            launchFacePoserButton.Click -= launchFacePoserButton_Click;
-            launchFacePoserButton.Click -= launchAppButton_Click;
-
-            if (useNewLauncher)
-            {
-                launchHammerButton.Click += launchAppButton_Click;
-                launchModelViewerButton.Click += launchAppButton_Click;
-                launchFacePoserButton.Click += launchAppButton_Click;
-
-                AppUtils.UpdateButtons(new Button[]
-                {
-                    launchHammerButton,
-                    launchModelViewerButton,
-                    launchFacePoserButton
-                });
-            }
-            else
-            {
-                launchHammerButton.Click += launchHammerButton_Click;
-                launchModelViewerButton.Click += launchModelViewerButton_Click;
-                launchFacePoserButton.Click += launchFacePoserButton_Click;
-
-                //TODO: Update icons
-                launchHammerButton.Text = "Hammer World Editor";
-                launchHammerButton.Image = Data.HammerIcon;
-                launchModelViewerButton.Text = "Model Viewer";
-                launchModelViewerButton.Image = Data.ModelViewerIcon;
-                launchFacePoserButton.Text = "Face Poser";
-                launchFacePoserButton.Image = Data.FacePoserIcon;
-
-            }
+            _launcher = useNewLauncher ? (Core.Launchers.Launcher) new CustomizableLauncher() : new StandardLauncher();
         }
 
         #region Form events
 
         #region Button click events
-
-        private void launchAppButton_Click(object sender, EventArgs e)
+        
+        private void launchAppOneButton_Click(object sender, EventArgs e)
         {
-            AppUtils.LaunchApp((Button)sender);
+            if (Utils.TryGetSelectedGame(out Game game))
+                _launcher.Launch(0, game);
         }
-
-        private void launchHammerButton_Click(object sender, EventArgs e)
+        
+        private void launchAppTwoButton_Click(object sender, EventArgs e)
         {
-            //Utils.Launch("hammer.exe", "-nop4");
-            Utils.TryLaunchTool(SDKApplication.Hammer);
+            if (Utils.TryGetSelectedGame(out Game game))
+                _launcher.Launch(1, game);
         }
-
-        private void launchModelViewerButton_Click(object sender, EventArgs e)
+        
+        private void launchAppThreeButton_Click(object sender, EventArgs e)
         {
-            //Utils.Launch("hlmv.exe");
-            Utils.TryLaunchTool(SDKApplication.HLMV);
-        }
-
-        private void launchFacePoserButton_Click(object sender, EventArgs e)
-        {
-            //Utils.Launch("hlfaceposer.exe", "-nop4");
-            Utils.TryLaunchTool(SDKApplication.FacePoser);
+            if (Utils.TryGetSelectedGame(out Game game))
+                _launcher.Launch(2, game);
         }
 
         private void fmponeButton_Click(object sender, EventArgs e)

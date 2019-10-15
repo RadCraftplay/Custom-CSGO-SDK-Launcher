@@ -74,7 +74,7 @@
             this.launchHammerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.launchHammerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.launchHammerButton.UseVisualStyleBackColor = true;
-            this.launchHammerButton.Click += new System.EventHandler(this.launchHammerButton_Click);
+            this.launchHammerButton.Click += new System.EventHandler(this.launchAppOneButton_Click);
             // 
             // launchFacePoserButton
             // 
@@ -91,7 +91,7 @@
             this.launchFacePoserButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.launchFacePoserButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.launchFacePoserButton.UseVisualStyleBackColor = true;
-            this.launchFacePoserButton.Click += new System.EventHandler(this.launchFacePoserButton_Click);
+            this.launchFacePoserButton.Click += new System.EventHandler(this.launchAppThreeButton_Click);
             // 
             // launchModelViewerButton
             // 
@@ -108,7 +108,7 @@
             this.launchModelViewerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.launchModelViewerButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.launchModelViewerButton.UseVisualStyleBackColor = true;
-            this.launchModelViewerButton.Click += new System.EventHandler(this.launchModelViewerButton_Click);
+            this.launchModelViewerButton.Click += new System.EventHandler(this.launchAppTwoButton_Click);
             // 
             // tutorialsGroupBox
             // 
