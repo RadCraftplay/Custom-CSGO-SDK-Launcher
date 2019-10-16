@@ -111,9 +111,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("DisableFeedbackNotifications", disableFeedbackCheckBox.Checked);
             Config.AddVariable("IgnoreGameMigrationConflicts", ignoreGameMigrationConflictsCheckBox.Checked);
 
-            Utils.TryReloadPathFormatterVars();
             DataManagers.AppManager.Objects = _appListReference;
             DataManagers.GameManager.Objects = _games;
+            Utils.TryReloadPathFormatterVars();
 
             DataManagers.GameManager.Save();
             DataManagers.AppManager.Save();
