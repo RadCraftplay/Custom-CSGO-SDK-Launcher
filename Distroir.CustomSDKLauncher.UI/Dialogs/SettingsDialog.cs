@@ -33,12 +33,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
     public partial class SettingsDialog : Form
     {
         private List<AppInfo> _appListReference = new List<AppInfo>();
-        private List<Game> _games;
 
         public SettingsDialog()
         {
             _appListReference = DataManagers.AppManager.Objects;
-            _games = DataManagers.GameManager.Objects;
 
             InitializeComponent();
             UpdateControls();
@@ -85,7 +83,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             gameListComboBox.Items.Clear();
 
-            foreach (Game g in _games)
+            foreach (Game g in DataManagers.GameManager.Objects)
                 gameListComboBox.Items.Add(g);
 
             try
@@ -113,7 +111,6 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             Utils.TryReloadPathFormatterVars();
             DataManagers.AppManager.Objects = _appListReference;
-            DataManagers.GameManager.Objects = _games;
 
             DataManagers.GameManager.Save();
             DataManagers.AppManager.Save();
@@ -130,17 +127,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            var gameListEditDialog = new GameListEditDialog(_games);
+            var gameListEditDialog = new GameListEditDialog(DataManagers.GameManager.Objects);
 
             if (gameListEditDialog.ShowDialog() == DialogResult.OK)
             {
-                Game selectedGame = _games[gameListComboBox.SelectedIndex];
+                Game selectedGame = DataManagers.GameManager.Objects[gameListComboBox.SelectedIndex];
                 List<Game> newListOfGames = gameListEditDialog.Games;
 
                 int selectedIndex = FindOutSelectedIndex(
                     selectedGame,
                     newListOfGames);
-                _games = newListOfGames;
+                DataManagers.GameManager.Objects = newListOfGames;
                 RefreshList(selectedIndex);
             }
         }
