@@ -168,11 +168,11 @@ namespace Distroir.CustomSDKLauncher.UI
         {
             var settingsDialog = new Dialogs.SettingsDialog();
 
-            if (settingsDialog.ShowDialog() == DialogResult.OK)
-            {
-                ApplyLauncherSettings();
-                UpdateToolsGroupBoxText();
-            }
+            if (settingsDialog.ShowDialog() != DialogResult.OK)
+                return;
+            
+            ApplyLauncherSettings();
+            UpdateToolsGroupBoxText();
         }
 
         private void moreTutorialsLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -197,40 +197,41 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void CheckIfItsFirstLaunch()
         {
-            if (Config.TryReadInt("FirstLaunch") == 1)
-            {
-                //Create dialog
-                var v = new Dialogs.FirstLaunchDialog();
+            if (Config.TryReadInt("FirstLaunch") != 1)
+                return;
+            
+            //Create dialog
+            var v = new Dialogs.FirstLaunchDialog();
 
-                //Show dialog
-                if (v.ShowDialog() != DialogResult.OK)
-                {
-                    //If user closes dialog without selecting csgo directory
-                    //Inform user that he needs to select his csgo directory
-                    MessageBox.Show("Can not continue. You need to create your first game", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //Cannot continue
-                    //Close application
-                    Environment.Exit(0);
-                }
-            }
+            //Show dialog
+            if (v.ShowDialog() == DialogResult.OK)
+                return;
+            
+            //If user closes dialog without selecting csgo directory
+            //Inform user that he needs to select his csgo directory
+            MessageBox.Show("Can not continue. You need to create your first game", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
+            //Cannot continue
+            //Close application
+            Environment.Exit(0);
         }
 
         private void SetCsgoDirectoryFromConfig()
         {
             //Set gamedir
-            if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
+            if (string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
+                return;
+            
+            Game p = new Game
             {
-                Game p = new Game
-                {
-                    Name = "Counter-Strike: Global Offensive",
-                    GameDir = Config.TryReadString("CSGO_DIR"),
-                    GameinfoDirName = "csgo"
-                };
+                Name = "Counter-Strike: Global Offensive",
+                GameDir = Config.TryReadString("CSGO_DIR"),
+                GameinfoDirName = "csgo"
+            };
 
-                DataManagers.GameManager.Objects.Add(p);
-                Config.AddVariable("SelectedProfileId", 0);
-                Config.RemoveVariable("CSGO_DIR");
-            }
+            DataManagers.GameManager.Objects.Add(p);
+            Config.AddVariable("SelectedProfileId", 0);
+            Config.RemoveVariable("CSGO_DIR");
         }
 
         /// <summary>
@@ -238,21 +239,17 @@ namespace Distroir.CustomSDKLauncher.UI
         /// </summary>
         private void AskForFeedback()
         {
-            bool disableFeedback = false;
-
-            //Set default value
-            if (!Config.TryReadBool("DisableFeedbackNotifications", out disableFeedback))
+            if (Config.TryReadBool("DisableFeedbackNotifications", out bool askForFeedback))
             {
-                disableFeedback = false;
-                Config.AddVariable("DisableFeedbackNotifications", disableFeedback);
+                if (!askForFeedback)
+                    return;
                 
-            }
-
-            //Ask for feedback
-            if (!disableFeedback)
-            {
                 FeedbackFetcher f = new FeedbackFetcher();
                 f.Activate();
+            }
+            else
+            {
+                Config.AddVariable("DisableFeedbackNotifications", false);
             }
         }
 
@@ -291,17 +288,14 @@ namespace Distroir.CustomSDKLauncher.UI
         /// <returns></returns>
         private string CutStringIfTooLong(string s, int length)
         {
-            if (s.Length > length)
-            {
-                //Shorten string
-                char[] buffer = new char[length];
-                s.CopyTo(0, buffer, 0, length);
-                //Get string from buffer
-                s = charArrayToString(buffer) + "...";
+            if (s.Length <= length)
                 return s;
-            }
-
-            //String is the same, return it
+            
+            //Shorten string
+            char[] buffer = new char[length];
+            s.CopyTo(0, buffer, 0, length);
+            //Get string from buffer
+            s = charArrayToString(buffer) + "...";
             return s;
         }
 
