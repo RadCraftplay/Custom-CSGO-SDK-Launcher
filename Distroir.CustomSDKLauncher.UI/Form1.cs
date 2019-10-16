@@ -17,19 +17,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
-using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Feedback;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using Distroir.CustomSDKLauncher.Core.Migrators;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
-using System.Drawing;
-using System.Resources;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers;
 using Distroir.CustomSDKLauncher.Core.Launchers.View;
-using Launcher = Distroir.CustomSDKLauncher.Core.Launcher;
 
 namespace Distroir.CustomSDKLauncher.UI
 {
@@ -42,16 +40,9 @@ namespace Distroir.CustomSDKLauncher.UI
             //Load configuration
             Utils.CheckDirs();
             Config.Load();
-            //LanguageManager.LoadLanguageInfo();
 
             MigrateOldFiles();
-
             LoadData();
-
-            //Unused: Load theme
-            //Reason: Themes on winforms do not look good
-            //UIThemeManager.LoadThemes();
-            //UIThemeManager.LoadCurrentTheme();
 
             //Check if it's first launch
             CheckIfItsFirstLaunch();
@@ -71,9 +62,6 @@ namespace Distroir.CustomSDKLauncher.UI
             UpdateToolsGroupBoxText();
             ApplyLauncherSettings();
 
-            //Unused: Apply theme to UI
-            //ApplyTheme();
-
             //Ask for feedback
             System.Threading.Tasks.Task.Factory.StartNew(AskForFeedback);
         }
@@ -88,8 +76,6 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void LoadData()
         {
-            int LoadAtStartup, useNewLauncher;
-
             //Games
             DataManagers.GameManager.TryLoad();
             //Reloads list of variables used to format paths
@@ -100,23 +86,22 @@ namespace Distroir.CustomSDKLauncher.UI
                 AppUtils.CreateApplications();
 
             //Try to load data settings
-            if (!Config.TryReadInt("LoadDataAtStartup", out LoadAtStartup))
+            if (!Config.TryReadInt("LoadDataAtStartup", out var loadAtStartup))
             {
-                LoadAtStartup = 0;
+                loadAtStartup = 0;
                 Config.AddVariable("LoadDataAtStartup", 0);
             }
 
             //Load less important data on startup
-            if (LoadAtStartup == 1)
+            if (loadAtStartup == 1)
             {
                 DataManagers.TemplateManager.Load();
                 DataManagers.TutorialManager.Load();
                 ContentManager.LoadContentGroups();
             }
 
-            if (!Config.TryReadInt("UseNewLauncher", out useNewLauncher))
+            if (!Config.TryReadInt("UseNewLauncher", out _))
             {
-                useNewLauncher = 0;
                 Config.AddVariable("UseNewLauncher", 1);
             }
         }
@@ -179,11 +164,6 @@ namespace Distroir.CustomSDKLauncher.UI
             Utils.ShellLaunch("https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Level_Creation");
         }
 
-        private void kliksButton_Click(object sender, EventArgs e)
-        {
-            Utils.ShellLaunch("https://www.youtube.com/playlist?list=PLfwtcDG7LpxF7-uH_P9La76dgCMC_lfk3");
-        }
-
         private void settingsButton_Click(object sender, EventArgs e)
         {
             var settingsDialog = new Dialogs.SettingsDialog();
@@ -215,7 +195,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         #region Methods
 
-        void CheckIfItsFirstLaunch()
+        private void CheckIfItsFirstLaunch()
         {
             if (Config.TryReadInt("FirstLaunch") == 1)
             {
@@ -223,7 +203,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 var v = new Dialogs.FirstLaunchDialog();
 
                 //Show dialog
-                if (!(v.ShowDialog() == DialogResult.OK))
+                if (v.ShowDialog() != DialogResult.OK)
                 {
                     //If user closes dialog without selecting csgo directory
                     //Inform user that he needs to select his csgo directory
@@ -235,15 +215,17 @@ namespace Distroir.CustomSDKLauncher.UI
             }
         }
 
-        void SetCsgoDirectoryFromConfig()
+        private void SetCsgoDirectoryFromConfig()
         {
             //Set gamedir
             if (!string.IsNullOrEmpty(Config.TryReadString("CSGO_DIR")))
             {
-                Game p = new Game();
-                p.Name = "Counter-Strike: Global Offensive";
-                p.GameDir = Config.TryReadString("CSGO_DIR");
-                p.GameinfoDirName = "csgo";
+                Game p = new Game
+                {
+                    Name = "Counter-Strike: Global Offensive",
+                    GameDir = Config.TryReadString("CSGO_DIR"),
+                    GameinfoDirName = "csgo"
+                };
 
                 DataManagers.GameManager.Objects.Add(p);
                 Config.AddVariable("SelectedProfileId", 0);
@@ -254,7 +236,7 @@ namespace Distroir.CustomSDKLauncher.UI
         /// <summary>
         /// Asks for feedback
         /// </summary>
-        void AskForFeedback()
+        private void AskForFeedback()
         {
             bool disableFeedback = false;
 
@@ -276,7 +258,7 @@ namespace Distroir.CustomSDKLauncher.UI
 
         #region Utilies
 
-        string GetCurrentGameName()
+        private string GetCurrentGameName()
         {
             Utils.TryGetSelectedGame(out Game g);
             return g.Name;
@@ -285,13 +267,12 @@ namespace Distroir.CustomSDKLauncher.UI
         /// <summary>
         /// Changes text inside toolsGroupBox control
         /// </summary>
-        /// <param name="rm">Resource manager</param>
-        void UpdateToolsGroupBoxText()
+        private void UpdateToolsGroupBoxText()
         {
             if (Config.TryReadInt("DisplayCurrentProfileName") == 1 && !string.IsNullOrEmpty(GetCurrentGameName()))
             {
                 //Set text
-                string text = string.Format("Tools - {0}", GetCurrentGameName());
+                string text = $"Tools - {GetCurrentGameName()}";
                 text = CutStringIfTooLong(text, 40);
                 toolsGroupBox.Text = text;
             }
@@ -308,7 +289,7 @@ namespace Distroir.CustomSDKLauncher.UI
         /// <param name="s">Input string</param>
         /// <param name="length">Maximal length of string</param>
         /// <returns></returns>
-        string CutStringIfTooLong(string s, int length)
+        private string CutStringIfTooLong(string s, int length)
         {
             if (s.Length > length)
             {
@@ -329,14 +310,9 @@ namespace Distroir.CustomSDKLauncher.UI
         /// </summary>
         /// <param name="array">Char array</param>
         /// <returns></returns>
-        string charArrayToString(char[] array)
+        private string charArrayToString(IEnumerable<char> array)
         {
-            string returnvalue = string.Empty;
-
-            foreach (char c in array)
-                returnvalue += c;
-
-            return returnvalue;
+            return array.Aggregate(string.Empty, (current, c) => current + c);
         }
 
         #endregion
