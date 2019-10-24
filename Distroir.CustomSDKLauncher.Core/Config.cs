@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace Distroir.Configuration
@@ -30,7 +31,7 @@ namespace Distroir.Configuration
         /// <summary>
         /// Contains settings of an application
         /// </summary>
-        public static List<Key> settings = new List<Key>();
+        private static Dictionary<string, string> settings = new Dictionary<string, string>();
         /// <summary>
         /// Config file name
         /// </summary>
@@ -47,19 +48,7 @@ namespace Distroir.Configuration
         /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, string value)
         {
-            Key k = new Key();
-            k.name = name;
-            k.value = value;
-
-            try
-            {
-                foreach (Key key in settings)
-                    if (key.name == k.name)
-                        settings.Remove(key);
-            }
-            catch { }
-
-            settings.Add(k);
+            settings[name] = value;
         }
 
         /// <summary>
@@ -109,11 +98,7 @@ namespace Distroir.Configuration
         /// <returns>Value of specified variable</returns>
         public static string ReadVariable(string name)
         {
-            foreach (Key k in settings)
-                if (k.name == name)
-                    return k.value;
-
-            throw new KeyNotFoundException();
+            return settings[name];
         }
 
         /// <summary>
@@ -122,14 +107,7 @@ namespace Distroir.Configuration
         /// <param name="name">Name of variable to remove</param>
         public static void RemoveVariable(string name)
         {
-            foreach (Key key in settings)
-            {
-                if (key.name == name)
-                {
-                    settings.Remove(key);
-                    break;
-                }
-            }
+            settings.Remove(name);
         }
 
         /// <summary>
@@ -346,7 +324,7 @@ namespace Distroir.Configuration
             TextWriter w = new StreamWriter(destination);
             XmlSerializer s = new XmlSerializer(typeof(Key[]));
 
-            s.Serialize(w, settings.ToArray());
+            s.Serialize(w, settings.Select(key => new Key(key.Key, key.Value)).ToArray());
             w.Close();
             w.Dispose();
         }
@@ -364,7 +342,7 @@ namespace Distroir.Configuration
                 XmlSerializer s = new XmlSerializer(typeof(Key[]));
 
                 foreach (Key k in (Key[])s.Deserialize(w))
-                    settings.Add(k);
+                    settings.Add(k.name, k.value);
 
                 w.Close();
                 w.Dispose();
@@ -392,5 +370,15 @@ namespace Distroir.Configuration
     {
         public string name;
         public string value;
+
+        public Key(string name, string value)
+        {
+            this.name = name;
+            this.value = value;
+        }
+
+        public Key()
+        {
+        }
     }
 }
