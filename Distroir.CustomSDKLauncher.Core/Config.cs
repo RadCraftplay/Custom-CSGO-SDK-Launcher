@@ -31,11 +31,11 @@ namespace Distroir.Configuration
         /// <summary>
         /// Contains settings of an application
         /// </summary>
-        private static Dictionary<string, string> settings = new Dictionary<string, string>();
+        private static readonly Dictionary<string, string> Settings = new Dictionary<string, string>();
         /// <summary>
         /// Config file name
         /// </summary>
-        public static string destination = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "config.xml");
+        public static string Destination => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "config.xml");
 
         #endregion
 
@@ -48,7 +48,7 @@ namespace Distroir.Configuration
         /// <param name="value">Value of the variable</param>
         public static void AddVariable(string name, string value)
         {
-            settings[name] = value;
+            Settings[name] = value;
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Distroir.Configuration
         /// <returns>Value of specified variable</returns>
         public static string ReadVariable(string name)
         {
-            return settings[name];
+            return Settings[name];
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace Distroir.Configuration
         /// <param name="name">Name of variable to remove</param>
         public static void RemoveVariable(string name)
         {
-            settings.Remove(name);
+            Settings.Remove(name);
         }
 
         /// <summary>
@@ -321,10 +321,10 @@ namespace Distroir.Configuration
         /// </summary>
         public static void Save()
         {
-            TextWriter w = new StreamWriter(destination);
+            TextWriter w = new StreamWriter(Destination);
             XmlSerializer s = new XmlSerializer(typeof(Key[]));
 
-            s.Serialize(w, settings.Select(key => new Key(key.Key, key.Value)).ToArray());
+            s.Serialize(w, Settings.Select(key => new Key(key.Key, key.Value)).ToArray());
             w.Close();
             w.Dispose();
         }
@@ -336,13 +336,13 @@ namespace Distroir.Configuration
         {
             try
             {
-                settings.Clear();
+                Settings.Clear();
 
-                TextReader w = new StreamReader(destination);
+                TextReader w = new StreamReader(Destination);
                 XmlSerializer s = new XmlSerializer(typeof(Key[]));
 
                 foreach (Key k in (Key[])s.Deserialize(w))
-                    settings.Add(k.name, k.value);
+                    Settings.Add(k.name, k.value);
 
                 w.Close();
                 w.Dispose();

@@ -36,7 +36,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     File.Delete(DataManagers.AppListFilename);
 
                 if (otherCheckBox.Checked)
-                    File.Delete(Configuration.Config.destination);
+                    File.Delete(Configuration.Config.Destination);
 
                 Application.Exit();
             }

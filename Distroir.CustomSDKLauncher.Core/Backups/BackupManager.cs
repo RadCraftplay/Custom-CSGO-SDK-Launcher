@@ -49,7 +49,7 @@ namespace Distroir.CustomSDKLauncher.Core.Backups
             //List of files, that will be backed up
             List<string> FileNames = new List<string>()
                 {
-                    Configuration.Config.destination,
+                    Configuration.Config.Destination,
                     DataManagers.GameListFilename,
                     DataManagers.AppListFilename
                 };
