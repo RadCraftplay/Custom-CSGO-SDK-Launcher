@@ -210,8 +210,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             public override bool IsPathValid()
             {
                 bool result = Utilities.JavaUtils.TryGetJavaHomePath(out string output);
-
-                _exePath = System.IO.Path.Combine(output, "bin\\javaw.exe");
+                if (result)
+                    _exePath = System.IO.Path.Combine(output, "bin\\javaw.exe");
                 return result;
             }
         }
