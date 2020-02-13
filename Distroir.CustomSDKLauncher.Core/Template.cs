@@ -48,5 +48,38 @@ namespace Distroir.CustomSDKLauncher.Core
 
             return p;
         }
+        
+        public bool Equals(Template other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Name == other.Name && GameDirName == other.GameDirName;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((Template) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return ((Name != null ? Name.GetHashCode() : 0) * 397) ^ (GameDirName != null ? GameDirName.GetHashCode() : 0);
+            }
+        }
+
+        public static bool operator ==(Template left, Template right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(Template left, Template right)
+        {
+            return !Equals(left, right);
+        }
     }
 }
