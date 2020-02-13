@@ -115,6 +115,7 @@
     <Compile Include="Migrators\Games\GameCache.cs" />
     <Compile Include="Steam\AppManifestReader.cs" />
     <Compile Include="Steam\LibraryFileReader.cs" />
+    <Compile Include="Steam\SteamGameFinder.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\Checker\EmptyValueValidator.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
