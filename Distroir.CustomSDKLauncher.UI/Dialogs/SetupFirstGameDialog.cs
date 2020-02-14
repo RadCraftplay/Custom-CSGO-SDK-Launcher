@@ -29,6 +29,8 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class SetupFirstGameDialog : Form
     {
+        public Game PromptedGame { get; private set; }
+        
         public SetupFirstGameDialog()
         {
             InitializeComponent();
@@ -92,10 +94,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 return;
             }
 
-            DataManagers.GameManager.Objects.Add(promptedGame);
-            Config.AddVariable("SelectedProfileId", 0);
-            Utils.TryReloadPathFormatterVars();
-
+            PromptedGame = promptedGame;
             DialogResult = DialogResult.OK;
             Close();
         }

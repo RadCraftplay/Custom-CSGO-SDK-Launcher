@@ -243,7 +243,7 @@
             this.selectDirectoryAdvancedButton.Click +=
                 new System.EventHandler(this.selectDirectoryAdvancedButton_Click);
             // 
-            // FirstLaunchDialog
+            // SetupFirstGameDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -267,7 +267,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "FirstLaunchDialog";
+            this.Name = "SetupFirstGameDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add your first game";
             this.ResumeLayout(false);
