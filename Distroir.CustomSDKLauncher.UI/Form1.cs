@@ -201,7 +201,7 @@ namespace Distroir.CustomSDKLauncher.UI
                 return;
             
             //Create dialog
-            var v = new Dialogs.FirstLaunchDialog();
+            var v = new Dialogs.SetupFirstGameDialog();
 
             //Show dialog
             if (v.ShowDialog() == DialogResult.OK)

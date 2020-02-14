@@ -27,9 +27,9 @@ using System.Windows.Forms;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
-    public partial class FirstLaunchDialog : Form
+    public partial class SetupFirstGameDialog : Form
     {
-        public FirstLaunchDialog()
+        public SetupFirstGameDialog()
         {
             InitializeComponent();
 

@@ -61,11 +61,11 @@
     <Compile Include="Dialogs\EditGameDialog.Designer.cs">
       <DependentUpon>EditGameDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\FirstLaunchDialog.cs">
+    <Compile Include="Dialogs\SetupFirstGameDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\FirstLaunchDialog.Designer.cs">
-      <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
+    <Compile Include="Dialogs\SetupFirstGameDialog.Designer.cs">
+      <DependentUpon>SetupFirstGameDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\LicenseDialog.cs">
       <SubType>Form</SubType>
@@ -128,8 +128,8 @@
     <EmbeddedResource Include="Dialogs\EditGameDialog.resx">
       <DependentUpon>EditGameDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\FirstLaunchDialog.resx">
-      <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
+    <EmbeddedResource Include="Dialogs\SetupFirstGameDialog.resx">
+      <DependentUpon>SetupFirstGameDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\LicenseDialog.resx">
       <DependentUpon>LicenseDialog.cs</DependentUpon>
