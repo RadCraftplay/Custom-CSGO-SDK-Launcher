@@ -55,6 +55,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             this.automaticDetectionRadioButton.TabStop = true;
             this.automaticDetectionRadioButton.Text = "Try to detect compatible games automatically";
             this.automaticDetectionRadioButton.UseVisualStyleBackColor = true;
+            this.automaticDetectionRadioButton.KeyDown +=
+                new System.Windows.Forms.KeyEventHandler(this.radioButton_KeyDown);
+            this.automaticDetectionRadioButton.MouseDown +=
+                new System.Windows.Forms.MouseEventHandler(this.radioButton_MouseDown);
             // 
             // manualDetectionRadioButton
             // 
@@ -64,6 +68,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             this.manualDetectionRadioButton.TabIndex = 2;
             this.manualDetectionRadioButton.Text = "Set-up yor first game manually";
             this.manualDetectionRadioButton.UseVisualStyleBackColor = true;
+            this.manualDetectionRadioButton.KeyDown +=
+                new System.Windows.Forms.KeyEventHandler(this.radioButton_KeyDown);
+            this.manualDetectionRadioButton.MouseDown +=
+                new System.Windows.Forms.MouseEventHandler(this.radioButton_MouseDown);
             // 
             // continueButton
             // 
@@ -76,12 +84,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             this.continueButton.TabIndex = 3;
             this.continueButton.Text = "Continue";
             this.continueButton.UseVisualStyleBackColor = true;
+            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
             // 
             // FirstLaunchDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 146);
+            this.ClientSize = new System.Drawing.Size(384, 147);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.manualDetectionRadioButton);
             this.Controls.Add(this.automaticDetectionRadioButton);
@@ -89,6 +98,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "FirstLaunchDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "First launch";
             this.ResumeLayout(false);
         }
