@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017-2019 Distroir
+Copyright (C) 2017-2020 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -205,7 +205,13 @@ namespace Distroir.CustomSDKLauncher.UI
 
             //Show dialog
             if (v.ShowDialog() == DialogResult.OK)
+            {
+                DataManagers.GameManager.Objects = v.CreatedGames;
+                Config.AddVariable("SelectedProfileId", 0);
+                Utils.TryReloadPathFormatterVars();
+                
                 return;
+            }
             
             //If user closes dialog without selecting csgo directory
             //Inform user that he needs to select his csgo directory

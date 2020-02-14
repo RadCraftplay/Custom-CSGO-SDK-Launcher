@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gameloop.Vdf, Version=0.5.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\packages\Gameloop.Vdf.0.5.0\lib\net45\Gameloop.Vdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -109,6 +113,9 @@
     <Compile Include="Migrators\IMigrator.cs" />
     <Compile Include="Migrators\Games\GameMigrationConflictSolution.cs" />
     <Compile Include="Migrators\Games\GameCache.cs" />
+    <Compile Include="Steam\AppManifestReader.cs" />
+    <Compile Include="Steam\LibraryFileReader.cs" />
+    <Compile Include="Steam\SteamGameFinder.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
     <Compile Include="Utilities\Checker\EmptyValueValidator.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
@@ -137,6 +144,7 @@
     <None Include="..\Distroir.CustomSDKLauncher\Distroir.Custom SDK Launcher.licenseheader">
       <Link>Distroir.Custom SDK Launcher.licenseheader</Link>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AppLauncher\Controls\IconSelector.resx">

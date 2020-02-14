@@ -1,6 +1,6 @@
 ﻿/*
 Custom SDK Launcher
-Copyright (C) 2017-2019 Distroir
+Copyright (C) 2017-2020 Distroir
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,160 +15,57 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.Configuration;
-using Distroir.CustomSDKLauncher.Core;
-using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Utilities;
-using Distroir.CustomSDKLauncher.Core.Utilities.Checker;
 using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core;
+using Distroir.CustomSDKLauncher.Core.Steam;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class FirstLaunchDialog : Form
     {
+        public List<Game> CreatedGames { get; set; } = new List<Game>();
+        
         public FirstLaunchDialog()
         {
             InitializeComponent();
-
-            //Load templates
-            DataManagers.TemplateManager.Load();
-
-            //Reload list
-            ReloadList();
-
-            //Change game directory
-            directoryTextBox.Text = Utils.CombineDefaultGameDirName(DataManagers.TemplateManager.Objects[1].GameDirName);
         }
 
-        /// <summary>
-        /// Reloads list of templates inside combo box
-        /// </summary>
-        void ReloadList()
+        private void radioButton_MouseDown(object sender, MouseEventArgs e)
         {
-            //Clear list of items
-            gameComboBox.Items.Clear();
-
-            //Add templates
-            foreach (Template t in DataManagers.TemplateManager.Objects)
-            {
-                gameComboBox.Items.Add(t);
-            }
-
-            //Select first item
-            gameComboBox.SelectedIndex = 1;
+            UncheckOtherCheckboxes(sender as CheckBox);
         }
 
-        private void selectDirectoryButton_Click(object sender, EventArgs e)
+        private void radioButton_KeyDown(object sender, KeyEventArgs e)
         {
-            //Create FolderBrowserDialog
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            //Set path
-            fbd.SelectedPath = directoryTextBox.Text;
-
-            //Show dialog
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                //Set text inside textBox
-                directoryTextBox.Text = fbd.SelectedPath;
-            }
+            UncheckOtherCheckboxes(sender as CheckBox);
         }
 
-        private void okButton_Click(object sender, EventArgs e)
+        private void UncheckOtherCheckboxes(CheckBox sender)
         {
-            Enabled = false;
+            foreach (Control control in Controls)
+                if (control is CheckBox checkBox)
+                    if (checkBox != sender)
+                        checkBox.Checked = false;
+        }
 
-            DataManagers.GameManager.Objects = new List<Game>();
-            Game promptedGame = GetPromptedGame();
-            GameChecker gameChecker = new GameChecker(promptedGame);
-
-            if (!gameChecker.IsValid())
+        private void continueButton_Click(object sender, EventArgs e)
+        {
+            if (manualDetectionRadioButton.Checked)
             {
-                MessageBoxes.Error(gameChecker.LastErrorMessage);
-
-                Enabled = true;
-                return;
+                var dialog = new SetupFirstGameDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                    CreatedGames.Add(dialog.PromptedGame);
             }
+            else
+                CreatedGames = SteamGameFinder.GetSupportedSteamGames().ToList();
 
-            DataManagers.GameManager.Objects.Add(promptedGame);
-            Config.AddVariable("SelectedProfileId", 0);
-            Utils.TryReloadPathFormatterVars();
+            if (CreatedGames.Count > 0)
+                DialogResult = DialogResult.OK;
 
-            DialogResult = DialogResult.OK;
             Close();
-        }
-
-        private Game GetPromptedGame()
-        {
-            if (simpleRadioButton.Checked)
-                return ((Template)gameComboBox.Items[gameComboBox.SelectedIndex]).ToGame(directoryTextBox.Text);
-            else
-                return new Game()
-                {
-                    Name = gameNameTextBox.Text,
-                    GameDir = gameDirectoryTextBox.Text,
-                    GameinfoDirName = gameinfoDirectoryTextBox.Text
-                };
-        }
-
-        private void directoryTextBox_TextChanged(object sender, EventArgs e)
-        {
-            //Disable button if textBox is empty
-            if (directoryTextBox.Text.Length == 0)
-                okButton.Enabled = false;
-            else
-                okButton.Enabled = true;
-        }
-
-        private void radioButton_Checked(object sender, EventArgs e)
-        {
-            toggleControls((RadioButton)sender == simpleRadioButton);
-        }
-
-        /// <summary>
-        /// Toggles Control.Enabled flag
-        /// </summary>
-        /// <param name="simple">User checked simple configuration radio button</param>
-        void toggleControls(bool simple)
-        {
-            //Simple configuration controls
-            simpleLabel1.Enabled = simple;
-            simpleLabel2.Enabled = simple;
-            gameComboBox.Enabled = simple;
-            directoryTextBox.Enabled = simple;
-            selectDirectoryButton.Enabled = simple;
-
-            //Advanced configuration controls
-            advancedLabel1.Enabled = !simple;
-            advancedLabel2.Enabled = !simple;
-            advancedLabel3.Enabled = !simple;
-            gameNameTextBox.Enabled = !simple;
-            gameDirectoryTextBox.Enabled = !simple;
-            selectDirectoryAdvancedButton.Enabled = !simple;
-            gameinfoDirectoryTextBox.Enabled = !simple;
-        }
-
-        private void gameComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Change game directory
-            directoryTextBox.Text = Utils.CombineDefaultGameDirName(DataManagers.TemplateManager.Objects[gameComboBox.SelectedIndex].GameDirName);
-        }
-
-        private void selectDirectoryAdvancedButton_Click(object sender, EventArgs e)
-        {
-            //Create FolderBrowserDialog
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            //Set path
-            fbd.SelectedPath = gameDirectoryTextBox.Text;
-
-            //Show dialog
-            if (fbd.ShowDialog() == DialogResult.OK)
-            {
-                //Set text inside textBox
-                gameDirectoryTextBox.Text = fbd.SelectedPath;
-            }
         }
     }
 }
