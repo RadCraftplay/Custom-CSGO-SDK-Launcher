@@ -201,11 +201,17 @@ namespace Distroir.CustomSDKLauncher.UI
                 return;
             
             //Create dialog
-            var v = new Dialogs.SetupFirstGameDialog();
+            var v = new Dialogs.FirstLaunchDialog();
 
             //Show dialog
             if (v.ShowDialog() == DialogResult.OK)
+            {
+                DataManagers.GameManager.Objects = v.CreatedGames;
+                Config.AddVariable("SelectedProfileId", 0);
+                Utils.TryReloadPathFormatterVars();
+                
                 return;
+            }
             
             //If user closes dialog without selecting csgo directory
             //Inform user that he needs to select his csgo directory
