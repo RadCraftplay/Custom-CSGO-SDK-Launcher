@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System.Collections.Generic;
-using Distroir.CustomSDKLauncher.Core.Launchers.Apps;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Managers;
 

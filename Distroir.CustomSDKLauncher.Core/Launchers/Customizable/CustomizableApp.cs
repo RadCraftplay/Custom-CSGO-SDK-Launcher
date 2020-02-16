@@ -16,9 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using Distroir.CustomSDKLauncher.Core.Launchers.Apps;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
-using Distroir.CustomSDKLauncher.Core.Launchers.View;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
 {

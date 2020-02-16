@@ -18,8 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
 using System.IO;
-using Distroir.CustomSDKLauncher.Core.Launchers.Apps;
-using Distroir.CustomSDKLauncher.Core.Launchers.View;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Standard
 {
