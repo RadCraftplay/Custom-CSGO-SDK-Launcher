@@ -27,6 +27,7 @@ using System.Linq;
 using System.Reflection;
 using System.Resources;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {

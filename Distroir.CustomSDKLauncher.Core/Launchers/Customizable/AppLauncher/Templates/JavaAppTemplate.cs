@@ -15,14 +15,10 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
-using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
+using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
+
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
     public class JavaAppTemplate : AppTemplate
     {

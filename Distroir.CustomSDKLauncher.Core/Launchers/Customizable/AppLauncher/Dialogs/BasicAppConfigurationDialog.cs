@@ -22,12 +22,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher
 {
     public partial class BasicAppConfigurationDialog : Form
     {
-        public Core.AppLauncher.Templates.SDKApplication SelectedApplication;
+        public SDKApplication SelectedApplication;
 
         public BasicAppConfigurationDialog()
         {
@@ -35,10 +36,10 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher
             Init(0);
         }
 
-        public BasicAppConfigurationDialog(Core.AppLauncher.Templates.SDKApplication app)
+        public BasicAppConfigurationDialog(SDKApplication app)
         {
             InitializeComponent();
-            if (app != Core.AppLauncher.Templates.SDKApplication.None)
+            if (app != SDKApplication.None)
                 Init((int)app);
             else
                 Init(0);
@@ -47,13 +48,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher
         void Init(int selectedId)
         {
             appComboBox.SelectedIndex = selectedId;
-            SelectedApplication = (Core.AppLauncher.Templates.SDKApplication)selectedId;
+            SelectedApplication = (SDKApplication)selectedId;
         }
 
         private void okButton_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            SelectedApplication = (Core.AppLauncher.Templates.SDKApplication)appComboBox.SelectedIndex;
+            SelectedApplication = (SDKApplication)appComboBox.SelectedIndex;
             Close();
         }
     }

@@ -41,42 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppLauncher\AppInfo.cs" />
-    <Compile Include="AppLauncher\AppTemplate.cs" />
-    <Compile Include="AppLauncher\Controls\IconSelector.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AppLauncher\Controls\IconSelector.Designer.cs">
-      <DependentUpon>IconSelector.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.Designer.cs">
-      <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.Designer.cs">
-      <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.Designer.cs">
-      <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.Designer.cs">
-      <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AppLauncher\Templates\BasicAppTemplate.cs" />
-    <Compile Include="AppLauncher\Templates\CustomAppTemplate.cs" />
-    <Compile Include="AppLauncher\Templates\JavaAppTemplate.cs" />
-    <Compile Include="AppLauncher\Templates\SteamAppTemplate.cs" />
     <Compile Include="Backups\BackupEntry.cs" />
     <Compile Include="Backups\BackupManager.cs" />
     <Compile Include="CommunityContent\ContentData.cs" />
@@ -85,15 +49,41 @@
     <Compile Include="CommunityContent\ContentManager.cs" />
     <Compile Include="CommunityContent\ImageData.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Launchers\Apps\CustomizableApp.cs" />
     <Compile Include="Launchers\Apps\IApp.cs" />
-    <Compile Include="Launchers\CustomizableLauncher.cs" />
+    <Compile Include="Launchers\Customizable\AppDependentDisplayableItem.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\AppInfo.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\AppTemplate.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Controls\IconSelector.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Controls\IconSelector.Designer.cs">
+      <DependentUpon>IconSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\BasicAppConfigurationDialog.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\BasicAppConfigurationDialog.Designer.cs">
+      <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\CustomAppConfigurationDialog.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\CustomAppConfigurationDialog.Designer.cs">
+      <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\JavaAppConfigurationDialog.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\JavaAppConfigurationDialog.Designer.cs">
+      <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\SteamAppConfigurationDialog.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\SteamAppConfigurationDialog.Designer.cs">
+      <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\BasicAppTemplate.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\CustomAppTemplate.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\JavaAppTemplate.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\SteamAppTemplate.cs" />
+    <Compile Include="Launchers\Customizable\CustomizableApp.cs" />
+    <Compile Include="Launchers\Customizable\CustomizableLauncher.cs" />
     <Compile Include="Launchers\Launcher.cs" />
     <Compile Include="Launchers\Standard\StandardApp.cs" />
     <Compile Include="Launchers\Standard\StandardDisplayableItem.cs" />
     <Compile Include="Launchers\Standard\StandardLauncher.cs" />
     <Compile Include="Launchers\Standard\StandardSdkApplication.cs" />
-    <Compile Include="Launchers\View\AppDependentDisplayableItem.cs" />
     <Compile Include="Launchers\View\IDisplayableItem.cs" />
     <Compile Include="Managers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />
@@ -147,19 +137,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AppLauncher\Controls\IconSelector.resx">
+    <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Controls\IconSelector.resx">
       <DependentUpon>IconSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
+    <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppLauncher\Dialogs\CustomAppConfigurationDialog.resx">
+    <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Dialogs\CustomAppConfigurationDialog.resx">
       <DependentUpon>CustomAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
+    <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Dialogs\JavaAppConfigurationDialog.resx">
       <DependentUpon>JavaAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AppLauncher\Dialogs\SteamAppConfigurationDialog.resx">
+    <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Dialogs\SteamAppConfigurationDialog.resx">
       <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrators\Games\GameMigrationConflictDialog.resx">

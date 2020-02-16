@@ -15,25 +15,24 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.AppLauncher;
-using Distroir.CustomSDKLauncher.Core.Launchers.View;
 
-namespace Distroir.CustomSDKLauncher.Core.Launchers.Apps
+using System.Xml.Serialization;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
+
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
 {
-    public class CustomizableApp : IApp
+    [XmlInclude(typeof(BasicAppTemplate))]
+    [XmlInclude(typeof(CustomAppTemplate))]
+    [XmlInclude(typeof(JavaAppTemplate))]
+    [XmlInclude(typeof(SteamAppTemplate))]
+    public abstract class AppTemplate
     {
-        private readonly AppInfo _info;
+        public AppInfo Info;
+        public bool CanConfigure = true;  
 
-        public IDisplayableItem DisplayableItem => new AppDependentDisplayableItem(_info);
-
-        public CustomizableApp(AppInfo info)
+        public virtual bool Configure()
         {
-            _info = info;
-        }
-
-        public void Launch(Game associatedGame)
-        {
-            _info.Launch();
+            return false;
         }
     }
 }

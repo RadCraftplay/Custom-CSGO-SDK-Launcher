@@ -17,12 +17,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.AppLauncher.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
@@ -33,13 +34,13 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             //Create app list
             BasicAppTemplate t = new BasicAppTemplate();
 
-            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.Hammer);
+            t.GenerateDefaultConfig(Launchers.Customizable.AppLauncher.Templates.SDKApplication.Hammer);
             AppInfo hammer = t.Info;
 
-            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.HLMV);
+            t.GenerateDefaultConfig(Launchers.Customizable.AppLauncher.Templates.SDKApplication.HLMV);
             AppInfo hlmv = t.Info;
 
-            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.FacePoser);
+            t.GenerateDefaultConfig(Launchers.Customizable.AppLauncher.Templates.SDKApplication.FacePoser);
             AppInfo facePoser = t.Info;
 
             //Add apps

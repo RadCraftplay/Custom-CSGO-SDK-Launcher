@@ -15,20 +15,17 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-using System.IO;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
+using System.Xml.Serialization;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 
-namespace Distroir.CustomSDKLauncher.Core.AppLauncher
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
 {
     public class AppInfo : IDisposable
     {

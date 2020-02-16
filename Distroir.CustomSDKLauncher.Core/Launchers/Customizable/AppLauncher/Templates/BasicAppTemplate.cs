@@ -15,17 +15,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core;
-using Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher;
-using System;
-using System.Collections.Generic;
+
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher;
 
-namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Templates
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
     public class BasicAppTemplate : AppTemplate
     {
