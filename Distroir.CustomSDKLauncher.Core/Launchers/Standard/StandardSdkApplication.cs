@@ -15,28 +15,22 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Distroir.CustomSDKLauncher.Core.Launchers.Apps;
 
-namespace Distroir.CustomSDKLauncher.Core.Launchers
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Standard
 {
-    public class StandardLauncher : Launcher
+    public enum StandardSdkApplication
     {
-        private readonly List<IApp> _apps;
-
-        public override List<IApp> Apps => _apps;
-
-        public StandardLauncher()
-        {
-            _apps = new List<IApp>()
-            {
-                new StandardApp(StandardSdkApplication.Hammer),
-                new StandardApp(StandardSdkApplication.HLMV),
-                new StandardApp(StandardSdkApplication.FacePoser)
-            };
-        }
+        /// <summary>
+        /// Hammer world editor
+        /// </summary>
+        Hammer,
+        /// <summary>
+        /// Model viewer
+        /// </summary>
+        HLMV,
+        /// <summary>
+        /// Face poser
+        /// </summary>
+        FacePoser
     }
 }

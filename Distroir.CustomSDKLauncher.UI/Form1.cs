@@ -27,6 +27,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers;
+using Distroir.CustomSDKLauncher.Core.Launchers.Standard;
 using Distroir.CustomSDKLauncher.Core.Launchers.View;
 
 namespace Distroir.CustomSDKLauncher.UI
