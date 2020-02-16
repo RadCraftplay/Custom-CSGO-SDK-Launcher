@@ -17,12 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System.Drawing;
+using Newtonsoft.Json;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers
 {
     public interface IDisplayableItem
     {
+        [JsonIgnore]
         string Name { get; }
+        [JsonIgnore]
         Image Icon { get; }
     }
 }
