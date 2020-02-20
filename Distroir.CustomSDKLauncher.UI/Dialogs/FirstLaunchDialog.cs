@@ -21,6 +21,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Steam;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
@@ -53,19 +54,37 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void continueButton_Click(object sender, EventArgs e)
         {
-            if (manualDetectionRadioButton.Checked)
-            {
-                var dialog = new SetupFirstGameDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                    CreatedGames.Add(dialog.PromptedGame);
-            }
-            else
-                CreatedGames = SteamGameFinder.GetSupportedSteamGames().ToList();
+            CreatedGames = GetGames();
 
             if (CreatedGames.Count > 0)
                 DialogResult = DialogResult.OK;
 
             Close();
+        }
+
+        private List<Game> GetGames()
+        {
+            var games = new List<Game>();
+
+            if (manualDetectionRadioButton.Checked)
+            {
+                var dialog = new SetupFirstGameDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                    games.Add(dialog.PromptedGame);
+            }
+            else
+            {
+                games = SteamGameFinder.GetSupportedSteamGames().ToList();
+
+                if (games.Count > 0)
+                    MessageBoxes.Info(games.Count == 1 ?
+                        "Found 1 game!\nIt has been automatically selected" :
+                        $"Found {games.Count} games!\nFirst of them had been automatically selected");
+                else
+                    MessageBoxes.Error("No games found! Try adding first game manually!");
+            }
+
+            return games;
         }
     }
 }
