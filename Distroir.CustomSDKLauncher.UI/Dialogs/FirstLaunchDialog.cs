@@ -76,15 +76,34 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             {
                 games = SteamGameFinder.GetSupportedSteamGames().ToList();
 
-                if (games.Count > 0)
-                    MessageBoxes.Info(games.Count == 1 ?
-                        "Found 1 game!\nIt has been automatically selected" :
-                        $"Found {games.Count} games!\nFirst of them had been automatically selected");
+                if (games.Count == 0)
+                {
+                    var result = MessageBoxes.Error("No games found! Try adding first game manually!",
+                        MessageBoxButtons.AbortRetryIgnore);
+                    
+                    switch (result)
+                    {
+                        case DialogResult.Retry:
+                            games = GetGames();
+                            break;
+                        case DialogResult.Abort:
+                            SetManualOnly();
+                            break;
+                    }
+                }
                 else
-                    MessageBoxes.Error("No games found! Try adding first game manually!");
+                    MessageBoxes.Info(games.Count == 1
+                        ? "Found 1 game!\nIt has been automatically selected"
+                        : $"Found {games.Count} games!\nFirst of them had been automatically selected");
             }
 
             return games;
+        }
+
+        private void SetManualOnly()
+        {
+            automaticDetectionRadioButton.Enabled = false;
+            manualDetectionRadioButton.Checked = true;
         }
     }
 }
