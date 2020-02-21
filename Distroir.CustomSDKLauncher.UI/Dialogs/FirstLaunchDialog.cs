@@ -94,7 +94,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 else
                     MessageBoxes.Info(games.Count == 1
                         ? $"Found 1 game: {games[0].Name}"
-                        : $"Found {games.Count} games!\nFirst of them had been automatically selected");
+                        : $"Automatically found {games.Count} games!");
             }
 
             return games;
