@@ -36,6 +36,16 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             //Log an exception
             ExceptionLogger.Log(ex);
         }
+        
+        public static DialogResult Error(string message, MessageBoxButtons buttons)
+        {
+            return MessageBox.Show(message, "Custom SDK Launcher", buttons, MessageBoxIcon.Error);
+        }
+
+        public static void Info(string message)
+        {
+            MessageBox.Show(message, "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
         public static void Warning(string Message)
         {

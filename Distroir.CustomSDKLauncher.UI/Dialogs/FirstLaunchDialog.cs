@@ -21,6 +21,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.Steam;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
@@ -53,19 +54,56 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void continueButton_Click(object sender, EventArgs e)
         {
-            if (manualDetectionRadioButton.Checked)
-            {
-                var dialog = new SetupFirstGameDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                    CreatedGames.Add(dialog.PromptedGame);
-            }
-            else
-                CreatedGames = SteamGameFinder.GetSupportedSteamGames().ToList();
+            CreatedGames = GetGames();
 
             if (CreatedGames.Count > 0)
                 DialogResult = DialogResult.OK;
 
             Close();
+        }
+
+        private List<Game> GetGames()
+        {
+            var games = new List<Game>();
+
+            if (manualDetectionRadioButton.Checked)
+            {
+                var dialog = new SetupFirstGameDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
+                    games.Add(dialog.PromptedGame);
+            }
+            else
+            {
+                games = SteamGameFinder.GetSupportedSteamGames().ToList();
+
+                if (games.Count == 0)
+                {
+                    var result = MessageBoxes.Warning("No games found! Try adding first game manually!",
+                        MessageBoxButtons.AbortRetryIgnore);
+                    
+                    switch (result)
+                    {
+                        case DialogResult.Retry:
+                            games = GetGames();
+                            break;
+                        case DialogResult.Abort:
+                            SetManualOnly();
+                            break;
+                    }
+                }
+                else
+                    MessageBoxes.Info(games.Count == 1
+                        ? $"Found 1 game: {games[0].Name}"
+                        : $"Automatically found {games.Count} games!");
+            }
+
+            return games;
+        }
+
+        private void SetManualOnly()
+        {
+            automaticDetectionRadioButton.Enabled = false;
+            manualDetectionRadioButton.Checked = true;
         }
     }
 }
