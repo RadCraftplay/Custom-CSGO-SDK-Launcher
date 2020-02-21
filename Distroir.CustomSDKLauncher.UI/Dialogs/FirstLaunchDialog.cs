@@ -78,7 +78,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
                 if (games.Count == 0)
                 {
-                    var result = MessageBoxes.Error("No games found! Try adding first game manually!",
+                    var result = MessageBoxes.Warning("No games found! Try adding first game manually!",
                         MessageBoxButtons.AbortRetryIgnore);
                     
                     switch (result)
