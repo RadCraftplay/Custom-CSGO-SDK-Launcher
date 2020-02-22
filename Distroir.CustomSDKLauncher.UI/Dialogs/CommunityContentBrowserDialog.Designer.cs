@@ -71,8 +71,12 @@
             this.contentTreeView.Name = "contentTreeView";
             this.contentTreeView.Size = new System.Drawing.Size(180, 450);
             this.contentTreeView.TabIndex = 0;
-            this.contentTreeView.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.contentTreeView_NodeMouseClick);
-            this.contentTreeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.contentTreeView_NodeMouseClick);
+            this.contentTreeView.AfterSelect +=
+                new System.Windows.Forms.TreeViewEventHandler(this.contentTreeView_AfterSelect);
+            this.contentTreeView.NodeMouseClick +=
+                new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.contentTreeView_NodeMouseClick);
+            this.contentTreeView.NodeMouseDoubleClick +=
+                new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.contentTreeView_NodeMouseClick);
             // 
             // goButton
             // 
@@ -147,7 +151,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion

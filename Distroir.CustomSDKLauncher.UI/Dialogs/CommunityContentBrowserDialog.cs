@@ -196,5 +196,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             contentTreeView.Focus();
         }
+
+        private void contentTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            var node = e.Node;
+            LoadContent(node);
+        }
     }
 }
