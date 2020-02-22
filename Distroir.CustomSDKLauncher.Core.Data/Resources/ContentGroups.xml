@@ -99,4 +99,61 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </ContentInfo>
     </Contents>
   </ContentGroup>
+  <ContentGroup>
+    <Name>Tools</Name>
+    <Contents>
+      <ContentInfo>
+        <Name>BSPSource</Name>
+        <Author>ata4</Author>
+        <Description>Popular Source engine map decompiler</Description>
+        <url>https://github.com/ata4/bspsrc/releases</url>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Compile Pal</Name>
+        <Author>Ruarai</Author>
+        <Description>A tool to assist in the compiling of source engine maps</Description>
+        <url>http://compilepal.ruar.ai/</url>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>Fast VMT Generator</Name>
+        <Author>RadCraftplay2 (gamebanana)</Author>
+        <Description>A tool for mass-generation of Source engine material files</Description>
+        <url>https://gamebanana.com/tools/6066</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>KV File Generator (offline)</Name>
+        <Author>RadCraftplay2 (gamebanana)</Author>
+        <Description>Offline generator of KV files, that specify what player models are default on your map</Description>
+        <url>https://gamebanana.com/tools/6002</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>KV File Generator (online)</Name>
+        <Author>darkscarybear</Author>
+        <Description>A utility that automatically generates a formatted .kv file based on your selection. A .kv file specifies which player skins appear in your map</Description>
+        <url>https://kvfilegen.appspot.com/</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>PakRat</Name>
+        <Author>rof@bagthorpe.org</Author>
+        <Description>Pak file editor. A graphical replacement for the BSPZIP program, that allows you to embed external files, such as textures (vtf), material (vmt) and model (mdl) files into a Source engine bsp file</Description>
+        <url>http://www.bagthorpe.org/bob/cofrdrbob/pakrat.html</url>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>VIDE</Name>
+        <Author>Nicholas Ray</Author>
+        <Description>A set of tools for the Source engine helping mappers and modders including: Hammer Splitter Editor, Package Viewer, Particle Editor, VBSP Editor, VMT Editor, Mass VMT Editor, VTF Editor, Mass VTF Editor, BSP Info, Entity Lump Editor and Pakfile Lump Editor</Description>
+        <url>http://www.riintouge.com/VIDE/</url>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+    </Contents>
+  </ContentGroup>
 </ArrayOfContentGroup>
