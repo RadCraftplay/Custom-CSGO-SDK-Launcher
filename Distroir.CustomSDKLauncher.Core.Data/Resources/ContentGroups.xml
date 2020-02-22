@@ -107,7 +107,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Author>Nicholas Ray</Author>
         <Description>Lorem ipsum sit amet</Description>
         <url>http://www.riintouge.com/VIDE/</url>
-        <Game></Game>
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
@@ -115,7 +114,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Author>Lorem ipsum sit amet</Author>
         <Description>Lorem ipsum sit amet</Description>
         <url>Lorem ipsum sit amet</url>
-        <Game></Game>
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
@@ -123,7 +121,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Author>Lorem ipsum sit amet</Author>
         <Description>Lorem ipsum sit amet</Description>
         <url>Lorem ipsum sit amet</url>
-        <Game></Game>
         <Engine>Source Engine</Engine>
       </ContentInfo>
     </Contents>
