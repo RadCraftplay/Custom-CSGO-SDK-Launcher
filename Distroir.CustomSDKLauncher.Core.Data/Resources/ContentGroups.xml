@@ -118,9 +118,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       </ContentInfo>
       <ContentInfo>
         <Name>Compile Pal</Name>
-        <Author>Lorem ipsum sit amet</Author>
-        <Description>Lorem ipsum sit amet</Description>
-        <url>Lorem ipsum sit amet</url>
+        <Author>Ruarai</Author>
+        <Description>A tool to assist in the compiling of source engine maps</Description>
+        <url>http://compilepal.ruar.ai/</url>
         <Engine>Source Engine</Engine>
       </ContentInfo>
     </Contents>
