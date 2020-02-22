@@ -117,18 +117,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
-        <Name>KV File Generator (online)</Name>
-        <Author>darkscarybear</Author>
-        <Description>A utility that automatically generates a formatted .kv file based on your selection. A .kv file specifies which player skins appear in your map</Description>
-        <url>https://kvfilegen.appspot.com/</url>
-        <Engine>Source Engine</Engine>
-      </ContentInfo>
-      <ContentInfo>
         <Name>KV File Generator (offline)</Name>
         <Author>RadCraftplay2 (gamebanana)</Author>
         <Description>Offline generator of KV files, that specify what player models are default on your map</Description>
         <url>https://gamebanana.com/tools/6002</url>
         <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
+        <Name>KV File Generator (online)</Name>
+        <Author>darkscarybear</Author>
+        <Description>A utility that automatically generates a formatted .kv file based on your selection. A .kv file specifies which player skins appear in your map</Description>
+        <url>https://kvfilegen.appspot.com/</url>
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
