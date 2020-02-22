@@ -117,6 +117,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
+        <Name>Fast VMT Generator</Name>
+        <Author>RadCraftplay2 (gamebanana)</Author>
+        <Description>A tool for mass-generation of Source engine material files</Description>
+        <url>https://gamebanana.com/tools/6066</url>
+        <Game>Counter-Strike: Global Offensive</Game>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
         <Name>KV File Generator (offline)</Name>
         <Author>RadCraftplay2 (gamebanana)</Author>
         <Description>Offline generator of KV files, that specify what player models are default on your map</Description>
