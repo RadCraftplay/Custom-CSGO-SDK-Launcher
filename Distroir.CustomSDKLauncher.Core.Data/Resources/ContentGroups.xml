@@ -129,6 +129,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Author>darkscarybear</Author>
         <Description>A utility that automatically generates a formatted .kv file based on your selection. A .kv file specifies which player skins appear in your map</Description>
         <url>https://kvfilegen.appspot.com/</url>
+        <Game>Counter-Strike: Global Offensive</Game>
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
