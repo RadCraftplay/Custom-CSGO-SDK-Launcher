@@ -156,7 +156,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             {
                 ContentInfo info = (ContentInfo)n.Tag;
                 name = info.Name;
-                text = info.Game == "" ? $"{info.Author} | {info.Engine}" : $"{info.Author} | {info.Game}";
+                text = IsNullOrUnknown(info.Game) ?
+                    $"{info.Author} | {info.Engine}" :
+                    $"{info.Author} | {info.Game}";
                 desc = info.Description;
             }
 
@@ -165,6 +167,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             contentNameLabel.Text = name;
             contentAuthorLabel.Text = text;
             descriptionTextBox.Text = desc;
+        }
+
+        private bool IsNullOrUnknown(string gameName)
+        {
+            return string.IsNullOrEmpty(gameName) ||
+                   gameName == "Unknown";
         }
 
         private void goButton_Click(object sender, EventArgs e)
