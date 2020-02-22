@@ -105,7 +105,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
       <ContentInfo>
         <Name>VIDE</Name>
         <Author>Nicholas Ray</Author>
-        <Description>Lorem ipsum sit amet</Description>
+        <Description>A set of tools for the Source engine helping mappers and modders including: Hammer Splitter Editor, Package Viewer, Particle Editor, VBSP Editor, VMT Editor, Mass VMT Editor, VTF Editor, Mass VTF Editor, BSP Info, Entity Lump Editor and Pakfile Lump Editor</Description>
         <url>http://www.riintouge.com/VIDE/</url>
         <Engine>Source Engine</Engine>
       </ContentInfo>
