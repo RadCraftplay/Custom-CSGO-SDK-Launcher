@@ -117,6 +117,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <Engine>Source Engine</Engine>
       </ContentInfo>
       <ContentInfo>
+        <Name>KV File Generator (online)</Name>
+        <Author>darkscarybear</Author>
+        <Description>A utility that automatically generates a formatted .kv file based on your selection. A .kv file specifies which player skins appear in your map</Description>
+        <url>https://kvfilegen.appspot.com/</url>
+        <Engine>Source Engine</Engine>
+      </ContentInfo>
+      <ContentInfo>
         <Name>PakRat</Name>
         <Author>rof@bagthorpe.org</Author>
         <Description>Pak file editor. A graphical replacement for the BSPZIP program, that allows you to embed external files, such as textures (vtf), material (vmt) and model (mdl) files into a Source engine bsp file</Description>
