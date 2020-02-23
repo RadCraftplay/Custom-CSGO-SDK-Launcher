@@ -300,5 +300,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         }
 
         #endregion
+
+        private void thirdPartyLibrariesLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var dialog = new ThirdPartyLicensesDialog();
+            dialog.ShowDialog();
+        }
     }
 }
