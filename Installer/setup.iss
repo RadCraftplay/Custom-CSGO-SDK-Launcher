@@ -35,6 +35,7 @@ Source: "Out\Distroir.CustomSDKLauncher.Core.dll"; DestDir: "{app}"; Flags: igno
 Source: "Out\Distroir.CustomSDKLauncher.Core.Data.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Out\Distroir.CustomSDKLauncher.UI.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Out\Distroir.CustomSDKLauncher.Shared.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "Out\Gameloop.Vdf.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\en\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\en"; Flags: ignoreversion
 ;Source: "C:\Users\x\Documents\Visual Studio 2017\Projects\Custom SDK Launcher\Distroir.CustomSDKLauncher\bin\Release\pl\Distroir.CustomSDKLauncher.UI.resources.dll"; DestDir: "{app}\pl"; Flags: ignoreversion
 Source: "gpl3.txt"; DestDir: "{app}"; Flags: ignoreversion
