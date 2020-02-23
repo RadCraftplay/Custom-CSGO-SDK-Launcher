@@ -97,6 +97,12 @@
     <Compile Include="Dialogs\SettingsDialog.Designer.cs">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\ThirdPartyLicensesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ThirdPartyLicensesDialog.Designer.cs">
+      <DependentUpon>ThirdPartyLicensesDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\TutorialsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SettingsDialog.resx">
       <DependentUpon>SettingsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ThirdPartyLicensesDialog.resx">
+      <DependentUpon>ThirdPartyLicensesDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TutorialsDialog.resx">
       <DependentUpon>TutorialsDialog.cs</DependentUpon>
@@ -225,6 +234,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\arrow-270.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gameloop.Vdf.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
