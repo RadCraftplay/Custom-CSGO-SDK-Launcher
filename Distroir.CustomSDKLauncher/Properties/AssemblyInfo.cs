@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Distroir")]
 [assembly: AssemblyProduct("Custom SDK Launcher")]
-[assembly: AssemblyCopyright("Copyright © Distroir 2017-2019")]
+[assembly: AssemblyCopyright("Copyright © Distroir 2017-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
