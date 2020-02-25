@@ -48,6 +48,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <GameDirName>GarrysMod</GameDirName>
   </Template>
   <Template>
+    <Name>Half-Life 2</Name>
+    <GameinfoDirName>hl2</GameinfoDirName>
+    <GameDirName>Half-Life 2</GameDirName>
+  </Template>
+  <Template>
     <Name>Half-Life 2: Deathmatch</Name>
     <GameinfoDirName>hl2mp</GameinfoDirName>
     <GameDirName>Half-Life 2 Deathmatch</GameDirName>
