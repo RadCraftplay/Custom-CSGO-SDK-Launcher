@@ -16,10 +16,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using Newtonsoft.Json;
+
 namespace Distroir.CustomSDKLauncher.Core.Launchers
 {
     public interface IApp
     {
+        [JsonIgnore]
         IDisplayableItem DisplayableItem { get; }
         void Launch(Game associatedGame);
     }
