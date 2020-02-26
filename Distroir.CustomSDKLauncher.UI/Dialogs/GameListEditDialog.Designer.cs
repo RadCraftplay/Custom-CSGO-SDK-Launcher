@@ -67,7 +67,7 @@
             // duplicateGameButton
             // 
             this.duplicateGameButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.document_copy;
-            this.duplicateGameButton.Location = new System.Drawing.Point(247, 105);
+            this.duplicateGameButton.Location = new System.Drawing.Point(247, 74);
             this.duplicateGameButton.Name = "duplicateGameButton";
             this.duplicateGameButton.Size = new System.Drawing.Size(25, 25);
             this.duplicateGameButton.TabIndex = 9;
@@ -133,7 +133,7 @@
             // editButton
             // 
             this.editButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.pencil;
-            this.editButton.Location = new System.Drawing.Point(247, 74);
+            this.editButton.Location = new System.Drawing.Point(247, 105);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(25, 25);
             this.editButton.TabIndex = 3;
