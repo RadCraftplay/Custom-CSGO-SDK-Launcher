@@ -24,7 +24,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 {
     public class BasicAppTemplate : AppTemplate
     {
-        SDKApplication application = SDKApplication.None;
+        public SDKApplication Application { get; set; } = SDKApplication.None;
 
         public BasicAppTemplate()
         {
@@ -33,11 +33,11 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 
         public override bool Configure()
         {
-            var dialog = new BasicAppConfigurationDialog(application);
+            var dialog = new BasicAppConfigurationDialog(Application);
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return false;
 
-            application = dialog.SelectedApplication;
+            Application = dialog.SelectedApplication;
             UpdateInfo();
 
             return true;
@@ -47,8 +47,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
         {
             Info = new AppInfo();
 
-            if (application != SDKApplication.None)
-                Info = GetToolStartInfo(application);
+            if (Application != SDKApplication.None)
+                Info = GetToolStartInfo(Application);
 
             Info.DisplayText = GetDisplayText();
             Info.Icon = GetIcon();
@@ -56,16 +56,16 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 
         public void GenerateDefaultConfig(SDKApplication app)
         {
-            application = app;
+            Application = app;
 
-            Info = GetToolStartInfo(application);
+            Info = GetToolStartInfo(Application);
             Info.DisplayText = GetDisplayText();
             Info.Icon = GetIcon();
         }
 
         public string GetDisplayText()
         {
-            switch (application)
+            switch (Application)
             {
                 case SDKApplication.Hammer:
                     return "Hammer World Editor";
@@ -80,7 +80,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 
         public Image GetIcon()
         {
-            switch (application)
+            switch (Application)
             {
                 case SDKApplication.HLMV:
                     return Data.ModelViewerIcon;
