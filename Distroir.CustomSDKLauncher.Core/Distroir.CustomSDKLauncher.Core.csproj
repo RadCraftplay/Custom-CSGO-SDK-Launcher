@@ -82,6 +82,7 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\SteamAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\CustomizableApp.cs" />
     <Compile Include="Launchers\Customizable\CustomizableLauncher.cs" />
+    <Compile Include="Launchers\Editable\TemplateDependentDisplayableItem.cs" />
     <Compile Include="Launchers\Editable\TemplateDependentApp.cs" />
     <Compile Include="Launchers\IApp.cs" />
     <Compile Include="Launchers\IDisplayableItem.cs" />
