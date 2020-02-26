@@ -32,6 +32,7 @@
             this.gameListView = new System.Windows.Forms.ListView();
             this.okButton = new System.Windows.Forms.Button();
             this.buttonsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.duplicateGameButton = new System.Windows.Forms.Button();
             this.moveToBottomButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
             this.moveUpButton = new System.Windows.Forms.Button();
@@ -45,33 +46,41 @@
             // gameListView
             // 
             this.gameListView.HideSelection = false;
-            this.gameListView.Location = new System.Drawing.Point(17, 16);
-            this.gameListView.Margin = new System.Windows.Forms.Padding(4);
+            this.gameListView.Location = new System.Drawing.Point(13, 13);
             this.gameListView.MultiSelect = false;
             this.gameListView.Name = "gameListView";
-            this.gameListView.Size = new System.Drawing.Size(303, 383);
+            this.gameListView.Size = new System.Drawing.Size(228, 312);
             this.gameListView.TabIndex = 0;
             this.gameListView.UseCompatibleStateImageBehavior = false;
             this.gameListView.View = System.Windows.Forms.View.List;
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(263, 407);
-            this.okButton.Margin = new System.Windows.Forms.Padding(4);
+            this.okButton.Location = new System.Drawing.Point(197, 331);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(100, 28);
+            this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 8;
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
+            // duplicateGameButton
+            // 
+            this.duplicateGameButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.document_copy;
+            this.duplicateGameButton.Location = new System.Drawing.Point(247, 105);
+            this.duplicateGameButton.Name = "duplicateGameButton";
+            this.duplicateGameButton.Size = new System.Drawing.Size(25, 25);
+            this.duplicateGameButton.TabIndex = 9;
+            this.buttonsToolTip.SetToolTip(this.duplicateGameButton, "Duplicate game");
+            this.duplicateGameButton.UseVisualStyleBackColor = true;
+            this.duplicateGameButton.Click += new System.EventHandler(this.duplicateGameButton_Click);
+            // 
             // moveToBottomButton
             // 
             this.moveToBottomButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_skip_270;
-            this.moveToBottomButton.Location = new System.Drawing.Point(329, 285);
-            this.moveToBottomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.moveToBottomButton.Location = new System.Drawing.Point(247, 252);
             this.moveToBottomButton.Name = "moveToBottomButton";
-            this.moveToBottomButton.Size = new System.Drawing.Size(33, 31);
+            this.moveToBottomButton.Size = new System.Drawing.Size(25, 25);
             this.moveToBottomButton.TabIndex = 7;
             this.buttonsToolTip.SetToolTip(this.moveToBottomButton, "Move to bottom");
             this.moveToBottomButton.UseVisualStyleBackColor = true;
@@ -80,10 +89,9 @@
             // moveDownButton
             // 
             this.moveDownButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_270;
-            this.moveDownButton.Location = new System.Drawing.Point(329, 246);
-            this.moveDownButton.Margin = new System.Windows.Forms.Padding(4);
+            this.moveDownButton.Location = new System.Drawing.Point(247, 221);
             this.moveDownButton.Name = "moveDownButton";
-            this.moveDownButton.Size = new System.Drawing.Size(33, 31);
+            this.moveDownButton.Size = new System.Drawing.Size(25, 25);
             this.moveDownButton.TabIndex = 6;
             this.buttonsToolTip.SetToolTip(this.moveDownButton, "Move down");
             this.moveDownButton.UseVisualStyleBackColor = true;
@@ -92,10 +100,9 @@
             // moveUpButton
             // 
             this.moveUpButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_090;
-            this.moveUpButton.Location = new System.Drawing.Point(329, 207);
-            this.moveUpButton.Margin = new System.Windows.Forms.Padding(4);
+            this.moveUpButton.Location = new System.Drawing.Point(247, 189);
             this.moveUpButton.Name = "moveUpButton";
-            this.moveUpButton.Size = new System.Drawing.Size(33, 31);
+            this.moveUpButton.Size = new System.Drawing.Size(25, 25);
             this.moveUpButton.TabIndex = 5;
             this.buttonsToolTip.SetToolTip(this.moveUpButton, "Move up");
             this.moveUpButton.UseVisualStyleBackColor = true;
@@ -104,10 +111,9 @@
             // moveToTopButton
             // 
             this.moveToTopButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_skip_090;
-            this.moveToTopButton.Location = new System.Drawing.Point(329, 168);
-            this.moveToTopButton.Margin = new System.Windows.Forms.Padding(4);
+            this.moveToTopButton.Location = new System.Drawing.Point(247, 157);
             this.moveToTopButton.Name = "moveToTopButton";
-            this.moveToTopButton.Size = new System.Drawing.Size(33, 31);
+            this.moveToTopButton.Size = new System.Drawing.Size(25, 25);
             this.moveToTopButton.TabIndex = 4;
             this.buttonsToolTip.SetToolTip(this.moveToTopButton, "Move to top");
             this.moveToTopButton.UseVisualStyleBackColor = true;
@@ -116,10 +122,9 @@
             // createFromTemplateButton
             // 
             this.createFromTemplateButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__plus;
-            this.createFromTemplateButton.Location = new System.Drawing.Point(329, 14);
-            this.createFromTemplateButton.Margin = new System.Windows.Forms.Padding(4);
+            this.createFromTemplateButton.Location = new System.Drawing.Point(247, 13);
             this.createFromTemplateButton.Name = "createFromTemplateButton";
-            this.createFromTemplateButton.Size = new System.Drawing.Size(33, 31);
+            this.createFromTemplateButton.Size = new System.Drawing.Size(25, 25);
             this.createFromTemplateButton.TabIndex = 1;
             this.buttonsToolTip.SetToolTip(this.createFromTemplateButton, "Add using template");
             this.createFromTemplateButton.UseVisualStyleBackColor = true;
@@ -128,10 +133,9 @@
             // editButton
             // 
             this.editButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.pencil;
-            this.editButton.Location = new System.Drawing.Point(329, 91);
-            this.editButton.Margin = new System.Windows.Forms.Padding(4);
+            this.editButton.Location = new System.Drawing.Point(247, 74);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(33, 31);
+            this.editButton.Size = new System.Drawing.Size(25, 25);
             this.editButton.TabIndex = 3;
             this.buttonsToolTip.SetToolTip(this.editButton, "Edit game");
             this.editButton.UseVisualStyleBackColor = true;
@@ -140,10 +144,9 @@
             // removeButton
             // 
             this.removeButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.notebook__minus;
-            this.removeButton.Location = new System.Drawing.Point(329, 53);
-            this.removeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.removeButton.Location = new System.Drawing.Point(247, 43);
             this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(33, 31);
+            this.removeButton.Size = new System.Drawing.Size(25, 25);
             this.removeButton.TabIndex = 2;
             this.buttonsToolTip.SetToolTip(this.removeButton, "Remove game");
             this.removeButton.UseVisualStyleBackColor = true;
@@ -152,10 +155,9 @@
             // addButton
             // 
             this.addButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.plus;
-            this.addButton.Location = new System.Drawing.Point(329, 368);
-            this.addButton.Margin = new System.Windows.Forms.Padding(4);
+            this.addButton.Location = new System.Drawing.Point(247, 299);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(33, 31);
+            this.addButton.Size = new System.Drawing.Size(25, 25);
             this.addButton.TabIndex = 8;
             this.buttonsToolTip.SetToolTip(this.addButton, "Add game");
             this.addButton.UseVisualStyleBackColor = true;
@@ -163,9 +165,10 @@
             // 
             // GameListEditDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 450);
+            this.ClientSize = new System.Drawing.Size(284, 366);
+            this.Controls.Add(this.duplicateGameButton);
             this.Controls.Add(this.moveToBottomButton);
             this.Controls.Add(this.moveDownButton);
             this.Controls.Add(this.moveUpButton);
@@ -177,7 +180,6 @@
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.gameListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "GameListEditDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -199,5 +201,6 @@
         private System.Windows.Forms.Button moveUpButton;
         private System.Windows.Forms.Button moveDownButton;
         private System.Windows.Forms.Button moveToBottomButton;
+        private System.Windows.Forms.Button duplicateGameButton;
     }
 }

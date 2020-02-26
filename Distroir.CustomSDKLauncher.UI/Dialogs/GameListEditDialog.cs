@@ -166,5 +166,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             MoveItem(newIndex, selectedItem);
             gameListView.Select();
         }
+
+        private void duplicateGameButton_Click(object sender, EventArgs e)
+        {
+            if (gameListView.SelectedItems?.Count == 1)
+                AddItem(gameListView.SelectedItems[0].Tag as Game);
+        }
     }
 }
