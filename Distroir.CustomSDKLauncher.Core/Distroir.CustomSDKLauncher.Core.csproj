@@ -82,6 +82,7 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\SteamAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\CustomizableApp.cs" />
     <Compile Include="Launchers\Customizable\CustomizableLauncher.cs" />
+    <Compile Include="Launchers\Editable\TemplateDependentApp.cs" />
     <Compile Include="Launchers\IApp.cs" />
     <Compile Include="Launchers\IDisplayableItem.cs" />
     <Compile Include="Launchers\Launcher.cs" />
@@ -170,9 +171,6 @@
       <Project>{8cf7dc06-2f75-451d-b22e-491d8f6b8aa7}</Project>
       <Name>Distroir.CustomSDKLauncher.Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Launchers\Editable" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
