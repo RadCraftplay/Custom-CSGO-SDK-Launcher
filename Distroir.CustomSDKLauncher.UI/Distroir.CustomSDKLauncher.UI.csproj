@@ -238,5 +238,8 @@
   <ItemGroup>
     <None Include="Resources\Gameloop.Vdf.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document-copy.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
