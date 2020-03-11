@@ -86,6 +86,7 @@
     <Compile Include="Launchers\Editable\TemplateDependentDisplayableItem.cs" />
     <Compile Include="Launchers\Editable\TemplateDependentApp.cs" />
     <Compile Include="Launchers\IApp.cs" />
+    <Compile Include="Launchers\IConfigurableApp.cs" />
     <Compile Include="Launchers\IDisplayableItem.cs" />
     <Compile Include="Launchers\Launcher.cs" />
     <Compile Include="Launchers\Standard\StandardApp.cs" />
