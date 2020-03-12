@@ -24,11 +24,21 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 {
     public class BasicAppTemplate : AppTemplate
     {
-        public SDKApplication Application { get; set; } = SDKApplication.None;
+        private SDKApplication _application;
+
+        public SDKApplication Application
+        {
+            get => _application;
+            set
+            {
+                _application = value;
+                UpdateInfo();
+            }
+        }
 
         public BasicAppTemplate()
         {
-            UpdateInfo();
+            Application = SDKApplication.None;
         }
 
         public override bool Configure()
