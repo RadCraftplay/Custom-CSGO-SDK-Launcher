@@ -26,6 +26,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers
     {
         public abstract List<IApp> Apps { get; }
 
+        public abstract string Name { get; }
+        
         /// <summary>
         /// Launches application with selected id
         /// </summary>

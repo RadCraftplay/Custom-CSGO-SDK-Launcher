@@ -18,6 +18,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Editable
             }
         }
 
+        public override string Name => "Editable launcher (improved customizable launcher)";
+
         private List<IApp> GetStandardApps()
         {
             return new List<IApp>

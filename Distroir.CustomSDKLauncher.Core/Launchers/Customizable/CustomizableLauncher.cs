@@ -41,6 +41,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
             }
         }
 
+        public override string Name => "Customizable launcher";
+
         private List<IApp> GetApplicationsFromInfos(List<AppInfo> appInfos)
         {
             List<IApp> apps = new List<IApp>();

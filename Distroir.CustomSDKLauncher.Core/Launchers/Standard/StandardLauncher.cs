@@ -25,6 +25,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Standard
         private readonly List<IApp> _apps;
 
         public override List<IApp> Apps => _apps;
+        public override string Name => "Standard launcher";
 
         public StandardLauncher()
         {
