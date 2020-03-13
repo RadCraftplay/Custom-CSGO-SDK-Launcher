@@ -1,4 +1,4 @@
-﻿/*
+/*
 Custom SDK Launcher
 Copyright (C) 2017-2020 Distroir
 
@@ -306,6 +306,23 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             var dialog = new ThirdPartyLicensesDialog();
             dialog.ShowDialog();
+        }
+    }
+
+    internal class ComboBoxItem
+    {
+        private string Name { get; }
+        public object Tag { get; }
+
+        public ComboBoxItem(string name, object tag)
+        {
+            Name = name;
+            Tag = tag;
+        }
+
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
