@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Xml.Serialization;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
+using Newtonsoft.Json;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
 {
@@ -27,7 +28,9 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
     [XmlInclude(typeof(SteamAppTemplate))]
     public abstract class AppTemplate
     {
+        [JsonIgnore]
         public AppInfo Info;
+        [JsonIgnore]
         public bool CanConfigure = true;  
 
         public virtual bool Configure()
