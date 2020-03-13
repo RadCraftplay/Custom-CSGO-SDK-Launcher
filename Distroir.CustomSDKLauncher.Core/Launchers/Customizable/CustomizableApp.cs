@@ -16,24 +16,38 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
 {
-    public class CustomizableApp : IApp
+    public class CustomizableApp : IConfigurableApp
     {
-        private readonly AppInfo _info;
+        private AppInfo Info { get; set; }
 
-        public IDisplayableItem DisplayableItem => new AppDependentDisplayableItem(_info);
+        public IDisplayableItem DisplayableItem => new AppDependentDisplayableItem(Info);
 
         public CustomizableApp(AppInfo info)
         {
-            _info = info;
+            Info = info;
         }
 
         public void Launch(Game associatedGame)
         {
-            _info.Launch();
+            Info.Launch();
+        }
+
+        public bool Configure()
+        {
+            var dialog = new AppSelectorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                Info = dialog.SelectedAppTemplate.Info;
+                return true;
+            }
+
+            return false;
         }
     }
 }
