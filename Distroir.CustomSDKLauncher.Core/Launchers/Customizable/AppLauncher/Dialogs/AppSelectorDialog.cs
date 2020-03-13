@@ -15,25 +15,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.AppLauncher;
+
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
 
-namespace Distroir.CustomSDKLauncher.UI.Dialogs
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs
 {
     public partial class AppSelectorDialog : Form
     {
-        public AppInfo selectedAppInfo;
-
-        List<AppTemplate> templates;
+        public AppTemplate SelectedAppTemplate { get; private set; }
+        private List<AppTemplate> _templates;
 
         public AppSelectorDialog()
         {
@@ -43,11 +36,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void LoadAppTemplates()
         {
-            templates = new List<AppTemplate>();
-            templates.Add(new BasicAppTemplate());
-            templates.Add(new CustomAppTemplate());
-            templates.Add(new JavaAppTemplate());
-            templates.Add(new SteamAppTemplate());
+            _templates = new List<AppTemplate>();
+            _templates.Add(new BasicAppTemplate());
+            _templates.Add(new CustomAppTemplate());
+            _templates.Add(new JavaAppTemplate());
+            _templates.Add(new SteamAppTemplate());
 
             appListView.SmallImageList =  GetTemplateImages();
             //appListView.StateImageList = GetTemplateImages();
@@ -58,7 +51,7 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             ImageList l = new ImageList();
 
-            foreach (AppTemplate t in templates)
+            foreach (AppTemplate t in _templates)
                 l.Images.Add(t.Info.Icon);
 
             return l;
@@ -66,9 +59,9 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void AddTemplatesToList()
         {
-            for (int i = 0; i < templates.Count; i++)
+            for (int i = 0; i < _templates.Count; i++)
             {
-                AppTemplate t = templates[i];
+                AppTemplate t = _templates[i];
 
                 appListView.Items.Add(new ListViewItem(t.Info.DisplayText)
                 {
@@ -82,13 +75,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             if (appListView.SelectedItems.Count > 0)
             {
-                AppTemplate t = (AppTemplate)appListView.SelectedItems[0].Tag;
+                AppTemplate template = (AppTemplate)appListView.SelectedItems[0].Tag;
 
-                if (t.CanConfigure)
-                    if (!t.Configure())
+                if (template.CanConfigure)
+                    if (!template.Configure())
                         return;
 
-                selectedAppInfo = t.Info;
+                SelectedAppTemplate = template;
                 DialogResult = DialogResult.OK;
                 Close();
             }

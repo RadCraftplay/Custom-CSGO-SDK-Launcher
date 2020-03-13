@@ -1,4 +1,4 @@
-﻿namespace Distroir.CustomSDKLauncher.UI.Dialogs
+﻿namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs
 {
     partial class AppSelectorDialog
     {

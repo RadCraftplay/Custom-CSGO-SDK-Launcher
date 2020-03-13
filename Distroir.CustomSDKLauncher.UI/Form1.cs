@@ -28,6 +28,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable;
+using Distroir.CustomSDKLauncher.Core.Launchers.Editable;
 using Distroir.CustomSDKLauncher.Core.Launchers.Standard;
 
 namespace Distroir.CustomSDKLauncher.UI
@@ -69,10 +70,15 @@ namespace Distroir.CustomSDKLauncher.UI
 
         private void MigrateOldFiles()
         {
-            IMigrator m = new GameMigrator();
+            IMigrator[] migrators =
+            {
+                new GameMigrator(),
+                new LauncherMigrator()
+            };
 
-            if (m.RequiresMigration())
-                m.Migrate();
+            foreach (var migrator in migrators)
+                if (migrator.RequiresMigration())
+                    migrator.Migrate();
         }
 
         private void LoadData()
@@ -101,16 +107,29 @@ namespace Distroir.CustomSDKLauncher.UI
                 ContentManager.LoadContentGroups();
             }
 
-            if (!Config.TryReadInt("UseNewLauncher", out _))
+            if (!Config.HasVariable("LauncherType"))
             {
-                Config.AddVariable("UseNewLauncher", 1);
+                Config.AddVariable("LauncherType", 2);
             }
         }
 
         private void ApplyLauncherSettings()
         {
-            bool useNewLauncher = Config.ReadInt("UseNewLauncher") == 1;
-            _launcher = useNewLauncher ? (Core.Launchers.Launcher) new CustomizableLauncher() : new StandardLauncher();
+            var launcherType = Config.ReadInt("LauncherType");
+
+            switch (launcherType)
+            {
+                case 1:
+                    _launcher = new CustomizableLauncher();
+                    break;
+                case 2:
+                    _launcher = new EditableLauncher();
+                    break;
+                default:
+                    _launcher = new StandardLauncher();
+                    break;
+            }
+            
             UpdateButtons();
         }
         

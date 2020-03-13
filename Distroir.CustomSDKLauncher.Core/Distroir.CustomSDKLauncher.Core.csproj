@@ -60,6 +60,12 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Controls\IconSelector.Designer.cs">
       <DependentUpon>IconSelector.cs</DependentUpon>
     </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\AppSelectorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\AppSelectorDialog.Designer.cs">
+      <DependentUpon>AppSelectorDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\BasicAppConfigurationDialog.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\BasicAppConfigurationDialog.Designer.cs">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>
@@ -153,6 +159,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Controls\IconSelector.resx">
       <DependentUpon>IconSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Dialogs\AppSelectorDialog.resx">
+      <DependentUpon>AppSelectorDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Launchers\Customizable\AppLauncher\Dialogs\BasicAppConfigurationDialog.resx">
       <DependentUpon>BasicAppConfigurationDialog.cs</DependentUpon>

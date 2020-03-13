@@ -1,4 +1,4 @@
-/*
+﻿/*
 Custom SDK Launcher
 Copyright (C) 2017-2020 Distroir
 
@@ -17,31 +17,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core;
-using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Backups;
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Resources;
 using System.Windows.Forms;
-using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs;
+using Distroir.CustomSDKLauncher.Core.Launchers.Editable;
+using Distroir.CustomSDKLauncher.Core.Launchers.Standard;
+using Launcher = Distroir.CustomSDKLauncher.Core.Launchers.Launcher;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
     public partial class SettingsDialog : Form
     {
-        private List<AppInfo> _appListReference = new List<AppInfo>();
+        private readonly List<Launcher> Launchers = new List<Launcher>
+        {
+            new StandardLauncher(),
+            new CustomizableLauncher(),
+            new EditableLauncher()
+        };
 
         public SettingsDialog()
         {
-            _appListReference = DataManagers.AppManager.Objects;
-
+            var activeLauncherId = Config.ReadInt("LauncherType");
+            
             InitializeComponent();
             UpdateControls();
-            UpdateButtons();
+            UpdateButtons(Launchers[activeLauncherId].Apps);
         }
 
         #region Controls
@@ -50,16 +57,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             RefreshList(Config.TryReadInt("SelectedProfileId"));
 
+            foreach (var launcher in Launchers)
+            {
+                var item = new ComboBoxItem(launcher.Name, launcher);
+                launchersComboBox.Items.Add(item);
+            }
+            
             displayCurrentlySelectedGameCheckBox.Checked = Config.TryReadInt("DisplayCurrentProfileName") == 1;
             preLoadDataCheckBox.Checked = Config.TryReadInt("LoadDataAtStartup") == 1;
-            useNewLauncherCheckBox.Checked = Config.TryReadInt("UseNewLauncher") == 1;
             disableFeedbackCheckBox.Checked = Config.TryReadBool("DisableFeedbackNotifications");
             ignoreGameMigrationConflictsCheckBox.Checked = Config.TryReadBool("IgnoreGameMigrationConflicts");
-
-            launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
-            launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
-            launcherEditButton3.Enabled = useNewLauncherCheckBox.Checked;
-            actionChangeLabel.Visible = useNewLauncherCheckBox.Checked;
+            launchersComboBox.SelectedIndex = Config.ReadInt("LauncherType");
 
             copyrightLabel.Text = GetCopyright();
             versionLabel.Text = string.Format("Version: {0}", ProductVersion);
@@ -106,15 +114,15 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Config.AddVariable("SelectedProfileId", gameListComboBox.SelectedIndex);
             Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedGameCheckBox.Checked));
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));
-            Config.AddVariable("UseNewLauncher", BoolToInt(useNewLauncherCheckBox.Checked));
             Config.AddVariable("DisableFeedbackNotifications", disableFeedbackCheckBox.Checked);
             Config.AddVariable("IgnoreGameMigrationConflicts", ignoreGameMigrationConflictsCheckBox.Checked);
+            Config.AddVariable("LauncherType", launchersComboBox.SelectedIndex);
             
-            DataManagers.AppManager.Objects = _appListReference;
             Utils.TryReloadPathFormatterVars();
 
             DataManagers.GameManager.Save();
             DataManagers.AppManager.Save();
+            DataManagers.CustomizableApplicationInfo.Save();
         }
 
         int BoolToInt(bool val)
@@ -239,9 +247,11 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                     Config.Load();
                     DataManagers.GameManager.Load();
                     DataManagers.AppManager.Load();
-                    _appListReference = DataManagers.AppManager.Objects;
+                    DataManagers.CustomizableApplicationInfo.Load();
                     UpdateControls();
-                    UpdateButtons();
+                    
+                    var activeLauncherId = Config.ReadInt("LauncherType");
+                    UpdateButtons(Launchers[activeLauncherId].Apps);
                 }
             }
         }
@@ -254,22 +264,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void launcherButtonEdit_Click(object sender, EventArgs e)
         {
-            Button button = (Button)sender;
-
-            var dialog = new AppSelectorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-                button.Tag = dialog.selectedAppInfo;
-
-            UpdateAppList();
-            UpdateButtons();
-        }
-
-        private void useNewLauncherCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            launcherEditButton1.Enabled = useNewLauncherCheckBox.Checked;
-            launcherEditButton2.Enabled = useNewLauncherCheckBox.Checked;
-            launcherEditButton3.Enabled = useNewLauncherCheckBox.Checked;
-            actionChangeLabel.Visible = useNewLauncherCheckBox.Checked;
+            var button = sender as Button;
+            var app = button?.Tag as IApp;
+            
+            if (app is IConfigurableApp configurableApp)
+                if (configurableApp.Configure())
+                    UpdateButton(app, button);
         }
 
         private void sendFeedbackButton_Click(object sender, EventArgs e)
@@ -282,22 +282,40 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         #region AppLauncher
 
-        void UpdateButtons()
+        void UpdateButtons(List<IApp> apps)
         {
-            AppUtils.UpdateButtons(_appListReference, new Button[]
-            {
-                launcherEditButton1,
-                launcherEditButton2,
-                launcherEditButton3
-            });
+            if (apps == null || apps.Count != 3)
+                return;
+
+            UpdateButton(apps[0], launcherEditButton1);
+            UpdateButton(apps[1], launcherEditButton2);
+            UpdateButton(apps[2], launcherEditButton3);
         }
 
-        void UpdateAppList()
+        private void UpdateButton(IApp app, Button button)
         {
-            _appListReference.Clear();
-            _appListReference.Add((AppInfo)launcherEditButton1.Tag);
-            _appListReference.Add((AppInfo)launcherEditButton2.Tag);
-            _appListReference.Add((AppInfo)launcherEditButton3.Tag);
+            var enabled = app is IConfigurableApp;
+            
+            ApplyDisplayableItem(app.DisplayableItem, button);
+            button.Tag = app;
+            button.Enabled = enabled;
+        }
+
+        private void ApplyDisplayableItem(IDisplayableItem item, Button button)
+        {
+            button.Text = item.Name;
+            button.Image = item.Icon;
+        }
+
+        List<IApp> GetUpdatedAppList()
+        {
+            var apps = new List<IApp>();
+            
+            apps.Add((IApp)launcherEditButton1.Tag);
+            apps.Add((IApp)launcherEditButton2.Tag);
+            apps.Add((IApp)launcherEditButton3.Tag);
+            
+            return apps;
         }
 
         #endregion
@@ -306,6 +324,14 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             var dialog = new ThirdPartyLicensesDialog();
             dialog.ShowDialog();
+        }
+
+        private void launchersComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var item = launchersComboBox.SelectedItem as ComboBoxItem;
+            var launcher = item?.Tag as Launcher;
+
+            UpdateButtons(launcher?.Apps);
         }
     }
 
