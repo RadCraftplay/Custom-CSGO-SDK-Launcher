@@ -93,11 +93,15 @@
     <Compile Include="Launchers\Standard\StandardDisplayableItem.cs" />
     <Compile Include="Launchers\Standard\StandardLauncher.cs" />
     <Compile Include="Launchers\Standard\StandardSdkApplication.cs" />
-    <Compile Include="Managers\ContentSerializer.cs" />
+    <Compile Include="Managers\Converters\AppTemplateToAppConverter.cs" />
+    <Compile Include="Managers\ConvertableManager.cs" />
+    <Compile Include="Managers\Converters\IConverter.cs" />
+    <Compile Include="Managers\IManager.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\DataManagers.cs" />
     <Compile Include="Managers\Serializers\BinaryFileSerializer.cs" />
     <Compile Include="Managers\Serializers\BinaryStringSerializer.cs" />
+    <Compile Include="Managers\Serializers\ContentSerializer.cs" />
     <Compile Include="Managers\Serializers\JsonFileSerializer.cs" />
     <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />
     <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />

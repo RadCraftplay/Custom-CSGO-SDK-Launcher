@@ -24,7 +24,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
 {
     public class CustomizableApp : IConfigurableApp
     {
-        private AppInfo Info { get; set; }
+        public AppInfo Info { get; private set; }
 
         public IDisplayableItem DisplayableItem => new AppDependentDisplayableItem(Info);
 

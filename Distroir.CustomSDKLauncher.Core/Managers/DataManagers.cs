@@ -23,7 +23,9 @@ using System.Text;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Launchers;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Managers.Converters;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Shared.Core;
 
@@ -63,7 +65,10 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// <summary>
         /// App serializer
         /// </summary>
-        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
+        public static ConvertableManager<AppInfo, CustomizableApp> AppManager = 
+            new ConvertableManager<AppInfo, CustomizableApp>(
+                new XmlFileSerializer<AppInfo>(AppListFilename), 
+                new AppTemplateToAppConverter());
 
         public static Manager<IApp> CustomizableApplicationInfo = new Manager<IApp>(new JsonFileSerializer<IApp>(CustomizableAppListFilename));
         

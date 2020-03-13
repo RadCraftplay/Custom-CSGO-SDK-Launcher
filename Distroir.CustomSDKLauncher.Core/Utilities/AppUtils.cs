@@ -15,20 +15,21 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
+using Distroir.CustomSDKLauncher.Core.Managers.Converters;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class AppUtils
     {
+        private static AppTemplateToAppConverter Converter { get; }
+        
         public static void CreateApplications()
         {
             //Create app list
@@ -50,7 +51,8 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             Applications.Add(facePoser);
 
             //Save apps
-            DataManagers.AppManager.Objects = Applications;
+            DataManagers.AppManager.Objects = Applications
+                .Select(x => Converter.Convert(x)).ToList();
             DataManagers.AppManager.Save();
         }
 
@@ -72,7 +74,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
         static void UpdateButton(Button b, int id)
         {
-            AppInfo i = DataManagers.AppManager.Objects[id];
+            AppInfo i = Converter.Convert(DataManagers.AppManager.Objects[id]);
 
             b.Text = i.DisplayText;
             b.Image = i.Icon;

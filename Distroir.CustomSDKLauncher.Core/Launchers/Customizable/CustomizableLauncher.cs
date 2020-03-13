@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System.Collections.Generic;
+using System.Linq;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Managers;
 
@@ -24,20 +25,15 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
 {
     public class CustomizableLauncher : Launcher
     {
-        private List<AppInfo> _cachedAppInfos;
-        private List<IApp> _cachedApplications;
-
         public override List<IApp> Apps
         {
             get
             {
-                if (DataManagers.AppManager.Objects != _cachedAppInfos)
-                {
-                    _cachedAppInfos = DataManagers.AppManager.Objects;
-                    _cachedApplications = GetApplicationsFromInfos(_cachedAppInfos);
-                }
-
-                return _cachedApplications;
+                if (DataManagers.AppManager.Objects?.Count == 0)
+                    DataManagers.AppManager.TryLoad();
+                
+                return DataManagers.AppManager.Objects?
+                    .Select(x => x as IApp).ToList();
             }
         }
 
@@ -51,6 +47,17 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
                 apps.Add(new CustomizableApp(info));
 
             return apps;
+        }
+
+        private List<AppInfo> GetAppInfosFromApps(List<IApp> apps)
+        {
+            List<AppInfo> infos = new List<AppInfo>();
+
+            foreach (var app in apps)
+                if (app is CustomizableApp customizableApp)
+                    infos.Add(customizableApp.Info);
+
+            return infos;
         }
     }
 }
