@@ -29,7 +29,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
     public abstract class AppTemplate
     {
         [JsonIgnore]
-        public AppInfo Info;
+        public abstract AppInfo Info { get; }
+
         [JsonIgnore]
         public bool CanConfigure = true;  
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
 Custom SDK Launcher
 Copyright (C) 2017-2020 Distroir
 
@@ -35,13 +35,13 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             //Create app list
             BasicAppTemplate t = new BasicAppTemplate();
 
-            t.GenerateDefaultConfig(Launchers.Customizable.AppLauncher.Templates.SDKApplication.Hammer);
+            t.Application = Launchers.Customizable.AppLauncher.Templates.SDKApplication.Hammer;
             AppInfo hammer = t.Info;
 
-            t.GenerateDefaultConfig(Launchers.Customizable.AppLauncher.Templates.SDKApplication.HLMV);
+            t.Application = Launchers.Customizable.AppLauncher.Templates.SDKApplication.HLMV;
             AppInfo hlmv = t.Info;
 
-            t.GenerateDefaultConfig(Launchers.Customizable.AppLauncher.Templates.SDKApplication.FacePoser);
+            t.Application = Launchers.Customizable.AppLauncher.Templates.SDKApplication.FacePoser;
             AppInfo facePoser = t.Info;
 
             //Add apps

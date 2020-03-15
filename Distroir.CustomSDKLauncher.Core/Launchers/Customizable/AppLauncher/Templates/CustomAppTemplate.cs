@@ -23,12 +23,13 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 {
     public class CustomAppTemplate : AppTemplate
     {
-        public CustomAppTemplate()
+        public override AppInfo Info => _info;
+
+        private AppInfo _info = new AppInfo()
         {
-            Info = new AppInfo();
-            Info.Icon = Data.DefaultIcon;
-            Info.DisplayText = "Custom application";
-        }
+            Icon = Data.DefaultIcon,
+            DisplayText = "Custom application"
+        };
 
         public override bool Configure()
         {
@@ -37,7 +38,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             {
                 if (d.info != null)
                 {
-                    Info = d.info;
+                    _info = d.info;
                     return true;
                 }
             }

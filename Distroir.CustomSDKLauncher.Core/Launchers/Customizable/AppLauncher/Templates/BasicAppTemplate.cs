@@ -24,21 +24,27 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 {
     public class BasicAppTemplate : AppTemplate
     {
-        private SDKApplication _application;
-
-        public SDKApplication Application
-        {
-            get => _application;
-            set
-            {
-                _application = value;
-                UpdateInfo();
-            }
-        }
+        public SDKApplication Application { get; set; }
 
         public BasicAppTemplate()
         {
             Application = SDKApplication.None;
+        }
+
+        public override AppInfo Info
+        {
+            get
+            {
+                var info = new AppInfo();
+
+                if (Application != SDKApplication.None)
+                    info = GetToolStartInfo(Application);
+
+                info.DisplayText = GetDisplayText();
+                info.Icon = GetIcon();
+
+                return info;
+            }
         }
 
         public override bool Configure()
@@ -48,29 +54,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
                 return false;
 
             Application = dialog.SelectedApplication;
-            UpdateInfo();
 
             return true;
-        }
-
-        void UpdateInfo()
-        {
-            Info = new AppInfo();
-
-            if (Application != SDKApplication.None)
-                Info = GetToolStartInfo(Application);
-
-            Info.DisplayText = GetDisplayText();
-            Info.Icon = GetIcon();
-        }
-
-        public void GenerateDefaultConfig(SDKApplication app)
-        {
-            Application = app;
-
-            Info = GetToolStartInfo(Application);
-            Info.DisplayText = GetDisplayText();
-            Info.Icon = GetIcon();
         }
 
         public string GetDisplayText()

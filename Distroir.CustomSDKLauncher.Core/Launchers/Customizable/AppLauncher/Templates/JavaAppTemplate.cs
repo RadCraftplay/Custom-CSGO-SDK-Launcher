@@ -22,19 +22,20 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 {
     public class JavaAppTemplate : AppTemplate
     {
-        public JavaAppTemplate()
+        public override AppInfo Info => _info;
+
+        private AppInfo _info = new AppInfo
         {
-            Info = new AppInfo();
-            Info.Icon = Data.DefaultIcon;
-            Info.DisplayText = "Java application";
-        }
+            Icon = Data.DefaultIcon,
+            DisplayText = "Java application"
+        };
 
         public override bool Configure()
         {
             var v = new JavaAppConfigurationDialog();
             if (v.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Info = v.Info;
+                _info = v.Info;
                 return true;
             }
 
