@@ -109,6 +109,7 @@
     <Compile Include="Managers\Serializers\BinaryStringSerializer.cs" />
     <Compile Include="Managers\Serializers\ContentSerializer.cs" />
     <Compile Include="Managers\Serializers\JsonFileSerializer.cs" />
+    <Compile Include="Managers\Serializers\Json\JsonImageConverter.cs" />
     <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />
     <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
     <Compile Include="Migrators\GameMigrator.cs" />
