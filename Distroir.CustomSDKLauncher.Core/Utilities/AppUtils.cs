@@ -1,4 +1,4 @@
-﻿/*
+/*
 Custom SDK Launcher
 Copyright (C) 2017-2020 Distroir
 
@@ -54,46 +54,6 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             DataManagers.AppManager.Objects = Applications
                 .Select(x => Converter.Convert(x)).ToList();
             DataManagers.AppManager.Save();
-        }
-
-        public static void UpdateButtons(Button[] buttons)
-        {
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                UpdateButton(buttons[i], i);
-            }
-        }
-
-        public static void UpdateButtons(List<AppInfo> info, Button[] buttons)
-        {
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                UpdateButton(info, buttons[i], i);
-            }
-        }
-
-        static void UpdateButton(Button b, int id)
-        {
-            AppInfo i = Converter.Convert(DataManagers.AppManager.Objects[id]);
-
-            b.Text = i.DisplayText;
-            b.Image = i.Icon;
-            b.Tag = i;
-        }
-
-        static void UpdateButton(List<AppInfo> info, Button b, int id)
-        {
-            AppInfo i = info[id];
-
-            b.Text = i.DisplayText;
-            b.Image = i.Icon;
-            b.Tag = i;
-        }
-
-        public static void LaunchApp(Button sender)
-        {
-            AppInfo i = (AppInfo)sender.Tag;
-            i.Launch();
         }
     }
 }
