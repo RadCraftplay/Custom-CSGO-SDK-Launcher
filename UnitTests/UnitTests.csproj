@@ -42,7 +42,14 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\BasicAppTemplateTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core\Distroir.CustomSDKLauncher.Core.csproj">
+        <Project>{abefcede-8964-427c-ac88-fe00daca6474}</Project>
+        <Name>Distroir.CustomSDKLauncher.Core</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
