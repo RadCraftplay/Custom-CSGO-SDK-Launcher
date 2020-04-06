@@ -58,7 +58,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             return true;
         }
 
-        public string GetDisplayText()
+        private string GetDisplayText()
         {
             switch (Application)
             {
@@ -73,7 +73,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             }
         }
 
-        public Image GetIcon()
+        private Image GetIcon()
         {
             switch (Application)
             {
@@ -86,7 +86,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             }
         }
 
-        AppInfo GetToolStartInfo(SDKApplication app)
+        private AppInfo GetToolStartInfo(SDKApplication app)
         {
             AppInfo info = new AppInfo();
             info.Path = GetToolPath(app);
@@ -104,7 +104,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             return info;
         }
 
-        string GetToolPath(SDKApplication app)
+        private string GetToolPath(SDKApplication app)
         {
             switch (app)
             {
