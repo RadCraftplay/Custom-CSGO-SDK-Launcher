@@ -2,10 +2,13 @@
 
 Free and open source SDK launcher for Counter-Strike: Global Offensive and other source engine games
 
-### Why should I move to Custom SDK Launcher?
+![CSDKL next to defaullt source SDK launcher](https://camo.githubusercontent.com/00741aa3ccc09e9fafe294115b6cfe8977f0d28b/68747470733a2f2f692e696d6775722e636f6d2f57654b4b5a78462e706e67)
 
-- **It's open source:** You can see full code of an application and know exactly what it does
-- **All in one:** Support for many Source Engine based games
-- **Custom profiles:** Create profiles for many games and switch between them easily
-- **New to mapmaking? No problem:** List of specially selected tutorials will help you to get started creating content for various games
-- **No more annoying bugs:** We have fixed issues existing in default SDK launcher
+## Features
+
+- Support for multiple Source Engine based games
+- Customizable launcher (let's you launch custom applications instead of default ones)
+- Easly accessible links to tutorials and community content
+
+## FAQ
+- **Does CSDKL allow to download and launch the CSGO SDK without using Steam?** No, it doesn't. CSDKL is just a replacement for the default SDK launcher and it doesn't download anything
