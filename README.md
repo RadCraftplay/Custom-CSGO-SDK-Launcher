@@ -2,9 +2,9 @@
 
 Free and open source SDK launcher for Counter-Strike: Global Offensive and other source engine games
 
-CSDKL in comparision with defaullt source SDK launcher:
+CSDKL in comparision with default source SDK launcher:
 
-![CSDKL next to defaullt source SDK launcher](https://camo.githubusercontent.com/00741aa3ccc09e9fafe294115b6cfe8977f0d28b/68747470733a2f2f692e696d6775722e636f6d2f57654b4b5a78462e706e67)
+![CSDKL next to default source SDK launcher](https://camo.githubusercontent.com/00741aa3ccc09e9fafe294115b6cfe8977f0d28b/68747470733a2f2f692e696d6775722e636f6d2f57654b4b5a78462e706e67)
 
 ## Features
 
