@@ -16,20 +16,31 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
-    public class CustomAppTemplate : AppTemplate
+    public class CustomAppTemplate : AppTemplate, IEquatable<CustomAppTemplate>
     {
+        private AppInfo _info;
         public override AppInfo Info => _info;
 
-        private AppInfo _info = new AppInfo()
+
+        public CustomAppTemplate()
         {
-            Icon = Data.DefaultIcon,
-            DisplayText = "Custom application"
-        };
+            _info = new AppInfo()
+            {
+                Icon = Data.DefaultIcon,
+                DisplayText = "Custom application"
+            };
+        }
+
+        public CustomAppTemplate(AppInfo info)
+        {
+            _info = info;
+        }
 
         public override bool Configure()
         {
@@ -44,6 +55,36 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             }
 
             return false;
+        }
+        
+        public bool Equals(CustomAppTemplate other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Equals(_info, other._info);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((CustomAppTemplate) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (_info != null ? _info.GetHashCode() : 0);
+        }
+
+        public static bool operator ==(CustomAppTemplate left, CustomAppTemplate right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(CustomAppTemplate left, CustomAppTemplate right)
+        {
+            return !Equals(left, right);
         }
     }
 }
