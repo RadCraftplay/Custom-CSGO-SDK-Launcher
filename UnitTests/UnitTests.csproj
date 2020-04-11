@@ -36,6 +36,7 @@
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
+        <Reference Include="System.Drawing" />
         <Reference Include="System.Xml" />
         <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
             <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
@@ -45,9 +46,14 @@
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\BasicAppTemplateTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\CustomAppTemplateTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\JavaAppTemplateTests.cs" />
+        <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\SteamAppTemplateTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core.Data\Distroir.CustomSDKLauncher.Core.Data.csproj">
+        <Project>{7b1a697a-96c8-40d8-9ddf-058ed283236d}</Project>
+        <Name>Distroir.CustomSDKLauncher.Core.Data</Name>
+      </ProjectReference>
       <ProjectReference Include="..\Distroir.CustomSDKLauncher.Core\Distroir.CustomSDKLauncher.Core.csproj">
         <Project>{abefcede-8964-427c-ac88-fe00daca6474}</Project>
         <Name>Distroir.CustomSDKLauncher.Core</Name>
