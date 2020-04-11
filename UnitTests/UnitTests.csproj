@@ -43,6 +43,7 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\BasicAppTemplateTests.cs" />
+        <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\CustomAppTemplateTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
