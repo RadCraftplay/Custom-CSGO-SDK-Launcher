@@ -20,17 +20,39 @@ using System;
 using System.Drawing;
 using Newtonsoft.Json;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers.Json;
+using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
-    public class SteamAppTemplate : AppTemplate
+    public class SteamAppTemplate : AppTemplate, IEquatable<SteamAppTemplate>
     {
-        public int AppId { get; private set; } = -1;
-        public string Name { get; private set; } = "Steam application";
+        public int AppId { get; private set; }
+        public string Name { get; private set; }
 
         [JsonConverter(typeof(JsonImageConverter))]
-        public Image Icon { get; private set; } = Data.DefaultIcon;
+        public Image Icon { get; private set; }
 
+        public SteamAppTemplate()
+        {
+            AppId = -1;
+            Name = "Steam application";
+            Icon = Data.DefaultIcon;
+        }
+
+        public SteamAppTemplate(string name, int appId)
+        {
+            Name = name;
+            AppId = appId;
+            Icon = Data.DefaultIcon;
+        }
+        
+        public SteamAppTemplate(string name, int appId, Image icon)
+        {
+            AppId = appId;
+            Name = name;
+            Icon = icon;
+        }
+        
         public override AppInfo Info =>
             new AppInfo()
             {
@@ -55,6 +77,43 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             }
 
             return false;
+        }
+        
+        public bool Equals(SteamAppTemplate other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return AppId == other.AppId && Name == other.Name &&
+                   BitmapComparer.Compare((Bitmap) Icon, (Bitmap) other.Icon);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((SteamAppTemplate) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = AppId;
+                hashCode = (hashCode * 397) ^ (Name != null ? Name.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (Icon != null ? Icon.GetHashCode() : 0);
+                return hashCode;
+            }
+        }
+
+        public static bool operator ==(SteamAppTemplate left, SteamAppTemplate right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(SteamAppTemplate left, SteamAppTemplate right)
+        {
+            return !Equals(left, right);
         }
     }
 }
