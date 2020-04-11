@@ -16,13 +16,14 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.Drawing;
 using System.IO;
 using Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
-    public class BasicAppTemplate : AppTemplate
+    public class BasicAppTemplate : AppTemplate, IEquatable<BasicAppTemplate>
     {
         public SDKApplication Application { get; set; }
 
@@ -115,6 +116,36 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
                 default:
                     return Path.Combine("{GameBinDir}", "hammer.exe");
             }
+        }
+        
+        public bool Equals(BasicAppTemplate other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Application == other.Application;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((BasicAppTemplate) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (int) Application;
+        }
+
+        public static bool operator ==(BasicAppTemplate left, BasicAppTemplate right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(BasicAppTemplate left, BasicAppTemplate right)
+        {
+            return !Equals(left, right);
         }
     }
 
