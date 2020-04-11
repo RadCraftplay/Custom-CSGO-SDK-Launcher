@@ -27,7 +27,7 @@ using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
 {
-    public class AppInfo : IDisposable
+    public class AppInfo : IDisposable, IEquatable<AppInfo>
     {
         /// <summary>
         /// Path to an executable file
@@ -168,6 +168,49 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
             Arguments = null;
             DisplayText = null;
             Icon = null;
+        }
+        
+        public bool Equals(AppInfo other)
+        {
+            if (ReferenceEquals(null, other)) return false;
+            if (ReferenceEquals(this, other)) return true;
+            return Path == other.Path && UseCustomWorkingDirectory == other.UseCustomWorkingDirectory &&
+                   CustomWorkingDirectory == other.CustomWorkingDirectory &&
+                   UseCustomArguments == other.UseCustomArguments && Arguments == other.Arguments &&
+                   DisplayText == other.DisplayText && Equals(ImageSerialized, other.ImageSerialized);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != this.GetType()) return false;
+            return Equals((AppInfo) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = (Path != null ? Path.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ UseCustomWorkingDirectory.GetHashCode();
+                hashCode = (hashCode * 397) ^ (CustomWorkingDirectory != null ? CustomWorkingDirectory.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ UseCustomArguments.GetHashCode();
+                hashCode = (hashCode * 397) ^ (Arguments != null ? Arguments.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (DisplayText != null ? DisplayText.GetHashCode() : 0);
+                hashCode = (hashCode * 397) ^ (ImageSerialized != null ? ImageSerialized.GetHashCode() : 0);
+                return hashCode;
+            }
+        }
+
+        public static bool operator ==(AppInfo left, AppInfo right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(AppInfo left, AppInfo right)
+        {
+            return !Equals(left, right);
         }
     }
 }
