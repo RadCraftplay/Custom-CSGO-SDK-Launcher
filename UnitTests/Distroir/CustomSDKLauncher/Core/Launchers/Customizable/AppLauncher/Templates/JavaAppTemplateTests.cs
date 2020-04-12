@@ -12,12 +12,17 @@ namespace UnitTests.Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLa
         {
             DisplayText = "Test info"
         };
+
+        private AppInfo _info2 => new AppInfo()
+        {
+            DisplayText = "Test info"
+        };
         
         [Test]
         public void EqualityTest()
         {
             var template1 = new JavaAppTemplate(_info);
-            var template2 = new JavaAppTemplate(_info);
+            var template2 = new JavaAppTemplate(_info2);
 
             Assert.AreEqual(template1, template2);
         }
