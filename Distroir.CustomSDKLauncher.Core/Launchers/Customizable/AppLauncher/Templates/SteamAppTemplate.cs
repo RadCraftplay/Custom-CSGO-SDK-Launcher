@@ -46,6 +46,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             Icon = Data.DefaultIcon;
         }
         
+        [JsonConstructor]
         public SteamAppTemplate(string name, int appId, Image icon)
         {
             AppId = appId;
@@ -53,6 +54,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             Icon = icon;
         }
         
+        [JsonIgnore]
         public override AppInfo Info =>
             new AppInfo()
             {

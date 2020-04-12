@@ -28,7 +28,6 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
     [XmlInclude(typeof(SteamAppTemplate))]
     public abstract class AppTemplate
     {
-        [JsonIgnore]
         public abstract AppInfo Info { get; }
 
         [JsonIgnore]

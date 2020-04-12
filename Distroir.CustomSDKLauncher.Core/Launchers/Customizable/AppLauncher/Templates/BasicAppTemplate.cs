@@ -20,6 +20,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher;
+using Newtonsoft.Json;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
@@ -32,6 +33,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             Application = SDKApplication.None;
         }
 
+        [JsonIgnore]
         public override AppInfo Info
         {
             get

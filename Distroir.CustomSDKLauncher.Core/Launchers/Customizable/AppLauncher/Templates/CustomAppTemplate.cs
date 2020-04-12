@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
+using Newtonsoft.Json;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
 {
@@ -37,6 +38,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             };
         }
 
+        [JsonConstructor]
         public CustomAppTemplate(AppInfo info)
         {
             _info = info;
