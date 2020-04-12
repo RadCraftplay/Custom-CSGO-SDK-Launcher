@@ -12,6 +12,7 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 
         public static bool Compare(Bitmap b1, Bitmap b2)
         {
+            if (b1 == null && b2 == null) return true;
             if ((b1 == null) != (b2 == null)) return false;
             if (b1.Size != b2.Size) return false;
 
