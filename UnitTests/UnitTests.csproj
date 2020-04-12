@@ -47,6 +47,7 @@
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\CustomAppTemplateTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\JavaAppTemplateTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\SteamAppTemplateTests.cs" />
+        <Compile Include="Distroir\CustomSDKLauncher\Core\Utilities\BitmapComparerTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
