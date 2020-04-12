@@ -33,6 +33,10 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+          <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
@@ -47,6 +51,7 @@
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\CustomAppTemplateTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\JavaAppTemplateTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\SteamAppTemplateTests.cs" />
+        <Compile Include="Distroir\CustomSDKLauncher\Core\Launchers\Customizable\AppLauncher\Templates\TemplateSerializationTests.cs" />
         <Compile Include="Distroir\CustomSDKLauncher\Core\Utilities\BitmapComparerTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
@@ -59,6 +64,9 @@
         <Project>{abefcede-8964-427c-ac88-fe00daca6474}</Project>
         <Name>Distroir.CustomSDKLauncher.Core</Name>
       </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <None Include="packages.config" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
