@@ -270,9 +270,21 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
             if (app is IConfigurableApp configurableApp)
             {
-                var menu = new ContextMenu();
-                AddMenuItems(menu, configurableApp, button);
-                menu.Show(button, new Point(0, button.Height));
+                var waysToConfigure = configurableApp.GetWaysToConfigure();
+                
+                if (waysToConfigure.Count > 1)
+                {
+                    var menu = new ContextMenu();
+                    AddMenuItems(menu, configurableApp, button);
+                    menu.Show(button, new Point(0, button.Height));
+                }
+                else
+                {
+                    var tuple = waysToConfigure[0];
+                    
+                    if (tuple.Item2.Invoke())
+                        UpdateButton(app, button);
+                }
             }
         }
 
