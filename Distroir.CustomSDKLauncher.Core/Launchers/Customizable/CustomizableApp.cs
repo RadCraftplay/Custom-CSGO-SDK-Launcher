@@ -16,6 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs;
@@ -38,7 +40,15 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
             Info.Launch();
         }
 
-        public bool Configure()
+        public List<Tuple<string, Func<bool>>> GetWaysToConfigure()
+        {
+            return new List<Tuple<string, Func<bool>>>()
+            {
+                new Tuple<string, Func<bool>>("Change an action", Configure)
+            };
+        }
+
+        private bool Configure()
         {
             var dialog = new AppSelectorDialog();
             if (dialog.ShowDialog() == DialogResult.OK)

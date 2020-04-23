@@ -21,6 +21,7 @@ using Distroir.CustomSDKLauncher.Core.Backups;
 using Distroir.CustomSDKLauncher.Core.Managers;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -266,10 +267,23 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             var button = sender as Button;
             var app = button?.Tag as IApp;
-            
+
             if (app is IConfigurableApp configurableApp)
-                if (configurableApp.Configure())
-                    UpdateButton(app, button);
+            {
+                var menu = new ContextMenu();
+                AddMenuItems(menu, configurableApp, button);
+                menu.Show(button, new Point(0, button.Height));
+            }
+        }
+
+        private void AddMenuItems(ContextMenu menu, IConfigurableApp app, Button associatedButton)
+        {
+            foreach (var tuple in app.GetWaysToConfigure())
+                menu.MenuItems.Add(tuple.Item1, (sender, args) =>
+                {
+                    if (tuple.Item2.Invoke())
+                        UpdateButton(app, associatedButton);
+                });
         }
 
         private void sendFeedbackButton_Click(object sender, EventArgs e)
