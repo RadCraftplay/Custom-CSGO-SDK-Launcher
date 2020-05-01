@@ -33,7 +33,11 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Controls
         private readonly IconProvider _iconProvider;
         private string _defaultFilePath;
 
-        public Image Icon => iconPictureBox.Image;
+        public Image Icon
+        {
+            get => iconPictureBox.Image;
+            set => iconPictureBox.Image = value;
+        }
 
         public IconSelector()
         {
