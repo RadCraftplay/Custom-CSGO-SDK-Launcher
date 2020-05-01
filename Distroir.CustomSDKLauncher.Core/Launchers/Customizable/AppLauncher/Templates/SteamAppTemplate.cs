@@ -67,11 +67,19 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 
         public override bool Configure()
         {
-            var dialog = new Core.AppLauncher.Dialogs.SteamAppConfigurationDialog();
+            var dialog = new Core.AppLauncher.Dialogs.SteamAppConfigurationDialog()
+            {
+                AppName = Name,
+                AppId = AppId,
+                AppIcon = Icon
+            };
             
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                AppId = Int32.Parse(dialog.AppId);
+                if (!dialog.AppId.HasValue)
+                    return false;
+                
+                AppId = dialog.AppId.Value;
                 Name = dialog.AppName;
                 Icon = dialog.AppIcon;
                 

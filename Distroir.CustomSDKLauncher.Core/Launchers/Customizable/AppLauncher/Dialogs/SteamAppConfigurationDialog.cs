@@ -28,9 +28,38 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
     public partial class SteamAppConfigurationDialog : Form
     {
-        public string AppId => idTextBox.Text;
-        public string AppName => nameTextBox.Text;
-        public Image AppIcon => iconSelector.Icon;
+        public int? AppId
+        {
+            get
+            {
+                if (Int32.TryParse(idTextBox.Text, out int id))
+                    return id;
+                else
+                    return null;
+            }
+            set
+            {
+                if (value > 0)
+                {
+                    idTextBox.Text = value.ToString();
+                    tipLabel.Visible = false;
+                }
+                else
+                    tipLabel.Visible = true;
+            }
+        }
+
+        public string AppName
+        {
+            get => nameTextBox.Text;
+            set => nameTextBox.Text = value;
+        }
+
+        public Image AppIcon
+        {
+            get => iconSelector.Icon;
+            set => iconSelector.Icon = value;
+        }
 
         public SteamAppConfigurationDialog()
         {
