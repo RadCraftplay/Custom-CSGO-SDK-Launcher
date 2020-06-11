@@ -85,6 +85,10 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\BasicAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\CustomAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\JavaAppTemplate.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\Java\PathFinders\CustomJavaPathFinder.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\Java\PathFinders\IJavaPathFinder.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\Java\PathFinders\PathJavaPathFinder.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Templates\Java\PathFinders\RegistryJavaPathFinder.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\SteamAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\CustomizableApp.cs" />
     <Compile Include="Launchers\Customizable\CustomizableLauncher.cs" />

@@ -19,6 +19,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates.Java.PathFinders;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
@@ -35,26 +36,26 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         private void TagRadioButtons()
         {
-            usePathVariableRadioButton.Tag = new JavaPathFinders.PathFinder();
-            tryToFindJavaExeRadioButton.Tag = new JavaPathFinders.RegistryFinder();
-            customPathRadioButton.Tag = new JavaPathFinders.CustomFinder(ref customPathTextBox);
+            usePathVariableRadioButton.Tag = new PathJavaPathFinder();
+            tryToFindJavaExeRadioButton.Tag = new RegistryJavaPathFinder();
+            customPathRadioButton.Tag = new CustomJavaPathFinder(ref customPathTextBox);
         }
 
         private void SetDefaultIcon()
         {
-            JavaPathFinder finder = GetSelectedJavaPathFinder();
+            IJavaPathFinder finder = GetSelectedJavaPathFinder();
 
             if (finder != null)
-                if (finder.IsPathValid())
+                if (finder.CanGetPath())
                     iconSelector.SetIconFromExecutableFile(finder.Path);
         }
 
-        private JavaPathFinder GetSelectedJavaPathFinder()
+        private IJavaPathFinder GetSelectedJavaPathFinder()
         {
             foreach (Control control in javaExecutablePathGroupBox.Controls)
                 if (control is RadioButton button)
                     if (button.Checked)
-                        return (JavaPathFinder)button.Tag;
+                        return (IJavaPathFinder)button.Tag;
 
             return null;
         }
@@ -97,9 +98,9 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
             customPathTextBox.Enabled = selectJavaExePathButton.Enabled = customPathRadioButton.Checked;
 
-            JavaPathFinder finder = GetSelectedJavaPathFinder();
+            IJavaPathFinder finder = GetSelectedJavaPathFinder();
             if (finder != null)
-                if (finder.IsPathValid())
+                if (finder.CanGetPath())
                     iconSelector.TrySetIconFromExecutableFile(finder.Path);
         }
 
@@ -139,10 +140,10 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                         anyChecked = true;
 
                         //Get finder from RadioButton
-                        JavaPathFinder f = (JavaPathFinder)b.Tag;
+                        IJavaPathFinder f = b.Tag as IJavaPathFinder;
 
                         //If test of the path fails
-                        if (!f.IsPathValid())
+                        if (!f.CanGetPath())
                         {
                             //Throw an error
                             Utilities.MessageBoxes.Error("Unable to find java executable. Try to select other method");
@@ -173,65 +174,4 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             Close();
         }
     }
-
-    /// <summary>
-    /// As the name suggests, tries to find java path
-    /// </summary>
-    internal abstract class JavaPathFinder
-    {
-        /// <summary>
-        /// Tests if executable can be found that way
-        /// </summary>
-        public abstract bool IsPathValid();
-
-        /// <summary>
-        /// Path to java executable
-        /// </summary>
-        public abstract string Path { get; }
-    }
-
-    internal class JavaPathFinders
-    {
-        public class PathFinder : JavaPathFinder
-        {
-            public override string Path => "javaw";
-
-            public override bool IsPathValid()
-            {
-                return Utils.TryLaunch(Path);
-            }
-        }
-
-        public class RegistryFinder : JavaPathFinder
-        {
-            public override string Path => _exePath;
-
-            private string _exePath;
-
-            public override bool IsPathValid()
-            {
-                bool result = Utilities.JavaUtils.TryGetJavaHomePath(out string output);
-                if (result)
-                    _exePath = System.IO.Path.Combine(output, "bin\\javaw.exe");
-                return result;
-            }
-        }
-
-        public class CustomFinder : JavaPathFinder
-        {
-            public override string Path => _pathTextBox.Text;
-            private TextBox _pathTextBox;
-
-            public CustomFinder(ref TextBox pathTextBox)
-            {
-                _pathTextBox = pathTextBox;
-            }
-
-            public override bool IsPathValid()
-            {
-                return Utils.TryLaunch(Path);
-            }
-        }
-    }
-
 }
