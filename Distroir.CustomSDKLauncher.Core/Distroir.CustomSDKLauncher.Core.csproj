@@ -87,7 +87,7 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\IAppInfoFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\JavaAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\Java\JavaApplication.cs" />
-    <Compile Include="Launchers\Customizable\AppLauncher\Factories\SdkAppFactory.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Factories\BasicAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\SteamAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\BasicAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\CustomAppTemplate.cs" />

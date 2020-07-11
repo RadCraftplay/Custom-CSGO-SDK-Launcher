@@ -4,9 +4,9 @@ using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factori
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories
 {
-    public class SdkAppFactory : IAppInfoFactory
+    public class BasicAppFactory : IAppInfoFactory
     {
-        public SdkAppFactory(SdkApplication application)
+        public BasicAppFactory(SdkApplication application)
         {
             Application = application;
         }
