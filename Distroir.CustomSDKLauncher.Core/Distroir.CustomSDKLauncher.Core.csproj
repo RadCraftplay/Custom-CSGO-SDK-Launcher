@@ -82,6 +82,7 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\SteamAppConfigurationDialog.Designer.cs">
       <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Factories\CustomAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\IAppInfoFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\JavaAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\JavaApplication.cs" />
