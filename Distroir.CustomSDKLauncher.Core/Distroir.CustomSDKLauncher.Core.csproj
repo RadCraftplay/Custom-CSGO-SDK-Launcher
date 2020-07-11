@@ -82,12 +82,12 @@
     <Compile Include="Launchers\Customizable\AppLauncher\Dialogs\SteamAppConfigurationDialog.Designer.cs">
       <DependentUpon>SteamAppConfigurationDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Launchers\Customizable\AppLauncher\Factories\Basic\SdkApplication.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\CustomAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\IAppInfoFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\JavaAppFactory.cs" />
-    <Compile Include="Launchers\Customizable\AppLauncher\Factories\JavaApplication.cs" />
+    <Compile Include="Launchers\Customizable\AppLauncher\Factories\Java\JavaApplication.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\SdkAppFactory.cs" />
-    <Compile Include="Launchers\Customizable\AppLauncher\Factories\SdkApplication.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Factories\SteamAppFactory.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\BasicAppTemplate.cs" />
     <Compile Include="Launchers\Customizable\AppLauncher\Templates\CustomAppTemplate.cs" />

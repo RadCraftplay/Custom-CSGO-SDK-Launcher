@@ -1,7 +1,7 @@
 using System;
 using System.Drawing;
 
-namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories
+namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Java
 {
     public class JavaApplication
     {

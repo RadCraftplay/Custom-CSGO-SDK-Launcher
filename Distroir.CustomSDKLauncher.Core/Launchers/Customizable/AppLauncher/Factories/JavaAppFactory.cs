@@ -1,4 +1,5 @@
 using System;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Java;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories
 {
