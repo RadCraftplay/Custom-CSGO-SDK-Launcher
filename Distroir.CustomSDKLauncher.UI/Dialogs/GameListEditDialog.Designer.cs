@@ -74,6 +74,7 @@
             this.scanButton.TabIndex = 10;
             this.buttonsToolTip.SetToolTip(this.scanButton, "Search for installed games");
             this.scanButton.UseVisualStyleBackColor = true;
+            this.scanButton.Click += new System.EventHandler(this.scanButton_Click);
             // 
             // duplicateGameButton
             // 

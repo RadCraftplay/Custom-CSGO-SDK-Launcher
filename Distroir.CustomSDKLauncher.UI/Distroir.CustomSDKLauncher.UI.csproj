@@ -33,6 +33,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -66,6 +69,12 @@
     </Compile>
     <Compile Include="Dialogs\FirstLaunchDialog.Designer.cs">
       <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GamesToKeepDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\GamesToKeepDialog.Designer.cs">
+      <DependentUpon>GamesToKeepDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\SetupFirstGameDialog.cs">
       <SubType>Form</SubType>
@@ -143,6 +152,9 @@
     <EmbeddedResource Include="Dialogs\FirstLaunchDialog.resx">
       <DependentUpon>FirstLaunchDialog.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\GamesToKeepDialog.resx">
+      <DependentUpon>GamesToKeepDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SetupFirstGameDialog.resx">
       <DependentUpon>SetupFirstGameDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +206,7 @@
     <None Include="..\Distroir.CustomSDKLauncher\Distroir.Custom SDK Launcher.licenseheader">
       <Link>Distroir.Custom SDK Launcher.licenseheader</Link>
     </None>
+    <None Include="packages.config" />
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
