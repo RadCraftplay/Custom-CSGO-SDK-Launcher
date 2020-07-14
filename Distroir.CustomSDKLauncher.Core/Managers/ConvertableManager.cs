@@ -5,6 +5,9 @@ using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
+    /// <summary>
+    /// Reads data of type T (used by serializer) and converts them to type Y (available in application)
+    /// </summary>
     /// <typeparam name="T">Source data type</typeparam>
     /// <typeparam name="Y">Dest data type</typeparam>
     public class ConvertableManager<T, Y> : IManager<Y>
