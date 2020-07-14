@@ -32,6 +32,7 @@
             this.gameListView = new System.Windows.Forms.ListView();
             this.okButton = new System.Windows.Forms.Button();
             this.buttonsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.scanButton = new System.Windows.Forms.Button();
             this.duplicateGameButton = new System.Windows.Forms.Button();
             this.moveToBottomButton = new System.Windows.Forms.Button();
             this.moveDownButton = new System.Windows.Forms.Button();
@@ -64,6 +65,16 @@
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
+            // scanButton
+            // 
+            this.scanButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.magnifier__plus;
+            this.scanButton.Location = new System.Drawing.Point(247, 136);
+            this.scanButton.Name = "scanButton";
+            this.scanButton.Size = new System.Drawing.Size(25, 25);
+            this.scanButton.TabIndex = 10;
+            this.buttonsToolTip.SetToolTip(this.scanButton, "Search for installed games");
+            this.scanButton.UseVisualStyleBackColor = true;
+            // 
             // duplicateGameButton
             // 
             this.duplicateGameButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.document_copy;
@@ -78,7 +89,7 @@
             // moveToBottomButton
             // 
             this.moveToBottomButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_skip_270;
-            this.moveToBottomButton.Location = new System.Drawing.Point(247, 252);
+            this.moveToBottomButton.Location = new System.Drawing.Point(247, 268);
             this.moveToBottomButton.Name = "moveToBottomButton";
             this.moveToBottomButton.Size = new System.Drawing.Size(25, 25);
             this.moveToBottomButton.TabIndex = 7;
@@ -89,7 +100,7 @@
             // moveDownButton
             // 
             this.moveDownButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_270;
-            this.moveDownButton.Location = new System.Drawing.Point(247, 221);
+            this.moveDownButton.Location = new System.Drawing.Point(247, 237);
             this.moveDownButton.Name = "moveDownButton";
             this.moveDownButton.Size = new System.Drawing.Size(25, 25);
             this.moveDownButton.TabIndex = 6;
@@ -100,7 +111,7 @@
             // moveUpButton
             // 
             this.moveUpButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_090;
-            this.moveUpButton.Location = new System.Drawing.Point(247, 189);
+            this.moveUpButton.Location = new System.Drawing.Point(247, 206);
             this.moveUpButton.Name = "moveUpButton";
             this.moveUpButton.Size = new System.Drawing.Size(25, 25);
             this.moveUpButton.TabIndex = 5;
@@ -111,7 +122,7 @@
             // moveToTopButton
             // 
             this.moveToTopButton.Image = global::Distroir.CustomSDKLauncher.UI.Properties.Resources.arrow_skip_090;
-            this.moveToTopButton.Location = new System.Drawing.Point(247, 157);
+            this.moveToTopButton.Location = new System.Drawing.Point(247, 175);
             this.moveToTopButton.Name = "moveToTopButton";
             this.moveToTopButton.Size = new System.Drawing.Size(25, 25);
             this.moveToTopButton.TabIndex = 4;
@@ -168,6 +179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 366);
+            this.Controls.Add(this.scanButton);
             this.Controls.Add(this.duplicateGameButton);
             this.Controls.Add(this.moveToBottomButton);
             this.Controls.Add(this.moveDownButton);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.Button moveDownButton;
         private System.Windows.Forms.Button moveToBottomButton;
         private System.Windows.Forms.Button duplicateGameButton;
+        private System.Windows.Forms.Button scanButton;
     }
 }

@@ -241,5 +241,8 @@
   <ItemGroup>
     <None Include="Resources\document-copy.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier--plus.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
