@@ -21,6 +21,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Steam;
 
 namespace Distroir.CustomSDKLauncher.UI.Dialogs
 {
@@ -33,11 +34,13 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
             Games = games;
 
             InitializeComponent();
-            LoadList(Games);
+            ReloadList(Games);
         }
 
-        void LoadList(List<Game> games)
+        void ReloadList(List<Game> games)
         {
+            gameListView.Items.Clear();
+
             foreach (Game game in games)
                 AddItem(game);
         }
@@ -171,6 +174,48 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             if (gameListView.SelectedItems?.Count == 1)
                 AddItem(gameListView.SelectedItems[0].Tag as Game);
+        }
+
+        private void scanButton_Click(object sender, EventArgs e)
+        {
+            var foundGames = SteamGameFinder.GetSupportedSteamGames()
+                .ToList();
+
+            if (foundGames.Count == 0)
+                MessageBox.Show("No games have been found automatically", "Custom SDK Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                var categorizedGames = AssignGamesToCategories(foundGames, Games);
+
+                var dialog = new GamesToKeepDialog(categorizedGames.kept, categorizedGames.discarded);
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Games.AddRange(dialog.Games);
+                    ReloadList(Games);
+                }
+            }
+        }
+
+        public (List<Game> kept, List<Game> discarded) AssignGamesToCategories(List<Game> foundGames, List<Game> ownedGames)
+        {
+            List<Game> kept = new List<Game>();
+            List<Game> discarded = new List<Game>();
+
+            var gameDirectories = ownedGames
+                .Select(ownedGame => ownedGame.GameDir.ToLower()).ToList();
+
+            foreach (var foundGame in foundGames)
+            {
+                var foundMatchingGame = gameDirectories.Contains(foundGame.GameDir.ToLower());
+
+                if (foundMatchingGame)
+                    discarded.Add(foundGame);
+                else
+                    kept.Add(foundGame);
+            }
+
+            return (kept, discarded);
         }
     }
 }
