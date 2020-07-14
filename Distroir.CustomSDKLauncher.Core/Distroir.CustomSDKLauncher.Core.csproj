@@ -100,6 +100,8 @@
     <Compile Include="Launchers\Customizable\CustomizableApp.cs" />
     <Compile Include="Launchers\Customizable\CustomizableLauncher.cs" />
     <Compile Include="Launchers\Editable\EditableLauncher.cs" />
+    <Compile Include="Launchers\Editable\ProducibleApp.cs" />
+    <Compile Include="Launchers\Editable\ProducibleDisplayableItem.cs" />
     <Compile Include="Launchers\Editable\TemplateDependentDisplayableItem.cs" />
     <Compile Include="Launchers\Editable\TemplateDependentApp.cs" />
     <Compile Include="Launchers\IApp.cs" />
@@ -110,6 +112,7 @@
     <Compile Include="Launchers\Standard\StandardDisplayableItem.cs" />
     <Compile Include="Launchers\Standard\StandardLauncher.cs" />
     <Compile Include="Launchers\Standard\StandardSdkApplication.cs" />
+    <Compile Include="Managers\Converters\AppInfoFactoryToAppConverter.cs" />
     <Compile Include="Managers\Converters\AppTemplateToAppConverter.cs" />
     <Compile Include="Managers\ConvertableManager.cs" />
     <Compile Include="Managers\Converters\IConverter.cs" />

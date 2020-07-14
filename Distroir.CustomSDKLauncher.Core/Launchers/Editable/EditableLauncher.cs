@@ -1,5 +1,7 @@
 using System.Collections.Generic;
-using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
+using System.Linq;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Basic;
 using Distroir.CustomSDKLauncher.Core.Managers;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Editable
@@ -10,23 +12,27 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Editable
         {
             get
             {
-                if (DataManagers.CustomizableApplicationInfo.Objects?.Count == 0)
-                    if (!DataManagers.CustomizableApplicationInfo.TryLoad())
-                        DataManagers.CustomizableApplicationInfo.Objects = GetStandardApps();
-                
-                return DataManagers.CustomizableApplicationInfo.Objects;
+                if (DataManagers.CustomizableApplicationInfo.Objects?.Count == 0 ||
+                    !DataManagers.CustomizableApplicationInfo.TryLoad())
+                {
+                    DataManagers.CustomizableApplicationInfo.Objects = GetStandardApps();
+                    DataManagers.CustomizableApplicationInfo.Save();
+                }
+
+                return DataManagers.CustomizableApplicationInfo.Objects
+                    .Select(x => x as IApp).ToList();
             }
         }
 
         public override string Name => "Editable launcher (improved customizable launcher)";
 
-        private List<IApp> GetStandardApps()
+        private List<ProducibleApp> GetStandardApps()
         {
-            return new List<IApp>
+            return new List<ProducibleApp>
             {
-                new TemplateDependentApp() {Template = new BasicAppTemplate(){Application = Customizable.AppLauncher.Templates.SDKApplication.Hammer}},
-                new TemplateDependentApp() {Template = new BasicAppTemplate(){Application = Customizable.AppLauncher.Templates.SDKApplication.HLMV}},
-                new TemplateDependentApp() {Template = new BasicAppTemplate(){Application = Customizable.AppLauncher.Templates.SDKApplication.FacePoser}}
+                new ProducibleApp(new BasicAppFactory(SdkApplication.Hammer)),
+                new ProducibleApp(new BasicAppFactory(SdkApplication.HLMV)),
+                new ProducibleApp(new BasicAppFactory(SdkApplication.FacePoser))
             };
         }
     }

@@ -25,6 +25,8 @@ using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Launchers;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
+using Distroir.CustomSDKLauncher.Core.Launchers.Editable;
 using Distroir.CustomSDKLauncher.Core.Managers.Converters;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Shared.Core;
@@ -70,7 +72,10 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
                 new XmlFileSerializer<AppInfo>(AppListFilename), 
                 new AppTemplateToAppConverter());
 
-        public static Manager<IApp> CustomizableApplicationInfo = new Manager<IApp>(new JsonFileSerializer<IApp>(CustomizableAppListFilename));
+        public static ConvertableManager<IAppInfoFactory, ProducibleApp> CustomizableApplicationInfo =
+            new ConvertableManager<IAppInfoFactory, ProducibleApp>(
+                new JsonFileSerializer<IAppInfoFactory>(CustomizableAppListFilename),
+                new AppInfoFactoryToAppConverter());
         
         public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringSerializer<HelpTopic>(Data.HelpTopicsXML));
 
