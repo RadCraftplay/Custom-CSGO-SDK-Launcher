@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Gameloop.Vdf;
+using Gameloop.Vdf.Linq;
 
 namespace Distroir.CustomSDKLauncher.Core.Steam
 {
@@ -36,7 +37,7 @@ namespace Distroir.CustomSDKLauncher.Core.Steam
             var currentIndex = 1;
             var libraryDeserialized = VdfConvert.Deserialize(_libraryListFileReader.ReadToEnd());
 
-            foreach (var property in libraryDeserialized.Value.Children())
+            foreach (var property in libraryDeserialized.Value.Children<VProperty>())
             {
                 if (property.Key == currentIndex.ToString())
                 {

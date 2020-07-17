@@ -36,7 +36,7 @@ namespace Distroir.CustomSDKLauncher.Core.Steam
         public string GetRelativeInstallDirectory()
         {
             var manifest = VdfConvert.Deserialize(_manifestFileReader.ReadToEnd());
-            var children = manifest.Value.Children();
+            var children = manifest.Value.Children<VProperty>();
 
             return children.FirstOrDefault(x => x.Key == "installdir")?.Value?.ToString();
         }
@@ -44,7 +44,7 @@ namespace Distroir.CustomSDKLauncher.Core.Steam
         public Template GetGameTemplate()
         {
             var manifest = VdfConvert.Deserialize(_manifestFileReader.ReadToEnd());
-            var dictionary = manifest.Value.Children()?
+            var dictionary = manifest.Value.Children<VProperty>()?
                 .ToDictionary(x => x.Key, x => x.Value);
 
             return CreateGameTemplate(dictionary);
