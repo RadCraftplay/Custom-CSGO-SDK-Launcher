@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers.Async
+namespace Distroir.CustomSDKLauncher.Core.Managers.Async.AsyncContentSerializers
 {
     public interface IAsyncContentSerializer<T>
     {
