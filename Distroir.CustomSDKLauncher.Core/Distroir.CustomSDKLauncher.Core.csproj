@@ -95,6 +95,8 @@
     <Compile Include="Launchers\View\AppDependentDisplayableItem.cs" />
     <Compile Include="Launchers\View\IDisplayableItem.cs" />
     <Compile Include="Launchers\View\StandardDisplayableItem.cs" />
+    <Compile Include="Managers\Async\AsyncManager.cs" />
+    <Compile Include="Managers\Async\IAsyncContentSerializer.cs" />
     <Compile Include="Managers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\DataManagers.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Steam\LibraryFileReader.cs" />
     <Compile Include="Steam\SteamGameFinder.cs" />
     <Compile Include="Utilities\AppUtils.cs" />
+    <Compile Include="Utilities\AsyncLock.cs" />
     <Compile Include="Utilities\Checker\EmptyValueValidator.cs" />
     <Compile Include="Utilities\DateSerializer.cs" />
     <Compile Include="Feedback\FeedbackFetcher.cs" />
@@ -176,6 +179,5 @@
       <Name>Distroir.CustomSDKLauncher.Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
