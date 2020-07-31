@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using Distroir.CustomSDKLauncher.Core.Managers.Async.AsyncContentSerializers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
@@ -7,51 +6,48 @@ namespace Distroir.CustomSDKLauncher.Core.Managers.Async
 {
     public class AsyncManager<T>
     {
-        private readonly IAsyncContentSerializer<T> _serializer;
+        private readonly ISerializer<T> _serializer;
         private readonly AsyncLock _IOlock;
+        private Task<T> _loadingTask;
+        private T _storedValue;
 
-        public AsyncManager(IAsyncContentSerializer<T> serializer)
+        public AsyncManager(ISerializer<T> serializer)
         {
-            _serializer = serializer;
             _IOlock = new AsyncLock();
+            _serializer = serializer;
+            _loadingTask = LoaderWrapper();
+        }
+        
+        private async Task<T> LoaderWrapper()
+        {
+            await _IOlock.Lock();
+            var retVal = await Task.Factory.StartNew(() => _serializer.Deserialize());
+            _storedValue = retVal;
+            _IOlock.Unlock();
+
+            return retVal;
         }
 
-        /// <summary>
-        /// Starts loading data
-        /// </summary>
         public void Load()
         {
-            _serializer.Load();
+            _loadingTask.ConfigureAwait(false);
         }
 
-        /// <summary>
-        /// Gets cached data or waits
-        /// for data to be loaded and
-        /// then returns the data
-        /// </summary>
-        public async Task<T> GetData()
+        public async Task<T> GetAsync()
         {
             await _IOlock.Lock();
-            var data = await _serializer.GetData();
+            if (_storedValue != null)
+                return _storedValue;
             _IOlock.Unlock();
-            
-            return data;
+
+            return await _loadingTask;
         }
 
-        /// <summary>
-        /// Saves the data
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public async Task Save(T data)
+        public async Task Save(T toSave)
         {
             await _IOlock.Lock();
-            
-            if (_serializer.CanSave)
-                await _serializer.Save(data);
-            else
-                throw new NotSupportedException("This serializer does not support saving");
-            
+            _storedValue = toSave;
+            await Task.Factory.StartNew(() => _serializer.Serialize(toSave));
             _IOlock.Unlock();
         }
     }
