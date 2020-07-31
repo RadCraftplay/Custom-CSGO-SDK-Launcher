@@ -33,6 +33,12 @@ namespace Distroir.CustomSDKLauncher.Core.Managers.Async
             _loadingTask.ConfigureAwait(false);
         }
 
+        public void Reload()
+        {
+            _loadingTask = LoaderWrapper();
+            Load();
+        }
+
         public async Task<T> GetAsync()
         {
             await _IOlock.Lock();
