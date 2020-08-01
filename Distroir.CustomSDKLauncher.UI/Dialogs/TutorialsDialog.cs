@@ -17,6 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core;
 using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Managers;
 
@@ -28,18 +29,17 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
         {
             //Create controls
             InitializeComponent();
-            //Load tutorials
-            LoadTutorials();
+            
+            //Load tutorials asynchronously
+            Load += async (sender, args) => await LoadTutorials();
         }
 
-        void LoadTutorials()
+        private async Task LoadTutorials()
         {
             //Load tutorials
-            if (DataManagers.TutorialManager.Objects == null
-                || DataManagers.TutorialManager.Objects.Count == 0)
-                DataManagers.TutorialManager.Load();
+            var tutorials = await DataManagers.TutorialManager.GetAsync();
 
-            foreach (Tutorial t in DataManagers.TutorialManager.Objects)
+            foreach (Tutorial t in tutorials)
             {
                 //Create listviewitem
                 ListViewItem i = new ListViewItem(t.Name);
