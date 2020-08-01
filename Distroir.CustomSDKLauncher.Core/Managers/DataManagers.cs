@@ -54,7 +54,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// </summary>
         public static AsyncManager<Tutorial[]> TutorialManager =
             new AsyncManager<Tutorial[]>(
-                new Async.AsyncContentSerializers.XmlStringSerializer<Tutorial[]>(Data.TutorialsXML));
+                new Async.Serializers.XmlStringSerializer<Tutorial[]>(Data.TutorialsXML));
 
 
         /// <summary>
