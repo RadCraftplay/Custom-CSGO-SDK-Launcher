@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using Distroir.CustomSDKLauncher.Core.Managers.Async.Serializers;
+using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers.Async

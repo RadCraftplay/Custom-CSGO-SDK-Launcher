@@ -95,8 +95,8 @@
     <Compile Include="Launchers\View\AppDependentDisplayableItem.cs" />
     <Compile Include="Launchers\View\IDisplayableItem.cs" />
     <Compile Include="Launchers\View\StandardDisplayableItem.cs" />
-    <Compile Include="Managers\Async\Serializers\ISerializer.cs" />
-    <Compile Include="Managers\Async\Serializers\XmlStringSerializer.cs" />
+    <Compile Include="Managers\Serializers\ISerializer.cs" />
+    <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
     <Compile Include="Managers\Async\AsyncManager.cs" />
     <Compile Include="Managers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />

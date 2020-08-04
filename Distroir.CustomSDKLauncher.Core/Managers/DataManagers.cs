@@ -24,6 +24,7 @@ using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Managers.Async;
 using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
+using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Shared.Core;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
@@ -54,7 +55,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// </summary>
         public static AsyncManager<Tutorial[]> TutorialManager =
             new AsyncManager<Tutorial[]>(
-                new Async.Serializers.XmlStringSerializer<Tutorial[]>(Data.TutorialsXML));
+                new XmlStringSerializer<Tutorial[]>(Data.TutorialsXML));
 
 
         /// <summary>

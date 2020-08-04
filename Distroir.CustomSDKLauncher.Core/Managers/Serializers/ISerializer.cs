@@ -1,4 +1,4 @@
-namespace Distroir.CustomSDKLauncher.Core.Managers.Async.Serializers
+namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
 {
     public interface ISerializer<T>
     {

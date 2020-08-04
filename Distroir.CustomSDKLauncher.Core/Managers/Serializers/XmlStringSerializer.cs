@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Xml.Serialization;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers.Async.Serializers
+namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
 {
     public class XmlStringSerializer<T> : ISerializer<T>
     {
