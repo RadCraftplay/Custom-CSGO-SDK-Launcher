@@ -16,46 +16,42 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+using System;
 using System.IO;
 using System.Xml.Serialization;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 {
-    public class XmlFileSerializer<T> : ContentSerializer<T>
+    public class XmlStringContentSerializer<T> : ContentSerializer<T>
     {
         /// <summary>
-        /// Name of file to serialize/deserialize
+        /// String to deserialize
         /// </summary>
-        string FileName;
+        string toProcess;
 
-        public XmlFileSerializer(string Filename)
+        /// <summary>
+        /// Deserializes string to an object array
+        /// </summary>
+        /// <param name="Source">String </param>
+        public XmlStringContentSerializer(string Source)
         {
-            FileName = Filename;
-            CanSave = true;
+            toProcess = Source;
         }
 
         public override T[] Load()
         {
-            using (StreamReader reader = new StreamReader(FileName))
+            using (TextReader reader = new StringReader(toProcess))
             {
-                //Create serializer
+                //Create instance of XMLSerializer
                 XmlSerializer s = new XmlSerializer(typeof(T[]));
-
-                //Deserialize
+                //Read data
                 return (T[])s.Deserialize(reader);
             }
         }
 
         public override void Save(T[] Array)
         {
-            using (StreamWriter w = new StreamWriter(FileName))
-            {
-                //Create serializer
-                XmlSerializer s = new XmlSerializer(typeof(T[]));
-
-                //Serialize objects
-                s.Serialize(w, Array);
-            }
+            throw new NotImplementedException();
         }
     }
 }

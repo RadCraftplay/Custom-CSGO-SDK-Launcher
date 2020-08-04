@@ -77,10 +77,10 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
         private void LoadGames()
         {
-            XmlFileSerializer<Game> gameListSerializer
-                = new XmlFileSerializer<Game>(DataManagers.GameListFilename);
+            XmlFileContentSerializer<Game> gameListContentSerializer
+                = new XmlFileContentSerializer<Game>(DataManagers.GameListFilename);
 
-            LoadListOfGamesIntoListView(gameListSerializer, gamesListView);
+            LoadListOfGamesIntoListView(gameListContentSerializer, gamesListView);
         }
 
         void LoadListOfGamesIntoListView(ContentSerializer<Game> serializer, ListView listView)

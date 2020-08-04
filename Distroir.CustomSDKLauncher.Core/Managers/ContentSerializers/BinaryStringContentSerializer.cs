@@ -18,11 +18,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
 using System.IO;
-using System.Xml.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 {
-    public class XmlStringSerializer<T> : ContentSerializer<T>
+    public class BinaryStringContentSerializer<T> : ContentSerializer<T>
     {
         /// <summary>
         /// String to deserialize
@@ -33,25 +33,33 @@ namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
         /// Deserializes string to an object array
         /// </summary>
         /// <param name="Source">String </param>
-        public XmlStringSerializer(string Source)
+        public BinaryStringContentSerializer(string Source)
         {
             toProcess = Source;
         }
 
         public override T[] Load()
         {
-            using (TextReader reader = new StringReader(toProcess))
+            using (Stream s = GenerateStreamFromString(toProcess))
             {
-                //Create instance of XMLSerializer
-                XmlSerializer s = new XmlSerializer(typeof(T[]));
-                //Read data
-                return (T[])s.Deserialize(reader);
+                BinaryFormatter f = new BinaryFormatter();
+                return (T[])f.Deserialize(s);
             }
         }
 
         public override void Save(T[] Array)
         {
             throw new NotImplementedException();
+        }
+
+        private Stream GenerateStreamFromString(string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
         }
     }
 }

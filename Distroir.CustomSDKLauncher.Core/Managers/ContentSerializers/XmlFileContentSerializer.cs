@@ -17,18 +17,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 {
-    public class BinaryFileSerializer<T> : ContentSerializer<T>
+    public class XmlFileContentSerializer<T> : ContentSerializer<T>
     {
         /// <summary>
         /// Name of file to serialize/deserialize
         /// </summary>
         string FileName;
 
-        public BinaryFileSerializer(string Filename)
+        public XmlFileContentSerializer(string Filename)
         {
             FileName = Filename;
             CanSave = true;
@@ -36,20 +36,25 @@ namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 
         public override T[] Load()
         {
-            using (Stream s = new FileStream(FileName, FileMode.Open))
+            using (StreamReader reader = new StreamReader(FileName))
             {
-                BinaryFormatter f = new BinaryFormatter();
-                return (T[])f.Deserialize(s);
+                //Create serializer
+                XmlSerializer s = new XmlSerializer(typeof(T[]));
+
+                //Deserialize
+                return (T[])s.Deserialize(reader);
             }
         }
 
         public override void Save(T[] Array)
         {
-            using (Stream s = new FileStream(FileName, FileMode.Create))
+            using (StreamWriter w = new StreamWriter(FileName))
             {
-                BinaryFormatter f = new BinaryFormatter();
-                
-                f.Serialize(s, Array);
+                //Create serializer
+                XmlSerializer s = new XmlSerializer(typeof(T[]));
+
+                //Serialize objects
+                s.Serialize(w, Array);
             }
         }
     }

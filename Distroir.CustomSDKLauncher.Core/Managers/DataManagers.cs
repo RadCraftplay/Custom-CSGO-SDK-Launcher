@@ -42,12 +42,12 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// <summary>
         /// Game manager
         /// </summary>
-        public static Manager<Game> GameManager = new Manager<Game>(new XmlFileSerializer<Game>(GameListFilename));
+        public static Manager<Game> GameManager = new Manager<Game>(new XmlFileContentSerializer<Game>(GameListFilename));
 
         /// <summary>
         /// Template manager
         /// </summary>
-        public static Manager<Template> TemplateManager = new Manager<Template>(new XmlStringSerializer<Template>(Data.TemplatesXML));
+        public static Manager<Template> TemplateManager = new Manager<Template>(new XmlStringContentSerializer<Template>(Data.TemplatesXML));
 
         /// <summary>
         /// Tutorial serializer
@@ -60,16 +60,16 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// <summary>
         /// App serializer
         /// </summary>
-        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
+        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileContentSerializer<AppInfo>(AppListFilename));
 
-        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringSerializer<HelpTopic>(Data.HelpTopicsXML));
+        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringContentSerializer<HelpTopic>(Data.HelpTopicsXML));
 
         //TODO: Remove commented out code
         /*
         /// <summary>
         /// Content serializer
         /// </summary>
-        public static Manager<ContentGroup> ContentManager = new Manager<ContentGroup>(new XmlFileSerializer<ContentGroup>(@"C:\users\x\desktop\contents.xml"));
+        public static Manager<ContentGroup> ContentManager = new Manager<ContentGroup>(new XmlFileContentSerializer<ContentGroup>(@"C:\users\x\desktop\contents.xml"));
         */
     }
 }

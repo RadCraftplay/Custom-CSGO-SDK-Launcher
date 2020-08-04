@@ -16,31 +16,27 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 {
-    public class BinaryStringSerializer<T> : ContentSerializer<T>
+    public class BinaryFileContentSerializer<T> : ContentSerializer<T>
     {
         /// <summary>
-        /// String to deserialize
+        /// Name of file to serialize/deserialize
         /// </summary>
-        string toProcess;
+        string FileName;
 
-        /// <summary>
-        /// Deserializes string to an object array
-        /// </summary>
-        /// <param name="Source">String </param>
-        public BinaryStringSerializer(string Source)
+        public BinaryFileContentSerializer(string Filename)
         {
-            toProcess = Source;
+            FileName = Filename;
+            CanSave = true;
         }
 
         public override T[] Load()
         {
-            using (Stream s = GenerateStreamFromString(toProcess))
+            using (Stream s = new FileStream(FileName, FileMode.Open))
             {
                 BinaryFormatter f = new BinaryFormatter();
                 return (T[])f.Deserialize(s);
@@ -49,17 +45,12 @@ namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 
         public override void Save(T[] Array)
         {
-            throw new NotImplementedException();
-        }
-
-        private Stream GenerateStreamFromString(string s)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-            writer.Write(s);
-            writer.Flush();
-            stream.Position = 0;
-            return stream;
+            using (Stream s = new FileStream(FileName, FileMode.Create))
+            {
+                BinaryFormatter f = new BinaryFormatter();
+                
+                f.Serialize(s, Array);
+            }
         }
     }
 }

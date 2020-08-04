@@ -51,7 +51,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
         {
             GameToProfileConverter converter = GameToProfileConverter.Singleton;
             ContentSerializer<Game> gameListSerializer
-                = new XmlStringSerializer<Game>(converter.ConvertAndWriteToString(
+                = new XmlStringContentSerializer<Game>(converter.ConvertAndWriteToString(
                     oldGameListFilename));
 
             return gameListSerializer.Load();

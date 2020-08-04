@@ -97,9 +97,9 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         private void WriteGamesFromBothFiles()
         {
-            XmlFileSerializer<Game> gameListSerializer
-                = new XmlFileSerializer<Game>(DataManagers.GameListFilename);
-            List<Game> games = gameListSerializer.Load().ToList();
+            XmlFileContentSerializer<Game> gameListContentSerializer
+                = new XmlFileContentSerializer<Game>(DataManagers.GameListFilename);
+            List<Game> games = gameListContentSerializer.Load().ToList();
 
             foreach (Game game in GameCache.CachedGames)
             {
@@ -107,7 +107,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 games.Add(game);
             }
 
-            gameListSerializer.Save(games.ToArray());
+            gameListContentSerializer.Save(games.ToArray());
         }
 
         private void WriteDocument()
