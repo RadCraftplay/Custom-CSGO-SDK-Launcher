@@ -98,7 +98,7 @@
     <Compile Include="Managers\Serializers\ISerializer.cs" />
     <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
     <Compile Include="Managers\Async\AsyncManager.cs" />
-    <Compile Include="Managers\ContentSerializer.cs" />
+    <Compile Include="Managers\ContentSerializers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\DataManagers.cs" />
     <Compile Include="Managers\ContentSerializers\BinaryFileContentSerializer.cs" />
