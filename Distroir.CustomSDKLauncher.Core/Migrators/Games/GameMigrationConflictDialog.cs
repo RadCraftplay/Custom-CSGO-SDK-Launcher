@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using System;
 using System.Linq;
 using System.IO;
@@ -26,6 +25,7 @@ using System.Xml;
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Shared.Core;
 using System.Collections.Generic;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 using Distroir.CustomSDKLauncher.Shared.UI;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
@@ -77,10 +77,10 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 
         private void LoadGames()
         {
-            XmlFileSerializer<Game> gameListSerializer
-                = new XmlFileSerializer<Game>(DataManagers.GameListFilename);
+            XmlFileContentSerializer<Game> gameListContentSerializer
+                = new XmlFileContentSerializer<Game>(DataManagers.GameListFilename);
 
-            LoadListOfGamesIntoListView(gameListSerializer, gamesListView);
+            LoadListOfGamesIntoListView(gameListContentSerializer, gamesListView);
         }
 
         void LoadListOfGamesIntoListView(ContentSerializer<Game> serializer, ListView listView)

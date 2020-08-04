@@ -15,33 +15,28 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.IO;
-using System.Xml.Serialization;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
+namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
-    public class XmlStringSerializer<T> : ISerializer<T>
+    public class AsyncLock
     {
-        private readonly string _toDeserialize;
-
-        public XmlStringSerializer(string toDeserialize)
-        {
-            _toDeserialize = toDeserialize;
-        }
+        private readonly SemaphoreSlim _semaphore;
         
-        public void Serialize(T toSerialize)
+        public AsyncLock()
         {
-            throw new NotImplementedException();
+            _semaphore = new SemaphoreSlim(1, 1);
         }
 
-        public T Deserialize()
+        public async Task Lock()
         {
-            using (TextReader reader = new StringReader(_toDeserialize))
-            {
-                var serializer = new XmlSerializer(typeof(T));
-                return (T)serializer.Deserialize(reader);
-            }
+            await _semaphore.WaitAsync();
+        }
+
+        public void Unlock()
+        {
+            _semaphore.Release();
         }
     }
 }

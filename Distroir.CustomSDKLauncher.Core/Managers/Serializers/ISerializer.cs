@@ -15,33 +15,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.IO;
-using System.Xml.Serialization;
-
 namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
 {
-    public class XmlStringSerializer<T> : ISerializer<T>
+    public interface ISerializer<T>
     {
-        private readonly string _toDeserialize;
-
-        public XmlStringSerializer(string toDeserialize)
-        {
-            _toDeserialize = toDeserialize;
-        }
-        
-        public void Serialize(T toSerialize)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T Deserialize()
-        {
-            using (TextReader reader = new StringReader(_toDeserialize))
-            {
-                var serializer = new XmlSerializer(typeof(T));
-                return (T)serializer.Deserialize(reader);
-            }
-        }
+        void Serialize(T toSerialize);
+        T Deserialize();
     }
 }

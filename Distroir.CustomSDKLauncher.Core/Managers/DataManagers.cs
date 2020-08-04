@@ -22,6 +22,8 @@ using System.Linq;
 using System.Text;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
+using Distroir.CustomSDKLauncher.Core.Managers.Async;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Shared.Core;
 
@@ -41,32 +43,34 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// <summary>
         /// Game manager
         /// </summary>
-        public static Manager<Game> GameManager = new Manager<Game>(new XmlFileSerializer<Game>(GameListFilename));
+        public static Manager<Game> GameManager = new Manager<Game>(new XmlFileContentSerializer<Game>(GameListFilename));
 
         /// <summary>
         /// Template manager
         /// </summary>
-        public static Manager<Template> TemplateManager = new Manager<Template>(new XmlStringSerializer<Template>(Data.TemplatesXML));
+        public static Manager<Template> TemplateManager = new Manager<Template>(new XmlStringContentSerializer<Template>(Data.TemplatesXML));
 
         /// <summary>
         /// Tutorial serializer
         /// </summary>
-        public static Manager<Tutorial> TutorialManager = new Manager<Tutorial>(new XmlStringSerializer<Tutorial>(Data.TutorialsXML));
+        public static AsyncManager<Tutorial[]> TutorialManager =
+            new AsyncManager<Tutorial[]>(
+                new XmlStringSerializer<Tutorial[]>(Data.TutorialsXML));
 
 
         /// <summary>
         /// App serializer
         /// </summary>
-        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileSerializer<AppInfo>(AppListFilename));
+        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileContentSerializer<AppInfo>(AppListFilename));
 
-        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringSerializer<HelpTopic>(Data.HelpTopicsXML));
+        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringContentSerializer<HelpTopic>(Data.HelpTopicsXML));
 
         //TODO: Remove commented out code
         /*
         /// <summary>
         /// Content serializer
         /// </summary>
-        public static Manager<ContentGroup> ContentManager = new Manager<ContentGroup>(new XmlFileSerializer<ContentGroup>(@"C:\users\x\desktop\contents.xml"));
+        public static Manager<ContentGroup> ContentManager = new Manager<ContentGroup>(new XmlFileContentSerializer<ContentGroup>(@"C:\users\x\desktop\contents.xml"));
         */
     }
 }

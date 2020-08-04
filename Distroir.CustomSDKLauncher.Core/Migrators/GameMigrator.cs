@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Core.Migrators.Games;
 using System;
 using System.Collections.Generic;
@@ -26,6 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators
 {
@@ -97,9 +97,9 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
 
         private void WriteGamesFromBothFiles()
         {
-            XmlFileSerializer<Game> gameListSerializer
-                = new XmlFileSerializer<Game>(DataManagers.GameListFilename);
-            List<Game> games = gameListSerializer.Load().ToList();
+            XmlFileContentSerializer<Game> gameListContentSerializer
+                = new XmlFileContentSerializer<Game>(DataManagers.GameListFilename);
+            List<Game> games = gameListContentSerializer.Load().ToList();
 
             foreach (Game game in GameCache.CachedGames)
             {
@@ -107,7 +107,7 @@ namespace Distroir.CustomSDKLauncher.Core.Migrators
                 games.Add(game);
             }
 
-            gameListSerializer.Save(games.ToArray());
+            gameListContentSerializer.Save(games.ToArray());
         }
 
         private void WriteDocument()
