@@ -16,7 +16,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,6 +23,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators.Games
 {

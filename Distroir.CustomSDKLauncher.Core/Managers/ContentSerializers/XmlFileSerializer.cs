@@ -15,14 +15,11 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using System;
-using System.Collections.Generic;
+
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
+namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 {
     public class XmlFileSerializer<T> : ContentSerializer<T>
     {

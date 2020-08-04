@@ -23,7 +23,7 @@ using System.Text;
 using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Managers.Async;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 using Distroir.CustomSDKLauncher.Shared.Core;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers

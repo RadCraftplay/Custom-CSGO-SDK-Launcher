@@ -101,10 +101,10 @@
     <Compile Include="Managers\ContentSerializer.cs" />
     <Compile Include="Managers\Manager.cs" />
     <Compile Include="Managers\DataManagers.cs" />
-    <Compile Include="Managers\Serializers\BinaryFileSerializer.cs" />
-    <Compile Include="Managers\Serializers\BinaryStringSerializer.cs" />
-    <Compile Include="Managers\Serializers\XmlFileSerializer.cs" />
-    <Compile Include="Managers\Serializers\XmlStringSerializer.cs" />
+    <Compile Include="Managers\ContentSerializers\BinaryFileSerializer.cs" />
+    <Compile Include="Managers\ContentSerializers\BinaryStringSerializer.cs" />
+    <Compile Include="Managers\ContentSerializers\XmlFileSerializer.cs" />
+    <Compile Include="Managers\ContentSerializers\XmlStringSerializer.cs" />
     <Compile Include="Migrators\GameMigrator.cs" />
     <Compile Include="Migrators\Games\GameMigrationConflictDialog.cs">
       <SubType>Form</SubType>

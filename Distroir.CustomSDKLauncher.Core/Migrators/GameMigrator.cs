@@ -17,7 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 using Distroir.Configuration;
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Core.Migrators.Games;
 using System;
 using System.Collections.Generic;
@@ -26,6 +25,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 
 namespace Distroir.CustomSDKLauncher.Core.Migrators
 {

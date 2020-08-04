@@ -18,7 +18,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using Distroir.CustomSDKLauncher.Core;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
