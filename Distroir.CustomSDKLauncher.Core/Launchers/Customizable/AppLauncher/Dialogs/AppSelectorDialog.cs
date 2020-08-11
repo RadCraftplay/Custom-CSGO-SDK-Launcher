@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs
@@ -26,6 +27,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dia
     public partial class AppSelectorDialog : Form
     {
         public AppTemplate SelectedAppTemplate { get; private set; }
+        public IAppInfoFactory SelectedAppFactory { get; private set; }
         private List<AppTemplate> _templates;
 
         public AppSelectorDialog()
