@@ -1,5 +1,7 @@
 using System;
 using System.Drawing;
+using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories
 {
@@ -12,9 +14,9 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Icon = icon ?? throw new ArgumentNullException(nameof(icon));
         }
 
-        public int AppId { get; }
-        public string Name { get; }
-        public Image Icon { get; }
+        public int AppId { get; private set; }
+        public string Name { get; private set; }
+        public Image Icon { get; private set; }
         
         public AppInfo GetInfo()
         {
@@ -26,6 +28,21 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
                 DisplayText = Name,
                 Icon = Icon
             };
+        }
+
+        public bool Configure()
+        {
+            var dialog = new SteamAppConfigurationDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                AppId = dialog.AppId == null ? Convert.ToInt32(dialog.AppId) : -1;
+                Name = dialog.AppName;
+                Icon = dialog.Icon.ToBitmap();
+                return true;
+            }
+
+            return false;
         }
     }
 }
