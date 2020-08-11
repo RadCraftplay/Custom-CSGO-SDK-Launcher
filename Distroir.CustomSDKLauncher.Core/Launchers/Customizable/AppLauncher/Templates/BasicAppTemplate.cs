@@ -56,7 +56,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return false;
 
-            Application = dialog.SelectedApplication;
+            Application = (SDKApplication)(int)dialog.SelectedApplication;
 
             return true;
         }

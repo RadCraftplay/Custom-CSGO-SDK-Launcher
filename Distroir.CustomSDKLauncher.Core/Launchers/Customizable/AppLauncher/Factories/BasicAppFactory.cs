@@ -1,6 +1,8 @@
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Basic;
+using Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories
 {
@@ -11,7 +13,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Application = application;
         }
 
-        public SdkApplication Application { get; }
+        public SdkApplication Application { get; private set; }
         
         public AppInfo GetInfo()
         {
@@ -79,6 +81,19 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
                 default:
                     return Path.Combine("{GameBinDir}", "hammer.exe");
             }
+        }
+
+        public bool Configure()
+        {
+            var dialog = new BasicAppConfigurationDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                Application = dialog.SelectedApplication;
+                return true;
+            }
+
+            return false;
         }
     }
 }
