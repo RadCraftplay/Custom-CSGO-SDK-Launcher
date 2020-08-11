@@ -27,7 +27,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
     public partial class CustomAppConfigurationDialog : Form
     {
-        public AppInfo info = null;
+        public AppInfo Info = null;
 
         public CustomAppConfigurationDialog()
         {
@@ -74,7 +74,7 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 i.UseCustomWorkingDirectory = true;
             }
 
-            info = i;
+            Info = i;
 
             //Everything is ok - close dialog
             DialogResult = DialogResult.OK;

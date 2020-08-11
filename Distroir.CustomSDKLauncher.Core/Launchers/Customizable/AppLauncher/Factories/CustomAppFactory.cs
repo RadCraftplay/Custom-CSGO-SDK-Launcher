@@ -23,7 +23,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                Info = dialog.info;
+                Info = dialog.Info;
                 return true;
             }
 

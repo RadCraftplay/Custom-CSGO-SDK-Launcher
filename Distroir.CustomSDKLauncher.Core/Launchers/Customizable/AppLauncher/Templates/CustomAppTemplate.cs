@@ -49,9 +49,9 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             var d = new CustomAppConfigurationDialog();
             if (d.ShowDialog() == DialogResult.OK)
             {
-                if (d.info != null)
+                if (d.Info != null)
                 {
-                    _info = d.info;
+                    _info = d.Info;
                     return true;
                 }
             }
