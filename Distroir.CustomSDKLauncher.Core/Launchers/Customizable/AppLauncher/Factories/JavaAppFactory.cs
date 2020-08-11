@@ -1,4 +1,6 @@
 using System;
+using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Java;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories
@@ -10,7 +12,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Application = application ?? throw new ArgumentNullException(nameof(application));
         }
         
-        public JavaApplication Application { get; }
+        public JavaApplication Application { get; private set; }
         
         public AppInfo GetInfo()
         {
@@ -22,6 +24,19 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
                 UseCustomArguments = true,
                 Arguments = $"-jar {'"'}{Application.JarFilePath}{'"'}"
             };
+        }
+
+        public bool Configure()
+        {
+            var dialog = new JavaAppConfigurationDialog();
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                Application = new JavaApplication(dialog.Info);
+                return true;
+            }
+
+            return false;
         }
     }
 }
