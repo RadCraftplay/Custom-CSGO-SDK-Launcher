@@ -12,7 +12,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Application = application ?? throw new ArgumentNullException(nameof(application));
         }
         
-        public JavaApplication Application { get; private set; }
+        public JavaApplication Application { get; }
         
         public AppInfo GetInfo()
         {
@@ -26,17 +26,10 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             };
         }
 
-        public bool Configure()
+        public IAppInfoFactory Configure()
         {
             var dialog = new JavaAppConfigurationDialog();
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                Application = new JavaApplication(dialog.Info);
-                return true;
-            }
-
-            return false;
+            return dialog.ShowDialog() == DialogResult.OK ? new JavaAppFactory(new JavaApplication(dialog.Info)) : this;
         }
     }
 }

@@ -280,21 +280,21 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
                 }
                 else
                 {
-                    var tuple = waysToConfigure[0];
+                    var configurator = waysToConfigure[0];
                     
-                    if (tuple.Item2.Invoke())
-                        UpdateButton(app, button);
+                    var configuredApp = configurator.Action.Invoke(app);
+                    UpdateButton(configuredApp, button);
                 }
             }
         }
 
         private void AddMenuItems(ContextMenu menu, IConfigurableApp app, Button associatedButton)
         {
-            foreach (var tuple in app.GetWaysToConfigure())
-                menu.MenuItems.Add(tuple.Item1, (sender, args) =>
+            foreach (var configurator in app.GetWaysToConfigure())
+                menu.MenuItems.Add(configurator.DisplayText, (sender, args) =>
                 {
-                    if (tuple.Item2.Invoke())
-                        UpdateButton(app, associatedButton);
+                    var configuredApp = configurator.Action.Invoke(app);
+                    UpdateButton(configuredApp, associatedButton);
                 });
         }
 

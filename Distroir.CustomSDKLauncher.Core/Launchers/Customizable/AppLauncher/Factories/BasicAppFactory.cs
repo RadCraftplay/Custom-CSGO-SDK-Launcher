@@ -13,7 +13,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Application = application;
         }
 
-        public SdkApplication Application { get; private set; }
+        public SdkApplication Application { get; }
         
         public AppInfo GetInfo()
         {
@@ -83,17 +83,10 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             }
         }
 
-        public bool Configure()
+        public IAppInfoFactory Configure()
         {
             var dialog = new BasicAppConfigurationDialog();
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                Application = dialog.SelectedApplication;
-                return true;
-            }
-
-            return false;
+            return dialog.ShowDialog() == DialogResult.OK ? new BasicAppFactory(dialog.SelectedApplication) : this;
         }
     }
 }

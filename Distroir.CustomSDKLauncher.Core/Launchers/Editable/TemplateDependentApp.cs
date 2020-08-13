@@ -16,25 +16,28 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Editable
             Template.Info.Launch();
         }
 
-        public List<Tuple<string, Func<bool>>> GetWaysToConfigure()
+        public List<AppConfigurator> GetWaysToConfigure()
         {
-            return new List<Tuple<string, Func<bool>>>()
+            return new List<AppConfigurator>()
             {
-                new Tuple<string, Func<bool>>("Edit", Template.Configure),
-                new Tuple<string, Func<bool>>("Change type of an action", ChangeTypeOfAnAction)
+                new AppConfigurator("Edit", (app) =>
+                {
+                    Template.Configure();
+                    return this;
+                }),
+                new AppConfigurator("Change type of an action", Configure)
             };
         }
 
-        private bool ChangeTypeOfAnAction()
+        private IApp Configure(IApp app)
         {
+            if (!(app is ProducibleApp application))
+                return this;
+            
             var dialog = new AppSelectorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                Template = dialog.SelectedAppTemplate;
-                return true;
-            }
-
-            return false;
+            return dialog.ShowDialog() == DialogResult.OK
+                ? new TemplateDependentApp() {Template = dialog.SelectedAppTemplate}
+                : this;
         }
     }
 }

@@ -21,6 +21,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
 {
@@ -40,24 +41,18 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
             Info.Launch();
         }
 
-        public List<Tuple<string, Func<bool>>> GetWaysToConfigure()
+        public List<AppConfigurator> GetWaysToConfigure()
         {
-            return new List<Tuple<string, Func<bool>>>()
+            return new List<AppConfigurator>()
             {
-                new Tuple<string, Func<bool>>("Change an action", Configure)
+                new AppConfigurator("Change an action", Configure)
             };
         }
 
-        private bool Configure()
+        private IApp Configure(IApp app)
         {
             var dialog = new AppSelectorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                Info = dialog.SelectedAppTemplate.Info;
-                return true;
-            }
-
-            return false;
+            return dialog.ShowDialog() == DialogResult.OK ? new CustomizableApp(dialog.SelectedAppTemplate.Info) : this;
         }
     }
 }

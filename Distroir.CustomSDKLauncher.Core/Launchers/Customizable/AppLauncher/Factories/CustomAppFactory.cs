@@ -10,24 +10,18 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Info = info;
         }
 
-        public AppInfo Info { get; private set; }
+        public AppInfo Info { get; }
 
         public AppInfo GetInfo()
         {
             return Info;
         }
 
-        public bool Configure()
+        public IAppInfoFactory Configure()
         {
             var dialog = new CustomAppConfigurationDialog();
 
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                Info = dialog.Info;
-                return true;
-            }
-
-            return false;
+            return dialog.ShowDialog() == DialogResult.OK ? new CustomAppFactory(dialog.Info) : this;
         }
     }
 }

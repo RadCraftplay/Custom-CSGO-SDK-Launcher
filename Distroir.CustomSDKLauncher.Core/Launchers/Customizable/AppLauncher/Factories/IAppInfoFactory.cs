@@ -3,6 +3,6 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
     public interface IAppInfoFactory
     {
         AppInfo GetInfo();
-        bool Configure();
+        IAppInfoFactory Configure();
     }
 }
