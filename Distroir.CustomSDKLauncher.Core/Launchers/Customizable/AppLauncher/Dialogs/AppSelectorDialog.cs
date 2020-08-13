@@ -26,7 +26,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dia
 {
     public partial class AppSelectorDialog : Form
     {
-        public AppTemplate SelectedAppTemplate { get; private set; }
+        public AppInfo SelectedAppInfo { get; private set; }
         public IAppInfoFactory SelectedAppFactory { get; private set; }
         private List<AppTemplate> _templates;
 
@@ -83,7 +83,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dia
                     if (!template.Configure())
                         return;
 
-                SelectedAppTemplate = template;
+                SelectedAppInfo = template.Info;
                 DialogResult = DialogResult.OK;
                 Close();
             }

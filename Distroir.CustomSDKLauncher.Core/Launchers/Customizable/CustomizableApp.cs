@@ -52,7 +52,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable
         private IApp Configure(IApp app)
         {
             var dialog = new AppSelectorDialog();
-            return dialog.ShowDialog() == DialogResult.OK ? new CustomizableApp(dialog.SelectedAppTemplate.Info) : this;
+            return dialog.ShowDialog() == DialogResult.OK ? new CustomizableApp(dialog.SelectedAppInfo) : this;
         }
     }
 }
