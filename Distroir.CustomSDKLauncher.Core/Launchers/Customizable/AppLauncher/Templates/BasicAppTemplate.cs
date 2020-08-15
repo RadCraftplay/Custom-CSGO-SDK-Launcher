@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Drawing;
 using System.IO;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Basic;
 using Distroir.CustomSDKLauncher.UI.Dialogs.AppLauncher;
 using Newtonsoft.Json;
 
@@ -52,7 +53,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
 
         public override bool Configure()
         {
-            var dialog = new BasicAppConfigurationDialog(Application);
+            var dialog = new BasicAppConfigurationDialog((SdkApplication)(int)Application);
             if (dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return false;
 
