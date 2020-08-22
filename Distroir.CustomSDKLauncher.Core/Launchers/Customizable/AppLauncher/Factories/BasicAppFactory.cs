@@ -13,6 +13,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Application = application;
         }
 
+        public static BasicAppFactory Default => new BasicAppFactory(SdkApplication.Hammer);
+        
         public SdkApplication Application { get; }
         
         public AppInfo GetInfo()
