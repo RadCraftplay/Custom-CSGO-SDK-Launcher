@@ -9,8 +9,10 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
     {
         public JavaAppFactory(JavaApplication application)
         {
-            Application = application ?? throw new ArgumentNullException(nameof(application));
+            Application = application;
         }
+        
+        public static JavaAppFactory Default => new JavaAppFactory(null);
         
         public JavaApplication Application { get; }
         
