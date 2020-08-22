@@ -10,6 +10,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Info = info;
         }
 
+        public static CustomAppFactory Default => new CustomAppFactory(null);
+        
         public AppInfo Info { get; }
 
         public AppInfo GetInfo()
