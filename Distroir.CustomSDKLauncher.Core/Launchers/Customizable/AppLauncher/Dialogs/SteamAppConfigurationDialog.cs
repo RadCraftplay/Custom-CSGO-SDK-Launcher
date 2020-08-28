@@ -66,6 +66,13 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             InitializeComponent();
         }
 
+        public SteamAppConfigurationDialog(int appId, string name, Image icon)
+        {
+            AppId = appId;
+            AppName = name;
+            AppIcon = icon;
+        }
+
         private void idInfoLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Utils.TryLaunch("https://steamdb.info/apps/");
