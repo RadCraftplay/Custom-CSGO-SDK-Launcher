@@ -14,7 +14,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Icon = icon ?? throw new ArgumentNullException(nameof(icon));
         }
         
-        public static SteamAppFactory Default => new SteamAppFactory(-1, string.Empty, Data.DefaultIcon);
+        public static SteamAppFactory Default => new SteamAppFactory(-1, "Steam Application", Data.DefaultIcon);
 
         public int AppId { get;}
         public string Name { get; }
