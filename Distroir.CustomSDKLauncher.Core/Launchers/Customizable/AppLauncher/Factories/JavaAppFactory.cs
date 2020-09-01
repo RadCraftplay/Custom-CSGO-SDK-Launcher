@@ -12,7 +12,11 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             Application = application;
         }
         
-        public static JavaAppFactory Default => new JavaAppFactory(null);
+        public static JavaAppFactory Default => new JavaAppFactory(new JavaApplication(
+            "Java Application", 
+            String.Empty, 
+            String.Empty, 
+            Data.DefaultIcon));
         
         public JavaApplication Application { get; }
         
