@@ -68,6 +68,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         public SteamAppConfigurationDialog(int appId, string name, Image icon)
         {
+            InitializeComponent();
+            
             AppId = appId;
             AppName = name;
             AppIcon = icon;
