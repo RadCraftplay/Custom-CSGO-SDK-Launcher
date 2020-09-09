@@ -20,6 +20,7 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         {
             Serializer = serializer;
             Converter = converter;
+            Objects = new List<Y>();
         }
         
         public void Load()
