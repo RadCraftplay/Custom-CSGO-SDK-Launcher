@@ -20,70 +20,62 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
-using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dialogs
 {
     public partial class AppSelectorDialog : Form
     {
-        public AppInfo SelectedAppInfo { get; private set; }
+        public AppInfo SelectedAppInfo => SelectedAppFactory.GetInfo();
         public IAppInfoFactory SelectedAppFactory { get; private set; }
-        private List<AppTemplate> _templates;
 
         public AppSelectorDialog()
         {
             InitializeComponent();
-            LoadAppTemplates();
+            SetupList(appListView);
         }
 
-        void LoadAppTemplates()
+        private void SetupList(ListView view)
         {
-            _templates = new List<AppTemplate>();
-            _templates.Add(new BasicAppTemplate());
-            _templates.Add(new CustomAppTemplate());
-            _templates.Add(new JavaAppTemplate());
-            _templates.Add(new SteamAppTemplate());
+            var factories = GetFactories();
+            var imageList = new ImageList();
 
-            appListView.SmallImageList =  GetTemplateImages();
-            //appListView.StateImageList = GetTemplateImages();
-            AddTemplatesToList();
-        }
-
-        ImageList GetTemplateImages()
-        {
-            ImageList l = new ImageList();
-
-            foreach (AppTemplate t in _templates)
-                l.Images.Add(t.Info.Icon);
-
-            return l;
-        }
-
-        void AddTemplatesToList()
-        {
-            for (int i = 0; i < _templates.Count; i++)
+            for (int i = 0; i < factories.Count; i++)
             {
-                AppTemplate t = _templates[i];
+                var factory = factories[i];
+                var info = factory.GetInfo();
 
-                appListView.Items.Add(new ListViewItem(t.Info.DisplayText)
+                var item = new ListViewItem(info.DisplayText)
                 {
-                    Tag = t,
-                    ImageIndex = i,
-                });
+                    Tag = factory,
+                    ImageIndex = i
+                };
+
+                imageList.Images.Add(info.Icon);
+                view.Items.Add(item);
             }
+
+            view.SmallImageList = imageList;
+        }
+
+        private List<IAppInfoFactory> GetFactories()
+        {
+            return new List<IAppInfoFactory>
+            {
+                BasicAppFactory.Default,
+                CustomAppFactory.Default,
+                JavaAppFactory.Default,
+                SteamAppFactory.Default
+            };
         }
 
         private void selectButton_Click(object sender, EventArgs e)
         {
             if (appListView.SelectedItems.Count > 0)
             {
-                AppTemplate template = (AppTemplate)appListView.SelectedItems[0].Tag;
-
-                if (template.CanConfigure)
-                    if (!template.Configure())
-                        return;
-
-                SelectedAppInfo = template.Info;
+                var factory = (IAppInfoFactory)appListView.SelectedItems[0].Tag;
+                factory = factory.Configure();
+                SelectedAppFactory = factory;
+                
                 DialogResult = DialogResult.OK;
                 Close();
             }

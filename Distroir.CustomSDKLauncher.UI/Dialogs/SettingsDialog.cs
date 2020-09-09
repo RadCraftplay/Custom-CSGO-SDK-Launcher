@@ -112,6 +112,20 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         void SaveSettings()
         {
+            var item = launchersComboBox.SelectedItem as ComboBoxItem;
+            var launcher = item?.Tag as Launcher;
+
+            if (launcher is CustomizableLauncher)
+            {
+                DataManagers.AppManager.Objects = GetUpdatedAppList().Cast<CustomizableApp>().ToList();
+                DataManagers.AppManager.Save();
+            }
+            else if (launcher is EditableLauncher)
+            {
+                DataManagers.CustomizableApplicationInfo.Objects = GetUpdatedAppList().Cast<ProducibleApp>().ToList();
+                DataManagers.CustomizableApplicationInfo.Save();
+            }
+
             Config.AddVariable("SelectedProfileId", gameListComboBox.SelectedIndex);
             Config.AddVariable("DisplayCurrentProfileName", BoolToInt(displayCurrentlySelectedGameCheckBox.Checked));
             Config.AddVariable("LoadDataAtStartup", BoolToInt(preLoadDataCheckBox.Checked));

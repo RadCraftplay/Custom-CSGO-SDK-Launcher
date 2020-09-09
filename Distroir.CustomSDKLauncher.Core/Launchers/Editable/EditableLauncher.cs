@@ -12,14 +12,16 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Editable
         {
             get
             {
-                if (DataManagers.CustomizableApplicationInfo.Objects?.Count == 0 ||
-                    !DataManagers.CustomizableApplicationInfo.TryLoad())
+                if (DataManagers.CustomizableApplicationInfo.Objects?.Count == 0)
                 {
-                    DataManagers.CustomizableApplicationInfo.Objects = GetStandardApps();
-                    DataManagers.CustomizableApplicationInfo.Save();
+                    if (!DataManagers.CustomizableApplicationInfo.TryLoad())
+                    {
+                        DataManagers.CustomizableApplicationInfo.Objects = GetStandardApps();
+                        DataManagers.CustomizableApplicationInfo.Save();
+                    }
                 }
 
-                return DataManagers.CustomizableApplicationInfo.Objects
+                return DataManagers.CustomizableApplicationInfo.Objects?
                     .Select(x => x as IApp).ToList();
             }
         }
