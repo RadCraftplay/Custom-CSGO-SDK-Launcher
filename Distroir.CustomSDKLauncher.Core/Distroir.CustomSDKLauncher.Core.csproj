@@ -163,6 +163,7 @@
     <Compile Include="Utilities\MessageBoxes.cs" />
     <Compile Include="Utilities\RegistryUtils.cs" />
     <Compile Include="Utilities\Checker\ToolValidator.cs" />
+    <Compile Include="Utilities\SerializableImage.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
