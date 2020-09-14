@@ -24,14 +24,20 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Editable
         {
             return new List<AppConfigurator>()
             {
-                new AppConfigurator("Edit...", (app) => new ProducibleApp(Factory.Configure())),
+                new AppConfigurator("Edit...", EditApp),
                 new AppConfigurator("Change type of an action...", Configure)
             };
+        }
+
+        private IApp EditApp(IApp app)
+        {
+            var factory = Factory.Configure();
+            return factory == null ? this : new ProducibleApp(factory);
         }
         
         private IApp Configure(IApp app)
         {
-            if (!(app is ProducibleApp application))
+            if (!(app is ProducibleApp))
                 return this;
             
             var dialog = new AppSelectorDialog();

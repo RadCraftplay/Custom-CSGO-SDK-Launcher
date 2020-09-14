@@ -74,6 +74,10 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Dia
             {
                 var factory = (IAppInfoFactory)appListView.SelectedItems[0].Tag;
                 factory = factory.Configure();
+                
+                if (factory == null)
+                    return;
+
                 SelectedAppFactory = factory;
                 
                 DialogResult = DialogResult.OK;

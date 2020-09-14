@@ -35,7 +35,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
         public IAppInfoFactory Configure()
         {
             var dialog = new JavaAppConfigurationDialog(Application);
-            return dialog.ShowDialog() == DialogResult.OK ? new JavaAppFactory(dialog.Application) : this;
+            return dialog.ShowDialog() == DialogResult.OK ? new JavaAppFactory(dialog.Application) : null;
         }
     }
 }

@@ -88,7 +88,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
         public IAppInfoFactory Configure()
         {
             var dialog = new BasicAppConfigurationDialog(Application);
-            return dialog.ShowDialog() == DialogResult.OK ? new BasicAppFactory(dialog.SelectedApplication) : this;
+            return dialog.ShowDialog() == DialogResult.OK ? new BasicAppFactory(dialog.SelectedApplication) : null;
         }
     }
 }

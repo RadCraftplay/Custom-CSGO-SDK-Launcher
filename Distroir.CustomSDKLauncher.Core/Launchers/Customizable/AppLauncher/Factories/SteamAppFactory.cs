@@ -47,7 +47,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             var dialog = new SteamAppConfigurationDialog(AppId, Name, Icon.Image);
             return dialog.ShowDialog() == DialogResult.OK
                 ? new SteamAppFactory(Convert.ToInt32(dialog.AppId), dialog.AppName, dialog.AppIcon)
-                : this;
+                : null;
         }
     }
 }
