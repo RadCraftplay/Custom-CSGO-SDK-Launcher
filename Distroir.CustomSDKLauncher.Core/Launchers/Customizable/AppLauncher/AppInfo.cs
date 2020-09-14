@@ -24,6 +24,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Xml.Serialization;
 using Distroir.CustomSDKLauncher.Core.Utilities;
+using Newtonsoft.Json;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
 {
@@ -59,6 +60,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher
         /// Icon displayed on button
         /// </summary>
         [XmlIgnore]
+        [JsonIgnore]
         public Image Icon
         {
             get

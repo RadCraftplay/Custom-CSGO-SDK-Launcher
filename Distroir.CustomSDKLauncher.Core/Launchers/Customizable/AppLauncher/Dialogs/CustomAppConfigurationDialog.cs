@@ -34,6 +34,20 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
             InitializeComponent();
         }
 
+        public CustomAppConfigurationDialog(AppInfo info)
+        {
+            Info = info;
+            InitializeComponent();
+
+            nameTextBox.Text = info.DisplayText;
+            pathTextBox.Text = info.Path;
+            argumentsCheckBox.Checked = info.UseCustomArguments;
+            argumentsTextBox.Text = info.Arguments;
+            customWorkingDirectoryCheckBox.Checked = info.UseCustomWorkingDirectory;
+            customWorkingDirectoryTextBox.Text = info.CustomWorkingDirectory;
+            iconSelector.Icon = info.Icon;
+        }
+
         #region Events
 
         private void cancelButton_Click(object sender, EventArgs e)
