@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
 using Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
 using Newtonsoft.Json;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates
@@ -48,7 +49,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Tem
             var v = new JavaAppConfigurationDialog();
             if (v.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _info = v.Info;
+                _info = new JavaAppFactory(v.Application).GetInfo();
                 return true;
             }
 

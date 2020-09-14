@@ -18,20 +18,37 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.IO;
 using System.Windows.Forms;
-using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories.Java;
 using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates.Java.PathFinders;
 
 namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 {
     public partial class JavaAppConfigurationDialog : Form
     {
-        public AppInfo Info { get; private set; }
+        public JavaApplication Application { get; private set; }
 
         public JavaAppConfigurationDialog()
         {
             InitializeComponent();
             TagRadioButtons();
             SetDefaultIcon();
+        }
+
+        public JavaAppConfigurationDialog(JavaApplication application)
+        {
+            Application = application;
+            
+            InitializeComponent();
+            TagRadioButtons();
+            SetDefaultIcon();
+
+            appNameTextBox.Text = application.Name;
+            jarFilePathTextBox.Text = application.JarFilePath;
+            customPathRadioButton.Checked = true;
+            customPathTextBox.Text = application.JavaExecutablePath;
+            customPathTextBox.Enabled = true;
+            selectJavaExePathButton.Enabled = true;
+            iconSelector.Icon = application.Icon.Image;
         }
 
         private void TagRadioButtons()
@@ -106,11 +123,8 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            Info = new AppInfo();
-            bool anyChecked = false;
-
             //Check if game name is empty
-            if (gameNameTextBox.Text == string.Empty)
+            if (appNameTextBox.Text == string.Empty)
             {
                 Utilities.MessageBoxes.Warning("Game name is empty!");
                 return;
@@ -128,50 +142,44 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
                 Utilities.MessageBoxes.Warning("Provided jar file does not exist!");
                 return;
             }
+            
+            var javaExecutablePath = GetJavaExecutablePath();
+            if (javaExecutablePath == null)
+                return;
 
-            //Try to find RadioButtons
-            foreach (Control c in javaExecutablePathGroupBox.Controls)
+            Application = new JavaApplication(
+                appNameTextBox.Text,
+                jarFilePathTextBox.Text,
+                javaExecutablePath,
+                iconSelector.Icon);
+            DialogResult = DialogResult.OK;
+            Close();
+        }
+
+        private string GetJavaExecutablePath()
+        {
+            foreach (Control control in javaExecutablePathGroupBox.Controls)
             {
-                if (c is RadioButton b)
+                if (control is RadioButton button)
                 {
-                    if (b.Checked)
+                    if (button.Checked)
                     {
-                        //At least one RadioButton is checked
-                        anyChecked = true;
-
-                        //Get finder from RadioButton
-                        IJavaPathFinder f = b.Tag as IJavaPathFinder;
-
-                        //If test of the path fails
-                        if (!f.CanGetPath())
+                        var finder = button.Tag as IJavaPathFinder;
+                        
+                        if (finder != null && !finder.CanGetPath())
                         {
                             //Throw an error
                             Utilities.MessageBoxes.Error("Unable to find java executable. Try to select other method");
                             //And return
-                            return;
+                            return null;
                         }
 
-                        Info.Path = f.Path;
+                        return finder?.Path;
                     }
                 }
             }
 
-            //If all RadioButtons are unchecked
-            if (!anyChecked)
-            {
-                //Throw error
-                Utilities.MessageBoxes.Warning("Select java executable");
-                return;
-            }
-
-            Info.Icon = iconSelector.Icon;
-            Info.DisplayText = gameNameTextBox.Text;
-            Info.UseCustomArguments = true;
-            Info.Arguments = String.Format("-jar {0}{1}{0}", '"', jarFilePathTextBox.Text);
-
-            //Close dialog
-            DialogResult = DialogResult.OK;
-            Close();
+            return null;
         }
     }
 }
