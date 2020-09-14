@@ -28,8 +28,6 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
     public class AppUtils
     {
-        private static AppTemplateToAppConverter Converter { get; }
-        
         public static void CreateApplications()
         {
             //Create app list
@@ -50,9 +48,11 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             Applications.Add(hlmv);
             Applications.Add(facePoser);
 
+            var converter = new AppTemplateToAppConverter(); 
+            
             //Save apps
             DataManagers.AppManager.Objects = Applications
-                .Select(x => Converter.Convert(x)).ToList();
+                .Select(x => converter.Convert(x)).ToList();
             DataManagers.AppManager.Save();
         }
     }
