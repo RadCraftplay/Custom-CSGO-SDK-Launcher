@@ -26,7 +26,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             {
                 DisplayText = Application.Name,
                 Icon = Application.Icon,
-                Path = Application.JarFilePath,
+                Path = Application.JavaExecutablePath,
                 UseCustomArguments = true,
                 Arguments = $"-jar {'"'}{Application.JarFilePath}{'"'}"
             };
