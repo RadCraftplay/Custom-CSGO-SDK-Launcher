@@ -41,7 +41,7 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Fac
             var regex = new Regex("-jar\\s\"(.+)\"");
             var match = regex.Match(arguments);
             
-            return match.Success ? match.Groups[0].Value : null;
+            return match.Success ? match.Groups[1].Value : null;
         }
 
         public string Name { get; }
