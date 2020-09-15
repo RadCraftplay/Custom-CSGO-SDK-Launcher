@@ -18,8 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
 using System.Drawing;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers.Json;
 using Newtonsoft.Json;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers.Json;
 using Distroir.CustomSDKLauncher.Core.Utilities;
 
 namespace Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates

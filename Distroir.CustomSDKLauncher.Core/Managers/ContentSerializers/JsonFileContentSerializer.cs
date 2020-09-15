@@ -1,14 +1,14 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers
+namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers
 {
-    public class JsonFileSerializer<T> : ContentSerializer<T>
+    public class JsonFileContentSerializer<T> : ContentSerializer<T>
     {
         private readonly string _filename;
         private readonly JsonSerializer _fileSerializer;
 
-        public JsonFileSerializer(string filename)
+        public JsonFileContentSerializer(string filename)
         {
             CanSave = true;
             _filename = filename;

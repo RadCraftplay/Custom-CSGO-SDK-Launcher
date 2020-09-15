@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
+using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {

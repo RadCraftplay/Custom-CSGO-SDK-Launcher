@@ -3,7 +3,7 @@ using System.Drawing;
 using System.IO;
 using Newtonsoft.Json;
 
-namespace Distroir.CustomSDKLauncher.Core.Managers.Serializers.Json
+namespace Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers.Json
 {
     public class JsonImageConverter : JsonConverter
     {

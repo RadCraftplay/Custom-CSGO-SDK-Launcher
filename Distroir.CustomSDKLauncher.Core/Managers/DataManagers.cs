@@ -73,15 +73,15 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// </summary>
         public static ConvertableManager<AppInfo, CustomizableApp> AppManager = 
             new ConvertableManager<AppInfo, CustomizableApp>(
-                new XmlFileSerializer<AppInfo>(AppListFilename), 
+                new XmlFileContentSerializer<AppInfo>(AppListFilename), 
                 new AppTemplateToAppConverter());
 
         public static ConvertableManager<IAppInfoFactory, ProducibleApp> CustomizableApplicationInfo =
             new ConvertableManager<IAppInfoFactory, ProducibleApp>(
-                new JsonFileSerializer<IAppInfoFactory>(CustomizableAppListFilename),
+                new JsonFileContentSerializer<IAppInfoFactory>(CustomizableAppListFilename),
                 new AppInfoFactoryToAppConverter());
         
-        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringSerializer<HelpTopic>(Data.HelpTopicsXML));
+        public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringContentSerializer<HelpTopic>(Data.HelpTopicsXML));
 
         //TODO: Remove commented out code
         /*
