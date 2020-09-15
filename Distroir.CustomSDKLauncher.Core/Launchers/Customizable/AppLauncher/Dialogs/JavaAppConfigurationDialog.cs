@@ -44,10 +44,19 @@ namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
 
             appNameTextBox.Text = application.Name;
             jarFilePathTextBox.Text = application.JarFilePath;
-            customPathRadioButton.Checked = true;
-            customPathTextBox.Text = application.JavaExecutablePath;
-            customPathTextBox.Enabled = true;
-            selectJavaExePathButton.Enabled = true;
+
+            if (!string.IsNullOrWhiteSpace(application.JavaExecutablePath))
+            {
+                customPathRadioButton.Checked = true;
+                customPathTextBox.Text = application.JavaExecutablePath;
+                customPathTextBox.Enabled = true;
+                selectJavaExePathButton.Enabled = true;
+            }
+            else
+            {
+                usePathVariableRadioButton.Checked = true;
+            }
+            
             iconSelector.Icon = application.Icon.Image;
         }
 
