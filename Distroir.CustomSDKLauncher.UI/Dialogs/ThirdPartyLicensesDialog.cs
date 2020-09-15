@@ -31,7 +31,12 @@ namespace Distroir.CustomSDKLauncher.UI.Dialogs
 
         private void AddLicenses()
         {
-            var licenses = new Dictionary<string, string> {{"Gameloop.Vdf", Resources.Licenses.Gameloop_Vdf}};
+            var licenses = new Dictionary<string, string>
+            {
+                {"Gameloop.Vdf", Resources.Licenses.Gameloop_Vdf},
+                {"Newtonsoft.Json", Resources.Licenses.Newtonsoft_Json},
+                {"System.ValueTuple", Resources.Licenses.System_ValueTuple}
+            };
             
             foreach (var pair in licenses)
             {

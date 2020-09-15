@@ -99,7 +99,7 @@ namespace Distroir.CustomSDKLauncher.UI.Resources {
         ///copies of the Software, and to permit persons to whom the Software is
         ///furnished to do so, subject to the following conditions:
         ///
-        ///The above copyr [rest of string was truncated]&quot;;.
+        ///The  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Gameloop_Vdf {
             get {
@@ -124,6 +124,41 @@ namespace Distroir.CustomSDKLauncher.UI.Resources {
         internal static string License__Only_custom_sdk_launcher_ {
             get {
                 return ResourceManager.GetString("License__Only_custom_sdk_launcher_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///
+        ///Copyright (c) 2007 James Newton-King
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        ///
+        ///The above c [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Newtonsoft_Json {
+            get {
+                return ResourceManager.GetString("Newtonsoft_Json", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///
+        ///Copyright (c) .NET Foundation and Contributors
+        ///
+        ///All rights reserved.
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to t [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string System_ValueTuple {
+            get {
+                return ResourceManager.GetString("System_ValueTuple", resourceCulture);
             }
         }
     }

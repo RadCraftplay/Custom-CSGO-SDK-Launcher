@@ -257,5 +257,11 @@
   <ItemGroup>
     <None Include="Resources\magnifier--plus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Newtonsoft_Json.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\System_ValueTuple.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
