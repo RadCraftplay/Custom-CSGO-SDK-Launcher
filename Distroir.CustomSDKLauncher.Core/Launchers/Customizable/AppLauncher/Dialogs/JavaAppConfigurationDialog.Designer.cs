@@ -1,0 +1,242 @@
+﻿namespace Distroir.CustomSDKLauncher.Core.AppLauncher.Dialogs
+{
+    partial class JavaAppConfigurationDialog
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JavaAppConfigurationDialog));
+            this.selectJarPathButton = new System.Windows.Forms.Button();
+            this.jarFilePathTextBox = new System.Windows.Forms.TextBox();
+            this.jarFileLabel = new System.Windows.Forms.Label();
+            this.javaExecutablePathGroupBox = new System.Windows.Forms.GroupBox();
+            this.selectJavaExePathButton = new System.Windows.Forms.Button();
+            this.customPathRadioButton = new System.Windows.Forms.RadioButton();
+            this.customPathTextBox = new System.Windows.Forms.TextBox();
+            this.tryToFindJavaExeRadioButton = new System.Windows.Forms.RadioButton();
+            this.usePathVariableRadioButton = new System.Windows.Forms.RadioButton();
+            this.okButton = new System.Windows.Forms.Button();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.appNameTextBox = new System.Windows.Forms.TextBox();
+            this.iconSelector = new Distroir.CustomSDKLauncher.Core.AppLauncher.Controls.IconSelector();
+            this.javaExecutablePathGroupBox.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // selectJarPathButton
+            // 
+            this.selectJarPathButton.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectJarPathButton.Location = new System.Drawing.Point(283, 60);
+            this.selectJarPathButton.Margin = new System.Windows.Forms.Padding(2);
+            this.selectJarPathButton.Name = "selectJarPathButton";
+            this.selectJarPathButton.Size = new System.Drawing.Size(22, 18);
+            this.selectJarPathButton.TabIndex = 2;
+            this.selectJarPathButton.Text = "...";
+            this.selectJarPathButton.UseVisualStyleBackColor = true;
+            this.selectJarPathButton.Click += new System.EventHandler(this.selectJarPathButton_Click);
+            // 
+            // jarFilePathTextBox
+            // 
+            this.jarFilePathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.jarFilePathTextBox.Location = new System.Drawing.Point(9, 60);
+            this.jarFilePathTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.jarFilePathTextBox.Name = "jarFilePathTextBox";
+            this.jarFilePathTextBox.Size = new System.Drawing.Size(270, 20);
+            this.jarFilePathTextBox.TabIndex = 1;
+            // 
+            // jarFileLabel
+            // 
+            this.jarFileLabel.AutoSize = true;
+            this.jarFileLabel.Location = new System.Drawing.Point(9, 44);
+            this.jarFileLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.jarFileLabel.Name = "jarFileLabel";
+            this.jarFileLabel.Size = new System.Drawing.Size(40, 13);
+            this.jarFileLabel.TabIndex = 13;
+            this.jarFileLabel.Text = "Jar file:";
+            // 
+            // javaExecutablePathGroupBox
+            // 
+            this.javaExecutablePathGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.javaExecutablePathGroupBox.Controls.Add(this.selectJavaExePathButton);
+            this.javaExecutablePathGroupBox.Controls.Add(this.customPathRadioButton);
+            this.javaExecutablePathGroupBox.Controls.Add(this.customPathTextBox);
+            this.javaExecutablePathGroupBox.Controls.Add(this.tryToFindJavaExeRadioButton);
+            this.javaExecutablePathGroupBox.Controls.Add(this.usePathVariableRadioButton);
+            this.javaExecutablePathGroupBox.Location = new System.Drawing.Point(9, 84);
+            this.javaExecutablePathGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.javaExecutablePathGroupBox.Name = "javaExecutablePathGroupBox";
+            this.javaExecutablePathGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.javaExecutablePathGroupBox.Size = new System.Drawing.Size(296, 119);
+            this.javaExecutablePathGroupBox.TabIndex = 3;
+            this.javaExecutablePathGroupBox.TabStop = false;
+            this.javaExecutablePathGroupBox.Text = "Java executable path";
+            // 
+            // selectJavaExePathButton
+            // 
+            this.selectJavaExePathButton.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectJavaExePathButton.Enabled = false;
+            this.selectJavaExePathButton.Location = new System.Drawing.Point(269, 84);
+            this.selectJavaExePathButton.Margin = new System.Windows.Forms.Padding(2);
+            this.selectJavaExePathButton.Name = "selectJavaExePathButton";
+            this.selectJavaExePathButton.Size = new System.Drawing.Size(22, 19);
+            this.selectJavaExePathButton.TabIndex = 4;
+            this.selectJavaExePathButton.Text = "...";
+            this.selectJavaExePathButton.UseVisualStyleBackColor = true;
+            this.selectJavaExePathButton.Click += new System.EventHandler(this.selectJavaExePathButton_Click);
+            // 
+            // customPathRadioButton
+            // 
+            this.customPathRadioButton.AutoSize = true;
+            this.customPathRadioButton.Location = new System.Drawing.Point(5, 63);
+            this.customPathRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.customPathRadioButton.Name = "customPathRadioButton";
+            this.customPathRadioButton.Size = new System.Drawing.Size(84, 17);
+            this.customPathRadioButton.TabIndex = 2;
+            this.customPathRadioButton.Text = "Custom path";
+            this.customPathRadioButton.UseVisualStyleBackColor = true;
+            this.customPathRadioButton.Click += new System.EventHandler(this.UpdateRadioButtons);
+            // 
+            // customPathTextBox
+            // 
+            this.customPathTextBox.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.customPathTextBox.Enabled = false;
+            this.customPathTextBox.Location = new System.Drawing.Point(4, 85);
+            this.customPathTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.customPathTextBox.Name = "customPathTextBox";
+            this.customPathTextBox.Size = new System.Drawing.Size(261, 20);
+            this.customPathTextBox.TabIndex = 3;
+            // 
+            // tryToFindJavaExeRadioButton
+            // 
+            this.tryToFindJavaExeRadioButton.AutoSize = true;
+            this.tryToFindJavaExeRadioButton.Checked = true;
+            this.tryToFindJavaExeRadioButton.Location = new System.Drawing.Point(5, 41);
+            this.tryToFindJavaExeRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.tryToFindJavaExeRadioButton.Name = "tryToFindJavaExeRadioButton";
+            this.tryToFindJavaExeRadioButton.Size = new System.Drawing.Size(200, 17);
+            this.tryToFindJavaExeRadioButton.TabIndex = 1;
+            this.tryToFindJavaExeRadioButton.TabStop = true;
+            this.tryToFindJavaExeRadioButton.Text = "Try to find java home folder in registry";
+            this.tryToFindJavaExeRadioButton.UseVisualStyleBackColor = true;
+            this.tryToFindJavaExeRadioButton.Click += new System.EventHandler(this.UpdateRadioButtons);
+            // 
+            // usePathVariableRadioButton
+            // 
+            this.usePathVariableRadioButton.AutoSize = true;
+            this.usePathVariableRadioButton.Location = new System.Drawing.Point(5, 18);
+            this.usePathVariableRadioButton.Margin = new System.Windows.Forms.Padding(2);
+            this.usePathVariableRadioButton.Name = "usePathVariableRadioButton";
+            this.usePathVariableRadioButton.Size = new System.Drawing.Size(116, 17);
+            this.usePathVariableRadioButton.TabIndex = 0;
+            this.usePathVariableRadioButton.Text = "Use PATH variable";
+            this.usePathVariableRadioButton.UseVisualStyleBackColor = true;
+            this.usePathVariableRadioButton.Click += new System.EventHandler(this.UpdateRadioButtons);
+            // 
+            // okButton
+            // 
+            this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.okButton.Location = new System.Drawing.Point(249, 265);
+            this.okButton.Margin = new System.Windows.Forms.Padding(2);
+            this.okButton.Name = "okButton";
+            this.okButton.Size = new System.Drawing.Size(56, 19);
+            this.okButton.TabIndex = 9;
+            this.okButton.Text = "OK";
+            this.okButton.UseVisualStyleBackColor = true;
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(9, 7);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(38, 13);
+            this.nameLabel.TabIndex = 16;
+            this.nameLabel.Text = "Name:";
+            // 
+            // appNameTextBox
+            // 
+            this.appNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.appNameTextBox.Location = new System.Drawing.Point(9, 24);
+            this.appNameTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.appNameTextBox.Name = "appNameTextBox";
+            this.appNameTextBox.Size = new System.Drawing.Size(297, 20);
+            this.appNameTextBox.TabIndex = 0;
+            // 
+            // iconSelector
+            // 
+            this.iconSelector.Anchor = ((System.Windows.Forms.AnchorStyles) (((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconSelector.Icon = ((System.Drawing.Image) (resources.GetObject("iconSelector.Icon")));
+            this.iconSelector.Location = new System.Drawing.Point(9, 207);
+            this.iconSelector.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.iconSelector.MaximumSize = new System.Drawing.Size(0, 42);
+            this.iconSelector.MinimumSize = new System.Drawing.Size(117, 42);
+            this.iconSelector.Name = "iconSelector";
+            this.iconSelector.Size = new System.Drawing.Size(117, 42);
+            this.iconSelector.TabIndex = 8;
+            // 
+            // JavaAppConfigurationDialog
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(314, 293);
+            this.Controls.Add(this.iconSelector);
+            this.Controls.Add(this.appNameTextBox);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.okButton);
+            this.Controls.Add(this.javaExecutablePathGroupBox);
+            this.Controls.Add(this.jarFileLabel);
+            this.Controls.Add(this.selectJarPathButton);
+            this.Controls.Add(this.jarFilePathTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "JavaAppConfigurationDialog";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Configuration";
+            this.javaExecutablePathGroupBox.ResumeLayout(false);
+            this.javaExecutablePathGroupBox.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
+
+        private System.Windows.Forms.TextBox appNameTextBox;
+
+        #endregion
+
+        private System.Windows.Forms.Button selectJarPathButton;
+        private System.Windows.Forms.TextBox jarFilePathTextBox;
+        private System.Windows.Forms.Label jarFileLabel;
+        private System.Windows.Forms.GroupBox javaExecutablePathGroupBox;
+        private System.Windows.Forms.Button selectJavaExePathButton;
+        private System.Windows.Forms.RadioButton customPathRadioButton;
+        private System.Windows.Forms.TextBox customPathTextBox;
+        private System.Windows.Forms.RadioButton tryToFindJavaExeRadioButton;
+        private System.Windows.Forms.RadioButton usePathVariableRadioButton;
+        private System.Windows.Forms.Button okButton;
+        private System.Windows.Forms.Label nameLabel;
+        private Controls.IconSelector iconSelector;
+    }
+}

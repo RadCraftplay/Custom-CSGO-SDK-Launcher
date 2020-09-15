@@ -15,14 +15,14 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.Managers;
-using Distroir.CustomSDKLauncher.Core.AppLauncher.Templates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Templates;
+using Distroir.CustomSDKLauncher.Core.Managers.Converters;
 
 namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
@@ -33,13 +33,13 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             //Create app list
             BasicAppTemplate t = new BasicAppTemplate();
 
-            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.Hammer);
+            t.Application = Launchers.Customizable.AppLauncher.Templates.SDKApplication.Hammer;
             AppInfo hammer = t.Info;
 
-            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.HLMV);
+            t.Application = Launchers.Customizable.AppLauncher.Templates.SDKApplication.HLMV;
             AppInfo hlmv = t.Info;
 
-            t.GenerateDefaultConfig(AppLauncher.Templates.SDKApplication.FacePoser);
+            t.Application = Launchers.Customizable.AppLauncher.Templates.SDKApplication.FacePoser;
             AppInfo facePoser = t.Info;
 
             //Add apps
@@ -48,49 +48,12 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             Applications.Add(hlmv);
             Applications.Add(facePoser);
 
+            var converter = new AppTemplateToAppConverter(); 
+            
             //Save apps
-            DataManagers.AppManager.Objects = Applications;
+            DataManagers.AppManager.Objects = Applications
+                .Select(x => converter.Convert(x)).ToList();
             DataManagers.AppManager.Save();
-        }
-
-        public static void UpdateButtons(Button[] buttons)
-        {
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                UpdateButton(buttons[i], i);
-            }
-        }
-
-        public static void UpdateButtons(List<AppInfo> info, Button[] buttons)
-        {
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                UpdateButton(info, buttons[i], i);
-            }
-        }
-
-        static void UpdateButton(Button b, int id)
-        {
-            AppInfo i = DataManagers.AppManager.Objects[id];
-
-            b.Text = i.DisplayText;
-            b.Image = i.Icon;
-            b.Tag = i;
-        }
-
-        static void UpdateButton(List<AppInfo> info, Button b, int id)
-        {
-            AppInfo i = info[id];
-
-            b.Text = i.DisplayText;
-            b.Image = i.Icon;
-            b.Tag = i;
-        }
-
-        public static void LaunchApp(Button sender)
-        {
-            AppInfo i = (AppInfo)sender.Tag;
-            i.Launch();
         }
     }
 }
