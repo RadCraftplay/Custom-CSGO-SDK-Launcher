@@ -92,6 +92,15 @@ namespace Distroir.Configuration
         }
 
         /// <summary>
+        /// Checks whether config contains a variable
+        /// </summary>
+        /// <param name="name">Name of the variable</param>
+        public static bool HasVariable(string name)
+        {
+            return Settings.ContainsKey(name);
+        }
+
+        /// <summary>
         /// Gets value of variable from the config
         /// </summary>
         /// <param name="name">Name of the variable</param>

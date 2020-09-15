@@ -15,7 +15,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-using Distroir.CustomSDKLauncher.Core.Launchers.Apps;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +26,8 @@ namespace Distroir.CustomSDKLauncher.Core.Launchers
     {
         public abstract List<IApp> Apps { get; }
 
+        public abstract string Name { get; }
+        
         /// <summary>
         /// Launches application with selected id
         /// </summary>

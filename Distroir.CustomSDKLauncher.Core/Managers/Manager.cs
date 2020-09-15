@@ -24,12 +24,12 @@ using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
 namespace Distroir.CustomSDKLauncher.Core.Managers
 {
     //TODO: Use Lazy<T> for lazy loading?
-    public class Manager<T>
+    public class Manager<T> : IManager<T>
     {
         /// <summary>
         /// List of serializable objects
         /// </summary>
-        public List<T> Objects = new List<T>();
+        public List<T> Objects { get; set; } = new List<T>();
         /// <summary>
         /// Serializer used to serialize objects
         /// </summary>

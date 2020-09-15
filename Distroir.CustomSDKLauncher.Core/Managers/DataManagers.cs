@@ -24,6 +24,12 @@ using Distroir.CustomSDKLauncher.Core.AppLauncher;
 using Distroir.CustomSDKLauncher.Core.CommunityContent;
 using Distroir.CustomSDKLauncher.Core.Managers.Async;
 using Distroir.CustomSDKLauncher.Core.Managers.ContentSerializers;
+using Distroir.CustomSDKLauncher.Core.Launchers;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher;
+using Distroir.CustomSDKLauncher.Core.Launchers.Customizable.AppLauncher.Factories;
+using Distroir.CustomSDKLauncher.Core.Launchers.Editable;
+using Distroir.CustomSDKLauncher.Core.Managers.Converters;
 using Distroir.CustomSDKLauncher.Core.Managers.Serializers;
 using Distroir.CustomSDKLauncher.Shared.Core;
 
@@ -39,6 +45,10 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// Full path of file containing list of applications
         /// </summary>
         public static string AppListFilename = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir", "Custom SDK Launcher", "applications.xml");
+
+        public static string CustomizableAppListFilename =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Distroir",
+                "Custom SDK Launcher", "applications.json");
 
         /// <summary>
         /// Game manager
@@ -61,8 +71,16 @@ namespace Distroir.CustomSDKLauncher.Core.Managers
         /// <summary>
         /// App serializer
         /// </summary>
-        public static Manager<AppInfo> AppManager = new Manager<AppInfo>(new XmlFileContentSerializer<AppInfo>(AppListFilename));
+        public static ConvertableManager<AppInfo, CustomizableApp> AppManager = 
+            new ConvertableManager<AppInfo, CustomizableApp>(
+                new XmlFileContentSerializer<AppInfo>(AppListFilename), 
+                new AppTemplateToAppConverter());
 
+        public static ConvertableManager<IAppInfoFactory, ProducibleApp> CustomizableApplicationInfo =
+            new ConvertableManager<IAppInfoFactory, ProducibleApp>(
+                new JsonFileContentSerializer<IAppInfoFactory>(CustomizableAppListFilename),
+                new AppInfoFactoryToAppConverter());
+        
         public static Manager<HelpTopic> HelpTopicManager = new Manager<HelpTopic>(new XmlStringContentSerializer<HelpTopic>(Data.HelpTopicsXML));
 
         //TODO: Remove commented out code
