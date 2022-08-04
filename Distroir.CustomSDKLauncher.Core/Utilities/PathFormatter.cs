@@ -30,53 +30,48 @@ using System.Linq;
  */
 namespace Distroir.CustomSDKLauncher.Core.Utilities
 {
-    public class PathFormatter
+    public static class PathFormatter
     {
-        public static Dictionary<string, string> Paths = new Dictionary<string, string>();
+        public static readonly Dictionary<string, string> Paths = new Dictionary<string, string>();
 
-        public static void Format(ref string Source)
+        public static String Format(string source)
         {
-            List<SearchResult> res = Find(Source);
-            int Length = Source.Length;
+            var placeholders = FindPlaceholders(source);
+            var length = source.Length;
+            var output = source;
 
-            foreach (SearchResult r in res)
+            foreach (var placeholder in placeholders)
             {
-                string sr;
-                if (Paths.TryGetValue(r.Result, out sr))
-                    Replace(ref Source, r, sr, Source.Length - Length);
+                if (Paths.TryGetValue(placeholder.Result, out var replacement))
+                    output = Replace(output, placeholder, replacement, output.Length - length);
             }
+
+            return output;
         }
 
-        public static string Format(string Source)
+        static List<SearchResult> FindPlaceholders(string source)
         {
-            string s = Source;
-            Format(ref s);
-            return s;
-        }
+            var result = new List<SearchResult>();
+            var latest = new SearchResult();
+            var insideExpr = false;
 
-        static List<SearchResult> Find(string Source)
-        {
-            List<SearchResult> result = new List<SearchResult>();
-            SearchResult latest = new SearchResult();
-            bool InsideExpr = false;
-
-            for (int i = 0; i < Source.Length; i++)
+            for (var i = 0; i < source.Length; i++)
             {
-                if (Source[i] == '}')
+                if (source[i] == '}')
                 {
-                    InsideExpr = false;
+                    insideExpr = false;
                     result.Add(latest);
                 }
 
-                if (InsideExpr)
+                if (insideExpr)
                 {
-                    latest.Result += Source[i];
+                    latest.Result += source[i];
                     continue;
                 }
 
-                if (Source[i] == '{')
+                if (source[i] == '{')
                 {
-                    InsideExpr = true;
+                    insideExpr = true;
 
                     latest = new SearchResult()
                     {
@@ -88,14 +83,15 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             return result;
         }
 
-        static void Replace(ref string Source, SearchResult result, string replacement, int Offset)
+        static string Replace(string source, SearchResult result, string replacement, int offset)
         {
-            Source = Source.Remove(result.Position + Offset, result.Length);
-            Source = Source.Insert(result.Position + Offset, replacement);
+            return source
+                .Remove(result.Position + offset, result.Length)
+                .Insert(result.Position + offset, replacement);
         }
     }
 
-    class SearchResult
+    internal class SearchResult
     {
         public int Position;
         public string Result;
@@ -106,8 +102,8 @@ namespace Distroir.CustomSDKLauncher.Core.Utilities
             {
                 if (Result.Length == 0)
                     return 0;
-                else
-                    return Result.Length + 2;
+                
+                return Result.Length + 2;
             }
         }
 
